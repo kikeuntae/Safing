@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 //데이터 받는 부분
                 try {
                     InputStream is = conn.execute().get(); //DB에 데이터를 InputStream에 담기
-                    dto = gson.fromJson(new InputStreamReader(is) , UserDTO.class); //
+                    dto = gson.fromJson(new InputStreamReader(is) , UserDTO.class);
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
