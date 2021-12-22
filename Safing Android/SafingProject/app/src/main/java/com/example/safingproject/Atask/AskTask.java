@@ -74,5 +74,5 @@ public class AskTask extends AsyncTask<String,String,InputStream> {
             e.printStackTrace();
         }
         return in;
-    }
+    }//doInBackground()
 }
