@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_weight="10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <ImageView
+            android:id="@+id/item_imgv"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/img5"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:weightSum="10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:id="@+id/tv_1"
+                    android:layout_marginRight="30dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="추천"/>
+
+                <TextView
+                    android:id="@+id/tv_2"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="물범TV"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <LinearLayout
+                    android:layout_weight="9"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="end|bottom"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/item_icon1"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/ic_menu_gallery"
+                        />
+                    <ImageView
+                        android:id="@+id/item_icon2"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/ic_menu_camera"
+                        />
+                    <ImageView
+                        android:id="@+id/item_icon3"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/ic_menu_share"
+                        />
+                    <ImageView
+                        android:id="@+id/item_icon4"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/ic_media_play"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/item_title"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="제목입니다"/>
+                <TextView
+                    android:id="@+id/item_tag"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="태그입니다 태그"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</LinearLayout>
