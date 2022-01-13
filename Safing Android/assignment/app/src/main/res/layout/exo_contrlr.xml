@@ -3,95 +3,163 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="bottom"
+    android:background="#00000000"
     android:layoutDirection="ltr"
-    android:background="#CC000000"
     android:orientation="vertical"
     tools:targetApi="28">
 
-    <TextView
-        android:id="@+id/test"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="제발!!!"/>
-
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="4dp"
-        android:orientation="horizontal">
-
-
-        <ImageButton android:id="@id/exo_prev"
-            style="@style/ExoMediaButton.Previous"/>
-
-        <ImageButton android:id="@id/exo_rew"
-            style="@style/ExoMediaButton.Rewind"
-
-            android:src="@drawable/ic_launcher_foreground"/>
-
-        <ImageButton android:id="@id/exo_shuffle"
-            style="@style/ExoMediaButton"/>
-
-        <ImageButton android:id="@id/exo_repeat_toggle"
-            style="@style/ExoMediaButton"/>
-
-        <ImageButton android:id="@id/exo_play"
-            style="@style/ExoMediaButton.Play"/>
-
-        <ImageButton android:id="@id/exo_pause"
-            style="@style/ExoMediaButton.Pause"/>
-
-        <ImageButton android:id="@id/exo_ffwd"
-            style="@style/ExoMediaButton.FastForward"
-            android:src="@drawable/ic_android_black_24dp"/>
-
-
-        <ImageButton android:id="@id/exo_next"
-            style="@style/ExoMediaButton.Next"/>
-
-        <ImageButton android:id="@id/exo_vr"
-            style="@style/ExoMediaButton.VR"/>
-
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView android:id="@id/exo_position"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="30dp"
+                        android:text="추천"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/tv_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="물범TV"
+                        android:textSize="20dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="7"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="9">
+
+                        <ImageButton
+                            android:id="@id/exo_play"
+                            style="@style/ExoMediaButton.Play"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="150dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#32000000" />
+
+                        <ImageButton
+                            android:id="@id/exo_pause"
+                            style="@style/ExoMediaButton.Pause"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="150dp"
+                            android:layout_marginTop="20dp"
+                            android:background="#32000000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end|bottom"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/item_icon1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="#00000000"
+                            android:src="@android:drawable/ic_menu_gallery" />
+
+                        <ImageButton
+                            android:id="@+id/item_icon2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="#00000000"
+                            android:src="@android:drawable/ic_menu_camera" />
+
+                        <ImageButton
+                            android:id="@+id/item_icon3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="#00000000"
+                            android:src="@android:drawable/ic_menu_share" />
+
+                        <ImageButton
+                            android:id="@+id/item_icon4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="#00000000"
+                            android:src="@android:drawable/ic_media_play" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/video_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="제목입니다"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/video_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="태그입니다 태그"
+                        android:textSize="25dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:includeFontPadding="false"
-            android:textColor="#FFBEBEBE"/>
+            android:background="#00000000"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="4dp">
 
-        <View android:id="@id/exo_progress_placeholder"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="26dp"/>
 
-        <TextView android:id="@id/exo_duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:includeFontPadding="false"
-            android:textColor="#FFBEBEBE"/>
+        </LinearLayout>
+
 
     </LinearLayout>
-
 </LinearLayout>

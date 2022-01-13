@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
     android:orientation="vertical">
 
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/video_player_view"
+    <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/pager2_video"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:rewind_increment="10000"
         app:fastforward_increment="10000"
@@ -19,5 +19,7 @@
         app:use_controller="true"
         app:controller_layout_id="@layout/exo_contrlr"
         app:resize_mode="fill"
-        />
+        >
+    </androidx.viewpager2.widget.ViewPager2>
+
 </LinearLayout>

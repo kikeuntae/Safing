@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.assignment.fragment.Fragment1;
 import com.example.assignment.fragment.Fragment2;
 import com.example.assignment.fragment.Fragment3;
+import com.example.assignment.fragment.Fragment4;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClick {
     Fragment1 fragment1;
     Fragment2 fragment2;
     Fragment3 fragment3;
+    Fragment4 fragment4;
     TabLayout tabLayout;
     BottomNavigationView bottom_nav;
 
@@ -34,11 +36,12 @@ public class MainActivity extends AppCompatActivity implements OnItemClick {
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
         fragment3 = new Fragment3();
+        fragment4 = new Fragment4();
         bottom_nav = findViewById(R.id.bottom_nav);
 
         getSupportFragmentManager().
                 beginTransaction().
-                replace(R.id.contain, fragment1).commit();
+                replace(R.id.container, fragment1).commit();
 
 /*        menu.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
@@ -84,25 +87,29 @@ public class MainActivity extends AppCompatActivity implements OnItemClick {
                     case R.id.tab1:
                         Toast.makeText(MainActivity.this, "pager2 Fragment", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.contain, fragment1).commit();
+                                .replace(R.id.container, fragment1).commit();
                         break;
 
                     case R.id.tab2:
                         Toast.makeText(MainActivity.this, "Rec Fragment", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.contain, fragment2).commit();
+                                .replace(R.id.container, fragment2).commit();
                         break;
 
                     case R.id.tab3:
                         Toast.makeText(MainActivity.this, "pager2/rec Fragment", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.contain, fragment3).commit();
+                                .replace(R.id.container, fragment3).commit();
                         break;
 
                     case R.id.tab4:
-                        Toast.makeText(MainActivity.this, "Video Activity", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "동영상 pager2 TEST", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, fragment4).commit();
+/*                        Toast.makeText(MainActivity.this, "Video Activity", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this,VideoActivity.class);
-                        startActivity(intent);
+                        startActivity(intent);*/
+                        break;
 
                     case R.id.tab5:
                         Toast.makeText(MainActivity.this, "EXO Activity", Toast.LENGTH_SHORT).show();
@@ -124,9 +131,9 @@ public class MainActivity extends AppCompatActivity implements OnItemClick {
     @Override
     public void onClick(String value) {
         if (value.equals("1")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.contain, fragment1).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
         } else if (value.equals("2")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.contain, fragment2).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
         }
     }
 }

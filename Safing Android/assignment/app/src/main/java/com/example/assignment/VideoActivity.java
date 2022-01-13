@@ -25,11 +25,8 @@ public class VideoActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-
         pager2 = findViewById(R.id.video_pager2);
-
-        RecAdapter_video adapter =new RecAdapter_video(VideoActivity.this);
-
+        RecAdapter_video adapter = new  RecAdapter_video(VideoActivity.this);
 
         pager2.setAdapter(adapter);
 

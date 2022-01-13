@@ -4,9 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
@@ -23,8 +20,6 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
 public class EXOActivity extends AppCompatActivity {
-    TextView test;
-
     private PlayerView exoPlayerView;
     private SimpleExoPlayer player;
 
@@ -36,15 +31,7 @@ public class EXOActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exoactivity);
 
-        test = findViewById(R.id.test);
         exoPlayerView = findViewById(R.id.video_player_view);
-
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(EXOActivity.this, "TEST", Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
