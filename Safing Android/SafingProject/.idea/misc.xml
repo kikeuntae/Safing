@@ -3,6 +3,44 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_cam_info.xml" value="0.33" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_home.xml" value="0.17806484295845998" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_home_rec.xml" value="0.1" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_home_search.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_pager.xml" value="0.25" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_register.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_splash.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/activity_user.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/fragment_pager.xml" value="0.3619791666666667" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/homerecitem.xml" value="0.33" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/item_home_rec4.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/navigation_home.xml" value="0.33" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/navigation_iot.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/navigation_moive.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/navigation_my.xml" value="0.3619791666666667" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/navigation_shoping.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/pager_item_caminfo.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/pager_item_sfzone.xml" value="0.3619791666666667" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/pagersfzoneitem.xml" value="0.17603850050658562" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/rec_item_sfzone.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/rec_item_theme.xml" value="0.33" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/sfzoneitem.xml" value="0.33" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/sfzoneitem1.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/sfzoneitem2.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/sfzoneitem3.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/sfzoneitem4.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/sfzoneitem5.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/themeitem.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/themeitem1.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/themeitem2.xml" value="0.5" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/themeitem3.xml" value="0.5" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/themeitem4.xml" value="0.67" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/themeitem5.xml" value="0.5" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/layout/themeitem6.xml" value="0.5" />
+        <entry key="..\:/Study_Android/workspace/SafingProject/app/src/main/res/menu/bottom_menu.xml" value="0.1685185185185185" />
         <entry key="..\:/coding/study_Android/workspace/miniProject/app/src/main/res/drawable/item_color.xml" value="0.1175925925925926" />
         <entry key="..\:/coding/study_Android/workspace/miniProject/app/src/main/res/drawable/resource.xml" value="0.20925925925925926" />
         <entry key="..\:/coding/study_Android/workspace/miniProject/app/src/main/res/layout/activity_join.xml" value="0.1" />
