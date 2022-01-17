@@ -10,8 +10,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.safingproject.activity.MainActivity;
+
 import com.example.safingproject.R;
+import com.example.safingproject.activity.MainActivity;
 
 
 public class SplashActivity extends AppCompatActivity {

@@ -14,21 +14,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activity.home.HomeSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.home.CamInfoActivity"
+            android:exported="false" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
         <activity
-            android:name="com.example.safingproject.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.safingproject.activity.RegisterActivity"
+            android:name=".activity.home.PagerActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.safingproject.activity.LoginActivity"
+            android:name=".activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.safingproject.splash.SplashActivity"
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
