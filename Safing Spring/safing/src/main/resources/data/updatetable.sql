@@ -32,11 +32,13 @@ ALTER TABLE product_review DROP COLUMN review_image_num;
 
 desc product_review;
 
---review_imageFile 수정
+--product_review_imagefile 수정
 ALTER TABLE review_imageFile ADD review_num  NUMBER NOT NULL ; 
 ALTER TABLE review_imageFile ADD CONSTRAINT FK_review_num FOREIGN KEY(review_num) REFERENCES product_review(review_num) ON DELETE CASCADE;
+ALTER TABLE review_imageFile RENAME TO product_review_imagefile;
 
-DESC review_imageFile;
+
+DESC product_review_imagefile;
 
 --order_state 수정
 INSERT INTO order_state VALUES (1, '배송 준비');
@@ -63,8 +65,10 @@ ALTER TABLE member ADD member_phone VARCHAR2(30) NOT NULL;
 ALTER TABLE member MODIFY (member_filename INVISIBLE);
 ALTER TABLE member MODIFY (member_filepath INVISIBLE);
 ALTER TABLE member MODIFY (member_phone INVISIBLE);
+ALTER TABLE member MODIFY (member_admin INVISIBLE);
 
 ALTER TABLE member MODIFY (member_phone VISIBLE);
+ALTER TABLE member MODIFY (member_admin VISIBLE);
 ALTER TABLE member MODIFY (member_filename VISIBLE);
 ALTER TABLE member MODIFY (member_filepath VISIBLE);
 
