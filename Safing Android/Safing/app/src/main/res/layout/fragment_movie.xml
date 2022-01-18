@@ -30,7 +30,6 @@
                 app:tabTextColor="#838383"
                 app:tabSelectedTextColor="#ffffff"
                 android:elevation="10dp"
-                android:background="@android:color/transparent"
                 />
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
