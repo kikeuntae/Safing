@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.safing.DTO.Movie_pagerDTO;
 import com.example.safing.R;
-import com.example.safing.VO.BoardVO;
-import com.example.safing.VO.CommonFileVO;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ExtractorMediaSource;
