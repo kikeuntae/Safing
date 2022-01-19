@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/activity_cam_info.xml" value="0.25" />
+        <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/activity_review.xml" value="0.36041666666666666" />
+        <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/fragment_home.xml" value="0.36041666666666666" />
+        <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/item_product_info.xml" value="0.33" />
+        <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/pager_item_caminfo.xml" value="0.36041666666666666" />
+        <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/pager_item_sfzone.xml" value="0.36041666666666666" />
+        <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/rec_item_theme.xml" value="0.36041666666666666" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/drawable/button_round.xml" value="0.12777777777777777" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/drawable/button_round2.xml" value="0.12777777777777777" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/drawable/item_color.xml" value="0.12777777777777777" />
