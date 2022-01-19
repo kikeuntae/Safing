@@ -1,4 +1,4 @@
-package com.example.safingproject.activity.home;
+package com.example.safing.DTO;
 
 public class ThemeRecDTO {
     private int resId ;

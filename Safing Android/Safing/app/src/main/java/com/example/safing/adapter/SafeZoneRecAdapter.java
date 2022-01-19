@@ -1,4 +1,4 @@
-package com.example.safingproject.activity.home;
+package com.example.safing.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safingproject.R;
+import com.example.safing.R;
+import com.example.safing.activity.ThemePagerActivity;
+import com.example.safing.DTO.SafeZoneRecDTO;
 
 import java.util.ArrayList;
 
@@ -55,12 +57,12 @@ public class SafeZoneRecAdapter extends RecyclerView.Adapter<SafeZoneRecAdapter.
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             sfimgv = itemView.findViewById(R.id.sfimgv);
-            sftext = itemView.findViewById(R.id.sfbtn);
+            sftext = itemView.findViewById(R.id.sftext);
 
             sfimgv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context,PagerActivity.class);
+                    Intent intent = new Intent(context, ThemePagerActivity.class);
                     context.startActivity(intent);
 
                 }

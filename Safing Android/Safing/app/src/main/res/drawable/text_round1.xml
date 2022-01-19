@@ -11,6 +11,5 @@
         android:bottomLeftRadius="100dp"
         android:bottomRightRadius="100dp"  /> // 선 휘는각도
 
-    />
 
 </shape>

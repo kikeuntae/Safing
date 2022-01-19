@@ -1,4 +1,4 @@
-package com.example.safingproject.activity.home;
+package com.example.safing.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safingproject.R;
+import com.example.safing.R;
 
 
-public class ThemePager2Adapter extends RecyclerView.Adapter<ThemePager2Adapter.ViewHolder> {
+public class CaminfoPager2Adapter extends RecyclerView.Adapter<CaminfoPager2Adapter.ViewHolder> {
 
     Context context;
     LayoutInflater inflater;
-    public ThemePager2Adapter(Context context) {
+    public CaminfoPager2Adapter(Context context) {
         this.context = context;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -23,7 +23,7 @@ public class ThemePager2Adapter extends RecyclerView.Adapter<ThemePager2Adapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.rec_item_theme, parent , false);
+        View itemView = inflater.inflate(R.layout.pager_item_caminfo, parent , false);
         return new ViewHolder(itemView);
     }
 
@@ -34,10 +34,10 @@ public class ThemePager2Adapter extends RecyclerView.Adapter<ThemePager2Adapter.
 
     @Override
     public int getItemCount() {
-        return 20;
+        return 10;
     }
 
-    //1. Viewholder라는 클래스(widget들을 한번에 묶어놓을수있는) 만드는것.
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         public ViewHolder(@NonNull View itemView) {

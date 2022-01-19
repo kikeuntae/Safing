@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
@@ -29,7 +30,7 @@ public class ShopFragment extends Fragment {
     MainActivity mainActivity = new MainActivity();
     TabLayout tab_layout;
     Toolbar toolbar;
-    ViewPager2 shop_rec1, shop_rec2;
+    RecyclerView shop_rec1, shop_rec2;
 
     public ShopFragment(Context context){
         this.context = context;
@@ -44,31 +45,31 @@ public class ShopFragment extends Fragment {
         tab_layout = rootView.findViewById(R.id.shop_tab);
         shop_rec1 = rootView.findViewById(R.id.shop_rec1);
         shop_rec2 = rootView.findViewById(R.id.shop_rec2);
-        toolbar = rootView.findViewById(R.id.shop_menu_view);
+        //toolbar = rootView.findViewById(R.id.shop_menu_view);
 
 
         //========= 햄버커 기능 ==============
 
-        mainActivity.setSupportActionBar(toolbar);
+//        mainActivity.setSupportActionBar(toolbar);
+//
+//        DrawerLayout drawer = rootView.findViewById(R.id.drawer_layout);
+//
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                (Activity) context, drawer, toolbar,
+//                R.string.navigation_drawer_open,
+//                R.string.navigation_drawer_open
+//        );
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
 
-        DrawerLayout drawer = rootView.findViewById(R.id.drawer_layout);
+        //NavigationView nav_view = rootView.findViewById(R.id.shop_menu_view);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                (Activity) context, drawer, toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_open
-        );
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        //View nav_headerview = nav_view.getHeaderView(0);
+       // ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
+       // TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        NavigationView nav_view = rootView.findViewById(R.id.shop_menu_view);
-
-        View nav_headerview = nav_view.getHeaderView(0);
-        ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
-        TextView header_text= nav_headerview.findViewById(R.id.header_text);
-
-        Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-        header_text.setText(CommonVal.loginInfo.getMember_id());
+        //Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+      //  header_text.setText(CommonVal.loginInfo.getMember_id());
 
         //========= 탭 기능 ==============
 

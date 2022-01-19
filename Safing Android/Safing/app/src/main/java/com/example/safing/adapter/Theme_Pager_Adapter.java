@@ -1,4 +1,4 @@
-package com.example.safingproject.activity.home;
+package com.example.safing.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safingproject.R;
+import com.example.safing.R;
 
 
-public class Pager2Adapter extends RecyclerView.Adapter<Pager2Adapter.ViewHolder> {
+public class Theme_Pager_Adapter extends RecyclerView.Adapter<Theme_Pager_Adapter.ViewHolder> {
 
     Context context;
     LayoutInflater inflater;
-    public Pager2Adapter(Context context) {
+    public Theme_Pager_Adapter(Context context) {
         this.context = context;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -23,7 +23,7 @@ public class Pager2Adapter extends RecyclerView.Adapter<Pager2Adapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.pager_item_sfzone, parent , false);
+        View itemView = inflater.inflate(R.layout.rec_item_theme, parent , false);
         return new ViewHolder(itemView);
     }
 

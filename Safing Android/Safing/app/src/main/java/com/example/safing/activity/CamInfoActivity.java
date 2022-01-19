@@ -1,4 +1,4 @@
-package com.example.safingproject.activity.home;
+package com.example.safing.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 
-
-import com.example.safingproject.R;
+import com.example.safing.R;
+import com.example.safing.adapter.CaminfoPager2Adapter;
 
 
 public class CamInfoActivity extends AppCompatActivity {

@@ -80,8 +80,7 @@
                                 app:tabGravity="fill"
                                 app:tabTextColor="#735340"
                                 app:tabSelectedTextColor="#ffffff"
-                                android:elevation="10dp"
-                                app:tabBackground="@drawable/tab_selector"/>
+                                android:elevation="10dp"/>
                         </com.google.android.material.appbar.AppBarLayout>
                     </androidx.coordinatorlayout.widget.CoordinatorLayout>
                     <LinearLayout
@@ -110,13 +109,4 @@
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
     </LinearLayout>
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/shop_menu_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/header_shop"
-        app:menu="@menu/header_menu_shop"
-        />
 </androidx.drawerlayout.widget.DrawerLayout>

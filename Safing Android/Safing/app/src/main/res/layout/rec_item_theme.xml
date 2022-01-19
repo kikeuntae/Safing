@@ -36,7 +36,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_weight="0.1"
-                    android:src="@drawable/bookmark"/>
+                    android:src="@drawable/bookmark3"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/fire"
+                    android:src="@drawable/fire1"
                     android:layout_marginRight="5dp"/>
                 <TextView
                     android:id="@+id/theme_rec_tv3"
@@ -108,7 +108,7 @@
                             android:textColor="#ffffff"
                             android:paddingHorizontal="5dp"
                             android:layout_marginRight="5dp"
-                            android:background="@drawable/text_round2"/>
+                            android:background="@drawable/text_round1"/>
                         <TextView
                             android:id="@+id/theme_rec_tv5"
                             android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
                             android:textSize="10dp"
                             android:textColor="#ffffff"
                             android:paddingHorizontal="5dp"
-                            android:background="@drawable/text_round2"/>
+                            android:background="@drawable/text_round1"/>
                     </LinearLayout>
                 </FrameLayout>
                 <LinearLayout

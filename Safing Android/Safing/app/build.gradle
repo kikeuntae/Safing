@@ -56,7 +56,7 @@ dependencies {
         exclude module: "httpclient"
     }
 
-/*<<<<<<< HEAD:Safing Android/SafingProject/app/build.gradle*/
+    /*Safing Android/SafingProject/app/build.gradle*/
     implementation 'com.tbuonomo:dotsindicator:4.2'
 
     /* DB와 데이터 주고받는 gson 라이브러리  */
@@ -72,15 +72,5 @@ dependencies {
     implementation "com.google.android.exoplayer:exoplayer-core:2.13.0"
     implementation "com.google.android.exoplayer:exoplayer-ui:2.13.0"
     implementation "com.google.android.exoplayer:exoplayer-hls:2.13.0"
-<<<<<<< HEAD
 
-
-
-<<<<<<< HEAD
->>>>>>> 최성욱:Safing Android/Safing/app/build.gradle
-=======
->>>>>>> 최성욱
-=======
-/*>>>>>>> 최성욱:Safing Android/Safing/app/build.gradle*/
->>>>>>> 3626c0b5703d47d8906b236fe9176e665a3451ac
 }
