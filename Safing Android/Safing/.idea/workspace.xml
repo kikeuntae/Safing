@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6db04f66-5b34-4f24-8b47-f9222eafaf7c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../EX00_ServletConn/app/src/main/java/com/example/ex00_servletconn/AskTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EX00_ServletConn/app/src/main/java/com/example/ex00_servletconn/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex01_HelloWorld/app/src/main/java/com/example/ex01_helloworld/SubActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex01_HelloWorld/app/src/main/res/layout/activity_sub.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex02_LinearLayout/app/src/main/res/layout/ex02.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex02_LinearLayout/app/src/main/res/layout/test2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex03_RelativeLayout/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex04_FrameLayout/app/src/main/res/drawable/image1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex04_FrameLayout/app/src/main/res/drawable/image2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex05_ScrollView_/app/src/main/res/drawable/image1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex05_ScrollView_/app/src/main/res/drawable/image2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex08drable/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex09_LayoutInflater/app/src/main/res/drawable/image1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/java/com/example/last_project/MainActivity2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/drawable/side_nav_bar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/layout/activity_main2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/layout/activity_main3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/layout/camera_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/layout/content_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/layout/fragment_first.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/layout/fragment_second.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/layout/nab_header_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/menu/draw_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/values-land/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/values-w1240dp/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/values-w600dp/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Last_Project/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/Atask/AtaskConn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/LoginActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/MainFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/SignUpActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/SplashActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/TabDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/adapter/GridAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/dto/MemberDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/pager/Frag_pager1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/pager/Frag_pager2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/pager/Frag_pager3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/pager/Frag_pagerMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/tab/Frag_GridView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/tab/Frag_Listview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/tab/Frag_RecyclerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/java/com/example/miniproject_and/tab/Frag_loginView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/drawable-v24/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/drawable-v24/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/drawable-v24/img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/activity_signup.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/activity_splash.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/frag_grid.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/frag_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/frag_pager1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/frag_pager2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/frag_pager3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/frag_pagermain.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/frag_recycler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/griditem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/pager/Fragment1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/pager/Fragment3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/pager/Pager2Adapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/pager/PagerActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/recycler/RecAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/recycler/RecyclerActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/recycler/RecyclerTestActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/recycler/RecyclerTestAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/recycler/TestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/drawable/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/drawable/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/drawable/img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/drawable/img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/drawable/img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/layout/activity_pager.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/layout/activity_recycler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/layout/activity_recycler_test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/layout/fragment_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/layout/fragment_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/layout/fragment_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/layout/recycleritem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/res/layout/testitem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/Atask/AtaskConn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/LoginDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/async/AskParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/async/CommonVal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/customer/CustomerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/customer/CustomerVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/member/MemberVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/noti/NotiActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/noti/Notiragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/java/com/example/newlastproject/transactivity/TransActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/res/layout/activity_noti.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/res/layout/activity_radio.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/res/layout/activity_trans.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/res/layout/fragment_notiragment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/res/values/joinstyle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NewLastProject/app/src/main/res/xml/nab_item_color.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project1/app/src/main/java/com/example/project1/FileDownloadService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project2_Clone/app/src/main/java/com/example/project2_clone/Common.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project2_Clone/app/src/main/java/com/example/project2_clone/StringServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project2_Clone/app/src/main/res/anim/flow.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project2_Clone/app/src/main/res/drawable/and.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/java/com/example/project3_allview/Atask/AtaskConn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/java/com/example/project3_allview/pager/Frag_pagerMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/frag_pagermain.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/insert_activity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/AtakConn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/AtaskConn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/TestConn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/LoginGOActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/MainFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/MemberActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/SplashActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/StringServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/TabDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/adapter/GridAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/dto/GridDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/pager/Frag_pager1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/pager/Frag_pager2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/pager/Frag_pager3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/pager/Frag_pagerMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/tab/Frag_GridView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/tab/Frag_Listview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/tab/Frag_RecyclerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/설명.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/drawable/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/drawable/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/drawable/img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/drawable/splashlogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/activity_splash.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/frag_grid.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/frag_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/frag_pager1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/frag_pager2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/frag_pager3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/frag_pagermain.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/frag_recycler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/griditem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/listitem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/log.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/res/layout/member.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_mini/app/src/main/java/com/example/project3_allview/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_mini/app/src/main/java/com/example/project3_allview/SignUpActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_mini/app/src/main/java/com/example/project3_allview/SplashActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_mini/app/src/main/res/drawable/splashlogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_mini/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_mini/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_mini/app/src/main/res/layout/activity_signup.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_mini/app/src/main/res/layout/activity_splash.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TEST_mini/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test/app/src/main/java/com/example/test/Common.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test/app/src/main/java/com/example/test/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test01Layout/app/src/main/res/drawable/image1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test01Layout/app/src/main/res/drawable/image2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test01Layout/app/src/main/res/drawable/image3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/EXOActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/MagazineActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/OnItemClick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/VideoActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/Video_EXO/VideoItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/async/AskParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/async/CommonAsk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/async/CommonMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/fragment/Fragment1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/fragment/Fragment2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/fragment/Fragment3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/fragment/Fragment4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/pager/pager2Activity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/recycler/RecAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/recycler/RecAdapter_video.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/recycler/RecDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/recycler/RecyclerActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/java/com/example/assignment/recycler/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/and.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/etc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/eye.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/gear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/ic_android_black_24dp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/item_color.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/music.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/shopping.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/splashlogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/talk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/talkblack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/test_a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/drawable/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/activity_exoactivity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/activity_magazine.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/activity_pager2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/activity_recycler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/activity_video.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/custom_exo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/exo_contrlr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/fragment4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/insert_activity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/magaz_like_tem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/magaz_tag_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/magazinditail.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/magazinitem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/recycleritem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/layout/vdieoitem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/menu/bottom_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/menu/menu_option.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/xml/filepath.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../assignment/app/src/main/res/xml/nab_item_color.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/androidTest/java/com/example/last_assignment/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/java/com/example/last_assignment/LoginActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/java/com/example/last_assignment/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/drawable/img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/drawable/kakao_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/layout/activity_main2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/app/src/test/java/com/example/last_assignment/ExampleUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../last_assignment/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/java/com/example/new_02fragment_list_view/RecyclerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/java/com/example/new_02fragment_list_view/fragment/test01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/java/com/example/new_02fragment_list_view/list/CustomAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/java/com/example/new_02fragment_list_view/list/ListActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/java/com/example/new_02fragment_list_view/list/ListActivity2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/java/com/example/new_02fragment_list_view/list/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/drawable/img1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/drawable/img2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/drawable/img3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/drawable/img4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/drawable/img5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/layout/activity_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/layout/activity_list2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/layout/activity_recycler_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/layout/activity_test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/layout/fragment_test01.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/layout/listitem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../new_02fragment_list_view/app/src/main/res/layout/testitem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../qhrtmq/app/src/main/java/com/example/qhrtmq/MainActivity2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../qhrtmq/app/src/main/java/com/example/qhrtmq/MainActivity3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../qhrtmq/app/src/main/java/com/example/qhrtmq/MainActivity4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../qhrtmq/app/src/main/java/com/example/qhrtmq/TestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../qhrtmq/app/src/main/res/layout/activity_main2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../qhrtmq/app/src/main/res/layout/activity_main3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../qhrtmq/app/src/main/res/layout/activity_main4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test3/app/src/main/java/com/example/test3/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test3/app/src/main/java/com/example/test3/sub.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test3/app/src/main/res/layout/test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex01_HelloWorld/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex01_HelloWorld/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex01_HelloWorld/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex01_HelloWorld/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex01_HelloWorld/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex01_HelloWorld/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex01_HelloWorld/app/src/main/java/com/example/ex01_helloworld/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex01_HelloWorld/app/src/main/java/com/example/ex01_helloworld/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex01_HelloWorld/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex01_HelloWorld/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\hanul\.android\avd\Pixel_4_XL_API_30_1.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="23zToVT66ZSWW3eu2PIbjGCPwXb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\res\layout" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="Safing.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6db04f66-5b34-4f24-8b47-f9222eafaf7c" name="Default Changelist" comment="" />
+      <created>1642736090964</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642736090964</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
