@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Safing.iml" filepath="$PROJECT_DIR$/.idea/Safing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Safing.iml" filepath="$PROJECT_DIR$/.idea/modules/Safing.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Safing.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Safing.app.iml" />
     </modules>
   </component>
