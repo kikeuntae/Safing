@@ -110,8 +110,13 @@
             android:stepSize="1"
             android:numStars="5"
             android:isIndicator="false"
+<<<<<<< HEAD
             android:layout_margin="10dp">
 
+=======
+            android:layout_margin="10dp"
+            android:theme="@style/RatingBar">
+>>>>>>> 최성욱
         </RatingBar>
         <TextView
             android:layout_width="match_parent"

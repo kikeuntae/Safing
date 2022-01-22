@@ -6,30 +6,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safing.R;
-import com.example.safing.activity.ThemePagerActivity;
 import com.example.safing.DTO.SafeZoneRecDTO;
+import com.example.safing.DTO.Shop_PackageDTO;
+import com.example.safing.R;
+import com.example.safing.activity.Product_Package_Activity;
+import com.example.safing.activity.ThemePagerActivity;
 
 import java.util.ArrayList;
 
-public class SafeZoneRecAdapter extends RecyclerView.Adapter<SafeZoneRecAdapter.ViewHolder> {
+public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apdater.ViewHolder> {
 
     Context context;
-    ArrayList<SafeZoneRecDTO> list;
+    ArrayList<Shop_PackageDTO> list;
     LayoutInflater inflater;
-    ImageView sfimgv ;
-    TextView sftext;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 최성욱
-    public SafeZoneRecAdapter(Context context, ArrayList<SafeZoneRecDTO> list) {
+    public Shop_Package_Apdater(Context context, ArrayList<Shop_PackageDTO> list) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -56,18 +55,23 @@ public class SafeZoneRecAdapter extends RecyclerView.Adapter<SafeZoneRecAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView sfimgv ;
+        TextView sftext;
+        LinearLayout rec_item_theme_linearlayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             sfimgv = itemView.findViewById(R.id.sfimgv);
             sftext = itemView.findViewById(R.id.sftext);
+            rec_item_theme_linearlayout = itemView.findViewById(R.id.rec_item_theme_linearlayout);
 
-            sfimgv.setOnClickListener(new View.OnClickListener() {
+
+            rec_item_theme_linearlayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, ThemePagerActivity.class);
+                    Toast.makeText(context, "패키지상품", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, Product_Package_Activity.class);
                     context.startActivity(intent);
-
                 }
             });
 

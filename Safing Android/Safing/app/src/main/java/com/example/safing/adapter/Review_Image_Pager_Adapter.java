@@ -1,35 +1,28 @@
 package com.example.safing.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.safing.DTO.Shop_Product_PagerDTO;
 import com.example.safing.R;
-import com.example.safing.activity.ThemePagerActivity;
-import com.example.safing.DTO.SafeZoneRecDTO;
 
 import java.util.ArrayList;
 
-public class SafeZoneRecAdapter extends RecyclerView.Adapter<SafeZoneRecAdapter.ViewHolder> {
-
+public class Review_Image_Pager_Adapter extends RecyclerView.Adapter<Review_Image_Pager_Adapter.ViewHolder> {
+    boolean bookMark = true;
     Context context;
-    ArrayList<SafeZoneRecDTO> list;
+    ArrayList<Shop_Product_PagerDTO> list;
     LayoutInflater inflater;
-    ImageView sfimgv ;
-    TextView sftext;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 최성욱
-    public SafeZoneRecAdapter(Context context, ArrayList<SafeZoneRecDTO> list) {
+    public Review_Image_Pager_Adapter(Context context) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -40,44 +33,34 @@ public class SafeZoneRecAdapter extends RecyclerView.Adapter<SafeZoneRecAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemview = inflater.inflate(R.layout.rec_item_sfzone, parent , false );
+        View itemview = inflater.inflate(R.layout.item_review_image_pager, parent , false );
         return new ViewHolder(itemview);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        binding(holder, position);
     }
 
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return 5;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView product_img1;
+        TextView product_tv1;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            sfimgv = itemView.findViewById(R.id.sfimgv);
-            sftext = itemView.findViewById(R.id.sftext);
-
-            sfimgv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, ThemePagerActivity.class);
-                    context.startActivity(intent);
-
-                }
-            });
-
-
-
-
+            product_img1 = itemView.findViewById(R.id.product_img1);
+            product_tv1 = itemView.findViewById(R.id.product_tv1);
 
         }
-        public void binding(ViewHolder holder, int position){
 
-        }
+    }
+    public void binding(ViewHolder holder, int position){
+        holder.product_tv1.setText((position+1) +"/"+ 5);
     }
 }

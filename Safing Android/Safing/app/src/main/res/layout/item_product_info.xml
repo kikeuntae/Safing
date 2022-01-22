@@ -3,18 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+<<<<<<< HEAD
     android:orientation="vertical">
+=======
+    android:orientation="vertical"
+    android:layout_marginVertical="50dp">
+>>>>>>> 최성욱
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="20dp"
     android:layout_margin="20dp">
         <ImageView
+<<<<<<< HEAD
+=======
+            android:id="@+id/product_img1"
+>>>>>>> 최성욱
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:src="@drawable/package2"
             android:scaleType="fitXY"/>
     <ImageView
+<<<<<<< HEAD
+=======
+        android:id="@+id/product_img2"
+>>>>>>> 최성욱
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/bookmark1"
@@ -22,6 +35,10 @@
         android:layout_margin="10dp"/>
 </androidx.cardview.widget.CardView>
     <TextView
+<<<<<<< HEAD
+=======
+        android:id="@+id/product_tv1"
+>>>>>>> 최성욱
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="[텐트명] 패키지 이름 키트 들어올 부분"
@@ -53,12 +70,20 @@
             android:src="@drawable/star"
             android:layout_margin="5dp"/>
        <TextView
+<<<<<<< HEAD
+=======
+           android:id="@+id/product_tv2"
+>>>>>>> 최성욱
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="4/5"
            android:layout_marginTop="5dp"
            android:textColor="#434343"/>
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/product_tv3"
+>>>>>>> 최성욱
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(256)"
@@ -72,6 +97,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/product_tv4"
+>>>>>>> 최성욱
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -79,6 +108,10 @@
             android:textStyle="bold"
             android:textColor="#A83232"/>
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/product_tv5"
+>>>>>>> 최성욱
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -92,6 +125,10 @@
         android:orientation="horizontal"
         android:layout_marginTop="5dp">
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/product_tv6"
+>>>>>>> 최성욱
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -100,6 +137,10 @@
             android:padding="3dp"
             android:textColor="#735340"/>
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/product_tv7"
+>>>>>>> 최성욱
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -108,6 +149,10 @@
             android:padding="3dp"
             android:textColor="#735340"/>
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/product_tv8"
+>>>>>>> 최성욱
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -116,6 +161,10 @@
             android:padding="3dp"
             android:textColor="#735340"/>
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/product_tv9"
+>>>>>>> 최성욱
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -123,6 +172,9 @@
             android:text="#테마4"
             android:padding="3dp"
             android:textColor="#735340"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 최성욱
     </LinearLayout>
 </LinearLayout>
