@@ -25,10 +25,6 @@ public class SafeZoneRecAdapter extends RecyclerView.Adapter<SafeZoneRecAdapter.
     ImageView sfimgv ;
     TextView sftext;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 최성욱
     public SafeZoneRecAdapter(Context context, ArrayList<SafeZoneRecDTO> list) {
         this.context = context;
         this.list = list;
