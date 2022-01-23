@@ -18,6 +18,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottom_nav;
+    private long backKeyPressedTime = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,39 +27,50 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottom_nav = findViewById(R.id.bottom_nav);
 
-        changeFragment(new HomeFragment(MainActivity.this));
+        changeFragment(new HomeFragment(MainActivity.this) , "Moive");
+
+
+
 
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.tab1){
-                    changeFragment(new HomeFragment(MainActivity.this));
+                    changeFragment(new HomeFragment(MainActivity.this) , "Moive");
                     return true;
                 }else if(item.getItemId() == R.id.tab2){
-                    changeFragment(new MovieFragment(MainActivity.this));
+                    changeFragment(new MovieFragment(MainActivity.this) , "Moive");
                     return true;
                 }else if(item.getItemId() == R.id.tab3){
-                    changeFragment(new IoTFragment(MainActivity.this));
+                    changeFragment(new IoTFragment(MainActivity.this), "IoT");
                     return true;
                 }else if(item.getItemId() == R.id.tab4){
-                    changeFragment(new ShopFragment(MainActivity.this));
+                    changeFragment(new ShopFragment(MainActivity.this), "Shopping");
                     return true;
                 }else if(item.getItemId() == R.id.tab5){
+<<<<<<< HEAD
 <<<<<<< HEAD
                     changeFragment(new MypageFragment(MainActivity.this) , "My");
 =======
                     changeFragment(new MypageFragment(MainActivity.this));
 >>>>>>> 최성욱
+=======
+                    changeFragment(new MypageFragment(MainActivity.this) , "My");
+>>>>>>> parent of 6b38573 (01/22 18:08 최성욱)
                     return true;
                 }
                 return false;
             }
         });
+
     }
-    public void changeFragment(Fragment fragment){
+    public void changeFragment(Fragment fragment , String msg){
         getSupportFragmentManager().beginTransaction().replace(R.id.container , fragment).commit();
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 6b38573 (01/22 18:08 최성욱)
 
 
 
@@ -73,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
+<<<<<<< HEAD
 =======
 >>>>>>> 최성욱
+=======
+>>>>>>> parent of 6b38573 (01/22 18:08 최성욱)
 }

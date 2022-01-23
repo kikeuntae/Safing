@@ -58,6 +58,7 @@
         android:usesCleartextTraffic="true">
         <activity
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             android:name=".activity.Review_Image_Activity"
             android:exported="false" />
@@ -69,6 +70,8 @@
             android:exported="false" />
         <activity
 >>>>>>> 최성욱
+=======
+>>>>>>> parent of 6b38573 (01/22 18:08 최성욱)
             android:name=".activity.CamInfoActivity"
             android:exported="false" />
         <activity

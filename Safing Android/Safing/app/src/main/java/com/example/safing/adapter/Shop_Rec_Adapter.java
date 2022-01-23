@@ -14,13 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.safing.DTO.SafeZoneRecDTO;
 import com.example.safing.R;
-import com.example.safing.activity.Product_Activity;
-import com.example.safing.activity.Product_Package_Activity;
+import com.example.safing.activity.ThemePagerActivity;
 
 import java.util.ArrayList;
 
 public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.ViewHolder> {
-    boolean bookMark = true;
+
     Context context;
     ArrayList<SafeZoneRecDTO> list;
     LayoutInflater inflater;
@@ -52,13 +51,12 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView product_img1, product_img2;
+        ImageView product_img1;
         TextView product_tv1, product_tv2, product_tv3, product_tv4, product_tv5, product_tv6, product_tv7, product_tv8, product_tv9;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             product_img1 = itemView.findViewById(R.id.product_img1);
-            product_img2 = itemView.findViewById(R.id.product_img2);
             product_tv1 = itemView.findViewById(R.id.product_tv1);
             product_tv2 = itemView.findViewById(R.id.product_tv2);
             product_tv3 = itemView.findViewById(R.id.product_tv3);
@@ -73,25 +71,13 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "상품 상세내용", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, Product_Activity.class);
-                    context.startActivity(intent);
-                }
-            });
-            product_img2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(bookMark== true) {
-                        Toast.makeText(context, "장바구니", Toast.LENGTH_SHORT).show();
-                        product_img2.setImageResource(R.drawable.bookmark2);
-                        bookMark= false;
-                    }else {
-                        Toast.makeText(context, "장바구니 취소", Toast.LENGTH_SHORT).show();
-                        product_img2.setImageResource(R.drawable.bookmark1);
-                        bookMark= true;
-                    }
 
                 }
             });
+
+
+
+
 
         }
         public void binding(ViewHolder holder, int position){

@@ -4,9 +4,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     android:id="@+id/rec_item_theme_linearlayout"
 >>>>>>> 최성욱
+=======
+>>>>>>> parent of 6b38573 (01/22 18:08 최성욱)
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
         android:layout_width="150dp"

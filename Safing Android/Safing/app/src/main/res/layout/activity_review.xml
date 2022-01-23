@@ -111,12 +111,17 @@
             android:numStars="5"
             android:isIndicator="false"
 <<<<<<< HEAD
+<<<<<<< HEAD
             android:layout_margin="10dp">
 
 =======
             android:layout_margin="10dp"
             android:theme="@style/RatingBar">
 >>>>>>> 최성욱
+=======
+            android:layout_margin="10dp">
+
+>>>>>>> parent of 6b38573 (01/22 18:08 최성욱)
         </RatingBar>
         <TextView
             android:layout_width="match_parent"
