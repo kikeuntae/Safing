@@ -4,33 +4,60 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+<<<<<<< HEAD
 
+=======
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+>>>>>>> main
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+<<<<<<< HEAD
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
 import com.example.safing.activity.MainActivity;
 import com.example.safing.async.CommonVal;
+=======
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.example.safing.DTO.Shop_PackageDTO;
+import com.example.safing.R;
+import com.example.safing.activity.MainActivity;
+import com.example.safing.adapter.Shop_Rec_Adapter;
+import com.example.safing.adapter.Shop_Package_Apdater;
+>>>>>>> main
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class ShopFragment extends Fragment {
+import java.util.ArrayList;
+
+public class ShopFragment extends Fragment{
     Context context;
-    LinearLayoutManager manager;
-    MainActivity mainActivity = new MainActivity();
     TabLayout tab_layout;
     Toolbar toolbar;
     RecyclerView shop_rec1, shop_rec2;
+    LinearLayoutManager manager;
+    SwipeRefreshLayout swipe;
+    NavigationView shop_view;
+    MainActivity mainActivity = new MainActivity();
+<<<<<<< HEAD
+    TabLayout tab_layout;
+    Toolbar toolbar;
+    RecyclerView shop_rec1, shop_rec2;
+=======
+>>>>>>> main
 
     public ShopFragment(Context context){
         this.context = context;
@@ -45,6 +72,7 @@ public class ShopFragment extends Fragment {
         tab_layout = rootView.findViewById(R.id.shop_tab);
         shop_rec1 = rootView.findViewById(R.id.shop_rec1);
         shop_rec2 = rootView.findViewById(R.id.shop_rec2);
+<<<<<<< HEAD
         //toolbar = rootView.findViewById(R.id.shop_menu_view);
 
 
@@ -69,6 +97,31 @@ public class ShopFragment extends Fragment {
        // TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
         //Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+=======
+        toolbar = rootView.findViewById(R.id.toolbar);
+        swipe = rootView.findViewById(R.id.spot_swipe);
+        shop_view = rootView.findViewById(R.id.shop_view);
+
+        mainActivity = (MainActivity) getActivity();
+
+        //========= 햄버커 기능 ==============
+
+        DrawerLayout drawer = rootView.findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                (Activity) context, drawer, toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_open
+        );
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        View nav_headerview = shop_view.getHeaderView(0);
+        ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
+        TextView header_text= nav_headerview.findViewById(R.id.header_text);
+
+      //  Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+>>>>>>> main
       //  header_text.setText(CommonVal.loginInfo.getMember_id());
 
         //========= 탭 기능 ==============
@@ -84,6 +137,7 @@ public class ShopFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab.getPosition() == 0){
+<<<<<<< HEAD
 
                 }
                 if(tab.getPosition() == 1){
@@ -100,6 +154,31 @@ public class ShopFragment extends Fragment {
                 }
                 if(tab.getPosition() == 5){
 
+=======
+                    Toast.makeText(context, "tab1", Toast.LENGTH_SHORT).show();
+                    setRec2();
+                }
+                if(tab.getPosition() == 1){
+                    Toast.makeText(context, "tab2", Toast.LENGTH_SHORT).show();
+                    setRec2();
+                }
+                if(tab.getPosition() == 2){
+                    Toast.makeText(context, "tab3", Toast.LENGTH_SHORT).show();
+                    setRec2();
+                }
+                if(tab.getPosition() == 3){
+                    Toast.makeText(context, "tab4", Toast.LENGTH_SHORT).show();
+                    setRec2();
+                }
+                if(tab.getPosition() == 4){
+
+                    Toast.makeText(context, "tab5", Toast.LENGTH_SHORT).show();
+                    setRec2();
+                }
+                if(tab.getPosition() == 5){
+                    Toast.makeText(context, "tab6", Toast.LENGTH_SHORT).show();
+                    setRec2();
+>>>>>>> main
                 }
             }
 
@@ -114,6 +193,59 @@ public class ShopFragment extends Fragment {
             }
         }); //tab_layout
 
+<<<<<<< HEAD
+=======
+        setRec1();
+        setRec2();
+
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setRec2();
+                swipe.setRefreshing(false);
+            }
+        });
+
+        //============= navigation view 기능=====
+
+        shop_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.menu_cart){
+                    mainActivity.changeFragment(new Product_Cart_Fragment(context));
+                }else if(item.getItemId() == R.id.menu_purchasehistory){
+                    mainActivity.changeFragment(new Product_Cart_Fragment(context));
+                }else if(item.getItemId() == R.id.menu_customerservice){
+                }
+                return false;
+            }
+        });
+
+>>>>>>> main
         return rootView;
+    }
+
+    public void setRec1(){
+        manager = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
+        ArrayList<Shop_PackageDTO> list = new ArrayList<>();
+        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
+        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
+        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
+        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
+        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
+        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
+
+
+        shop_rec1.setLayoutManager(manager);
+        Shop_Package_Apdater adapter_rec1 = new Shop_Package_Apdater(context, list);
+        shop_rec1.setAdapter(adapter_rec1);
+    }
+    public void setRec2(){
+        manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
+        //ArrayList<ProductDTO> list = new ArrayList<>();
+
+        shop_rec2.setLayoutManager(manager);
+        Shop_Rec_Adapter adapter_rec2 = new Shop_Rec_Adapter(context);
+        shop_rec2.setAdapter(adapter_rec2);
     }
 }

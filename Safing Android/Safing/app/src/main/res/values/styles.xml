@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">20dp</item>
+        <item name="android:fontFamily">nanumgothic.ttf</item>
+        <item name="android:shadowRadius">0.5</item>
+        <item name="android:shadowDx">0.5</item>
+        <item name="android:shadowDy">0.5</item>
+        <item name="android:shadowColor">#888888</item>
+    </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#d7d7d7</item>
+        <item name="colorControlActivated">#D51158</item>
+    </style>
+    <style name="checkBoxStyle" parent="Base.Theme.AppCompat">
+        <item name="colorAccent">#735340</item>
+    </style>
+    <style name="text_purchase1">
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">@drawable/text_round4</item>
+    </style>
+</resources>

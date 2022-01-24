@@ -57,9 +57,25 @@
         android:theme="@style/Theme.Safing"
         android:usesCleartextTraffic="true">
         <activity
+<<<<<<< HEAD
             android:name=".activity.SafeGuardInfoActivity"
             android:exported="false" />
         <activity
+=======
+            android:name=".activity.Product_Purchase_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Review_Image_Activity"
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
+        <activity
+            android:name=".activity.Product_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Product_Package_Activity"
+            android:exported="false" />
+        <activity
+>>>>>>> main
             android:name=".activity.CamInfoActivity"
             android:exported="false" />
         <activity
