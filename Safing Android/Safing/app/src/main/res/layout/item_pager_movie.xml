@@ -12,28 +12,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="10">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="9"
                 android:orientation="horizontal"
                 android:weightSum="10">
-                <ImageButton
-                    android:id="@id/exo_play"
-                    style="@style/ExoMediaButton.Play"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="150dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#32000000" />
-
-                <ImageButton
-                    android:id="@id/exo_pause"
-                    style="@style/ExoMediaButton.Pause"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="150dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#32000000" />
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"

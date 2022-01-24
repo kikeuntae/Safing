@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activity.CamInfoActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/button_left_image_like2"
+                    android:backgroundTint="#00000000"
+                    android:layout_gravity="end">
+
+                </ImageButton>
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpcaminfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:src="@drawable/camimg2">
+                </androidx.viewpager2.widget.ViewPager2>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#735340">
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:hint="캠핑장 이름을 입력하세요"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"/>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:hint="캠핑장 주소를 입력하세요"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textColor="#979696"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="소개"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20dp">
+                </TextView>
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="10dp"
+                android:backgroundTint="#F9F9FB">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:textColor="#434343"
+                    android:hint="소개 글을 입력하세요">
+
+                </TextView>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="문의 및 예약"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#121212"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="예약 구분"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:padding="5dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3"
+                            >
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="문의"
+                            android:layout_marginLeft="1dp"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3"
+                            >
+                        </TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="예약 구분을 입력하세요"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:padding="5dp"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+
+                            >
+                        </EditText>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:hint="문의 번호를 입력하세요"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:padding="5dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+                            android:inputType="phone">
+
+                        </EditText>
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#A3A3A3"
+                        android:text="홈페이지"
+                        android:textAlignment="center"
+                        android:textSize="20dp"
+                        android:padding="5dp"
+                        android:textColor="@color/black">
+
+                    </TextView>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="홈페이지 Url 을 입력하세요"
+                        android:textAlignment="center"
+                        android:textSize="15dp"
+                        android:padding="5dp"
+                        android:textColor="@color/black">
+
+                    </EditText>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="운영 정보"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#121212"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="업종"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3"
+                            >
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="인허가일자"
+                            android:padding="5dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3"
+                            >
+                        </TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="업종을 입력하세요"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+
+                            >
+                        </EditText>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:hint="인허가일자를 입력하세요"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+                            android:inputType="phone">
+                        </EditText>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#121212"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#A3A3A3"
+                            android:text="영업배상 책임보험"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+
+                            android:textSize="20dp"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="애완동물 출입"
+                            android:padding="5dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3"
+                            >
+                        </TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="책임보험 유무를 입력하세요"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+
+                            >
+                        </EditText>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:text="애완동물 출입 유무를 입력하세요"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+                            android:inputType="phone">
+                        </EditText>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#121212"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="사업주체"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3"
+                            >
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="운영 및 관리"
+                            android:padding="5dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3"
+                            >
+                        </TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="민간/지자체"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+
+                            >
+                        </EditText>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:hint="직영/위탁"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+                            android:inputType="phone">
+                        </EditText>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#121212"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="운영 기간"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3"
+                            >
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="운영일"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:padding="5dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3"
+                            >
+                        </TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="운영 기간을 입력하세요"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+
+                            >
+                        </EditText>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:text="운영일을 입력하세요"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+                            android:inputType="phone">
+                        </EditText>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#121212"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="#A3A3A3"
+                            android:text="화장실"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+
+                            android:textSize="20dp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="샤워실"
+                            android:padding="5dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3">
+                        </TextView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="개수대"
+                            android:padding="5dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:background="#A3A3A3">
+                        </TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/white"
+                        >
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="화장실 개수를 입력하세요"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+
+                            >
+                        </EditText>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="샤워실유무를 입력하세요"
+                            android:padding="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+
+                            >
+                        </EditText>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:hint="개수대유무를 입력하세요"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:layout_gravity="center"
+                            android:textColor="#5A5A5A"
+                            android:inputType="phone">
+                        </EditText>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#A3A3A3"
+                        android:text="부대시설"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:textSize="20dp"
+                        android:textColor="@color/black">
+                    </TextView>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="부대시설을 입력하세요"
+                        android:padding="5dp"
+                        android:textAlignment="center"
+                        android:textSize="15dp"
+                        android:textColor="@color/black">
+                    </EditText>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="위치"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp">
+            </TextView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="20dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white">
+                <ImageView
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="20dp">
+
+                </ImageView>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                >
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="취소"
+                    android:textStyle="bold"
+                    android:textColor="#F9F9FB"
+                    android:backgroundTint="#735340"
+                    android:layout_margin="10dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="등록"
+                    android:textStyle="bold"
+                    android:textColor="#F9F9FB"
+                    android:backgroundTint="#735340"
+                    android:layout_margin="10dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

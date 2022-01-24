@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:src="@drawable/img1" />
+            android:src="@drawable/camimg2" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -63,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="120dp">
         <ImageView
-            android:src="@drawable/test_a"
+            android:src="@drawable/camimg2"
             android:layout_margin="5dp"
             android:layout_width="120dp"
             android:layout_height="120dp"/>
