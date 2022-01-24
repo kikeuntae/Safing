@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activity.home.HomeFragment"
+    tools:context=".fragment.HomeFragment"
     android:background="#F9F9FB"
     android:orientation="vertical">
     <LinearLayout
@@ -18,7 +18,7 @@
             android:layout_weight="9"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="40dp"
-            android:src="@drawable/logo3"
+            android:src="@drawable/logo2"
             android:layout_gravity="bottom"/>
 
         <ImageView

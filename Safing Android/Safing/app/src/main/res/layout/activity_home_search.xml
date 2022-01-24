@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.home.HomeSearchActivity"
+    tools:context=".activity.HomeSearchActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center"
-            android:src="@drawable/left"
+            android:src="@drawable/left1"
             app:queryHint="검색어를 입력하세요."/>
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_searchv"

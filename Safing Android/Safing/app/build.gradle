@@ -50,20 +50,13 @@ dependencies {
     // https://mvnrepository.com/artifact/com.github.bumptech.glide/glide
     implementation group: 'com.github.bumptech.glide', name: 'glide', version: '4.8.0'
 
-    implementation "com.kakao.sdk:v2-user:2.8.4" // 카카오 로그인
-    implementation "com.kakao.sdk:v2-talk:2.8.4" // 친구, 메시지(카카오톡)
-    implementation "com.kakao.sdk:v2-story:2.8.4" // 카카오스토리
-    implementation "com.kakao.sdk:v2-link:2.8.4" // 메시지(카카오링크)
-    implementation "com.kakao.sdk:v2-navi:2.8.4" // 카카오내비
-
-
     /* 안드로이드와 통신할수 있는 버전 가져오기  */
     implementation group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.5.1'
     implementation('org.apache.httpcomponents:httpmime:4.3') {
         exclude module: "httpclient"
     }
 
-/*<<<<<<< HEAD:Safing Android/SafingProject/app/build.gradle*/
+    /*Safing Android/SafingProject/app/build.gradle*/
     implementation 'com.tbuonomo:dotsindicator:4.2'
 
     /* DB와 데이터 주고받는 gson 라이브러리  */
@@ -80,7 +73,4 @@ dependencies {
     implementation "com.google.android.exoplayer:exoplayer-ui:2.13.0"
     implementation "com.google.android.exoplayer:exoplayer-hls:2.13.0"
 
-
-
-/*>>>>>>> 최성욱:Safing Android/Safing/app/build.gradle*/
 }
