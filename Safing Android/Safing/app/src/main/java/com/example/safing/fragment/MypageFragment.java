@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,11 +24,13 @@ public class MypageFragment extends Fragment {
     LinearLayoutManager manager;
     MainActivity mainActivity = new MainActivity();
     ImageView mypage_setting,mypage_add;
-
+    Button mypage_login;
+    TextView mypage_id;
 
     public MypageFragment(Context context){
         this.context = context;
     }
+
 
 
 
@@ -38,7 +42,20 @@ public class MypageFragment extends Fragment {
 
         mypage_setting = rootView.findViewById(R.id.mypage_setting);
         mypage_add = rootView.findViewById(R.id.mypage_add);
+        mypage_login = rootView.findViewById(R.id.mypage_login);
+        mypage_id = rootView.findViewById(R.id.mypage_tv1);
         //셋팅메뉴 이동
+
+        mypage_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mypage_login.setVisibility(View.GONE);
+                mypage_id.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+
 
         mypage_add.setOnClickListener(new View.OnClickListener() {
             @Override
