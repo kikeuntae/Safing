@@ -43,7 +43,7 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemview = inflater.inflate(R.layout.item_product_cart_rec, parent , false );
+        View itemview = inflater.inflate(R.layout.item_rec_orderinfo, parent , false );
         return new ViewHolder(itemview);
     }
 
@@ -60,10 +60,14 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView item_product_cart_rec_img;
-        TextView item_product_cart_rec_tv1, item_product_cart_rec_tv2, item_product_cart_rec_tv3;
-        CheckBox item_product_cart_rec_box;
-        ImageButton item_product_cart_rec_btn1;
+        ImageView item_product_cart_rec_img, ivcancel;
+        TextView item_product_cart_rec_tv1, item_product_cart_rec_tv2, item_product_cart_rec_tv3
+                , item_product_cart_rec_tv4, item_product_cart_rec_tv5, item_product_cart_rec_tv6
+                , item_product_cart_rec_tv7, item_product_cart_rec_tv8, item_product_cart_rec_tv9
+                , item_product_cart_rec_tv10, item_product_cart_rec_tv11, item_product_cart_rec_tv12
+                , item_product_cart_rec_tv13, item_product_cart_rec_tv14, item_product_cart_rec_tv15;
+        CheckBox chbox;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,10 +76,16 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
             item_product_cart_rec_tv1 = itemView.findViewById(R.id.item_product_cart_rec_tv1);
             item_product_cart_rec_tv2 = itemView.findViewById(R.id.item_product_cart_rec_tv2);
             item_product_cart_rec_tv3 = itemView.findViewById(R.id.item_product_cart_rec_tv3);
-            item_product_cart_rec_box = itemView.findViewById(R.id.item_product_cart_rec_box);
-            item_product_cart_rec_btn1 = itemView.findViewById(R.id.item_product_cart_rec_btn1);
+            item_product_cart_rec_tv4 = itemView.findViewById(R.id.item_product_cart_rec_tv4);
+            item_product_cart_rec_tv5 = itemView.findViewById(R.id.item_product_cart_rec_tv5);
+            item_product_cart_rec_tv6 = itemView.findViewById(R.id.item_product_cart_rec_tv6);
 
-            item_product_cart_rec_box.setOnClickListener(new CheckBox.OnClickListener() {
+
+
+            chbox = itemView.findViewById(R.id.chbox);
+            ivcancel = itemView.findViewById(R.id.ivcancel);
+
+            chbox.setOnClickListener(new CheckBox.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(((CheckBox)v).isChecked()){
@@ -86,7 +96,7 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
                 }
             });
 
-            item_product_cart_rec_btn1.setOnClickListener(new CheckBox.OnClickListener() {
+            ivcancel.setOnClickListener(new CheckBox.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //AlertDilog Custom 인터넷 예제보고 공부해보기

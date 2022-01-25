@@ -9,27 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-<<<<<<< HEAD
-
-=======
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
->>>>>>> main
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-<<<<<<< HEAD
-import androidx.viewpager2.widget.ViewPager2;
-
-import com.bumptech.glide.Glide;
-import com.example.safing.R;
-import com.example.safing.activity.MainActivity;
-import com.example.safing.async.CommonVal;
-=======
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.safing.DTO.Shop_PackageDTO;
@@ -37,7 +25,6 @@ import com.example.safing.R;
 import com.example.safing.activity.MainActivity;
 import com.example.safing.adapter.Shop_Rec_Adapter;
 import com.example.safing.adapter.Shop_Package_Apdater;
->>>>>>> main
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -52,12 +39,6 @@ public class ShopFragment extends Fragment{
     SwipeRefreshLayout swipe;
     NavigationView shop_view;
     MainActivity mainActivity = new MainActivity();
-<<<<<<< HEAD
-    TabLayout tab_layout;
-    Toolbar toolbar;
-    RecyclerView shop_rec1, shop_rec2;
-=======
->>>>>>> main
 
     public ShopFragment(Context context){
         this.context = context;
@@ -72,32 +53,6 @@ public class ShopFragment extends Fragment{
         tab_layout = rootView.findViewById(R.id.shop_tab);
         shop_rec1 = rootView.findViewById(R.id.shop_rec1);
         shop_rec2 = rootView.findViewById(R.id.shop_rec2);
-<<<<<<< HEAD
-        //toolbar = rootView.findViewById(R.id.shop_menu_view);
-
-
-        //========= 햄버커 기능 ==============
-
-//        mainActivity.setSupportActionBar(toolbar);
-//
-//        DrawerLayout drawer = rootView.findViewById(R.id.drawer_layout);
-//
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                (Activity) context, drawer, toolbar,
-//                R.string.navigation_drawer_open,
-//                R.string.navigation_drawer_open
-//        );
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
-
-        //NavigationView nav_view = rootView.findViewById(R.id.shop_menu_view);
-
-        //View nav_headerview = nav_view.getHeaderView(0);
-       // ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
-       // TextView header_text= nav_headerview.findViewById(R.id.header_text);
-
-        //Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-=======
         toolbar = rootView.findViewById(R.id.toolbar);
         swipe = rootView.findViewById(R.id.spot_swipe);
         shop_view = rootView.findViewById(R.id.shop_view);
@@ -121,7 +76,6 @@ public class ShopFragment extends Fragment{
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
       //  Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
->>>>>>> main
       //  header_text.setText(CommonVal.loginInfo.getMember_id());
 
         //========= 탭 기능 ==============
@@ -137,24 +91,6 @@ public class ShopFragment extends Fragment{
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab.getPosition() == 0){
-<<<<<<< HEAD
-
-                }
-                if(tab.getPosition() == 1){
-
-                }
-                if(tab.getPosition() == 2){
-
-                }
-                if(tab.getPosition() == 3){
-
-                }
-                if(tab.getPosition() == 4){
-
-                }
-                if(tab.getPosition() == 5){
-
-=======
                     Toast.makeText(context, "tab1", Toast.LENGTH_SHORT).show();
                     setRec2();
                 }
@@ -178,7 +114,6 @@ public class ShopFragment extends Fragment{
                 if(tab.getPosition() == 5){
                     Toast.makeText(context, "tab6", Toast.LENGTH_SHORT).show();
                     setRec2();
->>>>>>> main
                 }
             }
 
@@ -193,8 +128,6 @@ public class ShopFragment extends Fragment{
             }
         }); //tab_layout
 
-<<<<<<< HEAD
-=======
         setRec1();
         setRec2();
 
@@ -221,7 +154,6 @@ public class ShopFragment extends Fragment{
             }
         });
 
->>>>>>> main
         return rootView;
     }
 
