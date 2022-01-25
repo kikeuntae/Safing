@@ -2,14 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="match_parent"
+=======
+    android:layout_height="wrap_content"
+>>>>>>> origin/기근태
     android:orientation="vertical">
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
        <TextView
            android:layout_width="match_parent"
+<<<<<<< HEAD
            android:layout_height="4dp"
+=======
+           android:layout_height="2dp"
+>>>>>>> origin/기근태
            android:layout_marginLeft="20dp"
            android:layout_marginTop="10dp"
            android:layout_marginRight="20dp"
@@ -25,6 +33,10 @@
         android:weightSum="4">
 
         <CheckBox
+<<<<<<< HEAD
+=======
+            android:id="@+id/chbox"
+>>>>>>> origin/기근태
             android:layout_width="30dp"
             android:layout_height="30dp" />
 
@@ -34,6 +46,10 @@
             app:cardCornerRadius="5dp">
 
             <ImageView
+<<<<<<< HEAD
+=======
+                android:id="@+id/item_product_cart_rec_img"
+>>>>>>> origin/기근태
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/sfguard" />
@@ -52,6 +68,10 @@
                 android:orientation="horizontal">
 
                 <TextView
+<<<<<<< HEAD
+=======
+                    android:id="@+id/item_product_cart_rec_tv1"
+>>>>>>> origin/기근태
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:textSize="15dp"
@@ -60,6 +80,10 @@
                     android:textStyle="bold" />
 
                 <ImageView
+<<<<<<< HEAD
+=======
+                    android:id="@+id/ivcancel"
+>>>>>>> origin/기근태
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/cancel"></ImageView>
@@ -71,6 +95,10 @@
                 android:orientation="horizontal">
 
                 <TextView
+<<<<<<< HEAD
+=======
+                    android:id="@+id/item_product_cart_rec_tv2"
+>>>>>>> origin/기근태
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="상품 가격 들어올곳"
@@ -79,6 +107,10 @@
                     android:textStyle="bold" />
 
                 <TextView
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/기근태
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -111,6 +143,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         <TextView
+<<<<<<< HEAD
+=======
+            android:id="@+id/item_product_cart_rec_tv3"
+>>>>>>> origin/기근태
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="상품종류"
@@ -118,6 +154,10 @@
             android:textColor="#477F83"
             />
             <TextView
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/기근태
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" : "
@@ -127,6 +167,10 @@
 
         </TextView>
             <TextView
+<<<<<<< HEAD
+=======
+                android:id="@+id/item_product_cart_rec_tv4"
+>>>>>>> origin/기근태
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="상품이름"
@@ -136,6 +180,10 @@
 
             </TextView>
             <TextView
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/기근태
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" / "
@@ -143,6 +191,7 @@
                 >
 
             </TextView>
+<<<<<<< HEAD
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -153,6 +202,20 @@
 
             </TextView>
             <TextView
+=======
+
+            <TextView
+                android:id="@+id/item_product_cart_rec_tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="상품개수 "
+                android:textColor="#477F83"
+                android:textStyle="bold">
+
+            </TextView>
+            <TextView
+
+>>>>>>> origin/기근태
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="개 "
@@ -176,6 +239,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/기근태
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="상품금액"
@@ -185,6 +252,10 @@
 
             </TextView>
             <TextView
+<<<<<<< HEAD
+=======
+                android:id="@+id/item_product_cart_rec_tv6"
+>>>>>>> origin/기근태
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="가격"
@@ -196,6 +267,10 @@
 
             </TextView>
             <TextView
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/기근태
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -213,6 +288,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/기근태
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="배송비"
@@ -222,6 +301,10 @@
 
             </TextView>
             <TextView
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/기근태
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="무료"

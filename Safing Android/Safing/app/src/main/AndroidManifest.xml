@@ -67,6 +67,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.SettingActivity"
+            android:name=".activity.TipActivity"
             android:exported="false" />
         <activity
             android:name=".activity.Product_Purchase_Activity"
