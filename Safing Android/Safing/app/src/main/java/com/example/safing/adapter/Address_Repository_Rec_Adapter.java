@@ -2,8 +2,6 @@ package com.example.safing.adapter;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,22 +15,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safing.DTO.Product_Cart_RecDTO;
+import com.example.safing.DTO.Address_RepositoryDTO;
 import com.example.safing.DTO.Product_PurchaseHistory_RecDTO;
-import com.example.safing.DTO.SafeZoneRecDTO;
 import com.example.safing.R;
-import com.example.safing.activity.MainActivity;
-import com.example.safing.activity.ThemePagerActivity;
 
 import java.util.ArrayList;
 
-public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_Rec_Adapter.ViewHolder> {
+public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address_Repository_Rec_Adapter.ViewHolder> {
 
     Context context;
-    ArrayList<Product_PurchaseHistory_RecDTO> list;
+    ArrayList<Address_RepositoryDTO> list;
     LayoutInflater inflater;
 
-    public Product_Cart_Rec_Adapter(Context context) {
+    public Address_Repository_Rec_Adapter(Context context) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -43,7 +38,7 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemview = inflater.inflate(R.layout.item_product_cart_rec, parent , false );
+        View itemview = inflater.inflate(R.layout.item_address_repository_rec, parent , false );
         return new ViewHolder(itemview);
     }
 
@@ -59,23 +54,21 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-
-        ImageView item_product_cart_rec_img;
-        TextView item_product_cart_rec_tv1, item_product_cart_rec_tv2, item_product_cart_rec_tv3;
-        CheckBox item_product_cart_rec_box;
-        ImageButton item_product_cart_rec_btn1;
+        CheckBox item_address_repository_box;
+        TextView item_address_repository_tv1, item_address_repository_tv2, item_address_repository_tv3;
+        ImageButton item_address_repository_btn1;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            item_product_cart_rec_img = itemView.findViewById(R.id.item_product_cart_rec_img);
-            item_product_cart_rec_tv1 = itemView.findViewById(R.id.item_product_cart_rec_tv1);
-            item_product_cart_rec_tv2 = itemView.findViewById(R.id.item_product_cart_rec_tv2);
-            item_product_cart_rec_tv3 = itemView.findViewById(R.id.item_product_cart_rec_tv3);
-            item_product_cart_rec_box = itemView.findViewById(R.id.item_product_cart_rec_box);
-            item_product_cart_rec_btn1 = itemView.findViewById(R.id.item_product_cart_rec_btn1);
+            item_address_repository_box = itemView.findViewById(R.id.item_address_repository_box);
+            item_address_repository_tv1 = itemView.findViewById(R.id.item_address_repository_tv1);
+            item_address_repository_tv2 = itemView.findViewById(R.id.item_address_repository_tv2);
+            item_address_repository_tv3 = itemView.findViewById(R.id.item_address_repository_tv3);
+            item_address_repository_btn1 = itemView.findViewById(R.id.item_address_repository_btn1);
 
-            item_product_cart_rec_box.setOnClickListener(new CheckBox.OnClickListener() {
+
+            item_address_repository_box.setOnClickListener(new CheckBox.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(((CheckBox)v).isChecked()){
@@ -86,13 +79,13 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
                 }
             });
 
-            item_product_cart_rec_btn1.setOnClickListener(new CheckBox.OnClickListener() {
+            item_address_repository_btn1.setOnClickListener(new CheckBox.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //AlertDilog Custom 인터넷 예제보고 공부해보기
+
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("주문삭제 확인");
-                    builder.setMessage("선택하신 주문을\n삭제하시겠습니까? ");
+                    builder.setTitle("삭제 확인");
+                    builder.setMessage("선택하신 주소를\n삭제하시겠습니까? ");
                     builder.setIcon(R.drawable.question);
 
                     builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
@@ -107,7 +100,7 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
                     builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, "예 눌림", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "아니오 눌림", Toast.LENGTH_SHORT).show();
                         }
                     });
 

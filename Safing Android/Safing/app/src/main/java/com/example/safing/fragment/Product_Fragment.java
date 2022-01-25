@@ -1,35 +1,34 @@
-package com.example.safing.activity;
+package com.example.safing.fragment;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.safing.R;
+import com.example.safing.activity.MainActivity;
 import com.example.safing.adapter.Shop_Product_Pager_Adapter;
-import com.example.safing.async.CommonVal;
-import com.example.safing.fragment.Product_Cart_Fragment;
-import com.example.safing.fragment.Product_Detail_Fragment;
-import com.example.safing.fragment.Product_PurchaseHistory_Fragment;
-import com.example.safing.fragment.Product_Review_Fragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-public class Product_Activity extends AppCompatActivity {
+public class Product_Fragment extends Fragment {
+    Context context;
     ViewPager2 pager;
     TabLayout shop_product_tab1;
     Toolbar toolbar;
@@ -38,26 +37,34 @@ public class Product_Activity extends AppCompatActivity {
     NavigationView shop_product_view;
     MainActivity mainActivity = new MainActivity();
 
+    public Product_Fragment(Context context){
+        this.context = context;
+    }
+
+    public Product_Fragment() {
+
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_product, container, false);
 
-        shop_product_tab1 = findViewById(R.id.shop_product_tab1);
-        pager = findViewById(R.id.shop_product_Pager);
-        toolbar = findViewById(R.id.shop_product_toolbar);
-        swipe = findViewById(R.id.shop_product_swipe);
-        shop_product_btn1 = findViewById(R.id.shop_product_btn1);
-        shop_product_view = findViewById(R.id.shop_product_view);
+        shop_product_tab1 = rootView.findViewById(R.id.shop_product_tab1);
+        pager = rootView.findViewById(R.id.shop_product_Pager);
+        toolbar = rootView.findViewById(R.id.shop_product_toolbar);
+        swipe = rootView.findViewById(R.id.shop_product_swipe);
+        shop_product_btn1 = rootView.findViewById(R.id.shop_product_btn1);
+        shop_product_view = rootView.findViewById(R.id.shop_product_view);
 
+        mainActivity = (MainActivity) getActivity();
 
         //========= 햄버커 기능 ==============
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = rootView.findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                Product_Activity.this, drawer, toolbar,
+                (Activity) context, drawer, toolbar,
                 R.string.navigation_drawer_open,
                 R.string.navigation_drawer_open
         );
@@ -71,27 +78,35 @@ public class Product_Activity extends AppCompatActivity {
         //  Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
         //  header_text.setText(CommonVal.loginInfo.getMember_id());
 
+
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipe.setRefreshing(false);
+            }
+        });
+
+
         //========= 탭 기능 ==============
 
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("상세정보"));
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("리뷰"));
 
-
-        Shop_Product_Pager_Adapter adapter_pager1 = new Shop_Product_Pager_Adapter(Product_Activity.this);
+        Shop_Product_Pager_Adapter adapter_pager1 = new Shop_Product_Pager_Adapter(context);
         pager.setAdapter(adapter_pager1);
 
-        changeFragment(new Product_Detail_Fragment(Product_Activity.this));
+        changeFragment(new Product_Detail_Fragment(context));
 
         shop_product_tab1.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int position = tab.getPosition();
                 if(position == 0){
-                    Toast.makeText(Product_Activity.this, "상세정보", Toast.LENGTH_SHORT).show();
-                    changeFragment(new Product_Detail_Fragment(Product_Activity.this));
+                    Toast.makeText(context, "상세정보", Toast.LENGTH_SHORT).show();
+                    changeFragment(new Product_Detail_Fragment(context));
                 } else {
-                    Toast.makeText(Product_Activity.this, "리뷰", Toast.LENGTH_SHORT).show();
-                    changeFragment(new Product_Review_Fragment(Product_Activity.this));
+                    Toast.makeText(context, "리뷰", Toast.LENGTH_SHORT).show();
+                    changeFragment(new Product_Review_Fragment(context));
                 }
             }
 
@@ -107,20 +122,10 @@ public class Product_Activity extends AppCompatActivity {
         shop_product_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Product_Activity.this, Product_Purchase_Activity.class);
-                startActivity(intent);
+                Toast.makeText(context, "구매하기", Toast.LENGTH_SHORT).show();
+                mainActivity.changeFragment(new Product_Purchase_Fragment(context));
             }
         });
-
-
-
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                swipe.setRefreshing(false);
-            }
-        });
-
 
         //============= navigation view 기능=====
 
@@ -128,22 +133,19 @@ public class Product_Activity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.menu_cart){
-                    Intent intent = new Intent(Product_Activity.this, MainActivity.class);
-                    startActivity(intent);
-                    mainActivity.changeFragment(new Product_Cart_Fragment(Product_Activity.this));
+                    mainActivity.changeFragment(new Product_Cart_Fragment(context));
                 }else if(item.getItemId() == R.id.menu_purchasehistory){
-                    Intent intent = new Intent(Product_Activity.this, MainActivity.class);
-                    startActivity(intent);
-                    mainActivity.changeFragment(new Product_PurchaseHistory_Fragment(Product_Activity.this));
+                    mainActivity.changeFragment(new Product_PurchaseHistory_Fragment(context));
                 }else if(item.getItemId() == R.id.menu_customerservice){
                 }
                 return false;
             }
         });
 
-
+        return rootView;
     }
     public void changeFragment(Fragment fragment){
-        getSupportFragmentManager().beginTransaction().replace(R.id.shop_container2 , fragment).commit();
+        mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.shop_container2 , fragment).commit();
     }
+
 }
