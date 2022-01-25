@@ -119,8 +119,7 @@ public class Product_Package_Fragment extends Fragment {
         shop_product_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Product_Purchase_Activity.class);
-                startActivity(intent);
+                changeFragment(new Product_Purchase_Fragment(context));
             }
         });
 
