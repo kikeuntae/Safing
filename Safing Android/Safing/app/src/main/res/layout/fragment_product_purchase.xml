@@ -139,14 +139,14 @@
                                 android:layout_marginHorizontal="20dp"
                                 style="@style/text_purchase1"
                                 android:layout_marginVertical="5dp"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginVertical="10dp"
-                            android:gravity="center">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_marginVertical="10dp"
+                                android:gravity="center">
 
-                        </LinearLayout>
+                            </LinearLayout>
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -293,4 +293,14 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/product_purchaseHistory_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/header_shop"
+        app:menu="@menu/header_menu_shop"
+        />
+
 </androidx.drawerlayout.widget.DrawerLayout>

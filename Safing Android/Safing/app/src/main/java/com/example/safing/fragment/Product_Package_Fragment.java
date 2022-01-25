@@ -24,7 +24,6 @@ import android.widget.Toast;
 
 import com.example.safing.R;
 import com.example.safing.activity.MainActivity;
-import com.example.safing.activity.Product_Purchase_Activity;
 import com.example.safing.adapter.Shop_Product_Pager_Adapter;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
