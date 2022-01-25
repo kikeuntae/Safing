@@ -57,7 +57,6 @@
         android:theme="@style/Theme.Safing"
         android:usesCleartextTraffic="true">
         <activity
-<<<<<<< HEAD
             android:name=".activity.CreateActivity"
             android:exported="false" />
         <activity
@@ -67,15 +66,15 @@
             android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SettingActivity"
             android:name=".activity.TipActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SettingActivity"
             android:exported="false" />
         <activity
             android:name=".activity.Product_Purchase_Activity"
             android:exported="false" />
         <activity
-=======
->>>>>>> origin/최성욱
             android:name=".activity.Review_Image_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
         <activity
