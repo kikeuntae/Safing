@@ -119,7 +119,7 @@ public class Product_Package_Fragment extends Fragment {
         shop_product_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeFragment(new Product_Purchase_Fragment(context));
+                mainActivity.changeFragment(new Product_Purchase_Fragment(context));
             }
         });
 

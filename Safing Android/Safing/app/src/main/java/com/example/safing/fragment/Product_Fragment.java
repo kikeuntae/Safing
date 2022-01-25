@@ -123,7 +123,7 @@ public class Product_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "구매하기", Toast.LENGTH_SHORT).show();
-                changeFragment(new Product_Purchase_Fragment(context));
+                mainActivity.changeFragment(new Product_Purchase_Fragment(context));
             }
         });
 
