@@ -15,20 +15,23 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.safing.DTO.SafeZoneRecDTO;
 import com.example.safing.DTO.ThemeRecDTO;
+import com.example.safing.DTO.YouTubeTipRecDTO;
 import com.example.safing.R;
 import com.example.safing.activity.HomeSearchActivity;
 import com.example.safing.activity.MainActivity;
 import com.example.safing.adapter.SafeZoneRecAdapter;
 import com.example.safing.adapter.Theme_Pager_Adapter;
+import com.example.safing.adapter.YouTubeTipRecAdapter;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
-    RecyclerView recysf ;
+    RecyclerView recysf, recyoutube ;
     Context context;
     ViewPager2 pager2 , recyth;
     ImageView home_search;
     MainActivity mainActivity = new MainActivity();
+
 
     public HomeFragment(Context context){
         this.context = context;
@@ -42,6 +45,8 @@ public class HomeFragment extends Fragment {
 
         recysf = rootView.findViewById(R.id.recysfzone1);
         recyth = rootView.findViewById(R.id.rectheme);
+        recyoutube = rootView.findViewById(R.id.youtubetip);
+
         //====================Recysfzone=====================================//
         recysf.findViewById(R.id.recysfzone1);
 
@@ -60,6 +65,27 @@ public class HomeFragment extends Fragment {
         );
         recysf.setLayoutManager(layoutManager1);
         recysf.setAdapter(adapter1);
+        //====================Recysfzone=====================================//
+
+        //=====================RecyclerCamTip========================================//
+        recyoutube.findViewById(R.id.youtubetip);
+
+        ArrayList<YouTubeTipRecDTO> list2 = new ArrayList<>();
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+
+
+        YouTubeTipRecAdapter adapter2 = new YouTubeTipRecAdapter(context, list2);
+
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(
+                context, RecyclerView.HORIZONTAL, false
+        );
+        recyoutube.setLayoutManager(layoutManager2);
+        recyoutube.setAdapter(adapter2);
+        //=====================RecyclerCamTip========================================//
 
         //=====================pagerTheme===================================//
         pager2 = rootView.findViewById(R.id.rectheme);
@@ -76,6 +102,20 @@ public class HomeFragment extends Fragment {
         pager2.setAdapter(adapter);
         //=====================pagerTheme===================================//
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         home_search = rootView.findViewById(R.id.home_search);
         home_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +126,8 @@ public class HomeFragment extends Fragment {
                 mainActivity.overridePendingTransition(R.anim.slide_right_enter, R.anim.slide_left_exit);
             }
         });
+
+
 
 
 

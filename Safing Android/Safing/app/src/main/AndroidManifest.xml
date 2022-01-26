@@ -57,18 +57,26 @@
         android:theme="@style/Theme.Safing"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.QNAActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TipActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.Product_Purchase_Activity"
             android:exported="false" />
         <activity
             android:name=".activity.Review_Image_Activity"
-            android:exported="false"
-            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
-        <activity
-            android:name=".activity.Product_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Product_Package_Activity"
-            android:exported="false" />
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
         <activity
             android:name=".activity.CamInfoActivity"
             android:exported="false" />
