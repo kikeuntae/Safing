@@ -288,5 +288,13 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/product_purchase_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/header_shop"
+        app:menu="@menu/header_menu_shop"
+        />
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -47,7 +47,7 @@ public class Product_Purchase_Fragment extends Fragment {
 
         product_purchase_tab1 = rootView.findViewById(R.id.product_purchase_tab1);
         toolbar = rootView.findViewById(R.id.product_purchase_toolbar);
-       // product_purchase_view = rootView.findViewById(R.id.product_purchase_view); //이부분 찾지를 못하는중~!
+        product_purchase_view = rootView.findViewById(R.id.product_purchase_view);
 
         mainActivity = (MainActivity) getActivity();
 

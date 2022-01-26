@@ -75,6 +75,9 @@
       <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../MiniProject_and/app/src/main/res/layout/griditem.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyVCharTalk/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyVCharTalk/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyVCharTalk/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/pager/Fragment1.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/pager/Fragment3.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../New03_RecyclerPager/app/src/main/java/com/example/new03_recyclerpager/pager/Pager2Adapter.java" afterDir="false" />
@@ -122,10 +125,10 @@
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/java/com/example/project3_allview/pager/Frag_pagerMain.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/frag_pagermain.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/activity/CreateActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/activity/LoginActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/activity/QNAActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/activity/SettingActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/CreateFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/LoginFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/QNAFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/SettingFragment.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/apple.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_signin_twitter.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/faq.png" afterDir="false" />
@@ -134,10 +137,10 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_1.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_2.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mypage_insert.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mypage_login.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mypage_qnaactivity.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mypage_setting.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_qna.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/insert_activity.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/AtakConn.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/AtaskConn.java" afterDir="false" />
@@ -362,7 +365,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_SELECTED" value="View" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_View_DIMENSIONS" value="1080&#10;1920" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Safing1" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -370,6 +373,9 @@
       <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\res\drawable" />
       <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\res\layout" />
       <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\java\com\example\safing\activity" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.safing.fragment" />
     </key>
   </component>
   <component name="RunManager">
@@ -460,7 +466,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/adapter/Moive_Adapter2.java</url>
-          <line>186</line>
+          <line>188</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

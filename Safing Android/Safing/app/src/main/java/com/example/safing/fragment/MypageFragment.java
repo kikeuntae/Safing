@@ -2,7 +2,6 @@ package com.example.safing.fragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.safing.R;
 import com.example.safing.activity.MainActivity;
-import com.example.safing.activity.QNAActivity;
-import com.example.safing.activity.SettingActivity;
 
 public class MypageFragment extends Fragment {
     Context context;
@@ -40,6 +37,8 @@ public class MypageFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_mypage, container, false);
 
+        mainActivity = (MainActivity) getActivity();
+
         mypage_setting = rootView.findViewById(R.id.mypage_setting);
         mypage_add = rootView.findViewById(R.id.mypage_add);
         mypage_login = rootView.findViewById(R.id.mypage_login);
@@ -51,7 +50,7 @@ public class MypageFragment extends Fragment {
             public void onClick(View v) {
                 mypage_login.setVisibility(View.GONE);
                 mypage_id.setVisibility(View.VISIBLE);
-
+                mainActivity.changeFragment(new LoginFragment(context));
             }
         });
 
@@ -60,16 +59,14 @@ public class MypageFragment extends Fragment {
         mypage_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, QNAActivity.class);
-                startActivity(intent);
+                mainActivity.changeFragment(new QNAFragment(context));
             }
         });
 
         mypage_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SettingActivity.class);
-                startActivity(intent);
+                mainActivity.changeFragment(new SettingFragment(context));
             }
         });
 
