@@ -57,19 +57,7 @@
         android:theme="@style/Theme.Safing"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activity.CreateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.QNAActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.LoginActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.TipActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.SettingActivity"
             android:exported="false" />
         <activity
             android:name=".activity.Product_Purchase_Activity"
