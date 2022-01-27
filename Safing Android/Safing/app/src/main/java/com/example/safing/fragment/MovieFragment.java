@@ -13,14 +13,18 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.safing.R;
 import com.example.safing.VO.Board_FileVO;
 import com.example.safing.activity.MainActivity;
-import com.example.safing.adapter.Moive_Adapter1;
+//import com.example.safing.adapter.Moive_Adapter1;
 import com.example.safing.adapter.Moive_Adapter2;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
 
 public class MovieFragment extends Fragment {
     Context context;
     TabLayout tab_layout;
     ViewPager2 pager2;
+    Moive_Adapter2 adapter;
+    int now_state = 0;
 
 
     public MovieFragment(Context context){
@@ -32,31 +36,45 @@ public class MovieFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_movie, container, false);
+
         tab_layout = rootView.findViewById(R.id.movie_tab);
         pager2 = rootView.findViewById(R.id.movie_pager);
 
         tab_layout.addTab(tab_layout.newTab().setText("감성"));
         tab_layout.addTab(tab_layout.newTab().setText("추천"));
 
-        Moive_Adapter1 adapter_pager1 = new Moive_Adapter1(context);
-        Moive_Adapter2 adapter_pager2 = new Moive_Adapter2(context);
+        ArrayList<Board_FileVO> videoItems  = new ArrayList<>();
+        adapter =new Moive_Adapter2(getContext() , videoItems);
 
-        adapter_pager1.addDto(new Board_FileVO(1,"아이디1","#태그1", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
-        adapter_pager1.addDto(new Board_FileVO(2,"아이디2","#태그2","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
-        adapter_pager1.addDto(new Board_FileVO(3,"아이디3","#태그3","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"));
-        adapter_pager1.addDto(new Board_FileVO(4,"아이디4","#태그4","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
-        adapter_pager1.addDto(new Board_FileVO(5,"아이디5","#태그5","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
-
-        adapter_pager2.addDto(new Board_FileVO(6,"아이디6","#태그6", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
-        adapter_pager2.addDto(new Board_FileVO(7,"아이디7","#태그7","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
-        adapter_pager2.addDto(new Board_FileVO(8,"아이디8","#태그8","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"));
-        adapter_pager2.addDto(new Board_FileVO(9,"아이디9","#태그9","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
-        adapter_pager2.addDto(new Board_FileVO(10,"아이디10","#태그10","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
+        videoItems.add(new Board_FileVO(1,"아이디1","#태그1", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
+        videoItems.add(new Board_FileVO(2,"아이디2","#태그2","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
+        videoItems.add(new Board_FileVO(3,"아이디3","#태그3","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"));
+        videoItems.add(new Board_FileVO(4,"아이디4","#태그4","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
+        videoItems.add(new Board_FileVO(5,"아이디5","#태그5","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
 
 
+        pager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                now_state = position;
+                adapter.setVideo(position);
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged(state);
+            }
+        });
 
         pager2.setOrientation(pager2.ORIENTATION_VERTICAL);
-        pager2.setAdapter(adapter_pager1);
+        pager2.setAdapter(adapter);
 
         tab_layout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -64,10 +82,10 @@ public class MovieFragment extends Fragment {
                 int position = tab.getPosition();
                 if(position == 0){
                     pager2.setOrientation(pager2.ORIENTATION_VERTICAL);
-                    pager2.setAdapter(adapter_pager1);
+                    pager2.setAdapter(adapter);
                 } else {
                     pager2.setOrientation(pager2.ORIENTATION_VERTICAL);
-                    pager2.setAdapter(adapter_pager2);
+                    pager2.setAdapter(adapter);
                 }
             }
 
@@ -80,6 +98,27 @@ public class MovieFragment extends Fragment {
 
             }
         });
+
+
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.setVideo(now_state);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        adapter.setVideo();
+    }
+
+    @Override
+    public void onDestroy() {
+
+        super.onDestroy();
+
     }
 }

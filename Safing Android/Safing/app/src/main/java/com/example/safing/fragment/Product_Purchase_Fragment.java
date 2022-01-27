@@ -2,8 +2,11 @@ package com.example.safing.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+<<<<<<< HEAD
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+=======
+>>>>>>> 기근태
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,13 +14,17 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+<<<<<<< HEAD
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+=======
+>>>>>>> 기근태
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -52,6 +59,24 @@ public class Product_Purchase_Fragment extends Fragment {
     RecyclerView product_purchase_rec1;
     ImageView product_purchase_toggle1, product_purchase_toggle2, product_purchase_toggle3, product_purchase_toggle4;
     LinearLayout product_purchase_updown1, product_purchase_updown2, product_purchase_updown3, product_purchase_updown4,product_purchase_updown5, product_purchase_updown6;
+=======
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.safing.R;
+import com.example.safing.activity.MainActivity;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
+
+
+public class Product_Purchase_Fragment extends Fragment {
+    Context context;
+    TabLayout product_purchase_tab1;
+    MainActivity mainActivity = new MainActivity();
+    Toolbar toolbar;
+    NavigationView product_purchase_view;
+>>>>>>> 기근태
 
 
     public Product_Purchase_Fragment(Context context){
@@ -70,6 +95,7 @@ public class Product_Purchase_Fragment extends Fragment {
         product_purchase_tab1 = rootView.findViewById(R.id.product_purchase_tab1);
         toolbar = rootView.findViewById(R.id.product_purchase_toolbar);
         product_purchase_view = rootView.findViewById(R.id.product_purchase_view);
+<<<<<<< HEAD
         product_purchase_rec1 = rootView.findViewById(R.id.product_purchase_rec1);
         product_purchase_toggle1 = rootView.findViewById(R.id.product_purchase_toggle1);
         product_purchase_toggle2 = rootView.findViewById(R.id.product_purchase_toggle2);
@@ -91,6 +117,10 @@ public class Product_Purchase_Fragment extends Fragment {
         toggleBtn(product_purchase_toggle3, rotate, product_purchase_updown3, isClick3);
         toggleBtn(product_purchase_toggle4, rotate, product_purchase_updown4, isClick4);
 
+=======
+
+        mainActivity = (MainActivity) getActivity();
+>>>>>>> 기근태
 
         //========= 햄버커 기능 ==============
 
@@ -156,16 +186,20 @@ public class Product_Purchase_Fragment extends Fragment {
             }
         });
 
+<<<<<<< HEAD
 
 
         setRec1();
 
 
+=======
+>>>>>>> 기근태
         return rootView;
     }
     public void changeFragment(Fragment fragment){
         mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.product_purchase_container , fragment).commit();
     }
+<<<<<<< HEAD
 
     public void setRec1(){
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
@@ -192,4 +226,6 @@ public class Product_Purchase_Fragment extends Fragment {
     }
 
 
+=======
+>>>>>>> 기근태
 }

@@ -53,6 +53,7 @@
                 android:fontFamily="@font/ibmplexsanslight"/>
             <EditText
                 android:id="@+id/address_defualt_tv2"
+<<<<<<< HEAD
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -93,6 +94,11 @@
                 android:layout_height="match_parent"
                 android:textColor="#8C8A8A"
                 android:layout_weight="1"
+=======
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#8C8A8A"
+>>>>>>> 기근태
                 android:backgroundTint="#85897B"
                 android:fontFamily="@font/ibmplexsanslight"/>
         </LinearLayout>
@@ -112,7 +118,11 @@
                 android:textColor="#000000"
                 android:fontFamily="@font/ibmplexsanslight"/>
             <EditText
+<<<<<<< HEAD
                 android:id="@+id/address_defualt_tv5"
+=======
+                android:id="@+id/address_defualt_tv3"
+>>>>>>> 기근태
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -170,7 +180,11 @@
                 android:backgroundTint="#85897B"
                 android:fontFamily="@font/ibmplexsanslight"/>
             <EditText
+<<<<<<< HEAD
                 android:id="@+id/address_defualt_tv6"
+=======
+                android:id="@+id/address_defualt_tv5"
+>>>>>>> 기근태
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -191,7 +205,11 @@
                 android:textColor="#000000"
                 android:fontFamily="@font/ibmplexsanslight"/>
             <EditText
+<<<<<<< HEAD
                 android:id="@+id/address_defualt_tv7"
+=======
+                android:id="@+id/address_defualt_tv6"
+>>>>>>> 기근태
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#8C8A8A"
