@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.safing.R;
-import com.example.safing.activity.CamInfoActivity;
 import com.example.safing.activity.ThemePagerActivity;
 import com.example.safing.DTO.SafeZoneRecDTO;
 
@@ -62,7 +61,7 @@ public class SafeZoneRecAdapter extends RecyclerView.Adapter<SafeZoneRecAdapter.
             sfimgv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, CamInfoActivity.class);
+                    Intent intent = new Intent(context, ThemePagerActivity.class);
                     context.startActivity(intent);
 
                 }

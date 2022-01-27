@@ -65,7 +65,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
-<<<<<<< HEAD
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -77,16 +76,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-=======
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
->>>>>>> 기근태
                                 android:paddingBottom="5dp"
                                 android:text="배송지"
                                 android:textSize="20dp"
                                 android:paddingLeft="10dp"
-<<<<<<< HEAD
                                 android:textColor="#000000"/>
                             <ImageView
                                 android:id="@+id/product_purchase_toggle1"
@@ -101,11 +94,6 @@
                                 android:layout_height="wrap_content"
                                 android:background="#F9F9FB"
                                 android:orientation="vertical">
-=======
-                                android:layout_marginHorizontal="20dp"
-                                style="@style/text_purchase1"
-                                android:layout_marginVertical="5dp"/>
->>>>>>> 기근태
                             <com.google.android.material.tabs.TabLayout
                                 android:layout_marginTop="10dp"
                                 android:id="@+id/product_purchase_tab1"
@@ -124,7 +112,6 @@
                                 android:layout_marginHorizontal="20dp"
                                 android:id="@+id/product_purchase_container"
                                 android:layout_marginBottom="20dp"/>
-<<<<<<< HEAD
                             </LinearLayout>
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -151,24 +138,10 @@
                             </LinearLayout>
                             <LinearLayout
                                 android:id="@+id/product_purchase_updown2"
-=======
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingBottom="5dp"
-                                android:text="주문자"
-                                android:textSize="20dp"
-                                android:paddingLeft="10dp"
-                                android:layout_marginHorizontal="20dp"
-                                style="@style/text_purchase1"
-                                android:layout_marginVertical="5dp"/>
-                            <LinearLayout
->>>>>>> 기근태
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:layout_marginVertical="10dp"
-<<<<<<< HEAD
                                 android:layout_marginHorizontal="20dp"
                                 android:gravity="center">
                                 <LinearLayout
@@ -213,6 +186,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:textColor="#8C8A8A"
+                                    android:inputType="number"
                                     android:backgroundTint="#85897B"
                                     android:fontFamily="@font/ibmplexsanslight"/>
                                 <TextView
@@ -232,6 +206,7 @@
                                     android:textColor="#8C8A8A"
                                     android:layout_weight="1"
                                     android:backgroundTint="#85897B"
+                                    android:inputType="number"
                                     android:fontFamily="@font/ibmplexsanslight"/>
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -249,6 +224,7 @@
                                     android:layout_height="match_parent"
                                     android:textColor="#8C8A8A"
                                     android:layout_weight="1"
+                                    android:inputType="number"
                                     android:backgroundTint="#85897B"
                                     android:fontFamily="@font/ibmplexsanslight"/>
                                 </LinearLayout>
@@ -282,27 +258,11 @@
                             android:layout_height="wrap_content"
                             android:background="#F9F9FB"
                             android:orientation="vertical">
-=======
-                                android:gravity="center">
-
-                            </LinearLayout>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingBottom="5dp"
-                                android:text="주문상품"
-                                android:textSize="20dp"
-                                android:paddingLeft="10dp"
-                                android:layout_marginHorizontal="20dp"
-                                style="@style/text_purchase1"
-                                android:layout_marginVertical="5dp"/>
->>>>>>> 기근태
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/product_purchase_rec1"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginBottom="30dp"
-<<<<<<< HEAD
                                 android:layout_marginHorizontal="20dp"
                                 android:layout_marginTop="10dp"/>
                         </LinearLayout>
@@ -335,25 +295,11 @@
                             android:layout_height="wrap_content"
                             android:background="#F9F9FB"
                             android:orientation="vertical">
-=======
-                                android:layout_marginHorizontal="20dp"/>
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingBottom="5dp"
-                                android:text="결제수단"
-                                android:textSize="20dp"
-                                android:paddingLeft="10dp"
-                                android:layout_marginHorizontal="20dp"
-                                style="@style/text_purchase1"
-                                android:layout_marginVertical="5dp"/>
->>>>>>> 기근태
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
                                 android:layout_marginVertical="10dp"
-<<<<<<< HEAD
                                 android:gravity="center"
                                 android:layout_marginHorizontal="20dp">
                                 <LinearLayout
@@ -497,86 +443,270 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical"
-                                    android:layout_marginVertical="10dp"
+                                    android:layout_marginVertical="20dp"
                                     android:layout_marginHorizontal="20dp"
-                                    android:gravity="center">
+                                    android:gravity="center"
+                                    android:background="@drawable/button_round8"
+                                    android:weightSum="7"
+                                    android:visibility="gone">
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="0dp"
+                                        android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:orientation="horizontal"
-                                        android:layout_marginBottom="10dp">
+                                        android:gravity="center_horizontal"
+                                        android:layout_marginVertical="10dp">
+                                        <CheckBox
+                                            android:id="@+id/product_purchase_box3"
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:buttonTint="#735340"
+                                            android:fontFamily="@font/nanumgothic"
+                                            android:scaleX="1.3"
+                                            android:scaleY="1.3"
+                                            android:textSize="15dp" />
                                         <TextView
                                             android:layout_width="wrap_content"
-                                            android:layout_height="match_parent"
-                                            android:text="예금주"
-                                            android:textStyle="bold"
-                                            android:gravity="center_vertical|end"
-                                            android:textColor="#000000"
-                                            android:layout_marginRight="20dp"
-                                            android:layout_marginLeft="13dp"
-                                            android:fontFamily="@font/ibmplexsanslight"/>
-                                        <TextView
-                                            android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:text="(주) Safing"
-                                            android:gravity="center_vertical"
+                                            android:paddingBottom="5dp"
+                                            android:text="일반카드"
                                             android:textColor="#000000"
-                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                            android:fontFamily="@font/nanumgothic"
+                                            android:layout_marginLeft="5dp"/>
+                                        <CheckBox
+                                            android:id="@+id/product_purchase_box4"
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:buttonTint="#735340"
+                                            android:fontFamily="@font/nanumgothic"
+                                            android:scaleX="1.3"
+                                            android:scaleY="1.3"
+                                            android:textSize="15dp"
+                                            android:layout_marginLeft="15dp"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:paddingBottom="5dp"
+                                            android:text="법인카드"
+                                            android:textColor="#000000"
+                                            android:fontFamily="@font/nanumgothic"
+                                            android:layout_marginLeft="5dp"/>
                                     </LinearLayout>
                                     <LinearLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="0dp"
-                                        android:layout_weight="1"
-                                        android:orientation="horizontal"
-                                        android:layout_marginBottom="10dp">
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="match_parent"
-                                            android:text="은행"
-                                            android:textStyle="bold"
-                                            android:gravity="center_vertical|end"
-                                            android:textColor="#000000"
-                                            android:layout_marginLeft="26dp"
-                                            android:layout_marginRight="20dp"
-                                            android:fontFamily="@font/ibmplexsanslight"/>
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:text="농협"
-                                            android:gravity="center_vertical"
-                                            android:textColor="#000000"
-                                            android:fontFamily="@font/ibmplexsanslight"/>
-                                    </LinearLayout>
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="0dp"
+                                        android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:orientation="horizontal">
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="match_parent"
-                                            android:text="계좌번호"
+                                            android:text="카드번호"
                                             android:textStyle="bold"
-                                            android:gravity="center_vertical|end"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="13dp"
+                                            android:gravity="center_vertical"
                                             android:textColor="#000000"
-                                            android:layout_marginRight="20dp"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <EditText
+                                            android:id="@+id/product_purchase_tv5"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:inputType="number"
+                                            android:textColor="#8C8A8A"
+                                            android:backgroundTint="#85897B"
                                             android:fontFamily="@font/ibmplexsanslight"/>
                                         <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:text="312 0184 0945 01"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:text="-"
+                                            android:textStyle="bold"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="13dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="#000000"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <EditText
+                                            android:id="@+id/product_purchase_tv6"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:textColor="#8C8A8A"
+                                            android:inputType="number"
+                                            android:layout_weight="1"
+                                            android:backgroundTint="#85897B"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:text="-"
+                                            android:textStyle="bold"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="13dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="#000000"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <EditText
+                                            android:id="@+id/product_purchase_tv7"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:textColor="#8C8A8A"
+                                            android:layout_weight="1"
+                                            android:inputType="number"
+                                            android:backgroundTint="#85897B"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:text="-"
+                                            android:textStyle="bold"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="13dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="#000000"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <EditText
+                                            android:id="@+id/product_purchase_tv8"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:textColor="#8C8A8A"
+                                            android:inputType="number"
+                                            android:layout_weight="1"
+                                            android:backgroundTint="#85897B"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal">
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:text="유효기간"
+                                            android:textStyle="bold"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="13dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="#000000"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <EditText
+                                            android:id="@+id/product_purchase_tv9"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:textColor="#8C8A8A"
+                                            android:layout_weight="1"
+                                            android:inputType="number"
+                                            android:backgroundTint="#85897B"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:text="월"
+                                            android:textStyle="bold"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="13dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="#000000"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <EditText
+                                            android:id="@+id/product_purchase_tv10"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:textColor="#8C8A8A"
+                                            android:inputType="number"
+                                            android:layout_weight="1"
+                                            android:backgroundTint="#85897B"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:text="년"
+                                            android:textStyle="bold"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="13dp"
                                             android:gravity="center_vertical"
                                             android:textColor="#000000"
                                             android:fontFamily="@font/ibmplexsanslight"/>
                                     </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal">
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:text="비밀번호 앞 2자리"
+                                            android:textStyle="bold"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="13dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="#000000"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <EditText
+                                            android:id="@+id/product_purchase_tv11"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:textColor="#8C8A8A"
+                                            android:inputType="number"
+                                            android:layout_weight="1"
+                                            android:backgroundTint="#85897B"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal">
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:text="생년월일 6자리"
+                                            android:textStyle="bold"
+                                            android:layout_marginRight="10dp"
+                                            android:layout_marginLeft="13dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="#000000"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                        <EditText
+                                            android:id="@+id/product_purchase_tv12"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="match_parent"
+                                            android:textColor="#8C8A8A"
+                                            android:inputType="number"
+                                            android:layout_weight="1"
+                                            android:backgroundTint="#85897B"
+                                            android:fontFamily="@font/ibmplexsanslight"/>
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal"
+                                        android:gravity="center"
+                                        android:layout_marginVertical="20dp">
+                                        <CheckBox
+                                            android:id="@+id/product_purchase_box5"
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:buttonTint="#735340"
+                                            android:fontFamily="@font/nanumgothic"
+                                            android:scaleX="1.3"
+                                            android:scaleY="1.3"
+                                            android:textSize="15dp"
+                                            android:layout_marginLeft="15dp"/>
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:paddingBottom="5dp"
+                                            android:text="자주쓰는 카드등록"
+                                            android:textColor="#000000"
+                                            android:fontFamily="@font/nanumgothic"
+                                            android:layout_marginLeft="5dp"/>
+                                    </LinearLayout>
                                 </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
-=======
-                                android:gravity="center">
-                            </LinearLayout>
->>>>>>> 기근태
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -594,11 +724,7 @@
                                 android:layout_marginVertical="10dp"
                                 android:gravity="center">
                                 <CheckBox
-<<<<<<< HEAD
-                                    android:id="@+id/product_purchase_box3"
-=======
-                                    android:id="@+id/product_purchase_box1"
->>>>>>> 기근태
+                                    android:id="@+id/product_purchase_box6"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
                                     android:layout_marginLeft="40dp"
@@ -613,7 +739,7 @@
                                     android:layout_height="wrap_content"
                                     android:paddingBottom="5dp"
                                     android:textSize="15dp"
-                                    android:text="결제 내여을 확인 하였으며 동의합니다."
+                                    android:text="결제 내역을 확인 하였으며 동의합니다."
                                     android:textColor="#000000"
                                     android:fontFamily="@font/nanumgothic"
                                     android:layout_marginLeft="5dp"
@@ -711,7 +837,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="center">
                 <Button
-                    android:id="@+id/product_purchase_btn2"
+                    android:id="@+id/product_purchase_btn1"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:text="결제하기"
@@ -725,9 +851,6 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-<<<<<<< HEAD
-
-=======
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/product_purchase_view"
         android:layout_width="match_parent"
@@ -737,5 +860,4 @@
         app:headerLayout="@layout/header_shop"
         app:menu="@menu/header_menu_shop"
         />
->>>>>>> 기근태
 </androidx.drawerlayout.widget.DrawerLayout>
