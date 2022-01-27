@@ -25,6 +25,8 @@ import com.example.safing.R;
 import com.example.safing.activity.MainActivity;
 import com.example.safing.adapter.Shop_Rec_Adapter;
 import com.example.safing.adapter.Shop_Package_Apdater;
+import com.example.safing.async.OnItemClick_Package_Listener;
+import com.example.safing.async.OnItemClick_product_Listener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -39,6 +41,8 @@ public class ShopFragment extends Fragment{
     SwipeRefreshLayout swipe;
     NavigationView shop_view;
     MainActivity mainActivity = new MainActivity();
+    Shop_Package_Apdater adapter_rec1;
+    Shop_Rec_Adapter adapter_rec2;
 
     public ShopFragment(Context context){
         this.context = context;
@@ -147,7 +151,7 @@ public class ShopFragment extends Fragment{
                 if(item.getItemId() == R.id.menu_cart){
                     mainActivity.changeFragment(new Product_Cart_Fragment(context));
                 }else if(item.getItemId() == R.id.menu_purchasehistory){
-                    mainActivity.changeFragment(new Product_Cart_Fragment(context));
+                    mainActivity.changeFragment(new Product_PurchaseHistory_Fragment(context));
                 }else if(item.getItemId() == R.id.menu_customerservice){
                 }
                 return false;
@@ -169,15 +173,31 @@ public class ShopFragment extends Fragment{
 
 
         shop_rec1.setLayoutManager(manager);
-        Shop_Package_Apdater adapter_rec1 = new Shop_Package_Apdater(context, list);
+        adapter_rec1 = new Shop_Package_Apdater(context, list);
         shop_rec1.setAdapter(adapter_rec1);
+
+        adapter_rec1.setOnItemClickListener(new OnItemClick_Package_Listener() {
+            @Override
+            public void onItemClick_package(Shop_Package_Apdater.ViewHolder holderm, View view, int position) {
+                mainActivity.changeFragment(new Product_Package_Fragment(context));
+            }
+        });
+
+
     }
     public void setRec2(){
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
         //ArrayList<ProductDTO> list = new ArrayList<>();
 
         shop_rec2.setLayoutManager(manager);
-        Shop_Rec_Adapter adapter_rec2 = new Shop_Rec_Adapter(context);
+        adapter_rec2 = new Shop_Rec_Adapter(context);
         shop_rec2.setAdapter(adapter_rec2);
+
+        adapter_rec2.setOnItemClickListener(new OnItemClick_product_Listener() {
+            @Override
+            public void onItemClick_product(Shop_Rec_Adapter.ViewHolder holderm, View view, int position) {
+                mainActivity.changeFragment(new Product_Fragment(context));
+            }
+        });
     }
 }

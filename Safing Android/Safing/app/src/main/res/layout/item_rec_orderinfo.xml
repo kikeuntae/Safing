@@ -25,7 +25,9 @@
         android:weightSum="4">
 
         <CheckBox
+
             android:id="@+id/chbox"
+
             android:layout_width="30dp"
             android:layout_height="30dp" />
 
@@ -35,7 +37,9 @@
             app:cardCornerRadius="5dp">
 
             <ImageView
+
                 android:id="@+id/item_product_cart_rec_img"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/sfguard" />
@@ -54,7 +58,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+
                     android:id="@+id/item_product_cart_rec_tv1"
+
                     android:layout_width="200dp"
                     android:layout_height="40dp"
                     android:textSize="15dp"
@@ -63,7 +69,9 @@
                     android:textStyle="bold" />
 
                 <ImageView
+
                     android:id="@+id/ivcancel"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/cancel"></ImageView>
@@ -75,7 +83,9 @@
                 android:orientation="horizontal">
 
                 <TextView
+
                     android:id="@+id/item_product_cart_rec_tv2"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="상품 가격 들어올곳"
@@ -117,7 +127,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         <TextView
+
             android:id="@+id/item_product_cart_rec_tv3"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="상품종류"
@@ -135,7 +147,9 @@
 
         </TextView>
             <TextView
+
                 android:id="@+id/item_product_cart_rec_tv4"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="상품이름"
@@ -146,6 +160,9 @@
             </TextView>
             <TextView
 
+
+
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" / "
@@ -153,6 +170,17 @@
                 >
 
             </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상품개수 "
+                android:textColor="#477F83"
+                android:textStyle="bold"
+                >
+
+            </TextView>
+
 
             <TextView
                 android:id="@+id/item_product_cart_rec_tv5"
@@ -188,7 +216,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="상품금액"
@@ -199,6 +226,7 @@
             </TextView>
             <TextView
                 android:id="@+id/item_product_cart_rec_tv6"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="가격"
@@ -210,7 +238,6 @@
 
             </TextView>
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -228,7 +255,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="배송비"
@@ -238,7 +264,6 @@
 
             </TextView>
             <TextView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="무료"
