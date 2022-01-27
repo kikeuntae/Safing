@@ -2,7 +2,10 @@ package com.example.safing.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+<<<<<<< HEAD
 import android.media.Image;
+=======
+>>>>>>> origin/main
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +43,11 @@ public class MypageFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_mypage, container, false);
 
+<<<<<<< HEAD
+=======
+        mainActivity = (MainActivity) getActivity();
+
+>>>>>>> origin/main
         mypage_setting = rootView.findViewById(R.id.mypage_setting);
         mypage_add = rootView.findViewById(R.id.mypage_add);
         mypage_login = rootView.findViewById(R.id.mypage_login);
@@ -51,7 +59,11 @@ public class MypageFragment extends Fragment {
             public void onClick(View v) {
                 mypage_login.setVisibility(View.GONE);
                 mypage_id.setVisibility(View.VISIBLE);
+<<<<<<< HEAD
 
+=======
+                mainActivity.changeFragment(new LoginFragment(context));
+>>>>>>> origin/main
             }
         });
 
@@ -60,16 +72,24 @@ public class MypageFragment extends Fragment {
         mypage_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 Intent intent = new Intent(context, QNAActivity.class);
                 startActivity(intent);
+=======
+                mainActivity.changeFragment(new QNAFragment(context));
+>>>>>>> origin/main
             }
         });
 
         mypage_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 Intent intent = new Intent(context, SettingActivity.class);
                 startActivity(intent);
+=======
+                mainActivity.changeFragment(new SettingFragment(context));
+>>>>>>> origin/main
             }
         });
 

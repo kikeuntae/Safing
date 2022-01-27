@@ -43,6 +43,7 @@ public class HomeFragment extends Fragment {
     LinearLayout youtubetip1;
 
 
+
     public HomeFragment(Context context){
         this.context = context;
     }
@@ -56,11 +57,14 @@ public class HomeFragment extends Fragment {
         recysf = rootView.findViewById(R.id.recysfzone1);
         recyth = rootView.findViewById(R.id.rectheme);
         recyoutube = rootView.findViewById(R.id.youtubetip);
+<<<<<<< HEAD
         sguse = rootView.findViewById(R.id.sguse);
         pager2 = rootView.findViewById(R.id.rectheme);
         youtubetip1 = rootView.findViewById(R.id.youtubetip1);
         home_search = rootView.findViewById(R.id.home_search);
         packgemore = rootView.findViewById(R.id.packgemore);
+=======
+>>>>>>> origin/main
 
         //====================Recysfzone=====================================//
         recysf.findViewById(R.id.recysfzone1);
@@ -120,6 +124,7 @@ public class HomeFragment extends Fragment {
 
 
 
+<<<<<<< HEAD
         sguse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,6 +134,20 @@ public class HomeFragment extends Fragment {
         });
 
 
+=======
+
+
+
+
+
+
+
+
+
+
+
+        home_search = rootView.findViewById(R.id.home_search);
+>>>>>>> origin/main
         home_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,6 +166,8 @@ public class HomeFragment extends Fragment {
                 mainActivity.changeFragment(new Product_Package_Fragment(context));
             }
         });
+
+
 
 
 
