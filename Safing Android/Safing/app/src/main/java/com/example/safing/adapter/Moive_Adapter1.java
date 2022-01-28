@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 기근태
 package com.example.safing.adapter;
 
 import android.content.Context;

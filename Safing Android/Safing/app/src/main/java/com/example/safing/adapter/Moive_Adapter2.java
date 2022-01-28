@@ -29,6 +29,7 @@ import com.google.android.exoplayer2.util.Util;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD
 public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHolder> {
     boolean speaker_change= true;
     boolean heart_change= true;
@@ -49,6 +50,12 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
 >>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
 >>>>>>> origin/main
 >>>>>>> origin/기근태
+=======
+public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.VH> {
+    boolean speaker_change= true;
+    boolean heart_change= true;
+
+>>>>>>> 기근태
     Context context;
     LayoutInflater inflater;
     DataSource.Factory factory;
@@ -75,6 +82,7 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
     }
 
     @Override
+<<<<<<< HEAD
     public void onBindViewHolder(@NonNull Moive_Adapter2.ViewHolder holder, int position) {
         Board_FileVO videoItem = videoItems.get(position);
         holder.setDto(videoItem);
@@ -101,6 +109,10 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
 
         //prepare
         holder.player.prepare(mediaSource, true, false);
+=======
+    public void onBindViewHolder(@NonNull VH holder, int position) {
+        holder.bind(holder , position);
+>>>>>>> 기근태
     }
 
     @Override
@@ -108,6 +120,7 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
         return videoItems.size();
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView movie_pager_imgbtn1, movie_pager_imgbtn2 , movie_pager_imgbtn3 , movie_pager_imgbtn4;
@@ -123,84 +136,24 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
             if (videoItems.get(i).getPlayer() != null) {
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 기근태
     public void setVideo(){
         for(int i = 0 ; i<videoItems.size(); i++){
             if(videoItems.get(i).getPlayer() != null){
-=======
-    public void setVideo() {
-        for (int i = 0; i < videoItems.size(); i++) {
-            if (videoItems.get(i).getPlayer() != null) {
->>>>>>> origin/main
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
->>>>>>> origin/main
-                videoItems.get(i).getPlayer().setPlayWhenReady(false);
-                videoItems.get(i).getExoPlayerView().onPause();
-            }
-        }
-    }
-
-<<<<<<< HEAD
-    public void setVideo(int nowstate , int position) {
-        if(videoItems.get(position).getPlayer() != null){
-=======
-<<<<<<< HEAD
-    public void setVideo(int nowstate, int position) {
-        if (videoItems.get(position).getPlayer() != null) {
-=======
-<<<<<<< HEAD
-    public void setVideo(int nowstate , int position) {
-        if(videoItems.get(position).getPlayer() != null){
-=======
-    public void setVideo(int nowstate, int position) {
-        if (videoItems.get(position).getPlayer() != null) {
->>>>>>> origin/main
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
->>>>>>> origin/main
-            videoItems.get(nowstate).getExoPlayerView().onPause();
-            videoItems.get(nowstate).getPlayer().setPlayWhenReady(false);
-
-        }
-    }
-
-    public void setVideo(int position) {
-<<<<<<< HEAD
-        for(int i = 0 ; i<videoItems.size(); i++){
-            if(i != position && videoItems.get(i).getPlayer() != null ){
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        for(int i = 0 ; i<videoItems.size(); i++){
-            if(i != position && videoItems.get(i).getPlayer() != null ){
                 videoItems.get(i).getPlayer().setPlayWhenReady(false);
                 videoItems.get(i).getExoPlayerView().onPause();
             }else if(i == position && videoItems.get(i).getPlayer() != null){
                 videoItems.get(position).getExoPlayerView().onResume();
                 videoItems.get(position).getPlayer().setPlayWhenReady(true);
-=======
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
-        for (int i = 0; i < videoItems.size(); i++) {
-            if (i != position && videoItems.get(i).getPlayer() != null) {
->>>>>>> origin/main
-                videoItems.get(i).getPlayer().setPlayWhenReady(false);
-                videoItems.get(i).getExoPlayerView().onPause();
-            }else if(i == position && videoItems.get(i).getPlayer() != null){
-                videoItems.get(position).getExoPlayerView().onResume();
-                videoItems.get(position).getPlayer().setPlayWhenReady(true);
-<<<<<<< HEAD
-=======
+
                 speaker_change = true;
-<<<<<<< HEAD
-=======
->>>>>>> origin/main
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
->>>>>>> origin/main
             }
         }
-
     }
 
 
+<<<<<<< HEAD
     //inner class..
     class VH extends RecyclerView.ViewHolder {
 <<<<<<< HEAD
@@ -256,33 +209,22 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
                     }
                 }
             });
+=======
+//inner class..
+class VH extends RecyclerView.ViewHolder {
+    ImageView movie_pager_imgbtn1, movie_pager_imgbtn2 , movie_pager_imgbtn3 , movie_pager_imgbtn4;
+    TextView movie_pager_tv1, movie_pager_tv2, movie_pager_tv3;
+>>>>>>> 기근태
 
-            movie_pager_imgbtn2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+    private PlayerView exoPlayerView;
+    private SimpleExoPlayer player;
 
-                }
-            });
+    public VH(@NonNull View itemView) {
+        super(itemView);
 
-            movie_pager_imgbtn3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(heart_change== true) {
-                        Toast.makeText(context, "좋아요", Toast.LENGTH_SHORT).show();
-                        movie_pager_imgbtn3.setImageResource(R.drawable.heart2);
-                        heart_change= false;
-                    }else {
-                        Toast.makeText(context, "좋아요 취소", Toast.LENGTH_SHORT).show();
-                        movie_pager_imgbtn3.setImageResource(R.drawable.heart1);
-                        heart_change= true;
-                    }
-                }
-            });
+        exoPlayerView = itemView.findViewById(R.id.exoplayerview);
 
-            movie_pager_imgbtn4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
+<<<<<<< HEAD
                 }
             });
         }//public ViewHolder
@@ -290,10 +232,21 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
             if (player == null) {
 
                 player = ExoPlayerFactory.newSimpleInstance(context);
+=======
+        movie_pager_imgbtn1 = itemView.findViewById(R.id.movie_pager_imgbtn1);
+        movie_pager_imgbtn2 = itemView.findViewById(R.id.movie_pager_imgbtn2);
+        movie_pager_imgbtn3 = itemView.findViewById(R.id.movie_pager_imgbtn3);
+        movie_pager_imgbtn4 = itemView.findViewById(R.id.movie_pager_imgbtn4);
+
+        movie_pager_tv1 = itemView.findViewById(R.id.movie_pager_tv1);
+        movie_pager_tv2 = itemView.findViewById(R.id.movie_pager_tv2);
+        movie_pager_tv3 = itemView.findViewById(R.id.movie_pager_tv3);
+>>>>>>> 기근태
 
                 //플레이어 연결
                 exoPlayerView.setPlayer(player);
 
+<<<<<<< HEAD
                 //컨트롤러 없애기
                 //exoPlayerView.setUseController(false);
 
@@ -313,23 +266,26 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
                 MediaSource mediaSource = buildMediaSource(Uri.parse(videoUrl));
                 videoItem.getPlayer().prepare(mediaSource, true, false);
                 videoItem.getPlayer().setPlayWhenReady(true);
-            }
-        }
-
 =======
+        movie_pager_imgbtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(speaker_change== true) {
+                    Toast.makeText(context, "1번 아이콘 음량 0만들기", Toast.LENGTH_SHORT).show();
+                    movie_pager_imgbtn1.setImageResource(R.drawable.mute);
+                    player.setVolume(0);
+                    speaker_change= false;
+                }else {
+                    Toast.makeText(context, "1번 변경 음량 100 만들기", Toast.LENGTH_SHORT).show();
+                    movie_pager_imgbtn1.setImageResource(R.drawable.speaker);
+                    player.setVolume(100);
+                    speaker_change= true;
+                }
+>>>>>>> 기근태
+            }
+        });
+
 <<<<<<< HEAD
-
-
-
-        } // public VH
-
-
-        public void bind(@NonNull VH holder, int position){
-            Board_FileVO videoItem = videoItems.get(position);
-            if(videoItem.getPlayer() == null ) {
-                videoItem.setPlayer(ExoPlayerFactory.newSimpleInstance(context));
-                videoItem.setExoPlayerView(itemView.findViewById(R.id.exoplayerview));
-
 =======
 >>>>>>> origin/기근태
 
@@ -338,6 +294,37 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
             String sample = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
             MediaSource mediaSource = buildMediaSource(Uri.parse(sample));
+=======
+        movie_pager_imgbtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        movie_pager_imgbtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(heart_change== true) {
+                    Toast.makeText(context, "좋아요", Toast.LENGTH_SHORT).show();
+                    movie_pager_imgbtn3.setImageResource(R.drawable.heart2);
+                    heart_change= false;
+                }else {
+                    Toast.makeText(context, "좋아요 취소", Toast.LENGTH_SHORT).show();
+                    movie_pager_imgbtn3.setImageResource(R.drawable.heart1);
+                    heart_change= true;
+                }
+            }
+        });
+
+        movie_pager_imgbtn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    } // public VH
+>>>>>>> 기근태
 
             //prepare
             player.prepare(mediaSource, true, false);
@@ -349,6 +336,7 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
 
             String userAgent = Util.getUserAgent(context, "blackJin");
 
+<<<<<<< HEAD
             if (uri.getLastPathSegment().contains("mp3") || uri.getLastPathSegment().contains("mp4")) {
 
                 return new ExtractorMediaSource.Factory(new DefaultHttpDataSourceFactory(userAgent))
@@ -371,6 +359,32 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
 =======
 >>>>>>> origin/main
 >>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+=======
+                holder.movie_pager_imgbtn1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (speaker_change == true) {
+                            Toast.makeText(context, "1번 아이콘 음량 0만들기", Toast.LENGTH_SHORT).show();
+                            movie_pager_imgbtn1.setImageResource(R.drawable.mute);
+                            videoItem.getPlayer().setVolume(0);
+                            speaker_change = false;
+                        } else {
+                            Toast.makeText(context, "1번 변경 음량 100 만들기", Toast.LENGTH_SHORT).show();
+                            movie_pager_imgbtn1.setImageResource(R.drawable.speaker);
+                            videoItem.getPlayer().setVolume(100);
+                            speaker_change = true;
+                        }
+                    }
+                });
+
+                holder.setDto(videoItem);
+                String videoUrl = videoItem.getBoard_file_path();
+                MediaSource mediaSource = buildMediaSource(Uri.parse(videoUrl));
+                videoItem.getPlayer().prepare(mediaSource, true, false);
+                videoItem.getPlayer().setPlayWhenReady(true);
+            }
+        }
+>>>>>>> 기근태
 
 
 >>>>>>> origin/기근태
@@ -389,6 +403,7 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
        ViewHolder viewHolder = (ViewHolder) holder;
 =======
     } // class VH
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -422,3 +437,5 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.ViewHold
 >>>>>>> origin/main
 }
 >>>>>>> origin/기근태
+=======
+>>>>>>> 기근태

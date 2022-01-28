@@ -95,20 +95,23 @@ public class Producdt_Review_Apdater extends RecyclerView.Adapter<Producdt_Revie
                     if(like_change== false) {
                         Toast.makeText(context, "좋아요", Toast.LENGTH_SHORT).show();
 <<<<<<< HEAD
+<<<<<<< HEAD
                         image1.setBounds(0,3,54,60);
 =======
 <<<<<<< HEAD
                         item_product_review_btn.setCompoundDrawables(image2, null,null,null);
 =======
+=======
+>>>>>>> 기근태
                         image1.setBounds(0,3,54,60);
-                        item_product_review_btn.setCompoundDrawables(image2, null,null,null);
+                        item_product_review_btn.setCompoundDrawables(image1, null,null,null);
                         like_change= true;
                     }else {
                         Toast.makeText(context, "좋아요 취소", Toast.LENGTH_SHORT).show();
                         image2.setBounds(0,3,54,60);
-                        item_product_review_btn.setCompoundDrawables(image1, null,null,null);
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+                        item_product_review_btn.setCompoundDrawables(image2, null,null,null);
                         like_change= false;
+<<<<<<< HEAD
                     }else {
                         Toast.makeText(context, "좋아요 취소", Toast.LENGTH_SHORT).show();
 >>>>>>> origin/기근태
@@ -119,6 +122,8 @@ public class Producdt_Review_Apdater extends RecyclerView.Adapter<Producdt_Revie
                         image2.setBounds(0,3,54,60);
                         item_product_review_btn.setCompoundDrawables(image2, null,null,null);
                         like_change= false;
+=======
+>>>>>>> 기근태
                     }
                 }
             });

@@ -58,16 +58,18 @@
         android:usesCleartextTraffic="true">
         <activity
 <<<<<<< HEAD
+<<<<<<< HEAD
             android:name=".activity.Purchase_Result_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 기근태
             android:name=".activity.Purchase_Result_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
->>>>>>> 0224163513c5dfc92ded3bbff05e0aec90f76030
             android:name=".activity.CreateActivity"
             android:exported="false" />
         <activity
@@ -79,15 +81,13 @@
         <activity
             android:name=".activity.TipActivity"
             android:exported="false" />
-<<<<<<< HEAD
-=======
         <activity
             android:name=".activity.Review_Image_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
->>>>>>> 0224163513c5dfc92ded3bbff05e0aec90f76030
         <activity
             android:name=".activity.SettingActivity"
             android:exported="false" />
+<<<<<<< HEAD
 =======
             android:name=".activity.TipActivity"
             android:exported="false" />
@@ -136,8 +136,9 @@
         <activity
             android:name=".activity.Review_Image_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
-        <activity
+=======
 >>>>>>> 기근태
+        <activity
             android:name=".activity.CamInfoActivity"
             android:exported="false" />
         <activity
