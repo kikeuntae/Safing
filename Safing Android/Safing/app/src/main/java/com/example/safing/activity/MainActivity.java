@@ -17,6 +17,8 @@ import com.example.safing.fragment.Product_PurchaseHistory_Fragment;
 import com.example.safing.fragment.ShopFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.lang.reflect.Array;
+
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottom_nav;
 
