@@ -29,6 +29,15 @@ public class HomeFragment extends Fragment {
     ViewPager2 pager2 , recyth;
     ImageView home_search;
     MainActivity mainActivity = new MainActivity();
+<<<<<<< HEAD
+=======
+    LinearLayout youtubetip1;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/기근태
+
+>>>>>>> origin/main
 
 
     public HomeFragment(Context context){
@@ -43,6 +52,28 @@ public class HomeFragment extends Fragment {
 
         recysf = rootView.findViewById(R.id.recysfzone1);
         recyth = rootView.findViewById(R.id.rectheme);
+<<<<<<< HEAD
+=======
+        recyoutube = rootView.findViewById(R.id.youtubetip);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/main
+        sguse = rootView.findViewById(R.id.sguse);
+        pager2 = rootView.findViewById(R.id.rectheme);
+        youtubetip1 = rootView.findViewById(R.id.youtubetip1);
+        home_search = rootView.findViewById(R.id.home_search);
+        packgemore = rootView.findViewById(R.id.packgemore);
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/main
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+>>>>>>> origin/main
+
+>>>>>>> origin/기근태
         //====================Recysfzone=====================================//
         recysf.findViewById(R.id.recysfzone1);
 
@@ -77,7 +108,48 @@ public class HomeFragment extends Fragment {
         pager2.setAdapter(adapter);
         //=====================pagerTheme===================================//
 
+<<<<<<< HEAD
         home_search = rootView.findViewById(R.id.home_search);
+=======
+
+
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/main
+        sguse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(getActivity(), SafeGuardInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+<<<<<<< HEAD
+
+
+=======
+
+
+=======
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+
+
+
+
+
+
+
+
+
+
+
+        home_search = rootView.findViewById(R.id.home_search);
+>>>>>>> origin/main
+>>>>>>> origin/main
+>>>>>>> origin/기근태
         home_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +161,25 @@ public class HomeFragment extends Fragment {
         });
 
 
+<<<<<<< HEAD
+=======
+        packgemore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainActivity = (MainActivity) getActivity();
+                mainActivity.changeFragment(new Product_Package_Fragment(context));
+            }
+        });
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> origin/main
+
+
+>>>>>>> origin/기근태
 
 
 

@@ -1,6 +1,7 @@
 package com.example.safing.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -11,12 +12,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+=======
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+>>>>>>> origin/기근태
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.safing.R;
+<<<<<<< HEAD
 import com.example.safing.fragment.Product_PurchaseHistory_Fragment;
+=======
+>>>>>>> origin/기근태
 
 public class Purchase_Result_Activity extends AppCompatActivity {
     TextView purchase_result_tv1;
@@ -24,8 +34,14 @@ public class Purchase_Result_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+<<<<<<< HEAD
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+=======
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);
+
+>>>>>>> origin/기근태
         setContentView(R.layout.activity_purchase_result);
 
         purchase_result_tv1 = findViewById(R.id.purchase_result_tv1);

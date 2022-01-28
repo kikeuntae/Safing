@@ -4,10 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
-<<<<<<< HEAD
         android:id="@+id/youtubetip1"
-=======
->>>>>>> origin/main
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
