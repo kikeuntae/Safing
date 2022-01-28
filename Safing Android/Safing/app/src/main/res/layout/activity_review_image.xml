@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
     android:layout_height="300dp"
-    tools:context=".activity.Review_Image_Activity"
+    tools:context=".shop.activity.Review_Image_Activity"
     android:orientation="vertical">
     <FrameLayout
         android:layout_width="match_parent"

@@ -6,23 +6,12 @@
         <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\hanul\.android\avd\Pixel_4_XL_API_30_1.avd" />
+            <type value="SERIAL_NUMBER" />
+            <value value="LMV500N6c2af593" />
           </Key>
         </deviceKey>
       </Target>
     </runningDeviceTargetSelectedWithDropDown>
-    <targetSelectedWithDropDown>
-      <Target>
-        <type value="QUICK_BOOT_TARGET" />
-        <deviceKey>
-          <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\hanul\.android\avd\Pixel_4_XL_API_30_1.avd" />
-          </Key>
-        </deviceKey>
-      </Target>
-    </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2022-01-28T05:01:20.640587200Z" />
+    <timeTargetWasSelectedWithDropDown value="2022-01-28T06:08:50.403496900Z" />
   </component>
 </project>
