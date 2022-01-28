@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
-=======
-<<<<<<< HEAD
-    android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
-=======
->>>>>>> 기근태
->>>>>>> d785786d5ea155274c65bfa3305b907797f3797b
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
     android:layout_height="300dp"
