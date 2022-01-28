@@ -47,8 +47,8 @@ public class MovieFragment extends Fragment {
         adapter =new Moive_Adapter2(getContext() , videoItems);
 
         videoItems.add(new Board_FileVO(1,"아이디1","#태그1", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
-        videoItems.add(new Board_FileVO(2,"아이디2","#태그2","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
-        videoItems.add(new Board_FileVO(3,"아이디3","#태그3","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"));
+        videoItems.add(new Board_FileVO(2,"아이디2","#태그2","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"));
+        videoItems.add(new Board_FileVO(3,"아이디3","#태그3","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"));
         videoItems.add(new Board_FileVO(4,"아이디4","#태그4","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
         videoItems.add(new Board_FileVO(5,"아이디5","#태그5","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
 

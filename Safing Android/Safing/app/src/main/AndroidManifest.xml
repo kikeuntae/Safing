@@ -60,22 +60,10 @@
             android:name=".activity.Purchase_Result_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
-            android:name=".activity.CreateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.QNAActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.LoginActivity"
-            android:exported="false" />
+            android:name=".activity.Review_Image_Activity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
         <activity
             android:name=".activity.TipActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Review_Image_Activity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
-        <activity
-            android:name=".activity.SettingActivity"
             android:exported="false" />
         <activity
             android:name=".activity.CamInfoActivity"

@@ -1,4 +1,4 @@
-
+/*
 package com.example.safing.adapter;
 
 import android.content.Context;
@@ -235,3 +235,4 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.ViewHold
 
 
 }
+*/
