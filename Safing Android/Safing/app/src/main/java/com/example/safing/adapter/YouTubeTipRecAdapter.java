@@ -1,10 +1,12 @@
 package com.example.safing.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.safing.DTO.YouTubeTipRecDTO;
 import com.example.safing.R;
+import com.example.safing.activity.CamInfoActivity;
+import com.example.safing.activity.TipActivity;
 
 import java.util.ArrayList;
 
@@ -24,6 +28,7 @@ public class YouTubeTipRecAdapter extends RecyclerView.Adapter<YouTubeTipRecAdap
     CardView youtubeview;
     ImageView youtubeview1, eye ;
     TextView youtubetitle, youtubecontent, youtubecnt;
+    LinearLayout youtubetip1;
 
     public YouTubeTipRecAdapter(Context context, ArrayList<YouTubeTipRecDTO> list2) {
         this.context = context;
@@ -62,6 +67,15 @@ public class YouTubeTipRecAdapter extends RecyclerView.Adapter<YouTubeTipRecAdap
             youtubetitle = itemView.findViewById(R.id.youtubetitle);
             youtubecontent = itemView.findViewById(R.id.youtubecontent);
             youtubecnt = itemView.findViewById(R.id.youtubecnt);
+            youtubetip1 = itemView.findViewById(R.id.youtubetip1);
+
+            youtubetip1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent  = new Intent(context, TipActivity.class);
+                    context.startActivity(intent);
+                }
+            });
 
         }
         public void binding(ViewHolder holder, int position){
