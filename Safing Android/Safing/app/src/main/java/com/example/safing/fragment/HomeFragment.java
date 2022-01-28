@@ -7,37 +7,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.safing.DTO.SafeZoneRecDTO;
 import com.example.safing.DTO.ThemeRecDTO;
+import com.example.safing.DTO.YouTubeTipRecDTO;
 import com.example.safing.R;
+import com.example.safing.activity.CamInfoActivity;
 import com.example.safing.activity.HomeSearchActivity;
 import com.example.safing.activity.MainActivity;
+import com.example.safing.activity.SafeGuardInfoActivity;
+import com.example.safing.activity.ThemePagerActivity;
+import com.example.safing.activity.TipActivity;
 import com.example.safing.adapter.SafeZoneRecAdapter;
 import com.example.safing.adapter.Theme_Pager_Adapter;
+import com.example.safing.adapter.YouTubeTipRecAdapter;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
-    RecyclerView recysf ;
+    RecyclerView recysf, recyoutube ;
     Context context;
     ViewPager2 pager2 , recyth;
-    ImageView home_search;
+    ImageView home_search, sguse;
+    TextView packgemore;
     MainActivity mainActivity = new MainActivity();
-<<<<<<< HEAD
-=======
     LinearLayout youtubetip1;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/기근태
-
->>>>>>> origin/main
 
 
     public HomeFragment(Context context){
@@ -52,28 +55,13 @@ public class HomeFragment extends Fragment {
 
         recysf = rootView.findViewById(R.id.recysfzone1);
         recyth = rootView.findViewById(R.id.rectheme);
-<<<<<<< HEAD
-=======
         recyoutube = rootView.findViewById(R.id.youtubetip);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/main
         sguse = rootView.findViewById(R.id.sguse);
         pager2 = rootView.findViewById(R.id.rectheme);
         youtubetip1 = rootView.findViewById(R.id.youtubetip1);
         home_search = rootView.findViewById(R.id.home_search);
         packgemore = rootView.findViewById(R.id.packgemore);
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/main
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
->>>>>>> origin/main
 
->>>>>>> origin/기근태
         //====================Recysfzone=====================================//
         recysf.findViewById(R.id.recysfzone1);
 
@@ -92,9 +80,30 @@ public class HomeFragment extends Fragment {
         );
         recysf.setLayoutManager(layoutManager1);
         recysf.setAdapter(adapter1);
+        //====================Recysfzone=====================================//
+
+        //=====================RecyclerCamTip========================================//
+        recyoutube.findViewById(R.id.youtubetip);
+
+        ArrayList<YouTubeTipRecDTO> list2 = new ArrayList<>();
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
+
+
+        YouTubeTipRecAdapter adapter2 = new YouTubeTipRecAdapter(context, list2);
+
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(
+                context, RecyclerView.HORIZONTAL, false
+        );
+        recyoutube.setLayoutManager(layoutManager2);
+        recyoutube.setAdapter(adapter2);
+        //=====================RecyclerCamTip========================================//
 
         //=====================pagerTheme===================================//
-        pager2 = rootView.findViewById(R.id.rectheme);
+
         ArrayList<ThemeRecDTO> list1 = new ArrayList<>();
         list1.add(new ThemeRecDTO(R.layout.rec_item_theme, ""));
         list1.add(new ThemeRecDTO(R.layout.rec_item_theme, ""));
@@ -108,18 +117,9 @@ public class HomeFragment extends Fragment {
         pager2.setAdapter(adapter);
         //=====================pagerTheme===================================//
 
-<<<<<<< HEAD
-        home_search = rootView.findViewById(R.id.home_search);
-=======
 
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/main
         sguse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,29 +127,8 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-<<<<<<< HEAD
 
 
-=======
-
-
-=======
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
-
-
-
-
-
-
-
-
-
-
-
-        home_search = rootView.findViewById(R.id.home_search);
->>>>>>> origin/main
->>>>>>> origin/main
->>>>>>> origin/기근태
         home_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,8 +140,6 @@ public class HomeFragment extends Fragment {
         });
 
 
-<<<<<<< HEAD
-=======
         packgemore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,19 +147,18 @@ public class HomeFragment extends Fragment {
                 mainActivity.changeFragment(new Product_Package_Fragment(context));
             }
         });
-<<<<<<< HEAD
-=======
 
 
-
-
->>>>>>> origin/main
-
-
->>>>>>> origin/기근태
 
 
 
         return rootView;
+    }
+
+
+
+
+    public void changeFragment(Fragment fragment){
+        mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.shop_container1 , fragment).commit();
     }
 }

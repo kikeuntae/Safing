@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/activity_cam_info.xml" value="0.24947916666666667" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/activity_cam_info_admin.xml" value="0.2046875" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/activity_mypage_insert.xml" value="0.1824074074074074" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/activity_mypage_login.xml" value="0.2046875" />
@@ -12,6 +13,9 @@
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/activity_product_purchase.xml" value="0.2046875" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/activity_setting.xml" value="0.1824074074074074" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/activity_splash.xml" value="0.3020833333333333" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/fragment_address_default.xml" value="0.24947916666666667" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/fragment_address_defualt.xml" value="0.24947916666666667" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/fragment_address_repogitory.xml" value="0.24947916666666667" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/fragment_detail_product.xml" value="0.1824074074074074" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/fragment_home.xml" value="0.36614583333333334" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/fragment_iot.xml" value="0.1824074074074074" />
@@ -25,7 +29,16 @@
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/insert_activity.xml" value="0.20364583333333333" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_exoplayer_movie.xml" value="0.3020833333333333" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_pager_movie.xml" value="0.3020833333333333" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_product_cart_rec.xml" value="0.24947916666666667" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_product_detail_rec.xml" value="0.24947916666666667" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_product_image_pager.xml" value="0.24947916666666667" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_product_info.xml" value="0.24947916666666667" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_product_purchasehistory_rec.xml" value="0.24947916666666667" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_product_review_rec.xml" value="0.24947916666666667" />
         <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_rec_orderinfo.xml" value="0.36614583333333334" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_review_image_pager.xml" value="0.24947916666666667" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/item_youtube_tip.xml" value="0.24947916666666667" />
+        <entry key="..\:/Study_Android/WorkSpace/Safing/app/src/main/res/layout/pager_item_sfzone.xml" value="0.24947916666666667" />
         <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/activity_cam_info.xml" value="0.25" />
         <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/activity_home_search.xml" value="0.17806484295845998" />
         <entry key="..\:/Study_Android/workspace/Safing/app/src/main/res/layout/activity_review.xml" value="0.36041666666666666" />
