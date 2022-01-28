@@ -30,7 +30,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 
 public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.VH> {
-    boolean speaker_change = true;
+    boolean speaker_change = false;
     boolean heart_change = true;
     Context context;
     LayoutInflater inflater;
@@ -113,11 +113,11 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.VH> {
             if (i != position && videoItems.get(i).getPlayer() != null) {
                 videoItems.get(i).getPlayer().setPlayWhenReady(false);
                 videoItems.get(i).getExoPlayerView().onPause();
-                speaker_change = true;
+
             } else if (i == position && videoItems.get(i).getPlayer() != null) {
                 videoItems.get(position).getExoPlayerView().onResume();
                 videoItems.get(position).getPlayer().setPlayWhenReady(true);
-                speaker_change = true;
+
             }
         }
 
@@ -209,22 +209,23 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.VH> {
                 MediaSource mediaSource = buildMediaSource(Uri.parse(videoUrl));
                 videoItem.getPlayer().prepare(mediaSource, true, false);
                 videoItem.getPlayer().setPlayWhenReady(true);
+                change_volum(speaker_change,position);
+                speaker_change =true;
 
                 holder.movie_pager_imgbtn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (speaker_change == true) {
+                        if (speaker_change) { //true
                             Toast.makeText(context, "1번 아이콘 음량 0만들기", Toast.LENGTH_SHORT).show();
-                            movie_pager_imgbtn1.setImageResource(R.drawable.mute);
-                            videoItem.getPlayer().setVolume(0);
+                            change_volum(speaker_change,position);
                             speaker_change = false;
-                        } else {
+                        } else { //false
                             Toast.makeText(context, "1번 변경 음량 100 만들기", Toast.LENGTH_SHORT).show();
-                            movie_pager_imgbtn1.setImageResource(R.drawable.speaker);
-                            videoItem.getPlayer().setVolume(100);
+                            change_volum(speaker_change,position);
                             speaker_change = true;
                         }
                     }
+
                 });
 
             }
@@ -235,6 +236,18 @@ public class Moive_Adapter2 extends RecyclerView.Adapter<Moive_Adapter2.VH> {
             movie_pager_tv1.setText(videoitem.getBoard_file_id() + "");
             movie_pager_tv2.setText(videoitem.getMember_id());
             movie_pager_tv3.setText(videoitem.getBoard_file_name());
+        }
+
+        public void change_volum(boolean speaker_change, int position){
+            Board_FileVO videoItem = videoItems.get(position);
+            if(speaker_change){
+                movie_pager_imgbtn1.setImageResource(R.drawable.mute);
+                videoItem.getPlayer().setVolume(0);
+            }else{
+                movie_pager_imgbtn1.setImageResource(R.drawable.speaker);
+                videoItem.getPlayer().setVolume(100);
+            }
+
         }
 
     } // class VH

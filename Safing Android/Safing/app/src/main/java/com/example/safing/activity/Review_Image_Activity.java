@@ -1,10 +1,7 @@
 package com.example.safing.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
-
 import android.os.Bundle;
 import android.view.Window;
 
@@ -24,11 +21,8 @@ public class Review_Image_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_review_image);
-
         Review_Image_Rec = findViewById(R.id.Review_Image_Rec);
-
         setRec1();
-
     }
 
     public void setRec1(){

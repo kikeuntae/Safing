@@ -41,10 +41,6 @@ public class Product_Fragment extends Fragment {
         this.context = context;
     }
 
-    public Product_Fragment() {
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

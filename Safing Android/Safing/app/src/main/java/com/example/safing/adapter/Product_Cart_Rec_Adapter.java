@@ -63,7 +63,7 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
         ImageView item_product_cart_rec_img;
         TextView item_product_cart_rec_tv1, item_product_cart_rec_tv2, item_product_cart_rec_tv3;
         CheckBox item_product_cart_rec_box;
-        ImageButton item_product_cart_rec_btn1;
+        ImageView item_product_cart_rec_btn1;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
