@@ -57,7 +57,9 @@
         android:theme="@style/Theme.Safing"
         android:usesCleartextTraffic="true">
         <activity
-<<<<<<< HEAD
+            android:name=".activity.Purchase_Result_Activity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
+        <activity
             android:name=".activity.CreateActivity"
             android:exported="false" />
         <activity
@@ -69,25 +71,12 @@
         <activity
             android:name=".activity.TipActivity"
             android:exported="false" />
-=======
-            android:name=".activity.TipActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Product_Purchase_Activity"
-            android:exported="false" />
         <activity
             android:name=".activity.Review_Image_Activity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
->>>>>>> origin/main
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
             android:name=".activity.SettingActivity"
             android:exported="false" />
-        <activity
-            android:name=".activity.Product_Purchase_Activity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Review_Image_Activity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
         <activity
             android:name=".activity.CamInfoActivity"
             android:exported="false" />

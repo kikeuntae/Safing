@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -12,6 +13,7 @@ import com.example.safing.fragment.HomeFragment;
 import com.example.safing.fragment.IoTFragment;
 import com.example.safing.fragment.MovieFragment;
 import com.example.safing.fragment.MypageFragment;
+import com.example.safing.fragment.Product_PurchaseHistory_Fragment;
 import com.example.safing.fragment.ShopFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -23,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottom_nav = findViewById(R.id.bottom_nav);
+
+        Intent intent = getIntent();
+        String chageFrag = intent.getStringExtra("fragment");
 
         changeFragment(new HomeFragment(MainActivity.this));
 
@@ -48,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        if(("Product_PurchaseHistory_Fragment").equals(chageFrag)){
+            changeFragment(new Product_PurchaseHistory_Fragment(MainActivity.this));
+        }
     }
     public void changeFragment(Fragment fragment){
         getSupportFragmentManager().beginTransaction().replace(R.id.container , fragment).commit();
