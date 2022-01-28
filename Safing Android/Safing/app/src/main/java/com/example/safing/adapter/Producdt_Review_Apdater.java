@@ -92,7 +92,17 @@ public class Producdt_Review_Apdater extends RecyclerView.Adapter<Producdt_Revie
                 public void onClick(View v) {
                     if(like_change== true) {
                         Toast.makeText(context, "좋아요", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
                         item_product_review_btn.setCompoundDrawables(image2, null,null,null);
+=======
+                        image1.setBounds(0,3,54,60);
+                        item_product_review_btn.setCompoundDrawables(image2, null,null,null);
+                        like_change= true;
+                    }else {
+                        Toast.makeText(context, "좋아요 취소", Toast.LENGTH_SHORT).show();
+                        image2.setBounds(0,3,54,60);
+                        item_product_review_btn.setCompoundDrawables(image1, null,null,null);
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
                         like_change= false;
                     }else {
                         Toast.makeText(context, "좋아요 취소", Toast.LENGTH_SHORT).show();

@@ -2,7 +2,17 @@ package com.example.safing.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+<<<<<<< HEAD
 import android.media.Image;
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import android.media.Image;
+=======
+>>>>>>> origin/main
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+>>>>>>> origin/main
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +50,19 @@ public class MypageFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_mypage, container, false);
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        mainActivity = (MainActivity) getActivity();
+
+=======
+<<<<<<< HEAD
+=======
+        mainActivity = (MainActivity) getActivity();
+
+>>>>>>> origin/main
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+>>>>>>> origin/main
         mypage_setting = rootView.findViewById(R.id.mypage_setting);
         mypage_add = rootView.findViewById(R.id.mypage_add);
         mypage_login = rootView.findViewById(R.id.mypage_login);
@@ -51,7 +74,19 @@ public class MypageFragment extends Fragment {
             public void onClick(View v) {
                 mypage_login.setVisibility(View.GONE);
                 mypage_id.setVisibility(View.VISIBLE);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+                mainActivity.changeFragment(new LoginFragment(context));
+=======
+<<<<<<< HEAD
+
+=======
+                mainActivity.changeFragment(new LoginFragment(context));
+>>>>>>> origin/main
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+>>>>>>> origin/main
             }
         });
 
@@ -60,16 +95,42 @@ public class MypageFragment extends Fragment {
         mypage_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 Intent intent = new Intent(context, QNAActivity.class);
                 startActivity(intent);
+=======
+<<<<<<< HEAD
+                mainActivity.changeFragment(new QNAFragment(context));
+=======
+<<<<<<< HEAD
+                Intent intent = new Intent(context, QNAActivity.class);
+                startActivity(intent);
+=======
+                mainActivity.changeFragment(new QNAFragment(context));
+>>>>>>> origin/main
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+>>>>>>> origin/main
             }
         });
 
         mypage_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 Intent intent = new Intent(context, SettingActivity.class);
                 startActivity(intent);
+=======
+<<<<<<< HEAD
+                mainActivity.changeFragment(new SettingFragment(context));
+=======
+<<<<<<< HEAD
+                Intent intent = new Intent(context, SettingActivity.class);
+                startActivity(intent);
+=======
+                mainActivity.changeFragment(new SettingFragment(context));
+>>>>>>> origin/main
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+>>>>>>> origin/main
             }
         });
 
