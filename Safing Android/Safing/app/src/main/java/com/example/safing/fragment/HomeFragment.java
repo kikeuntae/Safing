@@ -41,6 +41,11 @@ public class HomeFragment extends Fragment {
     TextView packgemore;
     MainActivity mainActivity = new MainActivity();
     LinearLayout youtubetip1;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> d785786d5ea155274c65bfa3305b907797f3797b
 
 
     public HomeFragment(Context context){
@@ -56,11 +61,23 @@ public class HomeFragment extends Fragment {
         recysf = rootView.findViewById(R.id.recysfzone1);
         recyth = rootView.findViewById(R.id.rectheme);
         recyoutube = rootView.findViewById(R.id.youtubetip);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d785786d5ea155274c65bfa3305b907797f3797b
         sguse = rootView.findViewById(R.id.sguse);
         pager2 = rootView.findViewById(R.id.rectheme);
         youtubetip1 = rootView.findViewById(R.id.youtubetip1);
         home_search = rootView.findViewById(R.id.home_search);
         packgemore = rootView.findViewById(R.id.packgemore);
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/main
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+>>>>>>> d785786d5ea155274c65bfa3305b907797f3797b
 
         //====================Recysfzone=====================================//
         recysf.findViewById(R.id.recysfzone1);
@@ -120,6 +137,12 @@ public class HomeFragment extends Fragment {
 
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d785786d5ea155274c65bfa3305b907797f3797b
         sguse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,8 +150,28 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+<<<<<<< HEAD
 
 
+=======
+
+
+=======
+>>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
+
+
+
+
+
+
+
+
+
+
+
+        home_search = rootView.findViewById(R.id.home_search);
+>>>>>>> origin/main
+>>>>>>> d785786d5ea155274c65bfa3305b907797f3797b
         home_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,6 +190,13 @@ public class HomeFragment extends Fragment {
                 mainActivity.changeFragment(new Product_Package_Fragment(context));
             }
         });
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> d785786d5ea155274c65bfa3305b907797f3797b
 
 
 
