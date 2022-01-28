@@ -79,8 +79,8 @@ public class ShopFragment extends Fragment{
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-      //  Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-      //  header_text.setText(CommonVal.loginInfo.getMember_id());
+        //  Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+        //  header_text.setText(CommonVal.loginInfo.getMember_id());
 
         //========= 탭 기능 ==============
 
