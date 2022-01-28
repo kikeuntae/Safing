@@ -21,11 +21,8 @@ public class Review_Image_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_review_image);
-
         Review_Image_Rec = findViewById(R.id.Review_Image_Rec);
-
         setRec1();
-
     }
 
     public void setRec1(){

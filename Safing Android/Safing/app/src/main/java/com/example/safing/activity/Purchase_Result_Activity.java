@@ -25,7 +25,7 @@ public class Purchase_Result_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_purchase_result);
 
         purchase_result_tv1 = findViewById(R.id.purchase_result_tv1);

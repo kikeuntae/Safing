@@ -58,10 +58,10 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".activity.Purchase_Result_Activity"
-            android:exported="false" />
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
         <activity
             android:name=".activity.Review_Image_Activity"
-            android:exported="false"/>
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
         <activity
             android:name=".activity.CamInfoActivity"
             android:exported="false" />
