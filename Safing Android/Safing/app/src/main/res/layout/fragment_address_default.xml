@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".fragment.Address_Default_Fragment"
+    tools:context=".shop.fragment.Address_Default_Fragment"
     android:background="@drawable/button_round7">
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,8 +53,6 @@
                 android:fontFamily="@font/ibmplexsanslight"/>
             <EditText
                 android:id="@+id/address_defualt_tv2"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -80,44 +78,6 @@
                 android:layout_weight="1"
                 android:backgroundTint="#85897B"
                 android:inputType="number"
-=======
-<<<<<<< HEAD
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#8C8A8A"
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 기근태
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:textColor="#8C8A8A"
-                android:backgroundTint="#85897B"
-                android:inputType="number"
-                android:fontFamily="@font/ibmplexsanslight"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="-"
-                android:textStyle="bold"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="13dp"
-                android:gravity="center_vertical"
-                android:textColor="#000000"
-                android:fontFamily="@font/ibmplexsanslight"/>
-            <EditText
-                android:id="@+id/address_defualt_tv3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textColor="#8C8A8A"
-                android:layout_weight="1"
-                android:backgroundTint="#85897B"
-<<<<<<< HEAD
->>>>>>> origin/기근태
-=======
-                android:inputType="number"
->>>>>>> 기근태
                 android:fontFamily="@font/ibmplexsanslight"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -135,20 +95,7 @@
                 android:layout_height="match_parent"
                 android:textColor="#8C8A8A"
                 android:layout_weight="1"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:inputType="number"
-=======
-=======
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#8C8A8A"
->>>>>>> 기근태
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
->>>>>>> origin/기근태
-=======
-                android:inputType="number"
->>>>>>> 기근태
                 android:backgroundTint="#85897B"
                 android:fontFamily="@font/ibmplexsanslight"/>
         </LinearLayout>
@@ -168,23 +115,7 @@
                 android:textColor="#000000"
                 android:fontFamily="@font/ibmplexsanslight"/>
             <EditText
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:id="@+id/address_defualt_tv5"
-=======
-<<<<<<< HEAD
-                android:id="@+id/address_defualt_tv3"
-=======
-<<<<<<< HEAD
-                android:id="@+id/address_defualt_tv5"
-=======
-                android:id="@+id/address_defualt_tv3"
->>>>>>> 기근태
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
->>>>>>> origin/기근태
-=======
-                android:id="@+id/address_defualt_tv5"
->>>>>>> 기근태
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -242,23 +173,7 @@
                 android:backgroundTint="#85897B"
                 android:fontFamily="@font/ibmplexsanslight"/>
             <EditText
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:id="@+id/address_defualt_tv6"
-=======
-<<<<<<< HEAD
-                android:id="@+id/address_defualt_tv5"
-=======
-<<<<<<< HEAD
-                android:id="@+id/address_defualt_tv6"
-=======
-                android:id="@+id/address_defualt_tv5"
->>>>>>> 기근태
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
->>>>>>> origin/기근태
-=======
-                android:id="@+id/address_defualt_tv6"
->>>>>>> 기근태
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
@@ -279,23 +194,7 @@
                 android:textColor="#000000"
                 android:fontFamily="@font/ibmplexsanslight"/>
             <EditText
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:id="@+id/address_defualt_tv7"
-=======
-<<<<<<< HEAD
-                android:id="@+id/address_defualt_tv6"
-=======
-<<<<<<< HEAD
-                android:id="@+id/address_defualt_tv7"
-=======
-                android:id="@+id/address_defualt_tv6"
->>>>>>> 기근태
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
->>>>>>> origin/기근태
-=======
-                android:id="@+id/address_defualt_tv7"
->>>>>>> 기근태
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#8C8A8A"

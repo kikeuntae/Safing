@@ -57,104 +57,34 @@
         android:theme="@style/Theme.Safing"
         android:usesCleartextTraffic="true">
         <activity
-<<<<<<< HEAD
-<<<<<<< HEAD
-            android:name=".activity.Purchase_Result_Activity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 기근태
-            android:name=".activity.Purchase_Result_Activity"
+            android:name=".shop.activity.Purchase_Result_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
-            android:name=".activity.CreateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.QNAActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.TipActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Review_Image_Activity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
-        <activity
-            android:name=".activity.SettingActivity"
-            android:exported="false" />
-<<<<<<< HEAD
-=======
-            android:name=".activity.TipActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Product_Purchase_Activity"
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-            android:name=".activity.CreateActivity"
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
-            android:exported="false" />
-        <activity
-            android:name=".activity.QNAActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.TipActivity"
-            android:exported="false" />
-=======
-            android:name=".activity.TipActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.Product_Purchase_Activity"
-            android:exported="false" />
-        <activity
->>>>>>> 기근태
-            android:name=".activity.Review_Image_Activity"
+            android:name=".shop.activity.Review_Image_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
-<<<<<<< HEAD
-=======
->>>>>>> origin/main
->>>>>>> parent of 74edf15 (01/27 20:38 최성욱)
         <activity
-<<<<<<< HEAD
-=======
-            android:name=".activity.SettingActivity"
+            android:name=".home.activity.TipActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.Product_Purchase_Activity"
-            android:exported="false" />
->>>>>>> origin/main
->>>>>>> origin/기근태
-        <activity
-            android:name=".activity.Review_Image_Activity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
-=======
->>>>>>> 기근태
-        <activity
-            android:name=".activity.CamInfoActivity"
+            android:name=".home.activity.CamInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ReviewActivity"
+            android:name=".shop.activity.ReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.HomeSearchActivity"
+            android:name=".home.activity.HomeSearchActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".home.activity.SafeGuardInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ThemePagerActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SplashActivity"
+            android:name=".home.activity.ThemePagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
