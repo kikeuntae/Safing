@@ -2,6 +2,7 @@ package com.android.safing;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartRequest;
 
 import com.google.gson.Gson;
 
+import board.Board_MovieDTO;
 import common.CommonService;
 import common.OutPrintln;
 import member.MemberDAO;
@@ -28,6 +30,28 @@ public class MemberController {
 	@Autowired private CommonService service;
 	@Autowired private OutPrintln outprintln;
 	@Autowired private MemberDAO dao;
+
+	//회원 프로필사진 가져오기
+	@ResponseBody
+	@RequestMapping("/memberimg.me")
+	public void img(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
+
+		String strVo = req.getParameter("member_id");	
+		MemberVO member = new MemberVO();
+		member.setMember_id(strVo);
+		
+		MemberVO vo = dao.memberimg(member);
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		
+		System.out.println(vo.getMember_id());
+		
+		
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(vo));
+		
+	}
 
 	
 	//회원가입

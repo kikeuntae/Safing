@@ -37,6 +37,12 @@ public class MemberDAO {
 	public boolean delete(MemberVO vo) {
 		return sql.delete("member.mapper.delete", vo) == 1 ? true : false;
 	}
+
+	//회원 프로필사진 가져오기
+	public MemberVO memberimg(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return sql.selectOne("member.mapper.selectimg", vo);
+	}
 	
 	
 }

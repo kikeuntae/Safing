@@ -3,4 +3,9 @@
 
 <mapper namespace="member.mapper">
 
+ 
+ 	<!-- 동영상 정보 불러오기 -->
+	<select id="selectimg" resultType="member.MemberVO">
+	        select * from member where member_id = #{member_id}
+	</select>
 </mapper>
