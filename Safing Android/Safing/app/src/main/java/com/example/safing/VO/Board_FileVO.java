@@ -7,11 +7,14 @@ import com.google.android.exoplayer2.ui.PlayerView;
 public class Board_FileVO {
     private int		board_file_id	  ;
     private int		board_id	      ;
+    private int		comment_id	      ;
     private String	member_id	      ;
     private String	board_file_name	  ;
     private String	board_file_path	  ;
     private PlayerView exoPlayerView;
     private SimpleExoPlayer player;
+    private int	comment_cnt	      ;
+    private int	like_cnt	      ;
 
     public SimpleExoPlayer getPlayer() {
 

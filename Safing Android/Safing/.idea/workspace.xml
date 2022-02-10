@@ -125,10 +125,13 @@
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/java/com/example/project3_allview/pager/Frag_pagerMain.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/frag_pagermain.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/CreateFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/LoginFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/QNAFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/SettingFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Comment_DAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Movie_DAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DTO/Board_Movie_DTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DTO/Movie_EXO_DTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DTO/Movie_comment_DTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/adapter/Comment_Adapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_dialog.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/apple.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_signin_twitter.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/faq.png" afterDir="false" />
@@ -142,6 +145,8 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_qna.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/insert_activity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_movie_comment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/movie_comment_dialog.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/AtakConn.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/AtaskConn.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/TestConn.java" afterDir="false" />
@@ -332,7 +337,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\hanul\.android\avd\Pixel_4_XL_API_30_1.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\hanul\.android\avd\Pixel_4_XL_Edited_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -350,6 +355,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -363,6 +375,8 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_SELECTED" value="ViewPager2" />
+    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_ViewPager2_DIMENSIONS" value="1080&#10;1920" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_SELECTED" value="View" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_View_DIMENSIONS" value="1080&#10;1920" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -375,6 +389,10 @@
       <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\java\com\example\safing\activity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.safing.movie.DAO" />
+      <recent name="com.example.safing.movie.DTO" />
+      <recent name="com.example.safing.home.DTO" />
+      <recent name="com.example.safing.movie.adapter" />
       <recent name="com.example.safing.fragment" />
     </key>
   </component>
@@ -465,16 +483,37 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/adapter/Moive_Adapter2.java</url>
-          <line>188</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/MovieFragment.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/HomeFragment.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Movie_DAO.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_dialog.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/adapter/Comment_Adapter.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Comment_DAO.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="gson" language="JAVA" />
+        <watch expression="gson" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
