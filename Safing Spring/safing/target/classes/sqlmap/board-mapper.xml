@@ -45,7 +45,7 @@
 	
 	<!-- 댓글 정보 불러오기 -->
 	<select id="comment_list" resultType="board.Board_CommentVO">
-	 SELECT * FROM board_comment where board_id = #{video_id}
+	 SELECT * FROM board_comment where board_id = #{video_id} order by comment_regdate ASC
 	</select>
 	
 	<!-- 댓글 정보 입력 -->
@@ -66,5 +66,9 @@
 		where comment_id = #{comment_id} AND board_id = #{board_id} AND member_id = #{member_id}
 	</delete>
 	
+	<!--댓글수ㅡ정보 가져오기 -->
+	<select id="movie_comment_cnt" resultType="int">
+		SELECT COUNT(comment_id) FROM board_comment where board_id = #{id} 
+	</select>
 	
 </mapper>

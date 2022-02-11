@@ -1,5 +1,6 @@
 package com.example.safing.movie.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -35,7 +36,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Comment_Adapter extends BaseAdapter {
 
+
     Context context;
+
     ArrayList<Movie_comment_DTO> list;
     LayoutInflater inflater;
     Comment_DAO dao= new Comment_DAO();
@@ -44,6 +47,7 @@ public class Comment_Adapter extends BaseAdapter {
     long now = System.currentTimeMillis();
     Date date = new Date(now);
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    boolean update_status = false;
 
     public Comment_Adapter(Context context, ArrayList<Movie_comment_DTO> list) {
         this.context = context;
@@ -80,6 +84,7 @@ public class Comment_Adapter extends BaseAdapter {
     // 만약 화면 5개를 생성한다면 getView가 5번 실행된다
     @Override
     public View getView(int position, View itemView, ViewGroup parent) {
+
         ViewHolder viewHolder;
 
         // 캐시된 뷰가 없을 경우 새로 뷰홀더를 생성하고
@@ -125,19 +130,21 @@ public class Comment_Adapter extends BaseAdapter {
         viewHolder.ib_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dto.setMember_id("master");
                 dao.delete(dto);
+                Toast.makeText(context, "삭제되었습니다", Toast.LENGTH_SHORT).show();
+
+                list.remove(position);
+                notifyDataSetChanged();
+
             }
         });
 
         viewHolder.ib_update.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                dto.setComment_content( viewHolder.tv_content.getText()+"");
-                dto.setMember_id("master");
-                dao.update(dto);
-                viewHolder.tv_content.setEnabled(false);
-                Toast.makeText(context, "수정되었습니다", Toast.LENGTH_SHORT).show();
+
                 return false; }
         }
         );
@@ -145,11 +152,23 @@ public class Comment_Adapter extends BaseAdapter {
         viewHolder.ib_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(update_status){ //수정중일떄
+                    dto.setComment_content( viewHolder.tv_content.getText()+"");
+                    dto.setMember_id("master");
+                    dao.update(dto);
+                    viewHolder.tv_content.clearFocus();
+                    viewHolder.tv_content.setEnabled(false);
 
+                    list.get(position).setComment_content(dto.getComment_content());
+                    notifyDataSetChanged();
+
+                    update_status = false;
+                }else {//수정중이 아닐때
                     viewHolder.tv_content.setEnabled(true);
-                    Toast.makeText(context, "글자를 수정하세요", Toast.LENGTH_SHORT).show();
+                    viewHolder.tv_content.requestFocus();
 
-
+                    update_status = true;
+                }
             }
         });
 
@@ -158,12 +177,13 @@ public class Comment_Adapter extends BaseAdapter {
         return itemView;
     }
     public class ViewHolder {
-       EditText tv_content;
 
+       EditText tv_content;
         TextView tv_date, tv_name;
         CircleImageView cv_userimg;
         ImageButton ib_delete, ib_update;
     }
+
 
 
 

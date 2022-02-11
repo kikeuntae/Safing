@@ -94,6 +94,8 @@ public class Comment_DAO {
     }
 
 
+    public void comment_cnt_re() {
 
 
+    }
 }

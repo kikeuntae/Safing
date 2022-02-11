@@ -113,6 +113,23 @@ public class BoardController {
 	}
 	
 	
+	//동영상 댓글 수 새로고침 
+	@ResponseBody
+	@RequestMapping("/movie_comment_cnt.bo")
+	public void  movie_comment_cnt(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		
+		int comment_cnt=0;
+		String strVo = req.getParameter("id");	
+		int id = gson.fromJson(strVo, int.class);
+		comment_cnt = dao.movie_comment_cnt(id);	
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(comment_cnt));
+	}
+	
 	
 	
 	

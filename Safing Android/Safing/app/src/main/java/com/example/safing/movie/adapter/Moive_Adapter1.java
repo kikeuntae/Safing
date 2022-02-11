@@ -124,6 +124,9 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
     }
 
     public void setVideo(int position) {
+        int comment_count = dao.movie_comment_cnt(video_db.get(position).getBoard_id());
+        video_db.get(position).setBoard_comment_cnt(comment_count);// 댓글 수 재 처리
+        notifyDataSetChanged(); //아이템 리스트 변경 반영
         for (int i = 0; i < video_db.size(); i++) {
             if (i != position && videoItems.get(i).getPlayer() != null) {
                 videoItems.get(i).getPlayer().setPlayWhenReady(false);
@@ -175,7 +178,9 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
                 videoItem.setExoPlayerView(itemView.findViewById(R.id.exoplayerview));
 
 
+
                 holder.setDto(videodb);
+
 
                 //String videoUrl = "http://192.168.0.65:80/safing/resources/upload/board_file/2022/02/06/7ff0dcea-0b36-4041-bdbf-3035f6ef4184_video11.mp4";
                 String path = "http://192.168.0.65:80/safing/resources/";
@@ -206,7 +211,10 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
                 holder.movie_pager_comment.setOnClickListener(new View.OnClickListener() { // 댓글 버튼
                     @Override
                     public void onClick(View v) {
-                        comment_on(context,position, video_db.get(position).getBoard_id());
+                        comment_on(context,position,videodb.getBoard_id());
+                        videodb.setBoard_comment_cnt(dao.movie_comment_cnt(videodb.getBoard_id())); //댓글 수 다시 가져오기
+                        video_db.get(position).setBoard_comment_cnt(videodb.getBoard_comment_cnt());// 댓글 수 재 처리
+                        notifyDataSetChanged(); //아이템 리스트 변경 반영
                     }
                 });//댓글
 

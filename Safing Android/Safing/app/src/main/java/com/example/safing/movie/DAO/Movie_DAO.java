@@ -66,7 +66,7 @@ public class Movie_DAO {
         }
     }
 
-    public void like(Board_Movie_DTO vo){
+    public void like(Board_Movie_DTO vo){ //좋아요 처리
         {
             String str =gson.toJson(vo);
             service = new CommonAsk("like.bo");
@@ -75,6 +75,25 @@ public class Movie_DAO {
         }
 
     }
+
+    public int movie_comment_cnt(int board_id) { //CRUD 이후 동영상 댓글 숫자 처리
+        {
+            service = new CommonAsk("movie_comment_cnt.bo");
+            service.params.add(new AskParam("id", board_id+""));
+            in = CommonMethod.excuteAsk(service);
+            String comment_cnt = null;
+            try {
+                comment_cnt = gson.fromJson(new InputStreamReader(in), new TypeToken<String>() {
+                }.getType());
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.d(TAG, "gson error");
+            }
+            int cnt = Integer.parseInt(comment_cnt);
+            return cnt;
+        }
+    }
+
 
 
 }

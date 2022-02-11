@@ -73,4 +73,10 @@ public class BoardDAO {
 		sql.insert("board.mapper.comment_delete", vo);
 	}
 	
+	//동영상 댓글 수 새로고침
+	public int movie_comment_cnt(int id) {
+		// TODO Auto-generated method stub
+		return sql.selectOne("board.mapper.movie_comment_cnt", id);
+	}
+	
 }

@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.example.safing.R;
 import com.example.safing.VO.Board_FileVO;
 import com.example.safing.movie.DAO.Comment_DAO;
+import com.example.safing.movie.DAO.Movie_DAO;
 import com.example.safing.movie.DTO.Board_Movie_DTO;
 import com.example.safing.movie.DTO.Movie_comment_DTO;
 import com.example.safing.movie.adapter.Comment_Adapter;
@@ -44,6 +45,7 @@ public class Movie_dialog extends AppCompatActivity {
     Comment_Adapter adapter;
     Comment_DAO dao= new Comment_DAO();
     EditText editText;
+    Movie_DAO dao_movie= new Movie_DAO();
 
 
     public Movie_dialog(Context context, int position, int video_id) {
@@ -101,8 +103,6 @@ public class Movie_dialog extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "취소 했습니다.", Toast.LENGTH_SHORT).show();
-
                 // 커스텀 다이얼로그를 종료한다.
                 dlg.dismiss();
             }
@@ -114,6 +114,14 @@ public class Movie_dialog extends AppCompatActivity {
                 dto.setComment_content(editText.getText()+"");
                 dto.setBoard_id(video_id);
                 dao.create(dto);
+                Toast.makeText(context, "입력되었습니다", Toast.LENGTH_SHORT).show();
+                ArrayList<Movie_comment_DTO> list  = new ArrayList<>();
+                list = dao.list(video_id);
+                adapter = new Comment_Adapter(context,list);
+                comment_listview.setAdapter(adapter);
+                editText.setText("");
+
+
                 //dao.list(dto.getBoard_id());
             }
         });
