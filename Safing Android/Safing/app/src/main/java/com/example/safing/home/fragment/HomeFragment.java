@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,11 +23,9 @@ import com.example.safing.home.DAO.SafeZoneRecDAO;
 import com.example.safing.home.DAO.YoutubeTipDAO;
 import com.example.safing.home.DTO.ThemeRecDTO;
 import com.example.safing.home.VO.YoutubeTipVO;
-import com.example.safing.home.DTO.ThemeItemDTO;
 import com.example.safing.shop.fragment.Product_Package_Fragment;
 import com.example.safing.home.VO.SafeZoneRecVO;
 import com.example.safing.R;
-import com.example.safing.home.activity.HomeSearchActivity;
 import com.example.safing.MainActivity;
 import com.example.safing.home.activity.SafeGuardInfoActivity;
 import com.example.safing.home.adapter.SafeZoneRecAdapter;
@@ -37,7 +35,7 @@ import com.example.safing.shop.fragment.ShopFragment;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
     RecyclerView recysf, recyoutube ;
     Context context;
     ViewPager2 rectheme;
@@ -150,13 +148,15 @@ public class HomeFragment extends Fragment {
         });
 
 
+
+
+
         return rootView;
     }
 
-
-
     public void changeFragment(Fragment fragment){
-        mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.shop_container1 , fragment).commit();
+        mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.shop_container1 , fragment).addToBackStack(null).commit();
     }
+
 
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +25,7 @@ import com.example.safing.home.VO.SafeZoneRecVO;
 import com.example.safing.home.activity.HomeSearchActivity;
 import com.example.safing.home.activity.SafeGuardInfoActivity;
 import com.example.safing.home.adapter.HomeSearchAdapter;
+import com.example.safing.shop.fragment.ShopFragment;
 
 import java.util.ArrayList;
 
@@ -35,6 +37,7 @@ public class HomeSearchFragment extends Fragment {
     SwipeRefreshLayout swipe;
     SearchView searchView;
     ImageView backbtn;
+    MainActivity mainActivity = new MainActivity();
 
     public HomeSearchFragment(Context context) {
         this.context = context;
@@ -91,12 +94,19 @@ public class HomeSearchFragment extends Fragment {
         });
 
 
+
         OnBackPressedCallback callback = new OnBackPressedCallback(true ) {
             @Override
             public void handleOnBackPressed() {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+               /* Intent intent = new Intent(getActivity(), HomeFragment.class);
                 startActivity(intent);
+*/
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment(context)).addToBackStack(null).commit();
+
+                mainActivity = (MainActivity) getActivity();
+                mainActivity.changeFragment(new HomeFragment(context));
             }
+
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(getActivity(), callback);
 
@@ -127,5 +137,7 @@ public class HomeSearchFragment extends Fragment {
         search_rec1.setLayoutManager(manager);
         search_rec1.setAdapter(adapter);
     }
+
+
 
 }

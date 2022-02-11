@@ -1,6 +1,7 @@
 package com.example.safing.home.activity;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -60,19 +61,15 @@ public class TipActivity extends AppCompatActivity {
 
         //============================youtube_detail===============================//
 
-        OnBackPressedCallback callback = new OnBackPressedCallback(true ) {
-            @Override
-            public void handleOnBackPressed() {
+    }
+    @Override
+    public void onBackPressed() {
 
+        Intent intent = new Intent(TipActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+        }
 
-                Intent intent = new Intent(TipActivity.this, MainActivity.class);
-                startActivity(intent);
-
-            }
-        };
-        getOnBackPressedDispatcher().addCallback(TipActivity.this, callback);
 
     }
 
-
-}
