@@ -1,9 +1,8 @@
 package product;
 
-import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class ProductVO implements Serializable{
+public class ProductVO {
 	private int		product_num 	;
 	private String	product_name	;
 	private int		product_price	;
@@ -11,18 +10,8 @@ public class ProductVO implements Serializable{
 	private double	rating			;
 	private int		re_count		;
 	private String	tag_key			;
-	private String  file_name		;
 	private String  file_path		;
 	
-	
-	
-	
-	public String getFile_name() {
-		return file_name;
-	}
-	public void setFile_name(String file_name) {
-		this.file_name = file_name;
-	}
 	public int getProduct_num() {
 		return product_num;
 	}

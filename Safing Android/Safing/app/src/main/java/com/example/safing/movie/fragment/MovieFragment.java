@@ -61,11 +61,19 @@ public class MovieFragment extends Fragment {
         videoItems = dao.list();
         adapter1 =new Moive_Adapter1(getContext() , videoItems);
 
+<<<<<<<< HEAD:Safing Android/Safing/app/src/main/java/com/example/safing/movie/fragment/MovieFragment.java
 
 
         List<Board_Movie_DTO> videoItems2  = new ArrayList<>();
         videoItems2 = dao.list();
         adapter2 =new Movie_Adapter2(getContext() , videoItems2);
+========
+        videoItems.add(new Board_FileVO(1,"아이디1","#태그1", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
+        videoItems.add(new Board_FileVO(2,"아이디2","#태그2","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"));
+        videoItems.add(new Board_FileVO(3,"아이디3","#태그3","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"));
+        videoItems.add(new Board_FileVO(4,"아이디4","#태그4","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
+        videoItems.add(new Board_FileVO(5,"아이디5","#태그5","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
+>>>>>>>> origin/기근태:Safing Android/Safing/app/src/main/java/com/example/safing/fragment/MovieFragment.java
 
 
         pager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {

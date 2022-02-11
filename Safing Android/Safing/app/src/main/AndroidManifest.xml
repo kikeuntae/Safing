@@ -5,8 +5,6 @@
     <!-- 인터넷 권한 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 저장소와 카메라 권한 별도의 동의가 필요함 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -58,12 +56,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Safing"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".shop.activity.Purchase_Result_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
             android:name=".shop.activity.Review_Image_Activity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
             android:name=".home.activity.TipActivity"
             android:exported="false" />
@@ -83,11 +82,8 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".home.activity.ThemePagerActivity"
+            android:name=".KakaoMapActivity"
             android:exported="false" />
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
         <activity
             android:name=".splash.SplashActivity"
             android:exported="true">
@@ -98,6 +94,10 @@
             </intent-filter>
         </activity>
 
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -106,6 +106,9 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepath" />
+            <meta-data
+                android:name="com.kakao.sdk.AppKey"
+                android:value="cad9d128e6313db0c6b34ec4aab5209a" />
         </provider>
     </application>
 

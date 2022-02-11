@@ -3,49 +3,36 @@
 <mapper namespace="product.mapper">
 	<!-- 패키지 리스트 -->
 	<select id="package_list" resultType="product.Product_PackageVO">
-		select p.*, (select tag_key from board_tag where p.package_num = package_num) tag_key
-		from product_package p
+		select p.package_num, p.file_path, t.tag_key
+		from product_package p,
+			(select tag_key, min(tag_num), package_num
+			from board_tag 
+			group by tag_key, package_num) t
+		where p.package_num = t.package_num
 	</select>
 	
 	<!-- 상품 리스트 -->
 	<select id="product_list" resultType="product.ProductVO">
-		select p.product_num, p.product_name, p.product_price, p.product_stock,
-        (select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
-        (select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
-        (select tag_key from board_tag where  p.product_num = product_num and product_num is not null) tag_key,
-        (select file_name from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_name,
-        (select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path
-		from  product p
-		where product_kind like  '%'||#{search, jdbcType=VARCHAR}||'%'
+		select p.product_num, p.product_name, p.product_price, p.product_stock, r.rating, r.re_count, t.tag_key, f.file_path 
+		from product p,
+			(select tag_key, min(tag_num), product_num
+			from board_tag 
+			group by tag_key, product_num) t,
+			(select product_num, file_path, min(file_num)
+			from product_file
+			group by tag_key, product_num) f,
+			(select avg(rating) rating, count(*) re_count, product_num
+			from product_review
+			group by product_num) r
+		where p.product_num = t.product_num
+		and	p.product_num = f.product_num
+		and	p.product_num = r.product_num
+		and product_kind '%'||#{search, jdbcType=VARCHAR}||'%'
 	</select>
 	
 	<insert id="insert_img">
-		insert into product_package (package_name, file_name, file_path)
-		values (#{package_name}, #{file_name}, #{file_path})
+		insert into product_package (PACKAGE_NAME, FILE_NAME, FILE_PATH)
+		values(감성캠핑, #{file_name}, #{file_path})
 	</insert>
 	
-	<insert id="insert_tag">
-		insert into board_tag (package_num, tag_key)
-		values (#{package_num}, #{tag_key})
-	</insert>
-	
-	<insert id="insert_pro">
-		insert into board_tag (product_name, product_price, product_stock, product_kind)
-		values (#{product_name}, #{product_price}, #{product_stock}, #{product_kind})
-	</insert>
-	
-	<insert id="insert_profile">
-		insert into product_file (product_num, file_name, file_path)
-		values (#{product_num}, #{file_name}, #{file_path})
-	</insert>
-	
-	<insert id="member_insert">
-		insert into member
-		values (#{member_id}, #{member_pw}, #{member_name},#{member_age},#{member_gender},#{member_phone},#{member_admin},#{member_filename},#{member_filepath} )
-	</insert>
-	
-	<insert id="insert_boardfile">
-		insert into board_file(board_id, file_name, file_path)
-		values (#{board_id}, #{file_name}, #{file_path})
-	</insert>
 </mapper>

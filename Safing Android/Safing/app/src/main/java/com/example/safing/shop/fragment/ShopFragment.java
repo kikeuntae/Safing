@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -20,15 +19,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.safing.shop.DTO.Shop_PackageDTO;
+import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
+import com.example.safing.shop.VO.ProductVO;
+import com.example.safing.shop.VO.Product_PackageVO;
 import com.example.safing.shop.adapter.Shop_Rec_Adapter;
 import com.example.safing.shop.adapter.Shop_Package_Apdater;
 import com.example.safing.async.OnItemClick_Package_Listener;
 import com.example.safing.async.OnItemClick_product_Listener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -36,6 +38,7 @@ public class ShopFragment extends Fragment{
     Context context;
     TabLayout tab_layout;
     Toolbar toolbar;
+    TextView shop_tv1;
     RecyclerView shop_rec1, shop_rec2;
     LinearLayoutManager manager;
     SwipeRefreshLayout swipe;
@@ -43,6 +46,9 @@ public class ShopFragment extends Fragment{
     MainActivity mainActivity = new MainActivity();
     Shop_Package_Apdater adapter_rec1;
     Shop_Rec_Adapter adapter_rec2;
+    Gson gson = new Gson();
+    String query;
+    ShopDAO dao;
 
     public ShopFragment(Context context){
         this.context = context;
@@ -60,6 +66,7 @@ public class ShopFragment extends Fragment{
         toolbar = rootView.findViewById(R.id.toolbar);
         swipe = rootView.findViewById(R.id.spot_swipe);
         shop_view = rootView.findViewById(R.id.shop_view);
+        shop_tv1 = rootView.findViewById(R.id.shop_tv1);
 
         mainActivity = (MainActivity) getActivity();
 
@@ -79,8 +86,8 @@ public class ShopFragment extends Fragment{
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        //  Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-        //  header_text.setText(CommonVal.loginInfo.getMember_id());
+        //Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+        //header_text.setText(CommonVal.loginInfo.getMember_id());
 
         //========= 탭 기능 ==============
 
@@ -95,29 +102,34 @@ public class ShopFragment extends Fragment{
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab.getPosition() == 0){
-                    Toast.makeText(context, "tab1", Toast.LENGTH_SHORT).show();
-                    setRec2();
+                    query = (String) tab_layout.getTag();
+                    shop_tv1.setText("검색상품 #"+query);
+                    setRec2(query);
                 }
                 if(tab.getPosition() == 1){
-                    Toast.makeText(context, "tab2", Toast.LENGTH_SHORT).show();
-                    setRec2();
+                    query = (String) tab_layout.getTag();
+                    shop_tv1.setText("검색상품 #"+query);
+                    setRec2(query);
                 }
                 if(tab.getPosition() == 2){
-                    Toast.makeText(context, "tab3", Toast.LENGTH_SHORT).show();
-                    setRec2();
+                    query = (String) tab_layout.getTag();
+                    shop_tv1.setText("검색상품 #"+query);
+                    setRec2(query);
                 }
                 if(tab.getPosition() == 3){
-                    Toast.makeText(context, "tab4", Toast.LENGTH_SHORT).show();
-                    setRec2();
+                    query = (String) tab_layout.getTag();
+                    shop_tv1.setText("검색상품 #"+query);
+                    setRec2(query);
                 }
                 if(tab.getPosition() == 4){
-
-                    Toast.makeText(context, "tab5", Toast.LENGTH_SHORT).show();
-                    setRec2();
+                    query = (String) tab_layout.getTag();
+                    shop_tv1.setText("검색상품 #"+query);
+                    setRec2(query);
                 }
                 if(tab.getPosition() == 5){
-                    Toast.makeText(context, "tab6", Toast.LENGTH_SHORT).show();
-                    setRec2();
+                    query = (String) tab_layout.getTag();
+                    shop_tv1.setText("검색상품 #"+query);
+                    setRec2(query);
                 }
             }
 
@@ -132,13 +144,10 @@ public class ShopFragment extends Fragment{
             }
         }); //tab_layout
 
-        setRec1();
-        setRec2();
-
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                setRec2();
+                setRec2(query);
                 swipe.setRefreshing(false);
             }
         });
@@ -158,19 +167,15 @@ public class ShopFragment extends Fragment{
             }
         });
 
+        setRec1();
+
         return rootView;
     }
 
     public void setRec1(){
-        manager = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
-        ArrayList<Shop_PackageDTO> list = new ArrayList<>();
-        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new Shop_PackageDTO(R.layout.rec_item_sfzone, ""));
+        ArrayList<Product_PackageVO> list = dao.package_list();
 
+        manager = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
 
         shop_rec1.setLayoutManager(manager);
         adapter_rec1 = new Shop_Package_Apdater(context, list);
@@ -185,17 +190,20 @@ public class ShopFragment extends Fragment{
 
 
     }
-    public void setRec2(){
+
+    public void setRec2(String query){
+        ArrayList<ProductVO> list = dao.product_list(query);
+
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-        //ArrayList<ProductDTO> list = new ArrayList<>();
 
         shop_rec2.setLayoutManager(manager);
-        adapter_rec2 = new Shop_Rec_Adapter(context);
+        adapter_rec2 = new Shop_Rec_Adapter(context, list);
         shop_rec2.setAdapter(adapter_rec2);
 
         adapter_rec2.setOnItemClickListener(new OnItemClick_product_Listener() {
             @Override
             public void onItemClick_product(Shop_Rec_Adapter.ViewHolder holderm, View view, int position) {
+
                 mainActivity.changeFragment(new Product_Fragment(context));
             }
         });

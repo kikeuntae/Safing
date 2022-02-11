@@ -1,31 +1,22 @@
 package product;
 
 public class ImginsertVO {
-	String package_name;
-	String file_name;
-	String file_path;
+	String filename;
+	String filepath;
 	
-	
-	public String getPackage_name() {
-		return package_name;
+	public String getFilename() {
+		return filename;
 	}
-	public void setPackage_name(String package_name) {
-		this.package_name = package_name;
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
-	public String getFile_name() {
-		return file_name;
+	public String getFilepath() {
+		return filepath;
 	}
-	public void setFile_name(String file_name) {
-		this.file_name = file_name;
-	}
-	public String getFile_path() {
-		return file_path;
-	}
-	public void setFile_path(String file_path) {
-		this.file_path = file_path;
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
 	}
 	
-
 	
 	
 }

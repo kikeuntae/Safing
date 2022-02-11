@@ -1,6 +1,8 @@
 package com.example.safing.shop.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,27 +13,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safing.shop.DTO.Shop_PackageDTO;
+import com.bumptech.glide.Glide;
 import com.example.safing.R;
 import com.example.safing.async.OnItemClick_Package_Listener;
+import com.example.safing.shop.VO.Product_PackageVO;
 
 import java.util.ArrayList;
 
 public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apdater.ViewHolder> implements OnItemClick_Package_Listener {
 
     Context context;
-    ArrayList<Shop_PackageDTO> list;
+    ArrayList<Product_PackageVO> list;
     LayoutInflater inflater;
     OnItemClick_Package_Listener listener;
 
-    public Shop_Package_Apdater(Context context, ArrayList<Shop_PackageDTO> list) {
+    public Shop_Package_Apdater(Context context, ArrayList<Product_PackageVO> list) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
 
-    public void addDto(Shop_PackageDTO dto){
+    public void addDto(Product_PackageVO dto){
         list.add(dto);
     }
 
@@ -40,12 +43,11 @@ public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apda
         list.remove(position);
     }
 
-
     public void setOnItemClickListener(OnItemClick_Package_Listener listener){
         this.listener = listener;
     }
 
-    public Shop_PackageDTO getItem(int position){
+    public Product_PackageVO getItem(int position){
         return list.get(position);
     }
 
@@ -53,13 +55,13 @@ public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apda
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemview = inflater.inflate(R.layout.rec_item_sfzone, parent , false );
+        View itemview = inflater.inflate(R.layout.item_product_package_shop_rec, parent , false );
         return new ViewHolder(itemview, this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        binding(holder, position);
     }
 
     @Override
@@ -75,18 +77,18 @@ public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apda
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView sfimgv ;
-        TextView sftext;
-        LinearLayout rec_item_theme_linearlayout;
+        ImageView item_product_package_shop_img ;
+        TextView item_product_package_shop_tv;
+        LinearLayout item_product_package_shop_linear;
 
         public ViewHolder(@NonNull View itemView, OnItemClick_Package_Listener onItemClick_package_listener) {
             super(itemView);
-            sfimgv = itemView.findViewById(R.id.sfimgv);
-            sftext = itemView.findViewById(R.id.sftext);
-            rec_item_theme_linearlayout = itemView.findViewById(R.id.rec_item_theme_linearlayout);
+            item_product_package_shop_img = itemView.findViewById(R.id.item_product_package_shop_img);
+            item_product_package_shop_tv = itemView.findViewById(R.id.item_product_package_shop_tv);
+            item_product_package_shop_linear = itemView.findViewById(R.id.item_product_package_shop_linear);
 
 
-            rec_item_theme_linearlayout.setOnClickListener(new View.OnClickListener() {
+            item_product_package_shop_linear.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
@@ -96,14 +98,12 @@ public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apda
                     }
                 }
             });
-
-
-
-
-
         }
-        public void binding(ViewHolder holder, int position){
-
-        }
+    }
+    public void binding(ViewHolder holder, int position){
+        holder.item_product_package_shop_img.setColorFilter(Color.parseColor("#CD959595"), PorterDuff.Mode.MULTIPLY);
+        Glide.with(context).load(list.get(position).getFile_path()).into( holder.item_product_package_shop_img);
+        String[] tag = list.get(position).getTag_key().split("#");
+        holder.item_product_package_shop_tv.setText("#" + tag[0] + "\n" +"#" + tag[1] + "\n" + "#" + tag[2]);
     }
 }
