@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sfzone.mapper">
+
+	<!-- sfzone 가입된 업장 목록ㄹ -->
+	<select id="sfzonelist" resultType="safezone.SafeZoneVO">
+		select contentid, facltnm, addr1, firstimageurl, intro, resvecl, tel, homepage, induty, prmisnde, insrncat, animalcmgcl, facltdivnm,
+				mangedivnm, mgcdiv, operdecl, toiletco, swrmco, wtrplco, sbrscl, mapx, mapy
+		
+		from campinfo
+		where sfzone = 'y'
+	</select>
+	
+	<!-- 검색기능 -->
+	<select id="all_list" resultType="safezone.SafeZoneVO">
+		select rownum no, c.* 
+		from 
+		(select * 
+		from campinfo 
+		where facltnm like '%'||#{search, jdbcType=VARCHAR}||'%'
+		or addr1 like '%'||#{search, jdbcType=VARCHAR}||'%'
+		or induty like '%'||#{search, jdbcType=VARCHAR}||'%'
+		order by facltnm asc ) c
+	</select>
+	
+
+	
+</mapper>
