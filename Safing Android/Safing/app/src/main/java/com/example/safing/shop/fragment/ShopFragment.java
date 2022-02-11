@@ -19,6 +19,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.bumptech.glide.Glide;
+import com.example.safing.mypage.VO.MemberVO;
+import com.example.safing.async.CommonVal;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
@@ -47,8 +50,8 @@ public class ShopFragment extends Fragment{
     Shop_Package_Apdater adapter_rec1;
     Shop_Rec_Adapter adapter_rec2;
     Gson gson = new Gson();
-    String query;
-    ShopDAO dao;
+    String query = "감성용품";
+    ShopDAO dao = new ShopDAO();
 
     public ShopFragment(Context context){
         this.context = context;
@@ -59,6 +62,9 @@ public class ShopFragment extends Fragment{
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_shop, container, false);
 
+        MemberVO member = new MemberVO();
+        member.setMember_id("in2thefree");
+        CommonVal.loginInfo = member;
 
         tab_layout = rootView.findViewById(R.id.shop_tab);
         shop_rec1 = rootView.findViewById(R.id.shop_rec1);
@@ -70,6 +76,9 @@ public class ShopFragment extends Fragment{
 
         mainActivity = (MainActivity) getActivity();
 
+        setRec1();
+        setRec2(query);
+        shop_tv1.setText("검색상품 #"+query);
         //========= 햄버커 기능 ==============
 
         DrawerLayout drawer = rootView.findViewById(R.id.drawer_layout);
@@ -86,9 +95,10 @@ public class ShopFragment extends Fragment{
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        //Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-        //header_text.setText(CommonVal.loginInfo.getMember_id());
-
+        if(CommonVal.loginInfo != null){
+            Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+            header_text.setText(CommonVal.loginInfo.getMember_id());
+        }
         //========= 탭 기능 ==============
 
         tab_layout.addTab(tab_layout.newTab().setText("감성용품"));
@@ -102,32 +112,32 @@ public class ShopFragment extends Fragment{
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab.getPosition() == 0){
-                    query = (String) tab_layout.getTag();
+                    query = tab.getText()+"";
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 1){
-                    query = (String) tab_layout.getTag();
+                    query = tab.getText()+"";
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 2){
-                    query = (String) tab_layout.getTag();
+                    query = tab.getText()+"";
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 3){
-                    query = (String) tab_layout.getTag();
+                    query = tab.getText()+"";
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 4){
-                    query = (String) tab_layout.getTag();
+                    query = tab.getText()+"";
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 5){
-                    query = (String) tab_layout.getTag();
+                    query = tab.getText()+"";
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
@@ -167,7 +177,7 @@ public class ShopFragment extends Fragment{
             }
         });
 
-        setRec1();
+
 
         return rootView;
     }
@@ -184,11 +194,9 @@ public class ShopFragment extends Fragment{
         adapter_rec1.setOnItemClickListener(new OnItemClick_Package_Listener() {
             @Override
             public void onItemClick_package(Shop_Package_Apdater.ViewHolder holderm, View view, int position) {
-                mainActivity.changeFragment(new Product_Package_Fragment(context));
+                mainActivity.changeFragment(new Product_Package_Fragment(context, list.get(position).getPackage_num()));
             }
         });
-
-
     }
 
     public void setRec2(String query){
@@ -204,7 +212,7 @@ public class ShopFragment extends Fragment{
             @Override
             public void onItemClick_product(Shop_Rec_Adapter.ViewHolder holderm, View view, int position) {
 
-                mainActivity.changeFragment(new Product_Fragment(context));
+                mainActivity.changeFragment(new Product_Fragment(context, list.get(position).getProduct_num()));
             }
         });
     }

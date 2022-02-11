@@ -24,7 +24,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.safing.shop.DTO.Product_Cart_RecDTO;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
 import com.example.safing.shop.activity.Purchase_Result_Activity;
@@ -197,7 +196,7 @@ public class Product_Purchase_Fragment extends Fragment {
 
     public void setRec1(){
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-        ArrayList<Product_Cart_RecDTO> list = new ArrayList<>();
+       // ArrayList<Product_Cart_RecDTO> list = new ArrayList<>();
 
         product_purchase_rec1.setLayoutManager(manager);
         Product_Cart_Rec_Adapter adapter_rec1 = new Product_Cart_Rec_Adapter(context);

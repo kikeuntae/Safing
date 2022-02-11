@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safing.shop.DTO.Product_PurchaseHistory_RecDTO;
 import com.example.safing.R;
 
 import java.util.ArrayList;
@@ -22,12 +21,12 @@ import java.util.ArrayList;
 public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_Rec_Adapter.ViewHolder> {
 
     Context context;
-    ArrayList<Product_PurchaseHistory_RecDTO> list;
+    //ArrayList<Product_PurchaseHistory_RecDTO> list;
     LayoutInflater inflater;
 
     public Product_Cart_Rec_Adapter(Context context) {
         this.context = context;
-        this.list = list;
+       // this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
@@ -86,7 +85,7 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle("주문삭제 확인");
                     builder.setMessage("선택하신 주문을\n삭제하시겠습니까? ");
-                    builder.setIcon(R.drawable.question);
+                    builder.setIcon(R.drawable.question1);
 
                     builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
                         @Override

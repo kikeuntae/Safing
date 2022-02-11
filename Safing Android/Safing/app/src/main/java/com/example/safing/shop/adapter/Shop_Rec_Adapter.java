@@ -1,5 +1,7 @@
 package com.example.safing.shop.adapter;
 
+import static com.example.safing.async.CommonAsk.FILE_PATH;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import com.example.safing.R;
 import com.example.safing.async.OnItemClick_product_Listener;
 import com.example.safing.shop.VO.ProductVO;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.ViewHolder> implements OnItemClick_product_Listener {
@@ -22,7 +25,6 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
     Context context;
     ArrayList<ProductVO> list;
     LayoutInflater inflater;
-
     OnItemClick_product_Listener listener;
 
     public Shop_Rec_Adapter(Context context, ArrayList<ProductVO> list) {
@@ -63,7 +65,7 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
 
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
 
     @Override
@@ -109,17 +111,17 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
         if(list.get(position).getProduct_stock() < 1){
             delDto(position);
         }else {
-            Glide.with(context).load(list.get(position).getFile_path()).into( holder.product_rec_img1);
+            Glide.with(context).load(FILE_PATH + list.get(position).getFile_path()).into( holder.product_rec_img1);
             holder.product_rec_tv1.setText(list.get(position).getProduct_name());
             holder.product_rec_tv2.setText(list.get(position).getRating()+"");
-            holder.product_rec_tv3.setText(list.get(position).getRe_count());
-            holder.product_rec_tv4.setText(list.get(position).getProduct_price());
+            holder.product_rec_tv3.setText("("+list.get(position).getRe_count()+")");
+            holder.product_rec_tv4.setText(NumberFormat.getInstance().format(list.get(position).getProduct_price())+"원");
 
             String[] tag = list.get(position).getTag_key().split("#");
-            holder.product_rec_tv5.setText("#" + tag[0]);
-            holder.product_rec_tv6.setText("#" + tag[1]);
-            holder.product_rec_tv7.setText("#" + tag[2]);
-            holder.product_rec_tv8.setText("#" + tag[3]);
+            holder.product_rec_tv5.setText("#" + tag[1]);
+            holder.product_rec_tv6.setText("#" + tag[2]);
+            holder.product_rec_tv7.setText("#" + tag[3]);
+            holder.product_rec_tv8.setText("#" + tag[4]);
         }
 
     }

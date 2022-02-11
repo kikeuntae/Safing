@@ -5,10 +5,12 @@ import android.util.Log;
 import com.example.safing.async.AskParam;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
-import com.example.safing.shop.DTO.Product_Cart_RecDTO;
-import com.example.safing.shop.DTO.Product_PurchaseHistory_RecDTO;
+import com.example.safing.async.CommonVal;
+import com.example.safing.shop.VO.CartVO;
 import com.example.safing.shop.VO.ProductVO;
+import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.VO.Product_PackageVO;
+import com.example.safing.shop.VO.Product_Package_DetailVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -23,9 +25,10 @@ public class ShopDAO {
     InputStream in;
     Gson gson = new Gson();
 
-    //키지 리스트
+    //패키지 리스트
     public ArrayList<Product_PackageVO> package_list(){
-        service = new CommonAsk("package_rec.sh");
+        service = new CommonAsk("package_list.sh");
+
         in = CommonMethod.excuteAsk(service);
         ArrayList<Product_PackageVO> list = new ArrayList<>();
         try{
@@ -40,7 +43,7 @@ public class ShopDAO {
 
     //상품 리스트
     public ArrayList<ProductVO> product_list(String query){
-        service = new CommonAsk("product_rec.sh");
+        service = new CommonAsk("product_list.sh");
         service.params.add(new AskParam("search", query));
         in = CommonMethod.excuteAsk(service);
         ArrayList<ProductVO> list = new ArrayList<>();
@@ -54,36 +57,115 @@ public class ShopDAO {
         return list;
     }
 
-    //장바구니 리스트
-    public ArrayList<Product_Cart_RecDTO> cart_list(){
-        service = new CommonAsk("product_cart.sh");
+    //패키지 상세정보
+    public Product_Package_DetailVO package_detail(int package_num){
+        service = new CommonAsk("package_detail.sh");
+        service.params.add(new AskParam("package_num", package_num+""));
         in = CommonMethod.excuteAsk(service);
-        ArrayList<Product_Cart_RecDTO> list = new ArrayList<>();
+        Product_Package_DetailVO vo = new Product_Package_DetailVO();
         try{
-            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<Product_Cart_RecDTO> >(){}.getType());
+            vo = gson.fromJson(new InputStreamReader(in), Product_Package_DetailVO.class);
         } catch (Exception e){
             e.printStackTrace();
             Log.d(TAG, "gson error");
         }
 
-        return list;
+        return vo;
     }
 
-    //구매내역 리스트
-    public ArrayList<Product_PurchaseHistory_RecDTO> purchaseHistory_list(){
-        service = new CommonAsk("purchaseHistory_list.sh");
+    //상품 상세정보
+    public Product_DetailVO product_detail(int product_num){
+        service = new CommonAsk("product_detail.sh");
+        service.params.add(new AskParam("product_num", product_num+""));
         in = CommonMethod.excuteAsk(service);
-        ArrayList<Product_PurchaseHistory_RecDTO> list = new ArrayList<>();
+        Product_DetailVO vo = new Product_DetailVO();
         try{
-            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<Product_PurchaseHistory_RecDTO> >(){}.getType());
+            vo = gson.fromJson(new InputStreamReader(in), Product_DetailVO.class);
         } catch (Exception e){
             e.printStackTrace();
             Log.d(TAG, "gson error");
         }
 
+        return vo;
+    }
+
+    //상품 상세정보 페이지
+    public Product_DetailVO product_details_page_pro(int num){
+        service = new CommonAsk("product_details_page_pro.sh");
+        service.params.add(new AskParam("num", num+""));
+        in = CommonMethod.excuteAsk(service);
+        Product_DetailVO vo = new Product_DetailVO();
+        try{
+            vo = gson.fromJson(new InputStreamReader(in), Product_DetailVO.class);
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+
+        return vo;
+    }
+
+    //패키지 상품 상세정보 페이지
+    public ArrayList<Product_DetailVO> product_details_page_pack(int num){
+        service = new CommonAsk("product_details_page_pack.sh");
+        service.params.add(new AskParam("num", num+""));
+        in = CommonMethod.excuteAsk(service);
+        ArrayList<Product_DetailVO> list = new ArrayList<>();
+        try{
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<Product_DetailVO> >(){}.getType());
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
         return list;
     }
 
+    //장바구니 담기 상품
+    public int insert_cart_pro(Product_DetailVO vo){
+        service = new CommonAsk("insert_cart_pro.sh");
+        CartVO cart = new CartVO();
+        cart.setMember_id(CommonVal.loginInfo.getMember_id());
+        cart.setProduct_num(vo.getProduct_num());
+        cart.setProduct_price(vo.getProduct_price());
+        cart.setOrder_count(vo.getOrder_count());
+        service.params.add(new AskParam("vo", gson.toJson(cart)));
 
+        in = CommonMethod.excuteAsk(service);
+        int result = 0;
+        try{
+            result = gson.fromJson(new InputStreamReader(in), Integer.class);
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+
+        return result;
+    }
+
+    //장바구니 담기 패키지
+    public int insert_cart_pack(ArrayList<Product_DetailVO> list){
+        service = new CommonAsk("insert_cart_pack.sh");
+        CartVO cartvo = new CartVO();
+
+        for (Product_DetailVO vo: list) {
+            cartvo.setMember_id(CommonVal.loginInfo.getMember_id());
+            cartvo.setProduct_num(vo.getProduct_num());
+            //cartvo.setPackage_num();
+            cartvo.setProduct_price(vo.getProduct_price());
+            cartvo.setOrder_count(vo.getOrder_count());
+            service.params.add(new AskParam("vo", gson.toJson(vo)));
+        }
+
+        in = CommonMethod.excuteAsk(service);
+        int result = 0;
+        try{
+            result = gson.fromJson(new InputStreamReader(in), Integer.class);
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+
+        return result;
+    }
 
 }

@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safing.shop.DTO.Address_RepositoryDTO;
 import com.example.safing.R;
 
 import java.util.ArrayList;
@@ -22,12 +21,12 @@ import java.util.ArrayList;
 public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address_Repository_Rec_Adapter.ViewHolder> {
 
     Context context;
-    ArrayList<Address_RepositoryDTO> list;
+   // ArrayList<Address_RepositoryDTO> list;
     LayoutInflater inflater;
 
     public Address_Repository_Rec_Adapter(Context context) {
         this.context = context;
-        this.list = list;
+      //  this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }

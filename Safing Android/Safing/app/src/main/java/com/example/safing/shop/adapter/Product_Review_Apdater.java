@@ -15,24 +15,21 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safing.shop.DTO.Product_ReviewlDTO;
 import com.example.safing.R;
 import com.example.safing.shop.activity.Review_Image_Activity;
 
-import java.util.ArrayList;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Producdt_Review_Apdater extends RecyclerView.Adapter<Producdt_Review_Apdater.ViewHolder> {
+public class Product_Review_Apdater extends RecyclerView.Adapter<Product_Review_Apdater.ViewHolder> {
 
     boolean like_change= true;
     Context context;
-    ArrayList<Product_ReviewlDTO> list;
+   // ArrayList<Product_ReviewlDTO> list;
     LayoutInflater inflater;
 
-    public Producdt_Review_Apdater(Context context) {
+    public Product_Review_Apdater(Context context) {
         this.context = context;
-        this.list = list;
+       // this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 

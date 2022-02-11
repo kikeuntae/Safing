@@ -5,7 +5,6 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import android.view.Window;
 
-import com.example.safing.shop.DTO.Product_ReviewlDTO;
 import com.example.safing.R;
 import com.example.safing.shop.adapter.Review_Image_pager_Adapter;
 
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 public class Review_Image_Activity extends AppCompatActivity {
 
     ViewPager2 Review_Image_Rec;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +25,7 @@ public class Review_Image_Activity extends AppCompatActivity {
 
     public void setRec1(){
 
-        ArrayList<Product_ReviewlDTO> list = new ArrayList<>();
+      //  ArrayList<Product_ReviewlDTO> list = new ArrayList<>();
 
         Review_Image_pager_Adapter adapter_rec1 = new Review_Image_pager_Adapter(Review_Image_Activity.this);
         Review_Image_Rec.setAdapter(adapter_rec1);

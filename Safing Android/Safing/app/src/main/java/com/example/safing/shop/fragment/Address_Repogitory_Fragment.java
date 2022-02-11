@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.safing.shop.DTO.Address_RepositoryDTO;
 import com.example.safing.R;
 import com.example.safing.shop.adapter.Address_Repository_Rec_Adapter;
 
@@ -40,7 +39,7 @@ public class Address_Repogitory_Fragment extends Fragment {
     }
     public void setRec1(){
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-        ArrayList<Address_RepositoryDTO> list = new ArrayList<>();
+      //  ArrayList<Address_RepositoryDTO> list = new ArrayList<>();
 
         Address_Repogitory_rec.setLayoutManager(manager);
         Address_Repository_Rec_Adapter adapter_rec1 = new Address_Repository_Rec_Adapter(context);

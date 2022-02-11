@@ -20,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.safing.shop.DTO.Product_PurchaseHistory_RecDTO;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
 import com.example.safing.shop.adapter.Product_PurchaseHistory_Rec_Adapter;
@@ -102,7 +101,7 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
 
     public void setRec1(){
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-        ArrayList<Product_PurchaseHistory_RecDTO> list = new ArrayList<>();
+        //ArrayList<Product_PurchaseHistory_RecDTO> list = new ArrayList<>();
 
 
         product_purchaseHistory_rec1.setLayoutManager(manager);

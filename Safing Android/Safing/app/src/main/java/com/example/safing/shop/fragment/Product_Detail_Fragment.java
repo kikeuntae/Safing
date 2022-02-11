@@ -1,6 +1,10 @@
 package com.example.safing.shop.fragment;
 
+import static com.example.safing.async.CommonAsk.FILE_PATH;
+
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 
@@ -13,23 +17,45 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.safing.shop.DTO.Product_DetailDTO;
+import com.bumptech.glide.Glide;
+import com.example.safing.MainActivity;
 import com.example.safing.R;
-import com.example.safing.shop.adapter.Producdt_Detail_Apdater;
+import com.example.safing.async.CommonVal;
+import com.example.safing.async.OnItemClick_product_Detail_Listener;
+import com.example.safing.async.OnItemClick_product_Package_Detail_Listener;
+import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.Product_DetailVO;
+import com.example.safing.shop.adapter.Product_Detail_Apdater;
+import com.example.safing.shop.adapter.Product_Pakcage_Detail_Apdater;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class Product_Detail_Fragment extends Fragment {
     Context context;
-    ImageView product_detail_img;
     RecyclerView product_detail_rec;
     LinearLayoutManager manager;
+    ImageView product_detail_img;
+    Button product_detail_btn1, product_detail_btn2;
+    TextView product_detail_tv1, product_detail_tv2, product_detail_tv3;
+    ShopDAO dao = new ShopDAO();
+    Product_DetailVO vo = new Product_DetailVO();
+    ArrayList<Product_DetailVO> list = new ArrayList<>();
+    MainActivity mainActivity = new MainActivity();
+
+    int num = 0;
+    String chknum = "";
 
 
-    public Product_Detail_Fragment(Context context){
+    public Product_Detail_Fragment(Context context, int num, String chknum){
         this.context = context;
+        this.num = num;
+        this.chknum = chknum;
     }
 
     @Override
@@ -38,21 +64,162 @@ public class Product_Detail_Fragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_detail_product, container, false);
 
         product_detail_rec = rootView.findViewById(R.id.product_detail_rec);
+        product_detail_btn1 = rootView.findViewById(R.id.product_detail_btn1);
+        product_detail_btn2 = rootView.findViewById(R.id.product_detail_btn2);
         product_detail_img = rootView.findViewById(R.id.product_detail_img);
+        product_detail_tv1 = rootView.findViewById(R.id.product_detail_tv1);
+        product_detail_tv2 = rootView.findViewById(R.id.product_detail_tv2);
+        product_detail_tv3 = rootView.findViewById(R.id.product_detail_tv3);
 
-        //product_detail_img.setImageResource();
+        mainActivity = (MainActivity) getActivity();
 
-        setRec1();
+        if(("product").equals(chknum)){
+            vo = dao.product_details_page_pro(num);
+            Glide.with(context).load(FILE_PATH + vo.getImagelist().get(0)).into( product_detail_img);
+            setRec1(vo);
+
+        } else if(("package").equals(chknum)){
+            list = dao.product_details_page_pack(num);
+            setContent2(list, rootView);
+            setRec2(list);
+        }
+
+        //============= 장바구니 버튼 =====
+        product_detail_btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(CommonVal.loginInfo.getMember_id().isEmpty()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("로그인 확인");
+                    builder.setMessage("로그인이 필요합니다.");
+                    builder.setIcon(R.drawable.question1);
+                    builder.setPositiveButton("로그인하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                         //   mainActivity.changeFragment(new LoginFragment(context));
+                        }
+                    });
+                    builder.setPositiveButton("취소", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context, "취소", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                } else {
+                    int result = dao.insert_cart_pro(vo);
+                    if(result > 0){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setTitle("장바구니 담기");
+                        builder.setMessage("장바구니에 담았습니다.\n확인하시겠습니까?");
+                        builder.setIcon(R.drawable.question1);
+                        builder.setPositiveButton("장바구니보기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                mainActivity.changeFragment(new Product_Cart_Fragment(context));
+                            }
+                        });
+                        builder.setPositiveButton("쇼핑하기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(context, "쇼핑하기", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } else {
+                        Toast.makeText(context, "장바구니 담기 실패", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        //============= 구매하기 버튼 ========
+        product_detail_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(CommonVal.loginInfo.getMember_id().isEmpty()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("로그인 확인");
+                    builder.setMessage("로그인이 필요합니다.");
+                    builder.setIcon(R.drawable.question1);
+                    builder.setPositiveButton("로그인하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                          //  mainActivity.changeFragment(new LoginFragment(context));
+                        }
+                    });
+                    builder.setPositiveButton("쇼핑하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context, "쇼핑하기", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                } else {
+                    mainActivity.changeFragment(new Product_Purchase_Fragment(context));
+                }
+            }
+        });
+
 
         return rootView;
     }
-
-    public void setRec1(){
+    public void setRec1(Product_DetailVO vo){
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-        ArrayList<Product_DetailDTO> list = new ArrayList<>();
 
         product_detail_rec.setLayoutManager(manager);
-        Producdt_Detail_Apdater adapter_rec1 = new Producdt_Detail_Apdater(context);
-        product_detail_rec.setAdapter(adapter_rec1);
+        Product_Detail_Apdater adapter_rec = new Product_Detail_Apdater(context, vo, Product_Detail_Fragment.this);
+        product_detail_rec.setAdapter(adapter_rec);
+
+        adapter_rec.setOnItemClickListener(new OnItemClick_product_Detail_Listener() {
+            @Override
+            public void onItemClick_detail(Product_Detail_Apdater.ViewHolder holderm, View view, int position) {
+                if(num == vo.getProduct_num()){
+                    Toast.makeText(context, "현재 선택한 페이지입니다", Toast.LENGTH_SHORT).show();
+                } else {
+                    mainActivity.changeFragment(new Product_Fragment(context, vo.getProduct_num()));
+                }
+
+            }
+        });
+
     }
+
+
+    public void setRec2(ArrayList<Product_DetailVO> list){
+        manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
+
+        product_detail_rec.setLayoutManager(manager);
+        Product_Pakcage_Detail_Apdater adapter_rec = new Product_Pakcage_Detail_Apdater(context, list, Product_Detail_Fragment.this);
+        product_detail_rec.setAdapter(adapter_rec);
+
+        adapter_rec.setOnItemClickListener(new OnItemClick_product_Package_Detail_Listener() {
+            @Override
+            public void onItemClick_detail(Product_Pakcage_Detail_Apdater.ViewHolder holderm, View view, int position) {
+                mainActivity.changeFragment(new Product_Fragment(context, list.get(position).getProduct_num()));
+            }
+        });
+
+    }
+    public void setContent2(ArrayList<Product_DetailVO> list, View rootView){
+        Glide.with(context).load(FILE_PATH + list.get(0).getImagelist().get(0)).into( product_detail_img);
+    }
+
+    public void changePrice(int price){
+        int courier = 0;
+
+        for (Product_DetailVO vo: list) {
+            price += (vo.getProduct_price()* vo.getOrder_count());
+        }
+
+        if(price < 100000){
+            courier = 5000;
+        }
+
+        int priceSum = price + courier;
+
+        product_detail_tv1.setText(NumberFormat.getInstance().format(price)+"원");
+        product_detail_tv2.setText(NumberFormat.getInstance().format(price)+"원");
+        product_detail_tv3.setText(NumberFormat.getInstance().format(price)+"원");
+    }
+
 }

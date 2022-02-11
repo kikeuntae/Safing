@@ -1,4 +1,4 @@
-package com.example.safing.VO;
+package com.example.safing.mypage.VO;
 
 public class MemberVO {
     private String member_id	 	;
