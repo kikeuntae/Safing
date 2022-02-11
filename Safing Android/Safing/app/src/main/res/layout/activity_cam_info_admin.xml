@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activity.CamInfoActivity">
+    tools:context=".home.activity.CamInfoActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,7 +23,7 @@
 
                 </ImageButton>
                 <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vpcaminfo"
+                    android:id="@+id/ad_vpcaminfo"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:src="@drawable/camimg2">

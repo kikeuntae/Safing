@@ -3,6 +3,8 @@ package com.example.safing.async;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 
+import com.google.gson.Gson;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
@@ -22,11 +24,16 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
     HttpClient httpClient;//접속을 위한객체
     HttpPost httpPost; //url을 담을 객체
 
+
     MultipartEntityBuilder builder;//파라메터,파일 등등을 보내기위한 객체
-    final String HTTPIP = "http://192.168.0.12";//IP
-    final String SVRPATH = "/middle/"; //
+    static final String HTTPIP = "http://192.168.0.214";//IP
+    final String SVRPATH = "/safing/";
+    static final public String FILE_PATH = HTTPIP +":80/safing/resources/";
+    static String MEMBER_ID = "master";
     String mapping ;
-    private String postUrl ;//
+    private String postUrl ;
+
+
 
     public ArrayList<AskParam> params ;
     public ArrayList<AskParam> fileprams;
@@ -45,6 +52,8 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
     @Override
     protected InputStream doInBackground(String... strings) {
         postUrl = HTTPIP + SVRPATH + mapping ;
+
+        Gson gson = new Gson();
 
         builder = MultipartEntityBuilder.create();
         builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);

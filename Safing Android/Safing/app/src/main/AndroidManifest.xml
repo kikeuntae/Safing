@@ -56,35 +56,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Safing"
         android:usesCleartextTraffic="true">
+
         <activity
-            android:name=".activity.Purchase_Result_Activity"
+            android:name=".shop.activity.Purchase_Result_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
-            android:name=".activity.Review_Image_Activity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
+            android:name=".shop.activity.Review_Image_Activity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
-            android:name=".activity.TipActivity"
+            android:name=".home.activity.TipActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.CamInfoActivity"
+            android:name=".home.activity.CamInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ReviewActivity"
+            android:name=".shop.activity.ReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.HomeSearchActivity"
+            android:name=".home.activity.HomeSearchActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SafeGuardInfoActivity"
+            android:name=".home.activity.SafeGuardInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.ThemePagerActivity"
+            android:name=".KakaoMapActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SplashActivity"
+            android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -92,6 +93,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -101,6 +106,9 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepath" />
+            <meta-data
+                android:name="com.kakao.sdk.AppKey"
+                android:value="cad9d128e6313db0c6b34ec4aab5209a" />
         </provider>
     </application>
 
