@@ -12,11 +12,8 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.safing.R;
 import com.example.safing.MainActivity;
-import com.example.safing.mypage.fragment.LoginFragment;
-import com.example.safing.mypage.fragment.QNAFragment;
-import com.example.safing.mypage.fragment.SettingFragment;
+import com.example.safing.R;
 
 public class MypageFragment extends Fragment {
     Context context;

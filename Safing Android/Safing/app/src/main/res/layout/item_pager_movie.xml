@@ -19,6 +19,7 @@
                 android:orientation="horizontal"
                 android:weightSum="10">
 
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -27,7 +28,7 @@
                         android:id="@id/exo_play"
                         style="@style/ExoMediaButton.Play"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="150dp"
+                        android:layout_marginLeft="200dp"
                         android:layout_marginTop="20dp"
                         android:background="#32000000" />
 
@@ -35,9 +36,10 @@
                         android:id="@id/exo_pause"
                         style="@style/ExoMediaButton.Pause"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="150dp"
+                        android:layout_marginLeft="200dp"
                         android:layout_marginTop="20dp"
                         android:background="#32000000" />
+
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"

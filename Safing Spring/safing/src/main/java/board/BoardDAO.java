@@ -78,5 +78,10 @@ public class BoardDAO {
 		// TODO Auto-generated method stub
 		return sql.selectOne("board.mapper.movie_comment_cnt", id);
 	}
+
+	public Object board_list(BoardPage page) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

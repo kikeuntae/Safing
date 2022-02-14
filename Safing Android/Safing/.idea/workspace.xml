@@ -125,6 +125,10 @@
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/java/com/example/project3_allview/pager/Frag_pagerMain.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/frag_pagermain.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/CreateFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/LoginFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/QNAFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/SettingFragment.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Comment_DAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Movie_DAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DTO/Board_Movie_DTO.java" afterDir="false" />
@@ -132,6 +136,12 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DTO/Movie_comment_DTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/adapter/Comment_Adapter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_dialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/VO/MemberVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/JoinFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/LoginFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/MypageFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/QNAFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/SettingFragment.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/apple.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_signin_twitter.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/faq.png" afterDir="false" />
@@ -379,21 +389,22 @@
     <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_ViewPager2_DIMENSIONS" value="1080&#10;1920" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_SELECTED" value="View" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_View_DIMENSIONS" value="1080&#10;1920" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NewLastProject" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\java\com\example\safing\member" />
       <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\res\drawable" />
       <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\res\layout" />
       <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\java\com\example\safing\activity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.safing.mypage.fragment" />
       <recent name="com.example.safing.movie.DAO" />
       <recent name="com.example.safing.movie.DTO" />
       <recent name="com.example.safing.home.DTO" />
       <recent name="com.example.safing.movie.adapter" />
-      <recent name="com.example.safing.fragment" />
     </key>
   </component>
   <component name="RunManager">
@@ -484,7 +495,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/MovieFragment.java</url>
-          <line>105</line>
+          <line>104</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -494,17 +505,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_dialog.java</url>
-          <line>113</line>
+          <line>112</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/adapter/Comment_Adapter.java</url>
-          <line>126</line>
+          <line>114</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Comment_DAO.java</url>
-          <line>53</line>
+          <line>52</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>

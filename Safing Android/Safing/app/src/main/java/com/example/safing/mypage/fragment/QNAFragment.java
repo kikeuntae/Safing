@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.safing.R;
 import com.example.safing.MainActivity;
+import com.example.safing.R;
 
 public class QNAFragment extends Fragment {
     Context context;

@@ -82,9 +82,6 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".KakaoMapActivity"
-            android:exported="false" />
-        <activity
             android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>

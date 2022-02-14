@@ -1,33 +1,21 @@
 package com.example.safing.movie.adapter;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
-import com.example.safing.VO.Board_FileVO;
-import com.example.safing.home.DTO.SafeZoneRecDTO;
-import com.example.safing.home.activity.CamInfoActivity;
 import com.example.safing.movie.DAO.Comment_DAO;
 import com.example.safing.movie.DTO.Movie_comment_DTO;
 
-import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;

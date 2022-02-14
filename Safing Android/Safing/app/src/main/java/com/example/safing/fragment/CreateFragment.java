@@ -9,9 +9,8 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.safing.MainActivity;
 import com.example.safing.R;
-import com.example.safing.activity.MainActivity;
-
 public class CreateFragment extends Fragment {
     Context context;
     LinearLayoutManager manager;

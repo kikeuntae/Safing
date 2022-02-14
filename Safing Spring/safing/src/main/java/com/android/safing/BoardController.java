@@ -10,7 +10,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
@@ -19,6 +21,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import board.BoardDAO;
+import board.BoardPage;
 import board.BoardVO;
 import board.Board_MovieDTO;
 import common.CommonService;
@@ -30,10 +33,32 @@ import member.MemberVO;
 public class BoardController {
 	Gson gson = new Gson();
 	
+	@Autowired private BoardPage page;
 	@Autowired private CommonService service;
 	@Autowired private OutPrintln outprintln;
 	@Autowired private BoardDAO dao;
 
+	// 방명록 목록화면 요청
+		@RequestMapping ("/list.bo")
+		public String list(HttpSession session , Model model
+				, String search, String keyword
+				, @RequestParam (defaultValue = "1") int curPage
+				, @RequestParam (defaultValue = "10") int pageList
+				, @RequestParam (defaultValue = "list") String viewType ) {
+			session.setAttribute("category", "bo");
+			
+			// DB에서 방명록 정보를 조회해와 목록화면에 출력
+			page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
+			page.setSearch(search);		// 검색 조건 값을 page에 담음
+			page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
+			page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
+			page.setViewType(viewType);	// 게시판 형태를 page에 담음
+			
+			model.addAttribute("page", dao.board_list(page));		
+			return "board/list";
+		}
+	
+	
 	
 	//동영상 등록
 	@ResponseBody

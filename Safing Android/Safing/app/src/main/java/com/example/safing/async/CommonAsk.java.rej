@@ -1,0 +1,9 @@
+diff a/Safing Android/Safing/app/src/main/java/com/example/safing/async/CommonAsk.java b/Safing Android/Safing/app/src/main/java/com/example/safing/async/CommonAsk.java	(rejected hunks)
+@@ -60,6 +60,7 @@
+     protected InputStream doInBackground(String... strings) {
+         postUrl = HTTPIP + SVRPATH + mapping ;
+ 
++        Gson gson = new Gson();
+ 
+         builder = MultipartEntityBuilder.create();
+         builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
