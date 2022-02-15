@@ -24,7 +24,7 @@ public class Product_Review_Fragment extends Fragment {
     int num = 0;
     String chknum = "";
 
-    public Product_Review_Fragment(Context context,  int num, String chknum){
+    public Product_Review_Fragment(Context context,  int num){
         this.context = context;
         this.num = num;
         this.chknum = chknum;

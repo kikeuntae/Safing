@@ -6,13 +6,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-
-
 import androidx.fragment.app.Fragment;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +32,8 @@ import com.example.safing.shop.adapter.Product_Pakcage_Detail_Apdater;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class Product_Detail_Fragment extends Fragment {
+
+public class Product_Pacakage_Detail_Fragment extends Fragment {
     Context context;
     RecyclerView product_detail_rec;
     LinearLayoutManager manager;
@@ -44,16 +41,15 @@ public class Product_Detail_Fragment extends Fragment {
     Button product_detail_btn1, product_detail_btn2;
     TextView product_detail_tv1, product_detail_tv2, product_detail_tv3;
     ShopDAO dao = new ShopDAO();
-    Product_DetailVO vo = new Product_DetailVO();
+    ArrayList<Product_DetailVO> list = new ArrayList<>();
     MainActivity mainActivity = new MainActivity();
 
     int num = 0;
 
 
-    public Product_Detail_Fragment(Context context, int num){
+    public Product_Pacakage_Detail_Fragment(Context context, int num){
         this.context = context;
         this.num = num;
-
     }
 
     @Override
@@ -71,9 +67,9 @@ public class Product_Detail_Fragment extends Fragment {
 
         mainActivity = (MainActivity) getActivity();
 
-        vo = dao.product_details_page_pro(num);
-        Glide.with(context).load(FILE_PATH + vo.getImagelist().get(0)).into( product_detail_img);
-        setRec(vo);
+        Glide.with(context).load(FILE_PATH + list.get(0).getImagelist().get(0)).into( product_detail_img);
+        list = dao.product_details_page_pack(num);
+        setRec(list);
 
         //============= 장바구니 버튼 =====
         product_detail_btn1.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +83,7 @@ public class Product_Detail_Fragment extends Fragment {
                     builder.setPositiveButton("로그인하기", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                         //   mainActivity.changeFragment(new LoginFragment(context));
+                            //   mainActivity.changeFragment(new LoginFragment(context));
                         }
                     });
                     builder.setPositiveButton("취소", new DialogInterface.OnClickListener() {
@@ -98,7 +94,7 @@ public class Product_Detail_Fragment extends Fragment {
                         }
                     });
                 } else {
-                    int result = dao.insert_cart_pro(vo);
+                    int result = dao.insert_cart_pack(list);
                     if(result > 0){
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
                         builder.setTitle("장바구니 담기");
@@ -135,7 +131,7 @@ public class Product_Detail_Fragment extends Fragment {
                     builder.setPositiveButton("로그인하기", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                          //  mainActivity.changeFragment(new LoginFragment(context));
+                            //  mainActivity.changeFragment(new LoginFragment(context));
                         }
                     });
                     builder.setPositiveButton("쇼핑하기", new DialogInterface.OnClickListener() {
@@ -154,42 +150,42 @@ public class Product_Detail_Fragment extends Fragment {
 
         return rootView;
     }
-    public void setRec(Product_DetailVO vo){
+
+    public void setRec(ArrayList<Product_DetailVO> list){
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
 
         product_detail_rec.setLayoutManager(manager);
-        Product_Detail_Apdater adapter_rec = new Product_Detail_Apdater(context, vo, Product_Detail_Fragment.this);
+        Product_Pakcage_Detail_Apdater adapter_rec = new Product_Pakcage_Detail_Apdater(context, list, Product_Pacakage_Detail_Fragment.this);
         product_detail_rec.setAdapter(adapter_rec);
 
-        adapter_rec.setOnItemClickListener(new OnItemClick_product_Detail_Listener() {
+        adapter_rec.setOnItemClickListener(new OnItemClick_product_Package_Detail_Listener() {
             @Override
-            public void onItemClick_detail(Product_Detail_Apdater.ViewHolder holderm, View view, int position) {
-                if(num == vo.getProduct_num()){
-                    Toast.makeText(context, "현재 선택한 페이지입니다", Toast.LENGTH_SHORT).show();
-                } else {
-                    mainActivity.changeFragment(new Product_Fragment(context, vo.getProduct_num()));
-                }
-
+            public void onItemClick_detail(Product_Pakcage_Detail_Apdater.ViewHolder holderm, View view, int position) {
+                mainActivity.changeFragment(new Product_Fragment(context, list.get(position).getProduct_num()));
             }
         });
 
     }
 
-    public void changePrice(int price, int cnt){
-        this.vo.setOrder_count(cnt);
-        this.vo.setProduct_price(price);
+    public void changePrice(int price, int cnt, int position){
+        list.get(position).setProduct_price(price);
+        list.get(position).setOrder_count(cnt);
 
         int courier = 0;
+        int priceSum = 0;
 
-        if(price < 100000){
+        for (Product_DetailVO vo: list) {
+            priceSum += (vo.getProduct_price()* vo.getOrder_count());
+        }
+
+        if(priceSum < 100000){
             courier = 5000;
         }
 
-        int priceSum = price + courier;
+        int priceSum2 = price + courier;
 
-        product_detail_tv1.setText(NumberFormat.getInstance().format(price)+"원");
+        product_detail_tv1.setText(NumberFormat.getInstance().format(priceSum)+"원");
         product_detail_tv2.setText(NumberFormat.getInstance().format(courier)+"원");
-        product_detail_tv3.setText(NumberFormat.getInstance().format(priceSum)+"원");
+        product_detail_tv3.setText(NumberFormat.getInstance().format(priceSum2)+"원");
     }
-
 }

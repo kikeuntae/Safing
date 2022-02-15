@@ -21,6 +21,7 @@ import com.example.safing.async.OnItemClick_product_Detail_Listener;
 import com.example.safing.async.OnItemClick_product_Package_Detail_Listener;
 import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.fragment.Product_Detail_Fragment;
+import com.example.safing.shop.fragment.Product_Pacakage_Detail_Fragment;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -29,11 +30,11 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
 
     Context context;
     LayoutInflater inflater;
-    Product_Detail_Fragment fragment;
+    Product_Pacakage_Detail_Fragment fragment;
     OnItemClick_product_Package_Detail_Listener listener;
     ArrayList<Product_DetailVO> list = new ArrayList<>();
 
-    public Product_Pakcage_Detail_Apdater(Context context, ArrayList<Product_DetailVO> list, Product_Detail_Fragment fragment) {
+    public Product_Pakcage_Detail_Apdater(Context context, ArrayList<Product_DetailVO> list, Product_Pacakage_Detail_Fragment fragment) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -134,11 +135,7 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     try{
                         int cnt = Integer.parseInt(s + "");
-                        if(cnt == 0 ){
-                            fragment.changePrice(list.get(getAdapterPosition()).getProduct_price());
-                        }else{
-                            fragment.changePrice(cnt * list.get(getAdapterPosition()).getProduct_price());
-                        }
+                        fragment.changePrice(list.get(getAdapterPosition()).getProduct_price() * cnt, cnt, getAdapterPosition());
 
                     }catch (Exception e){
 

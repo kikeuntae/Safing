@@ -177,8 +177,6 @@ public class ShopFragment extends Fragment{
             }
         });
 
-
-
         return rootView;
     }
 

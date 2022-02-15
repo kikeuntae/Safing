@@ -74,6 +74,7 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
         ImageView item_product_detail_img;
         TextView item_product_detail_tv1, item_product_detail_tv2, item_product_detail_tv3;
         ImageButton item_product_detail_btn1, item_product_detail_btn2;
+
         int cnt = 1;
 
         public ViewHolder(@NonNull View itemView, OnItemClick_product_Detail_Listener listener) {
@@ -133,11 +134,8 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     try{
                         int cnt = Integer.parseInt(s + "");
-                        if(cnt == 0 ){
-                            fragment.changePrice(vo.getProduct_price());
-                        }else{
-                            fragment.changePrice(vo.getProduct_price());
-                        }
+                        fragment.changePrice(vo.getProduct_price()*cnt,cnt);
+
                     }catch (Exception e){
 
                     }

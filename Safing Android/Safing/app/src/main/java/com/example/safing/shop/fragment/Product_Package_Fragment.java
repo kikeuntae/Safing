@@ -105,8 +105,7 @@ public class Product_Package_Fragment extends Fragment {
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("상세정보"));
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("리뷰"));
 
-
-        changeFragment(new Product_Detail_Fragment(context, package_num, "package"));
+        changeFragment(new Product_Pacakage_Detail_Fragment(context, package_num));
 
         shop_product_tab1.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -114,10 +113,10 @@ public class Product_Package_Fragment extends Fragment {
                 int position = tab.getPosition();
                 if(position == 0){
                     Toast.makeText(context, "상세정보", Toast.LENGTH_SHORT).show();
-                    changeFragment(new Product_Detail_Fragment(context, package_num, "package"));
+                    changeFragment(new Product_Pacakage_Detail_Fragment(context, package_num));
                 } else {
                     Toast.makeText(context, "리뷰", Toast.LENGTH_SHORT).show();
-                    changeFragment(new Product_Review_Fragment(context, package_num, "package"));
+                    changeFragment(new Product_Review_Fragment(context, package_num));
                 }
             }
 
