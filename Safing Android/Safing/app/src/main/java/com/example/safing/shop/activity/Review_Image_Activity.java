@@ -2,6 +2,8 @@ package com.example.safing.shop.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 
@@ -20,14 +22,16 @@ public class Review_Image_Activity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_review_image);
         Review_Image_Rec = findViewById(R.id.Review_Image_Rec);
-        setRec1();
+
+
+        setRec();
     }
 
-    public void setRec1(){
+    public void setRec(){
+        Intent intent = getIntent();
+        ArrayList<String> list = (ArrayList<String>) intent.getSerializableExtra("imageList");
 
-      //  ArrayList<Product_ReviewlDTO> list = new ArrayList<>();
-
-        Review_Image_pager_Adapter adapter_rec1 = new Review_Image_pager_Adapter(Review_Image_Activity.this);
+        Review_Image_pager_Adapter adapter_rec1 = new Review_Image_pager_Adapter(Review_Image_Activity.this, list);
         Review_Image_Rec.setAdapter(adapter_rec1);
     }
 }

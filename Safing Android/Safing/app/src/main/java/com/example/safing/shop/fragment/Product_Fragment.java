@@ -27,7 +27,6 @@ import com.example.safing.R;
 import com.example.safing.MainActivity;
 import com.example.safing.async.CommonVal;
 import com.example.safing.shop.DAO.ShopDAO;
-import com.example.safing.shop.VO.CartVO;
 import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.adapter.Shop_Product_Pager_Adapter;
 import com.google.android.material.navigation.NavigationView;
@@ -45,7 +44,6 @@ public class Product_Fragment extends Fragment {
     MainActivity mainActivity = new MainActivity();
     int product_num = 0;
     ShopDAO dao = new ShopDAO();
-    ArrayList<CartVO> cartlist = new ArrayList<>();
 
     public Product_Fragment(Context context, int product_num) {
         this.context = context;
@@ -108,7 +106,7 @@ public class Product_Fragment extends Fragment {
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("상세정보"));
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("리뷰"));
 
-        changeFragment(new Product_Detail_Fragment(context, product_num));
+        changeFragment(new Product_Detail_Fragment(context, vo));
 
         shop_product_tab1.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -116,10 +114,10 @@ public class Product_Fragment extends Fragment {
                 int position = tab.getPosition();
                 if(position == 0){
                     Toast.makeText(context, "상세정보", Toast.LENGTH_SHORT).show();
-                    changeFragment(new Product_Detail_Fragment(context, product_num));
+                    changeFragment(new Product_Detail_Fragment(context, vo));
                 } else {
                     Toast.makeText(context, "리뷰", Toast.LENGTH_SHORT).show();
-                    changeFragment(new Product_Review_Fragment(context, product_num));
+                    changeFragment(new Product_Review_Fragment(context, product_num, "product"));
                 }
             }
 

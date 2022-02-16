@@ -16,12 +16,12 @@ import java.util.ArrayList;
 
 public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Image_pager_Adapter.ViewHolder> {
     Context context;
-   // ArrayList<Shop_Product_PagerDTO> list;
+    ArrayList<String> list = new ArrayList<>();
     LayoutInflater inflater;
 
-    public Review_Image_pager_Adapter(Context context) {
+    public Review_Image_pager_Adapter(Context context, ArrayList<String> list) {
         this.context = context;
-    //    this.list = list;
+        this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
@@ -42,7 +42,7 @@ public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Imag
 
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -58,6 +58,6 @@ public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Imag
 
     }
     public void binding(ViewHolder holder, int position){
-        holder.product_tv1.setText((position+1) +"/"+ 5);
+        holder.product_tv1.setText((position+1) +"/"+ list.size());
     }
 }

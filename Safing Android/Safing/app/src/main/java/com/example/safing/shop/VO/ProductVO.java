@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ProductVO {
-    private ArrayList<String> imagelist;
     private int		product_num 	;
     private String	product_name	;
     private int		product_price	;
@@ -13,15 +12,7 @@ public class ProductVO {
     private int		re_count		;
     private String	tag_key			;
     private String  file_path		;
-    private String  file_path_info	;
 
-    public ArrayList<String> getImagelist() {
-        return imagelist;
-    }
-
-    public void setImagelist(ArrayList<String> imagelist) {
-        this.imagelist = imagelist;
-    }
 
     public int getProduct_num() {
         return product_num;
@@ -87,12 +78,4 @@ public class ProductVO {
 
         this.file_path = file_path;
     }
-
-    public String getFile_path_info() {
-        return file_path_info;
-    }
-    public void setFile_path_info(String file_path_info) {
-        this.file_path_info = file_path_info;
-    }
-
 }

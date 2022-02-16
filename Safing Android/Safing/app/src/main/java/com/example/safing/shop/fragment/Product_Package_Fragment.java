@@ -4,12 +4,10 @@ import static com.example.safing.async.CommonAsk.FILE_PATH;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -20,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +27,6 @@ import com.example.safing.R;
 import com.example.safing.MainActivity;
 import com.example.safing.async.CommonVal;
 import com.example.safing.shop.DAO.ShopDAO;
-import com.example.safing.shop.VO.CartVO;
 import com.example.safing.shop.VO.Product_PackageVO;
 import com.example.safing.shop.VO.Product_Package_DetailVO;
 import com.example.safing.shop.adapter.Shop_Product_Pager_Adapter;
@@ -47,11 +43,8 @@ public class Product_Package_Fragment extends Fragment {
     SwipeRefreshLayout swipe;
     NavigationView shop_product_view;
     MainActivity mainActivity = new MainActivity();
-    ArrayList<Product_PackageVO> list = new ArrayList<>();
     ShopDAO dao = new ShopDAO();
     int package_num = 0;
-    ArrayList<CartVO> cartlist = new ArrayList<>();
-
 
     public Product_Package_Fragment(Context context, int package_num) {
         this.context = context;
@@ -116,7 +109,7 @@ public class Product_Package_Fragment extends Fragment {
                     changeFragment(new Product_Pacakage_Detail_Fragment(context, package_num));
                 } else {
                     Toast.makeText(context, "리뷰", Toast.LENGTH_SHORT).show();
-                    changeFragment(new Product_Review_Fragment(context, package_num));
+                    changeFragment(new Product_Review_Fragment(context, package_num, "package"));
                 }
             }
 

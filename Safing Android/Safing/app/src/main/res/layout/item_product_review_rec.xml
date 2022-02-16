@@ -101,14 +101,29 @@
             android:src="@drawable/camimg2"
             android:scaleType="fitXY"
             android:layout_marginRight="3dp"/>
-        <ImageView
-            android:id="@+id/item_product_review_img2"
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/camimg2"
-            android:scaleType="fitXY"
-            android:layout_marginLeft="3dp"/>
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/item_product_review_img2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/camimg2"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="3dp"/>
+            <TextView
+                android:id="@+id/item_product_review_tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="+1"
+                android:textSize="60dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/nanumgothic"
+                android:textColor="#F9F9FB"/>
+        </FrameLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

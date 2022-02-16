@@ -150,7 +150,7 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
         }
     }
     public void binding(ViewHolder holder, int position){
-        Glide.with(context).load(FILE_PATH  + list.get(position).getImagelist().get(1)).into( holder.item_product_detail_img);
+        Glide.with(context).load(FILE_PATH  + list.get(position).getFile_path()).into( holder.item_product_detail_img);
         holder.item_product_detail_tv1.setText(list.get(position).getProduct_name());
         holder.item_product_detail_tv2.setText(NumberFormat.getInstance().format(list.get(position).getProduct_price()) +"원");
 

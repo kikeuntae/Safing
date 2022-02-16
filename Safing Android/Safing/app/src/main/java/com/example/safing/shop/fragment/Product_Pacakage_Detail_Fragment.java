@@ -44,12 +44,12 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
     ArrayList<Product_DetailVO> list = new ArrayList<>();
     MainActivity mainActivity = new MainActivity();
 
-    int num = 0;
+    int packge_num = 0;
 
 
-    public Product_Pacakage_Detail_Fragment(Context context, int num){
+    public Product_Pacakage_Detail_Fragment(Context context, int packge_num){
         this.context = context;
-        this.num = num;
+        this.packge_num = packge_num;
     }
 
     @Override
@@ -67,8 +67,8 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
 
         mainActivity = (MainActivity) getActivity();
 
-        Glide.with(context).load(FILE_PATH + list.get(0).getImagelist().get(0)).into( product_detail_img);
-        list = dao.product_details_page_pack(num);
+        list = dao.product_details_page_pack(packge_num);
+        Glide.with(context).load(FILE_PATH + list.get(0).getFile_path_info()).into( product_detail_img);
         setRec(list);
 
         //============= 장바구니 버튼 =====
@@ -94,7 +94,7 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
                         }
                     });
                 } else {
-                    int result = dao.insert_cart_pack(list);
+                    int result = dao.insert_cart_pack(list, packge_num);
                     if(result > 0){
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
                         builder.setTitle("장바구니 담기");

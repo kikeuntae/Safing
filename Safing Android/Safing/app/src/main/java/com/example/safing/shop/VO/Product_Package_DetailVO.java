@@ -8,7 +8,6 @@ public class Product_Package_DetailVO {
     private ArrayList<String> kindlist;
     private int package_num           ;
     private String package_name       ;
-    private int package_price         ;
     private double	rating			  ;
     private int		re_count		  ;
 
@@ -42,14 +41,6 @@ public class Product_Package_DetailVO {
 
     public void setPackage_name(String package_name) {
         this.package_name = package_name;
-    }
-
-    public int getPackage_price() {
-        return package_price;
-    }
-
-    public void setPackage_price(int package_price) {
-        this.package_price = package_price;
     }
 
     public double getRating() {

@@ -46,13 +46,12 @@ public class Product_Detail_Fragment extends Fragment {
     ShopDAO dao = new ShopDAO();
     Product_DetailVO vo = new Product_DetailVO();
     MainActivity mainActivity = new MainActivity();
+    int product_num = 0;
 
-    int num = 0;
-
-
-    public Product_Detail_Fragment(Context context, int num){
+    public Product_Detail_Fragment(Context context, Product_DetailVO vo){
         this.context = context;
-        this.num = num;
+        this.vo = vo;
+        this.product_num = vo.getProduct_num();
 
     }
 
@@ -71,8 +70,7 @@ public class Product_Detail_Fragment extends Fragment {
 
         mainActivity = (MainActivity) getActivity();
 
-        vo = dao.product_details_page_pro(num);
-        Glide.with(context).load(FILE_PATH + vo.getImagelist().get(0)).into( product_detail_img);
+        Glide.with(context).load(FILE_PATH + vo.getFile_path_info()).into( product_detail_img);
         setRec(vo);
 
         //============= 장바구니 버튼 =====
@@ -164,7 +162,7 @@ public class Product_Detail_Fragment extends Fragment {
         adapter_rec.setOnItemClickListener(new OnItemClick_product_Detail_Listener() {
             @Override
             public void onItemClick_detail(Product_Detail_Apdater.ViewHolder holderm, View view, int position) {
-                if(num == vo.getProduct_num()){
+                if(product_num == vo.getProduct_num()){
                     Toast.makeText(context, "현재 선택한 페이지입니다", Toast.LENGTH_SHORT).show();
                 } else {
                     mainActivity.changeFragment(new Product_Fragment(context, vo.getProduct_num()));

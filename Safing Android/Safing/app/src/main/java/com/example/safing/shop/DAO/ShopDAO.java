@@ -11,6 +11,7 @@ import com.example.safing.shop.VO.ProductVO;
 import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.VO.Product_PackageVO;
 import com.example.safing.shop.VO.Product_Package_DetailVO;
+import com.example.safing.shop.VO.ReviewVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -89,22 +90,6 @@ public class ShopDAO {
         return vo;
     }
 
-    //상품 상세정보 페이지
-    public Product_DetailVO product_details_page_pro(int num){
-        service = new CommonAsk("product_details_page_pro.sh");
-        service.params.add(new AskParam("num", num+""));
-        in = CommonMethod.excuteAsk(service);
-        Product_DetailVO vo = new Product_DetailVO();
-        try{
-            vo = gson.fromJson(new InputStreamReader(in), Product_DetailVO.class);
-        } catch (Exception e){
-            e.printStackTrace();
-            Log.d(TAG, "gson error");
-        }
-
-        return vo;
-    }
-
     //패키지 상품 상세정보 페이지
     public ArrayList<Product_DetailVO> product_details_page_pack(int num){
         service = new CommonAsk("product_details_page_pack.sh");
@@ -143,17 +128,17 @@ public class ShopDAO {
     }
 
     //장바구니 담기 패키지
-    public int insert_cart_pack(ArrayList<Product_DetailVO> list){
+    public int insert_cart_pack(ArrayList<Product_DetailVO> list, int packge_num){
         service = new CommonAsk("insert_cart_pack.sh");
         CartVO cartvo = new CartVO();
 
         for (Product_DetailVO vo: list) {
             cartvo.setMember_id(CommonVal.loginInfo.getMember_id());
             cartvo.setProduct_num(vo.getProduct_num());
-            //cartvo.setPackage_num();
+            cartvo.setPackage_num(packge_num);
             cartvo.setProduct_price(vo.getProduct_price());
             cartvo.setOrder_count(vo.getOrder_count());
-            service.params.add(new AskParam("vo", gson.toJson(vo)));
+            service.params.add(new AskParam("vo", gson.toJson(cartvo)));
         }
 
         in = CommonMethod.excuteAsk(service);
@@ -166,6 +151,37 @@ public class ShopDAO {
         }
 
         return result;
+    }
+
+    //상품 리뷰리스트
+    public ArrayList<ReviewVO> review_list_pro(int product_num){
+        service = new CommonAsk("review_list_pro.sh");
+        service.params.add(new AskParam("num", product_num+""));
+        in = CommonMethod.excuteAsk(service);
+        ArrayList<ReviewVO> list = new ArrayList<>();
+        try{
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<ReviewVO> >(){}.getType());
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+
+        return list;
+    }
+
+    //패키지 리뷰리스트
+    public ArrayList<ReviewVO> review_list_pack(int pakcage_num){
+        service = new CommonAsk("review_list_pack.sh");
+        service.params.add(new AskParam("num", pakcage_num+""));
+        in = CommonMethod.excuteAsk(service);
+        ArrayList<ReviewVO> list = new ArrayList<>();
+        try{
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<ReviewVO> >(){}.getType());
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+        return list;
     }
 
 }
