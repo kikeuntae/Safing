@@ -1,5 +1,7 @@
 package com.example.safing.shop.fragment;
 
+import static com.example.safing.async.CommonAsk.FILE_PATH;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -20,8 +22,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
+import com.example.safing.async.CommonVal;
 import com.example.safing.shop.adapter.Product_PurchaseHistory_Rec_Adapter;
 import com.google.android.material.navigation.NavigationView;
 
@@ -32,7 +36,6 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
     Toolbar toolbar;
     RecyclerView product_purchaseHistory_rec1;
     LinearLayoutManager manager;
-    SwipeRefreshLayout swipe;
     NavigationView product_purchaseHistory_view;
     MainActivity mainActivity = new MainActivity();
 
@@ -40,14 +43,12 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
         this.context = context;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_product_purchase_history, container, false);
 
         toolbar = rootView.findViewById(R.id.product_purchaseHistory_toolbar);
-        swipe = rootView.findViewById(R.id.product_purchaseHistory_swipe);
         product_purchaseHistory_view = rootView.findViewById(R.id.product_purchaseHistory_view);
         product_purchaseHistory_rec1 = rootView.findViewById(R.id.product_purchaseHistory_rec1);
 
@@ -69,15 +70,10 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        //  Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-        //  header_text.setText(CommonVal.loginInfo.getMember_id());
-
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                swipe.setRefreshing(false);
-            }
-        });
+        if(CommonVal.loginInfo != null){
+            Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+            header_text.setText(CommonVal.loginInfo.getMember_id());
+        }
 
         //============= navigation view 기능=====
 
@@ -100,9 +96,9 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
     }
 
     public void setRec1(){
-        manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-        //ArrayList<Product_PurchaseHistory_RecDTO> list = new ArrayList<>();
 
+
+        manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
 
         product_purchaseHistory_rec1.setLayoutManager(manager);
         Product_PurchaseHistory_Rec_Adapter adapter_rec1 = new Product_PurchaseHistory_Rec_Adapter(context);

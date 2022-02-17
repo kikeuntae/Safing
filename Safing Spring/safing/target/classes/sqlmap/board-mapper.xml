@@ -3,4 +3,68 @@
 
 <mapper namespace="board.mapper">
 
+	<!-- 동영상 정보 불러오기 -->
+	<select id="movielist" resultType="board.Board_MovieDTO">
+	
+	<!-- SELECT * FROM board LEFT JOIN board_file on (board.board_id = board_file.board_id)
+	 where board.board_kinds = 'video' 기존.. 아래껀 댓글 수 추가한 것-->
+	 
+	SELECT b.*, f.*, c.board_comment_cnt
+	FROM board b 
+	LEFT JOIN board_file f
+	on (b.board_id = f.board_id)
+	LEFT JOIN (select board_id, count(*) board_comment_cnt from board_comment group by board_id) c
+	on (b.board_id = c.board_id)
+	where b.board_kinds = 'video'
+	</select>
+	
+	<!-- 동영상 정보 입력 -->
+	<insert id="moviecreate">
+	insert into board ( member_id,board_title,board_content,board_kinds)
+ 	values ( #{member_id},#{board_title} ,#{board_content},#{board_kinds})
+	</insert>
+	
+	<!-- 동영상 정보 수정 -->
+	<update id="movieupdate">
+		update board set  board_title = #{board_title} ,
+		board_content= #{board_content}
+		where board_id = #{board_id} AND member_id = #{member_id}
+	</update>
+	
+	<!-- 동영상 정보 삭제 -->
+	<delete id="moviedelete">
+		delete from board
+		where board_id = #{board_id} AND member_id = #{member_id}
+	</delete>
+	
+	
+	<!-- 좋아요 정보 수정 -->
+	<update id="like">
+	UPDATE board SET board_like_cnt = #{board_like_cnt} where board_id = #{board_id}
+	</update>
+	
+	<!-- 댓글 정보 불러오기 -->
+	<select id="comment_list" resultType="board.Board_CommentVO">
+	 SELECT * FROM board_comment where board_id = #{video_id}
+	</select>
+	
+	<!-- 댓글 정보 입력 -->
+	<insert id="comment_insert">
+	insert into board_comment ( member_id,comment_content,board_id)
+ 	values (#{member_id},#{comment_content},#{board_id})
+	</insert>
+	
+	<!-- 댓글 정보 수정 -->
+	<update id="comment_update">
+		update board_comment set comment_content= #{comment_content}
+		where comment_id =#{comment_id} AND board_id = #{board_id} AND member_id = #{member_id}
+	</update>
+	
+	<!--댓글 정보 삭제 -->
+	<delete id="comment_delete">
+		delete from board_comment
+		where comment_id = #{comment_id} AND board_id = #{board_id} AND member_id = #{member_id}
+	</delete>
+	
+	
 </mapper>

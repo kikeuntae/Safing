@@ -1,4 +1,4 @@
-package product;
+package common;
 
 public class Product_FileVO {
 	private int		file_num	 ;  

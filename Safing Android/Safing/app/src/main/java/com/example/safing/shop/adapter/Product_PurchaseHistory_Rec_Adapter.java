@@ -23,12 +23,11 @@ import java.util.ArrayList;
 public class Product_PurchaseHistory_Rec_Adapter extends RecyclerView.Adapter<Product_PurchaseHistory_Rec_Adapter.ViewHolder> {
 
     Context context;
-  //  ArrayList<Product_PurchaseHistory_RecDTO> list;
     LayoutInflater inflater;
 
     public Product_PurchaseHistory_Rec_Adapter(Context context) {
         this.context = context;
-    //    this.list = list;
+
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
@@ -56,7 +55,6 @@ public class Product_PurchaseHistory_Rec_Adapter extends RecyclerView.Adapter<Pr
 
         ImageView item_product_purchasehistory_rec_img;
         TextView item_product_purchasehistory_rec_tv1, item_product_purchasehistory_rec_tv2, item_product_purchasehistory_rec_tv3, item_product_purchasehistory_rec_tv4;
-        CheckBox item_product_purchasehistory_rec_box;
         ImageButton item_product_purchasehistory_rec_btn1;
         Button item_product_purchasehistory_rec_btn2, item_product_purchasehistory_rec_btn3;
 
@@ -67,33 +65,11 @@ public class Product_PurchaseHistory_Rec_Adapter extends RecyclerView.Adapter<Pr
             item_product_purchasehistory_rec_tv2 = itemView.findViewById(R.id.item_product_purchasehistory_rec_tv2);
             item_product_purchasehistory_rec_tv3 = itemView.findViewById(R.id.item_product_purchasehistory_rec_tv3);
             item_product_purchasehistory_rec_tv4 = itemView.findViewById(R.id.item_product_purchasehistory_rec_tv4);
-            item_product_purchasehistory_rec_box = itemView.findViewById(R.id.item_product_purchasehistory_rec_box);
             item_product_purchasehistory_rec_btn1 = itemView.findViewById(R.id.item_product_purchasehistory_rec_btn1);
             item_product_purchasehistory_rec_btn2 = itemView.findViewById(R.id.item_product_purchasehistory_rec_btn2);
             item_product_purchasehistory_rec_btn3 = itemView.findViewById(R.id.item_product_purchasehistory_rec_btn3);
 
 
-            item_product_purchasehistory_rec_box.setOnClickListener(new CheckBox.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(((CheckBox)v).isChecked()){
-                        Toast.makeText(context, "체크", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, "체크 취소", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
-            item_product_purchasehistory_rec_box.setOnClickListener(new CheckBox.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(((CheckBox)v).isChecked()){
-                        Toast.makeText(context, "체크", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, "체크 취소", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
             item_product_purchasehistory_rec_btn1.setOnClickListener(new CheckBox.OnClickListener() {
                 @Override
                 public void onClick(View v) {

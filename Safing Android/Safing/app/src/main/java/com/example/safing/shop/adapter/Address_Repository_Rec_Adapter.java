@@ -31,7 +31,6 @@ public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address
 
     }
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -43,7 +42,6 @@ public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
     }
-
 
     @Override
     public int getItemCount() {
@@ -63,7 +61,6 @@ public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address
             item_address_repository_tv2 = itemView.findViewById(R.id.item_address_repository_tv2);
             item_address_repository_tv3 = itemView.findViewById(R.id.item_address_repository_tv3);
             item_address_repository_btn1 = itemView.findViewById(R.id.item_address_repository_btn1);
-
 
             item_address_repository_box.setOnClickListener(new CheckBox.OnClickListener() {
                 @Override

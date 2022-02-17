@@ -37,17 +37,10 @@ public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apda
 
     }
 
-
-
-
-
-
-
     public void addDto(Product_PackageVO dto){
         list.add(dto);
     }
 
-    // dtos의 특정위치에 dto를 삭제할수 있는 매소드
     public void delDto(int position){
         list.remove(position);
     }

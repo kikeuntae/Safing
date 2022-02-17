@@ -13,30 +13,64 @@ public class BoardDAO {
 	
 	@Autowired @Qualifier("bteam") private SqlSession sql;
 	
-	//게시글 등록 
-	public boolean insert(BoardVO vo) {
-		return sql.insert("board.mapper.insert", vo) == 1 ? true : false;
+	
+	//동영상 정보 목록
+	public List<Board_MovieDTO> movielist() {
+		return sql.selectList("board.mapper.movielist");
 	}
 	
-	//게시글 정보 목록
-	public List<BoardVO> list(BoardVO vo) {
-		return sql.selectList("board.mapper.list", vo);
+	//동영상 정보 수정 
+	public void movie_update(Board_MovieDTO vo){
+		sql.update("board.mapper.movieupdate", vo);
 	}
 	
-	//게시글 상세정보
-	public BoardVO detail(BoardVO vo) {
-		return sql.selectOne("board.mapper.detail", vo);
+	//동영상 정보 삭제
+	public boolean movie_delete(Board_MovieDTO vo) {
+		return sql.delete("board.mapper.moviedelete", vo) == 1 ? true : false;
+		// TODO Auto-generated method stub
 	}
 	
-	//게시글 정보수정
-	public boolean update(BoardVO vo) {
-		return sql.update("board.mapper.update", vo) == 1 ? true : false;
+	//동영상 정보 등록
+	public void movie_create(Board_MovieDTO vo) {
+		// TODO Auto-generated method stub
+		sql.insert("board.mapper.moviecreate", vo);
+	}
+
+	//좋아요 처리
+	public void board_like(Board_MovieDTO vo) {
+		// TODO Auto-generated method stub
+		sql.update("board.mapper.like",vo);
 	}
 	
-	//게시글 삭제
-	public boolean delete(BoardVO vo) {
-		return sql.delete("board.mapper.delete", vo) == 1 ? true : false;
-	}
 	
+	//동영상 등록에 필요한 board값 조회
+	public int file_select(Board_MovieDTO vo) {
+		return sql.selectOne("board.mapper.moviefile_select");
+	}
+
+	
+	//댓글 등록
+	public void comment_insert(Board_CommentVO vo) {
+		// TODO Auto-generated method stub
+		sql.insert("board.mapper.comment_insert", vo);
+		
+	}
+	//댓글 출력
+	public List<Board_CommentVO> comment_list(int video_id) {
+		// TODO Auto-generated method stub
+		return sql.selectList("board.mapper.comment_list", video_id);
+	}
+
+	//댓글 수정
+	public void comment_update(Board_CommentVO vo) {
+		// TODO Auto-generated method stub
+		sql.insert("board.mapper.comment_update", vo);
+	}
+
+	//댓글 삭제
+	public void comment_delete(Board_CommentVO vo) {
+		// TODO Auto-generated method stub
+		sql.insert("board.mapper.comment_delete", vo);
+	}
 	
 }

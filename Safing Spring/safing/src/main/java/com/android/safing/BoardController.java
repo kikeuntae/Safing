@@ -2,6 +2,7 @@ package com.android.safing;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,8 +16,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import board.BoardDAO;
+import board.BoardVO;
+import board.Board_MovieDTO;
 import common.CommonService;
 import common.OutPrintln;
 import member.MemberDAO;
@@ -31,39 +35,90 @@ public class BoardController {
 	@Autowired private BoardDAO dao;
 
 	
-	//게시글 등록
+	//동영상 등록
 	@ResponseBody
-	@RequestMapping("/insert.bo")
-	public void join(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
-		PrintWriter writer = outprintln.outprintln(req, res);
-
+	@RequestMapping("/movieinsert.bo")
+	public void join(HttpServletRequest req, HttpServletResponse res, HttpSession session, MultipartFile file) throws Exception {
+	PrintWriter writer = outprintln.outprintln(req, res);	
+	String strVo = req.getParameter("vo");	
+	Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
+	vo.setBoard_kinds("video");
+	
+	dao.movie_create(vo);
+	
+	
+	
+	
+	//int file_id = dao.file_select(vo); 
+	
+	/*
+	 * if ( ! file.isEmpty() ) { vo.setBoard_id(file_id);
+	 * vo.setFile_name(file.getOriginalFilename());
+	 * vo.setFile_path(service.fileupload("board_file", file, session)); }
+	 */
+	
 	}
 
-	//게시글 정보 목록
+	//동영상 정보 목록
 	@ResponseBody
-	@RequestMapping("/list.bo")
+	@RequestMapping("/movielist.bo")
 	public void  list(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		PrintWriter writer = outprintln.outprintln(req, res);
+
+		List<Board_MovieDTO> list = dao.movielist();
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
 	}
+
 	
-	//게시글 상세정보
+	//동영상 정보수정
 	@ResponseBody
-	@RequestMapping("/detail.bo")
-	public void  detail(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		PrintWriter writer = outprintln.outprintln(req, res);
-	}
-	
-	//게시글 정보수정
-	@ResponseBody
-	@RequestMapping("/update.bo")
+	@RequestMapping("/movieupdate.bo")
 	public void  update(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		PrintWriter writer = outprintln.outprintln(req, res);
+		String strVo = req.getParameter("vo");	
+		Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
+		
+		dao.movie_update(vo);
+		
 	}
 	
-	//게시글 삭제
+	//동영상 삭제
 	@ResponseBody
-	@RequestMapping("/delete.bo")
+	@RequestMapping("/moviedelete.bo")
 	public void  delete(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		PrintWriter writer = outprintln.outprintln(req, res);
+		String strVo = req.getParameter("vo");	
+		Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
+		
+		System.out.println("test");
+		
+		dao.movie_delete(vo);	
 	}
+	
+
+	//동영상 좋아요 처리
+	@ResponseBody
+	@RequestMapping("/like.bo")
+	public void  like(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		PrintWriter writer = outprintln.outprintln(req, res);
+		String strVo = req.getParameter("vo");	
+		Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
+	
+		
+		dao.board_like(vo);	
+	}
+	
+	
+	
+	
+	
+
+
+	
+	
+	
 }

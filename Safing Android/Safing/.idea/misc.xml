@@ -128,7 +128,7 @@
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/fragment_address_repogitory.xml" value="0.34173669467787116" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/fragment_blank.xml" value="0.2140625" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/fragment_create.xml" value="0.1585144927536232" />
-        <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/fragment_detail_product.xml" value="0.18" />
+        <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/fragment_detail_product.xml" value="0.2" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/fragment_iot.xml" value="0.17603850050658562" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/fragment_movie.xml" value="0.23291139240506328" />
@@ -159,9 +159,9 @@
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_product_image_rec.xml" value="0.1" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_product_info.xml" value="0.2" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_product_package_shop_rec.xml" value="0.36614583333333334" />
-        <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_product_purchasehistory_rec.xml" value="0.2" />
+        <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_product_purchasehistory_rec.xml" value="0.22" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_product_rec.xml" value="0.2526595744680851" />
-        <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_product_review_rec.xml" value="0.5" />
+        <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_product_review_rec.xml" value="0.4490238611713666" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_rec_orderinfo.xml" value="0.19610507246376813" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_review_image_pager.xml" value="0.18" />
         <entry key="..\:/study_Android/workspace/Safing/app/src/main/res/layout/item_youtube_tip.xml" value="0.19610507246376813" />

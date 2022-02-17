@@ -184,4 +184,32 @@ public class ShopDAO {
         return list;
     }
 
+    //리뷰 좋아요 수정
+    public void board_like_cnt_update(int review_num, int like_cnt){
+        service = new CommonAsk("board_like_cnt_update.sh");
+        service.params.add(new AskParam("review_num", review_num+""));
+        service.params.add(new AskParam("like_cnt", like_cnt+""));
+    }
+
+    //장바구니 리스트
+    public ArrayList<CartVO> cart_list(String member_id){
+        service = new CommonAsk("cart_list.sh");
+        service.params.add(new AskParam("member_id", member_id));
+        in = CommonMethod.excuteAsk(service);
+        ArrayList<CartVO> list = new ArrayList<>();
+        try{
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<CartVO> >(){}.getType());
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+        return list;
+    }
+
+    //장바구니 삭제
+    public void delete_cart(int cart_num){
+        service = new CommonAsk("delete_cart.sh");
+        service.params.add(new AskParam("cart_num", cart_num+""));
+    }
+
 }

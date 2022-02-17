@@ -26,6 +26,9 @@ import android.widget.Toast;
 
 import com.example.safing.R;
 import com.example.safing.MainActivity;
+import com.example.safing.async.CommonVal;
+import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.CartVO;
 import com.example.safing.shop.activity.Purchase_Result_Activity;
 import com.example.safing.shop.adapter.Product_Cart_Rec_Adapter;
 import com.google.android.material.navigation.NavigationView;
@@ -52,7 +55,7 @@ public class Product_Purchase_Fragment extends Fragment {
     LinearLayout product_purchase_updown1, product_purchase_updown2, product_purchase_updown3, product_purchase_updown4,product_purchase_updown5, product_purchase_updown6;
     CheckBox product_purchase_box1, product_purchase_box2, product_purchase_box3, product_purchase_box4, product_purchase_box5, product_purchase_box6;
     Button product_purchase_btn1;
-
+    ShopDAO dao = new ShopDAO();
 
     public Product_Purchase_Fragment(Context context){
         this.context = context;
@@ -195,11 +198,12 @@ public class Product_Purchase_Fragment extends Fragment {
     }
 
     public void setRec1(){
+        ArrayList<CartVO> list = dao.cart_list(CommonVal.loginInfo.getMember_id());
+
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-       // ArrayList<Product_Cart_RecDTO> list = new ArrayList<>();
 
         product_purchase_rec1.setLayoutManager(manager);
-        Product_Cart_Rec_Adapter adapter_rec1 = new Product_Cart_Rec_Adapter(context);
+        Product_Cart_Rec_Adapter adapter_rec1 = new Product_Cart_Rec_Adapter(context, list);
         product_purchase_rec1.setAdapter(adapter_rec1);
     }
 

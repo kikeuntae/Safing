@@ -1,5 +1,7 @@
 package com.example.safing.shop.fragment;
 
+import static com.example.safing.async.CommonAsk.FILE_PATH;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -96,9 +98,10 @@ public class ShopFragment extends Fragment{
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
         if(CommonVal.loginInfo != null){
-            Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+            Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
             header_text.setText(CommonVal.loginInfo.getMember_id());
         }
+
         //========= 탭 기능 ==============
 
         tab_layout.addTab(tab_layout.newTab().setText("감성용품"));
