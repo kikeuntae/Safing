@@ -74,10 +74,10 @@ public class CampingController {
 	//tip 리스트
 		@ResponseBody
 		@RequestMapping("/campimg_list.home")
-		public void  campimg_list(HttpServletRequest req, HttpServletResponse res, String contentid) throws Exception{
+		public void  campimg_list(HttpServletRequest req, HttpServletResponse res, String img_contentid) throws Exception{
 			
 
-			List<CampImgVO> list = dao.list(contentid);
+			List<CampImgVO> list = dao.list(img_contentid);
 			req.setCharacterEncoding("UTF-8");
 			res.setCharacterEncoding("UTF-8");
 			res.setContentType("text/html");
