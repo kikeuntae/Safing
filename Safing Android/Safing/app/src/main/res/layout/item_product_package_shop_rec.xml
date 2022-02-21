@@ -28,7 +28,7 @@
                 android:gravity="center"
                 android:textColor="#F9F9FB"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:text="#광주광역시\n#서구\n#농성동"
                 android:background="#00000000">
             </TextView>

@@ -39,9 +39,7 @@ public class Shop_Product_Pager_Adapter extends RecyclerView.Adapter<Shop_Produc
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if(position > 0){
             binding(holder, position);
-        }
     }
 
 
@@ -64,6 +62,6 @@ public class Shop_Product_Pager_Adapter extends RecyclerView.Adapter<Shop_Produc
     }
     public void binding(ViewHolder holder, int position){
         Glide.with(context).load(FILE_PATH + list.get(position)).into( holder.product_img1);
-        holder.product_tv1.setText((position) +"/"+ list.size());
+        holder.product_tv1.setText((position+1) +"/"+ list.size());
     }
 }

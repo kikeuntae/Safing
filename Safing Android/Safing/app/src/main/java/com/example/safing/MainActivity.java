@@ -10,6 +10,9 @@ import android.os.StrictMode;
 import android.view.MenuItem;
 
 import com.example.safing.iot.fragment.IoTFragment;
+import com.example.safing.shop.VO.PurchaseHistoryVO;
+import com.example.safing.shop.fragment.Product_Fragment;
+import com.example.safing.shop.fragment.Product_Package_Fragment;
 import com.example.safing.shop.fragment.Product_PurchaseHistory_Fragment;
 import com.example.safing.shop.fragment.ShopFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,10 +20,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottom_nav;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         if(android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); StrictMode.setThreadPolicy(policy);}
 
@@ -28,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String chageFrag = intent.getStringExtra("fragment");
-
+        PurchaseHistoryVO vo = (PurchaseHistoryVO) intent.getSerializableExtra("vo");
 
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -55,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
 
         if(("Product_PurchaseHistory_Fragment").equals(chageFrag)){
             changeFragment(new Product_PurchaseHistory_Fragment(MainActivity.this));
+        } else if(("review").equals(chageFrag)){
+            if(vo.getProduct_num()> 0){
+                changeFragment(new Product_Fragment(MainActivity.this, vo.getProduct_num(), "review"));
+            } else {
+                changeFragment(new Product_Package_Fragment(MainActivity.this, vo.getPackage_num(), "review"));
+            }
         }
     }
     public void changeFragment(Fragment fragment){

@@ -56,7 +56,12 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        binding(holder, position);
+        holder.binding(holder, position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
@@ -71,7 +76,7 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
         }
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView item_product_detail_img;
         TextView item_product_detail_tv1, item_product_detail_tv2, item_product_detail_tv3;
@@ -87,45 +92,52 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
             item_product_detail_tv3 = itemView.findViewById(R.id.item_product_detail_tv3);
             item_product_detail_btn1 = itemView.findViewById(R.id.item_product_detail_btn1);
             item_product_detail_btn2 = itemView.findViewById(R.id.item_product_detail_btn2);
+        }
 
-            item_product_detail_tv3.setText(cnt+"");
 
-            item_product_detail_img.setOnClickListener(new View.OnClickListener() {
+        public void binding(ViewHolder holder, int position) {
+            Glide.with(context).load(FILE_PATH + list.get(position).getFile_path()).into(holder.item_product_detail_img);
+            holder.item_product_detail_tv1.setText(list.get(position).getProduct_name());
+            holder.item_product_detail_tv2.setText(NumberFormat.getInstance().format(list.get(position).getProduct_price()) + "원");
+
+            holder.item_product_detail_tv3.setText(list.get(position).getOrder_count()+ "");
+
+            holder.item_product_detail_img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    if(listener != null){
+
+                    if (listener != null) {
                         listener.onItemClick_detail(ViewHolder.this,
                                 v, position);
                     }
                 }
             });
 
-            item_product_detail_btn1.setOnClickListener(new View.OnClickListener() {
+            holder.item_product_detail_btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(cnt == 0){
+                    if (cnt == 0) {
                         cnt = 0;
                     } else {
                         cnt--;
                     }
-                    item_product_detail_tv3.setText(cnt+"");
+                    holder.item_product_detail_tv3.setText(cnt + "");
                 }
             });
 
-            item_product_detail_btn2.setOnClickListener(new View.OnClickListener() {
+            holder.item_product_detail_btn2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(cnt == list.get(getAdapterPosition()).getProduct_stock()){
+                    if (cnt == list.get(getAdapterPosition()).getProduct_stock()) {
                         cnt = list.get(getAdapterPosition()).getProduct_stock();
                     } else {
                         cnt++;
                     }
-                    item_product_detail_tv3.setText(cnt+"");
+                    item_product_detail_tv3.setText(cnt + "");
                 }
             });
 
-            item_product_detail_tv3.addTextChangedListener(new TextWatcher() {
+            holder.item_product_detail_tv3.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -133,11 +145,11 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    try{
+                    try {
                         int cnt = Integer.parseInt(s + "");
-                        fragment.changePrice(list.get(getAdapterPosition()).getProduct_price() * cnt, cnt, getAdapterPosition());
+                        fragment.changePrice(cnt, position);
 
-                    }catch (Exception e){
+                    } catch (Exception e) {
 
                     }
                 }
@@ -149,10 +161,5 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
             });
         }
     }
-    public void binding(ViewHolder holder, int position){
-        Glide.with(context).load(FILE_PATH  + list.get(position).getFile_path()).into( holder.item_product_detail_img);
-        holder.item_product_detail_tv1.setText(list.get(position).getProduct_name());
-        holder.item_product_detail_tv2.setText(NumberFormat.getInstance().format(list.get(position).getProduct_price()) +"원");
 
-    }
 }

@@ -504,14 +504,156 @@ select * from ORDER_ING;
 
 select * from ORDER_result;
 
-insert all 
-into ORDER_ING(order_num, MEMBER_ID, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR)
-values(1, MEMBER_ID, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR)
-select MEMBER_ID, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR
-from ORDER_result
-where order_num = 1;
+desc ORDER_RESULT;
 
+desc ORDER_ING;
+
+insert all 
+into ORDER_ING(ORDER_NUM, MEMBER_ID, PRODUCT_NUM, PACKAGE_NUM, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR, ORDER_COUNT, PRODUCT_PRICE)
+values(ORDER_NUM, MEMBER_ID, PRODUCT_NUM, PACKAGE_NUM, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR, ORDER_COUNT, PRODUCT_PRICE)
+select *
+from ORDER_result
+where order_num = 4;
+
+select * from ORDER_DETAIL_CNT;
 
 delete from ORDER_DETAIL_CNT where order_num < 5;
 
 commit;
+
+drop SEQUENCE seq_order_ing;
+drop TRIGGER trg_order_ing;
+
+select * from product_file;
+
+select p.package_num, p.package_name,
+        (select ROUND(AVG(rating),2) from product_review where  p.package_num = package_num) rating,
+        (select COUNT(*) from product_review where  p.package_num = package_num and package_num is not null) re_count,
+        (select file_path from product_file where file_num = (select max(file_num) from product_file where product_num = (select min(product_num) from package_detail where  p.package_num = package_num))) file_path_info
+from product_package p
+where package_num = 2;
+
+select * from product_file;
+
+select min(product_num) from package_detail where package_num = 2
+
+select file_path imagelist
+from product_file f
+where product_num = 2
+and file_num < (select max(file_num) from product_file where product_num = f.product_num)
+order by file_num;
+
+
+select * from cart;
+
+delete from cart where cart_num = 21;
+
+commit;
+
+select * from
+product_review_imagefile 
+order by review_image_num;
+
+select file_path imagelist from product_review_imagefile 
+		where review_num =93793
+		order by review_image_num;
+        
+        
+select * from order_result;        
+        
+select * from order_ing;        
+        
+select * from cart;
+        
+select * from ORDER_DETAIL_CNT order by order_num;
+
+delete from ORDER_DETAIL_CNT where order_state_num >2;
+
+
+insert all
+into order_detail_cnt(order_num, product_num, package_num, order_count)
+values (6, product_num, 6, 1)
+select product_num
+from (select product_num from package_detail where package_num = 6 
+        and product_num in (select product_num from product where product_price > 0));
+
+insert all
+into order_detail_cnt(order_num, product_num, order_count)
+values (2, 16, 1)
+into order_detail_cnt(order_num, product_num, order_count)
+values (4, 50, 1)
+into order_detail_cnt(order_num, product_num, order_count)
+values (5, 12, 1)
+into order_detail_cnt(order_num, product_num, order_count)
+values (7, 22, 1)
+select * from dual;
+
+
+commit;
+
+insert all 
+into ORDER_ING(ORDER_NUM, MEMBER_ID, PRODUCT_NUM, PACKAGE_NUM, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR, ORDER_COUNT, PRODUCT_PRICE)
+values(ORDER_NUM, MEMBER_ID, PRODUCT_NUM, PACKAGE_NUM, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR, ORDER_COUNT, PRODUCT_PRICE)
+select *
+from ORDER_result
+where order_num = 4;
+
+delete from ORDER_ING where order_num > 7;
+
+roll back;
+
+alter table cart_detail_cnt drop constraint FK_ORDER_NUM_CART_DETAIL_CNT;
+
+alter table order_detail_cnt add constraint FK_order_num_detail_cnt foreign key(ORDER_NUM) references order_ing(order_num);
+
+desc order_detail_cnt;
+
+select * from cart_detail_cnt;
+
+select * from cart;
+
+insert all
+into cart_detail_cnt(cart_num, product_num, package_num, order_count)
+values (4, product_num, 9, 1)
+select product_num
+from (select product_num from package_detail where package_num = 9 
+     and product_num in (select product_num from product where product_price > 0));
+commit;
+
+select * from address;
+select * from ADDRESS_SUB;
+
+desc address;
+
+기근태	010-5895-0560
+이지강	010-4547-8710
+노명운	010-9860-7688
+강은혜	010-2050-5154
+김승경	010-5612-5925
+
+update address
+set receiver_name = '김승경', 
+    receiver_phone = '010-5612-5925'
+where addr_num =5;    
+    
+
+alter table address add receiver_name VARCHAR2(30 BYTE);
+alter table address add receiver_phone VARCHAR2(30 BYTE);
+
+commit;
+select * from order_ing;
+
+select *
+from address a
+left outer join ADDRESS_SUB s
+on a.addr_num = s.addr_num
+where s.member_id = 'in2thefree'
+and a.addr_setting = 'y';
+
+select *
+from address a
+left outer join ADDRESS_SUB s
+on a.addr_num = s.addr_num
+where s.member_id = 'in2thefree';
+
+

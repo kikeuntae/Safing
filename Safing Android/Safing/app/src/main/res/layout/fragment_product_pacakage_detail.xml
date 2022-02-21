@@ -3,12 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".shop.fragment.Product_Detail_Fragment"
+    tools:context=".shop.fragment.Product_Pacakage_Detail_Fragment"
     android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
     <ImageView
         android:id="@+id/product_detail_img"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="1300dp"
+        android:scaleType="fitXY"
         android:src="@drawable/camimg2"
         android:layout_marginHorizontal="20dp"/>
 
@@ -133,4 +141,6 @@
             android:layout_alignParentBottom="true"
             />
     </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -1,5 +1,7 @@
 package com.example.safing.shop.fragment;
 
+import static com.example.safing.async.CommonAsk.FILE_PATH;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -24,11 +26,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
 import com.example.safing.async.CommonVal;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.shop.VO.CartVO;
+import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.activity.Purchase_Result_Activity;
 import com.example.safing.shop.adapter.Product_Cart_Rec_Adapter;
 import com.google.android.material.navigation.NavigationView;
@@ -55,14 +59,19 @@ public class Product_Purchase_Fragment extends Fragment {
     LinearLayout product_purchase_updown1, product_purchase_updown2, product_purchase_updown3, product_purchase_updown4,product_purchase_updown5, product_purchase_updown6;
     CheckBox product_purchase_box1, product_purchase_box2, product_purchase_box3, product_purchase_box4, product_purchase_box5, product_purchase_box6;
     Button product_purchase_btn1;
-    ShopDAO dao = new ShopDAO();
 
-    public Product_Purchase_Fragment(Context context){
+    ShopDAO dao = new ShopDAO();
+    Product_DetailVO vo = new Product_DetailVO();
+    ArrayList<Product_DetailVO> list = new ArrayList<>();
+
+    public Product_Purchase_Fragment(Context context, ArrayList<Product_DetailVO> list){
         this.context = context;
+        this.list = list;
     }
 
-    public Product_Purchase_Fragment() {
-
+    public Product_Purchase_Fragment(Context context, Product_DetailVO vo){
+        this.context = context;
+        this.vo = vo;
     }
 
     @Override
@@ -127,38 +136,11 @@ public class Product_Purchase_Fragment extends Fragment {
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        //  Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-        //  header_text.setText(CommonVal.loginInfo.getMember_id());
 
-
-        product_purchase_tab1.addTab(product_purchase_tab1.newTab().setText("기본 주소"));
-        product_purchase_tab1.addTab(product_purchase_tab1.newTab().setText("주소 선택"));
-
-        changeFragment(new Address_Default_Fragment(context));
-
-
-
-        product_purchase_tab1.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                int position = tab.getPosition();
-                if(position == 0){
-                    Toast.makeText(context, "기본 주소", Toast.LENGTH_SHORT).show();
-                    changeFragment(new Address_Default_Fragment(context));
-                } else {
-                    Toast.makeText(context, "다른주소", Toast.LENGTH_SHORT).show();
-
-                    changeFragment(new Address_Repogitory_Fragment(context));
-                }
-            }
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-            }
-        });
+        if(CommonVal.loginInfo != null){
+            Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+            header_text.setText(CommonVal.loginInfo.getMember_id());
+        }
 
         //============= navigation view 기능=====
 
@@ -175,10 +157,37 @@ public class Product_Purchase_Fragment extends Fragment {
             }
         });
 
+        //=============== 주소 ======================
+        product_purchase_tab1.addTab(product_purchase_tab1.newTab().setText("기본 주소"));
+        product_purchase_tab1.addTab(product_purchase_tab1.newTab().setText("주소 선택"));
+
+        changeFragment(new Address_Default_Fragment(context));
+
+        product_purchase_tab1.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int position = tab.getPosition();
+                if(position == 0){
+                    Toast.makeText(context, "기본 주소", Toast.LENGTH_SHORT).show();
+                    changeFragment(new Address_Default_Fragment(context));
+                } else {
+                    Toast.makeText(context, "다른주소", Toast.LENGTH_SHORT).show();
+                    changeFragment(new Address_Repogitory_Fragment(context));
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+
         product_purchase_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "구매결과", Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(context, Purchase_Result_Activity.class);
                 startActivity(intent);
             }

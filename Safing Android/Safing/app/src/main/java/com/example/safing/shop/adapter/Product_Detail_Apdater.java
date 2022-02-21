@@ -54,7 +54,7 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        binding(holder, position);
+        holder.binding(holder, position);
     }
 
     @Override
@@ -74,7 +74,6 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
         ImageView item_product_detail_img;
         TextView item_product_detail_tv1, item_product_detail_tv2, item_product_detail_tv3;
         ImageButton item_product_detail_btn1, item_product_detail_btn2;
-
         int cnt = 1;
 
         public ViewHolder(@NonNull View itemView, OnItemClick_product_Detail_Listener listener) {
@@ -87,9 +86,18 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
             item_product_detail_btn1 = itemView.findViewById(R.id.item_product_detail_btn1);
             item_product_detail_btn2 = itemView.findViewById(R.id.item_product_detail_btn2);
 
-            item_product_detail_tv3.setText(cnt+"");
+        }
+        public void binding(ViewHolder holder, int position){
+            Glide.with(context).load(FILE_PATH  + vo.getImagelist().get(0)).into( holder.item_product_detail_img);
+            holder.item_product_detail_tv1.setText(vo.getProduct_name());
+            holder.item_product_detail_tv2.setText(NumberFormat.getInstance().format(vo.getProduct_price()) +"원");
 
-            item_product_detail_img.setOnClickListener(new View.OnClickListener() {
+            vo.setOrder_count(cnt);
+            fragment.changePrice(cnt);
+
+            holder.item_product_detail_tv3.setText(cnt+"");
+
+            holder.item_product_detail_img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
@@ -100,7 +108,7 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
                 }
             });
 
-            item_product_detail_btn1.setOnClickListener(new View.OnClickListener() {
+            holder.item_product_detail_btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(cnt == 0){
@@ -112,7 +120,8 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
                 }
             });
 
-            item_product_detail_btn2.setOnClickListener(new View.OnClickListener() {
+
+            holder.item_product_detail_btn2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(cnt == vo.getProduct_stock()){
@@ -124,7 +133,7 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
                 }
             });
 
-            item_product_detail_tv3.addTextChangedListener(new TextWatcher() {
+            holder.item_product_detail_tv3.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -133,9 +142,8 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     try{
-                        int cnt = Integer.parseInt(s + "");
-                        fragment.changePrice(vo.getProduct_price()*cnt,cnt);
-
+                        int cnt = Integer.parseInt(s+"");
+                        fragment.changePrice(cnt);
                     }catch (Exception e){
 
                     }
@@ -145,12 +153,7 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
 
                 }
             });
-        }
-    }
-    public void binding(ViewHolder holder, int position){
-        Glide.with(context).load(FILE_PATH  + vo.getImagelist().get(0)).into( holder.item_product_detail_img);
-        holder.item_product_detail_tv1.setText(vo.getProduct_name());
-        holder.item_product_detail_tv2.setText(NumberFormat.getInstance().format(vo.getProduct_price()) +"원");
 
+        }
     }
 }

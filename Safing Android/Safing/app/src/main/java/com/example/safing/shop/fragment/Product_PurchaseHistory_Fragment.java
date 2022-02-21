@@ -26,6 +26,11 @@ import com.bumptech.glide.Glide;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
 import com.example.safing.async.CommonVal;
+import com.example.safing.async.OnItemClick_Cart_Listener;
+import com.example.safing.async.OnItemClick_PurcahseHistory_Listener;
+import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.PurchaseHistoryVO;
+import com.example.safing.shop.adapter.Product_Cart_Rec_Adapter;
 import com.example.safing.shop.adapter.Product_PurchaseHistory_Rec_Adapter;
 import com.google.android.material.navigation.NavigationView;
 
@@ -38,6 +43,9 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
     LinearLayoutManager manager;
     NavigationView product_purchaseHistory_view;
     MainActivity mainActivity = new MainActivity();
+    ShopDAO dao = new ShopDAO();
+    ArrayList<PurchaseHistoryVO> list = new ArrayList<>();
+
 
     public Product_PurchaseHistory_Fragment(Context context){
         this.context = context;
@@ -90,18 +98,35 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
             }
         });
 
-        setRec1();
+        setRec();
 
         return rootView;
     }
 
-    public void setRec1(){
-
+    public void setRec(){
+        list = dao.purchaseHistory_list(CommonVal.loginInfo.getMember_id());
 
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
 
         product_purchaseHistory_rec1.setLayoutManager(manager);
-        Product_PurchaseHistory_Rec_Adapter adapter_rec1 = new Product_PurchaseHistory_Rec_Adapter(context);
+        Product_PurchaseHistory_Rec_Adapter adapter_rec1 = new Product_PurchaseHistory_Rec_Adapter(context, list);
         product_purchaseHistory_rec1.setAdapter(adapter_rec1);
+
+        adapter_rec1.setOnItemClickListener(new OnItemClick_PurcahseHistory_Listener() {
+            @Override
+            public void onItemClick_PurchaseHistory(Product_PurchaseHistory_Rec_Adapter.ViewHolder holderm, View view, int position) {
+                if(list.get(position).getProduct_num()> 0){
+                    mainActivity.changeFragment(new Product_Fragment(context, list.get(position).getProduct_num(), "review"));
+                } else {
+                    mainActivity.changeFragment(new Product_Package_Fragment(context, list.get(position).getPackage_num(), "review"));
+                }
+            }
+
+            @Override
+            public void onItemClick_PurchaseHistory_reivew(Product_PurchaseHistory_Rec_Adapter.ViewHolder holderm, View view, int position) {
+                mainActivity.changeFragment(new Review_Fragment(context, list.get(position)));
+            }
+        });
+
     }
 }

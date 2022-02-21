@@ -51,7 +51,6 @@ public class ShopFragment extends Fragment{
     MainActivity mainActivity = new MainActivity();
     Shop_Package_Apdater adapter_rec1;
     Shop_Rec_Adapter adapter_rec2;
-    Gson gson = new Gson();
     String query = "감성용품";
     ShopDAO dao = new ShopDAO();
 
@@ -81,6 +80,7 @@ public class ShopFragment extends Fragment{
         setRec1();
         setRec2(query);
         shop_tv1.setText("검색상품 #"+query);
+
         //========= 햄버커 기능 ==============
 
         DrawerLayout drawer = rootView.findViewById(R.id.drawer_layout);

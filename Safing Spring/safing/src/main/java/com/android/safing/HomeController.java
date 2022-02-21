@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import board.BoardVO;
 import common.CommonService;
 import common.ImginsertVO;
 import member.MemberVO;

@@ -51,13 +51,13 @@ public class Product_Review_Apdater extends RecyclerView.Adapter<Product_Review_
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        binding(holder, position);
+        holder.binding(holder, position);
     }
 
 
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -85,71 +85,73 @@ public class Product_Review_Apdater extends RecyclerView.Adapter<Product_Review_
             item_product_review_img2 = itemView.findViewById(R.id.item_product_review_img2);
             item_product_review_btn = itemView.findViewById(R.id.item_product_review_btn);
 
-            image1.setBounds(0,3,54,60);
-            item_product_review_btn.setCompoundDrawables(image1, null,null,null);
+        }
 
-            item_product_review_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+        public void binding(ViewHolder holder, int position){
+            Glide.with(context).load(FILE_PATH + list.get(position).getMember_filepath()).into( holder.item_product_review_profile);
+            Glide.with(context).load(FILE_PATH + list.get(position).getImagelist().get(0)).into( holder.item_product_review_img1);
+            Glide.with(context).load(FILE_PATH + list.get(position).getImagelist().get(1)).into( holder.item_product_review_img2);
+            holder.item_product_review_rating.setRating(list.get(position).getRating());
+            holder.item_product_review_tv1.setText(list.get(position).getRating()+"");
+            holder.item_product_review_tv2.setText(list.get(position).getMember_id());
+            holder.item_product_review_tv3.setText(list.get(position).getBoard_writedate());
+            holder.item_product_review_tv4.setText(list.get(position).getBoard_content());
+            holder.item_product_review_btn.setText(list.get(position).getBoard_like_cnt()+"");
+
+            holder.image1.setBounds(0,3,54,60);
+            holder.image2.setBounds(0,3,54,60);
+            holder.item_product_review_btn.setCompoundDrawables(image1, null,null,null);
+
+            holder.item_product_review_rating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
                 @Override
                 public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                    item_product_review_rating.setRating(list.get(getAdapterPosition()).getRating());
-                    item_product_review_tv1.setText(list.get(getAdapterPosition()).getRating()+"");
+                    holder.item_product_review_rating.setRating(list.get(getAdapterPosition()).getRating());
+                    holder.item_product_review_tv1.setText(list.get(getAdapterPosition()).getRating()+"");
                 }
             });
 
-            item_product_review_btn.setOnClickListener(new View.OnClickListener() {
+            holder.item_product_review_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(like_change== false) {
-                        image1.setBounds(0,3,54,60);
-                        item_product_review_btn.setCompoundDrawables(image2, null,null,null);
-                        like_change= true;
-                        item_product_review_btn.setText(list.get(getAdapterPosition()).getBoard_like_cnt()+1);
-                        dao.board_like_cnt_update(list.get(getAdapterPosition()).getReview_num(), +1);
-                    }else {
-                        image2.setBounds(0,3,54,60);
-                        item_product_review_btn.setCompoundDrawables(image1, null,null,null);
+                    if(like_change== true) {
+                        holder.item_product_review_btn.setCompoundDrawables(image2, null,null,null);
                         like_change= false;
-                        item_product_review_btn.setText(list.get(getAdapterPosition()).getBoard_like_cnt()-1);
+                        holder.item_product_review_btn.setText((Integer.parseInt(item_product_review_btn.getText()+"")+1)+"");
+                        dao.board_like_cnt_update(list.get(getAdapterPosition()).getReview_num(), 1);
+                    }else {
+                        holder.item_product_review_btn.setCompoundDrawables(image1, null,null,null);
+                        like_change= true;
+                        holder.item_product_review_btn.setText((Integer.parseInt(item_product_review_btn.getText()+"")-1)+"");
                         dao.board_like_cnt_update(list.get(getAdapterPosition()).getReview_num(), -1);
                     }
                 }
             });
 
+
+            holder.item_product_review_img1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, Review_Image_Activity.class);
+                    intent.putExtra("imageList", list.get(position).getImagelist());
+                    context.startActivity(intent);
+                }
+            });
+            holder.item_product_review_img2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, Review_Image_Activity.class);
+                    intent.putExtra("imageList", list.get(position).getImagelist());
+                    context.startActivity(intent);
+                }
+            });
+
+            if(list.get(position).getImagelist().size()>2){
+                holder.item_product_review_tv5.setText("+" + (list.get(position).getImagelist().size()-2));
+            } else {
+                holder.item_product_review_tv5.setVisibility(View.GONE);
+            }
+
         }
     }
-    @SuppressLint("SetTextI18n")
-    public void binding(ViewHolder holder, int position){
-        Glide.with(context).load(FILE_PATH + list.get(position).getMember_filepath()).into( holder.item_product_review_profile);
-        Glide.with(context).load(FILE_PATH + list.get(position).getImagelist().get(0)).into( holder.item_product_review_img1);
-        Glide.with(context).load(FILE_PATH + list.get(position).getImagelist().get(1)).into( holder.item_product_review_img2);
 
-        holder.item_product_review_tv2.setText(list.get(position).getMember_id());
-        holder.item_product_review_tv3.setText(list.get(position).getBoard_writedate());
-        holder.item_product_review_tv4.setText(list.get(position).getBoard_content());
-
-
-        holder.item_product_review_img1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Review_Image_Activity.class);
-                intent.putExtra("imageList", list.get(position).getImagelist());
-                context.startActivity(intent);
-            }
-        });
-        holder.item_product_review_img2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Review_Image_Activity.class);
-                intent.putExtra("imageList", list.get(position).getImagelist());
-                context.startActivity(intent);
-            }
-        });
-
-        if(list.get(position).getImagelist().size()>2){
-            holder.item_product_review_tv5.setText("+" + (list.get(position).getImagelist().size()-2));
-        } else {
-            holder.item_product_review_tv5.setVisibility(View.GONE);
-        }
-
-    }
 }

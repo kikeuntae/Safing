@@ -6,11 +6,13 @@ import com.example.safing.async.AskParam;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
 import com.example.safing.async.CommonVal;
+import com.example.safing.shop.VO.AddressVO;
 import com.example.safing.shop.VO.CartVO;
 import com.example.safing.shop.VO.ProductVO;
 import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.VO.Product_PackageVO;
 import com.example.safing.shop.VO.Product_Package_DetailVO;
+import com.example.safing.shop.VO.PurchaseHistoryVO;
 import com.example.safing.shop.VO.ReviewVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -29,7 +31,6 @@ public class ShopDAO {
     //패키지 리스트
     public ArrayList<Product_PackageVO> package_list(){
         service = new CommonAsk("package_list.sh");
-
         in = CommonMethod.excuteAsk(service);
         ArrayList<Product_PackageVO> list = new ArrayList<>();
         try{
@@ -38,7 +39,6 @@ public class ShopDAO {
             e.printStackTrace();
             Log.d(TAG, "gson error");
         }
-
         return list;
     }
 
@@ -111,7 +111,7 @@ public class ShopDAO {
         CartVO cart = new CartVO();
         cart.setMember_id(CommonVal.loginInfo.getMember_id());
         cart.setProduct_num(vo.getProduct_num());
-        cart.setProduct_price(vo.getProduct_price());
+        cart.setProduct_price(vo.getProduct_price()*vo.getOrder_count());
         cart.setOrder_count(vo.getOrder_count());
         service.params.add(new AskParam("vo", gson.toJson(cart)));
 
@@ -128,17 +128,17 @@ public class ShopDAO {
     }
 
     //장바구니 담기 패키지
-    public int insert_cart_pack(ArrayList<Product_DetailVO> list, int packge_num){
-        service = new CommonAsk("insert_cart_pack.sh");
+    public int insert_cart_pack(ArrayList<Product_DetailVO> list, int packge_num, int priceSum){
         CartVO cartvo = new CartVO();
-
+        service = new CommonAsk("insert_cart_pack.sh");
+        service.params.add(new AskParam("priceSum",priceSum+""));
         for (Product_DetailVO vo: list) {
             cartvo.setMember_id(CommonVal.loginInfo.getMember_id());
             cartvo.setProduct_num(vo.getProduct_num());
             cartvo.setPackage_num(packge_num);
-            cartvo.setProduct_price(vo.getProduct_price());
+            cartvo.setProduct_price(priceSum);
             cartvo.setOrder_count(vo.getOrder_count());
-            service.params.add(new AskParam("vo", gson.toJson(cartvo)));
+            service.params.add(new AskParam("list", gson.toJson(cartvo)));
         }
 
         in = CommonMethod.excuteAsk(service);
@@ -184,11 +184,27 @@ public class ShopDAO {
         return list;
     }
 
+    //리뷰등록
+    public int review_intsert(ReviewVO reviewVO){
+        service = new CommonAsk("review_intsert.sh");
+        service.params.add(new AskParam("vo", gson.toJson(reviewVO)));
+        in = CommonMethod.excuteAsk(service);
+        int result = 0;
+        try{
+            result = gson.fromJson(new InputStreamReader(in), Integer.class);
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+        return result;
+    }
+
     //리뷰 좋아요 수정
     public void board_like_cnt_update(int review_num, int like_cnt){
         service = new CommonAsk("board_like_cnt_update.sh");
         service.params.add(new AskParam("review_num", review_num+""));
         service.params.add(new AskParam("like_cnt", like_cnt+""));
+        in = CommonMethod.excuteAsk(service);
     }
 
     //장바구니 리스트
@@ -210,6 +226,88 @@ public class ShopDAO {
     public void delete_cart(int cart_num){
         service = new CommonAsk("delete_cart.sh");
         service.params.add(new AskParam("cart_num", cart_num+""));
+        in = CommonMethod.excuteAsk(service);
     }
+
+    //구매내역 리스트
+    public ArrayList<PurchaseHistoryVO> purchaseHistory_list(String member_id){
+        service = new CommonAsk("purchaseHistory_list.sh");
+        service.params.add(new AskParam("member_id", member_id));
+        in = CommonMethod.excuteAsk(service);
+        ArrayList<PurchaseHistoryVO> list = new ArrayList<>();
+        try{
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<PurchaseHistoryVO> >(){}.getType());
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+        return list;
+    }
+
+    //구매내역 환불여부
+    public void update_refund(PurchaseHistoryVO vo){
+        service = new CommonAsk("update_refund.sh");
+        service.params.add(new AskParam("vo", gson.toJson(vo)));
+        in = CommonMethod.excuteAsk(service);
+    }
+
+
+    //기본주소 불러오기
+    public AddressVO default_addrss(String member_id){
+        service = new CommonAsk("default_addrss.sh");
+        service.params.add(new AskParam("member_id", member_id));
+        in = CommonMethod.excuteAsk(service);
+        AddressVO vo = new AddressVO();
+        try{
+            vo = gson.fromJson(new InputStreamReader(in), AddressVO.class);
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+
+        return vo;
+    }
+
+    //주소 리스트
+    public ArrayList<AddressVO> addrss_list(String member_id){
+        service = new CommonAsk("default_addrss.sh");
+        service.params.add(new AskParam("member_id", member_id));
+        in = CommonMethod.excuteAsk(service);
+        ArrayList<AddressVO> list = new ArrayList<>();
+        try{
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<AddressVO> >(){}.getType());
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+
+        return list;
+    }
+
+    //기본 주소 변경
+    public void update_address(int addr_num){
+        service = new CommonAsk("update_address.sh");
+        service.params.add(new AskParam("addr_num", addr_num+""));
+        in = CommonMethod.excuteAsk(service);
+
+    }
+
+    //주소등록
+    public void insert_address(AddressVO newVo){
+        service = new CommonAsk("insert_address.sh");
+        service.params.add(new AskParam("member_id", CommonVal.loginInfo.getMember_id()));
+        service.params.add(new AskParam("vo", gson.toJson(newVo)));
+        in = CommonMethod.excuteAsk(service);
+
+    }
+
+    //주소삭제
+    public void delete_addr(int addr_num){
+        service = new CommonAsk("delete_addr.sh");
+        service.params.add(new AskParam("addr_num", addr_num+""));
+        in = CommonMethod.excuteAsk(service);
+    }
+
+
 
 }

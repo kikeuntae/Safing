@@ -10,6 +10,23 @@ public class Product_Package_DetailVO {
     private String package_name       ;
     private double	rating			  ;
     private int		re_count		  ;
+    private String  file_path_info	  ;
+    private String  file_path	 	  ;
+
+    public String getFile_path() {
+        return file_path;
+    }
+    public void setFile_path(String file_path) {
+        this.file_path = file_path;
+    }
+
+    public String getFile_path_info() {
+        return file_path_info;
+    }
+
+    public void setFile_path_info(String file_path_info) {
+        this.file_path_info = file_path_info;
+    }
 
     public ArrayList<String> getImagelist() {
         return imagelist;

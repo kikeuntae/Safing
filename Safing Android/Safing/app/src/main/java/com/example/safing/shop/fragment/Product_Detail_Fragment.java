@@ -85,14 +85,12 @@ public class Product_Detail_Fragment extends Fragment {
                     builder.setPositiveButton("로그인하기", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                         //   mainActivity.changeFragment(new LoginFragment(context));
+                         //mainActivity.changeFragment(new LoginFragment(context));
                         }
                     });
                     builder.setPositiveButton("취소", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, "취소", Toast.LENGTH_SHORT).show();
-
                         }
                     });
                 } else {
@@ -102,18 +100,24 @@ public class Product_Detail_Fragment extends Fragment {
                         builder.setTitle("장바구니 담기");
                         builder.setMessage("장바구니에 담았습니다.\n확인하시겠습니까?");
                         builder.setIcon(R.drawable.question1);
-                        builder.setPositiveButton("장바구니보기", new DialogInterface.OnClickListener() {
+
+                        builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 mainActivity.changeFragment(new Product_Cart_Fragment(context));
                             }
                         });
-                        builder.setPositiveButton("쇼핑하기", new DialogInterface.OnClickListener() {
+
+                        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(context, "쇼핑하기", Toast.LENGTH_SHORT).show();
+
                             }
                         });
+
+                        AlertDialog dialog  = builder.create();
+                        dialog.show();
+
                     } else {
                         Toast.makeText(context, "장바구니 담기 실패", Toast.LENGTH_SHORT).show();
                     }
@@ -144,7 +148,7 @@ public class Product_Detail_Fragment extends Fragment {
                         }
                     });
                 } else {
-                    mainActivity.changeFragment(new Product_Purchase_Fragment(context));
+                    mainActivity.changeFragment(new Product_Purchase_Fragment(context, vo));
                 }
             }
         });
@@ -167,19 +171,19 @@ public class Product_Detail_Fragment extends Fragment {
                 } else {
                     mainActivity.changeFragment(new Product_Fragment(context, vo.getProduct_num()));
                 }
-
             }
         });
-
     }
 
-    public void changePrice(int price, int cnt){
+    public void changePrice(int cnt){
         this.vo.setOrder_count(cnt);
-        this.vo.setProduct_price(price);
 
+        int price = vo.getProduct_price()* vo.getOrder_count();
         int courier = 0;
 
-        if(price < 100000){
+        if(price == 0) {
+            courier = 0;
+        } else if(price < 100000){
             courier = 5000;
         }
 

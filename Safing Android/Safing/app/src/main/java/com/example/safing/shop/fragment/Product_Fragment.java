@@ -43,10 +43,17 @@ public class Product_Fragment extends Fragment {
     NavigationView shop_product_view;
     MainActivity mainActivity = new MainActivity();
     int product_num = 0;
+    String review;
     ShopDAO dao = new ShopDAO();
 
     public Product_Fragment(Context context, int product_num) {
         this.context = context;
+        this.product_num = product_num;
+    }
+
+    public Product_Fragment(Context context, int product_num, String review) {
+        this.context = context;
+        this.review = review;
         this.product_num = product_num;
     }
 
@@ -106,7 +113,12 @@ public class Product_Fragment extends Fragment {
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("상세정보"));
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("리뷰"));
 
-        changeFragment(new Product_Detail_Fragment(context, vo));
+        if(("review").equals(review)){
+            changeFragment(new Product_Review_Fragment(context, product_num, "product"));
+            shop_product_tab1.selectTab(shop_product_tab1.getTabAt(1));
+        } else {
+            changeFragment(new Product_Detail_Fragment(context, vo));
+        }
 
         shop_product_tab1.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

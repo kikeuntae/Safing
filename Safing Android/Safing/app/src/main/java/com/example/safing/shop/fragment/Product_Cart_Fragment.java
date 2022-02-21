@@ -23,6 +23,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,10 +54,13 @@ public class Product_Cart_Fragment extends Fragment {
     RecyclerView product_cart_rec1;
     LinearLayoutManager manager;
     NavigationView product_cart_view;
+
+
     MainActivity mainActivity = new MainActivity();
     Product_Cart_Rec_Adapter adapter_rec1;
     ShopDAO dao = new ShopDAO();
     ArrayList<CartVO> list = new ArrayList<>();
+    int price = 0;
 
     public Product_Cart_Fragment(Context context){
         this.context = context;
@@ -75,7 +80,6 @@ public class Product_Cart_Fragment extends Fragment {
         product_cart_tv1 = rootView.findViewById(R.id.product_cart_tv1);
         product_cart_tv2 = rootView.findViewById(R.id.product_cart_tv2);
         product_cart_tv3 = rootView.findViewById(R.id.product_cart_tv3);
-
 
 
         mainActivity = (MainActivity) getActivity();
@@ -117,6 +121,17 @@ public class Product_Cart_Fragment extends Fragment {
             }
         });
 
+        //============= 전체선택 ==================
+
+        product_cart_box1.setChecked(true);
+
+        product_cart_box1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                changeCheck(isChecked);
+            }
+        });
+
         //============= 선택삭제 ==================
         product_cart_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,7 +144,7 @@ public class Product_Cart_Fragment extends Fragment {
                 builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        deleteCheck();
                     }
                 });
 
@@ -144,18 +159,20 @@ public class Product_Cart_Fragment extends Fragment {
             }
         });
 
-        setRec1();
+        setRec();
+        setPrice();
+
+
 
         return rootView;
     }
 
-    public void setRec1(){
+    public void setRec(){
         list = dao.cart_list(CommonVal.loginInfo.getMember_id());
+        adapter_rec1 = new Product_Cart_Rec_Adapter(context, list,this);
 
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-
         product_cart_rec1.setLayoutManager(manager);
-        adapter_rec1 = new Product_Cart_Rec_Adapter(context, list);
         product_cart_rec1.setAdapter(adapter_rec1);
 
         adapter_rec1.setOnItemClickListener(new OnItemClick_Cart_Listener() {
@@ -168,28 +185,69 @@ public class Product_Cart_Fragment extends Fragment {
                 }
             }
         });
+    }
+
+    public void changeCheck(boolean isChecked){
+        for (int i = 0; i < adapter_rec1.viewHolders.size(); i++) {
+            adapter_rec1.viewHolders.get(i).item_product_cart_rec_box.setChecked(isChecked);
+        }
+        changePrice();
 
     }
 
-    public void changePrice(int price, int position){
+    public void deleteCheck(){
+        for (int i = 0; i < adapter_rec1.viewHolders.size(); i++) {
+            if(adapter_rec1.viewHolders.get(i).item_product_cart_rec_box.isChecked()){
+                adapter_rec1.delDto(i);
+                dao.delete_cart(list.get(i).getCart_num());
+                adapter_rec1.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void changePrice(){
         int courier = 0;
         int priceSum = 0;
 
-        for (int i = 0 ; i <list.size(); i ++) {
-            if(i == position){
-                priceSum += (list.get(position).getProduct_price());
+        for (int i = 0 ; i < list.size() ; i++) {
+            if(adapter_rec1.viewHolders.get(i).item_product_cart_rec_box.isChecked()){
+                priceSum += (list.get(i).getProduct_price());
             }
         }
 
-        if(priceSum < 100000){
+        if (priceSum == 0 ){
+            courier = 0;
+        } else if(priceSum < 100000){
             courier = 5000;
         }
 
-        int priceSum2 = price + courier;
+        int priceSum2 = priceSum + courier;
 
         product_cart_tv1.setText(NumberFormat.getInstance().format(priceSum)+"원");
         product_cart_tv2.setText(NumberFormat.getInstance().format(courier)+"원");
         product_cart_tv3.setText(NumberFormat.getInstance().format(priceSum2)+"원");
     }
+
+    public void setPrice(){
+        int courier = 0;
+        int priceSum = 0;
+
+        for (CartVO vo : list) {
+            priceSum += vo.getProduct_price();
+        }
+
+        if (priceSum == 0 ){
+            courier = 0;
+        } else if(priceSum < 100000){
+            courier = 5000;
+        }
+
+        int priceSum2 = priceSum + courier;
+
+        product_cart_tv1.setText(NumberFormat.getInstance().format(priceSum)+"원");
+        product_cart_tv2.setText(NumberFormat.getInstance().format(courier)+"원");
+        product_cart_tv3.setText(NumberFormat.getInstance().format(priceSum2)+"원");
+    }
+
 
 }

@@ -15,20 +15,27 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.safing.R;
+import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.AddressVO;
 
 import java.util.ArrayList;
 
 public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address_Repository_Rec_Adapter.ViewHolder> {
 
     Context context;
-   // ArrayList<Address_RepositoryDTO> list;
+    ArrayList<AddressVO> list;
     LayoutInflater inflater;
+    ShopDAO dao = new ShopDAO();
 
-    public Address_Repository_Rec_Adapter(Context context) {
+    public Address_Repository_Rec_Adapter(Context context, ArrayList<AddressVO> list) {
         this.context = context;
-      //  this.list = list;
+        this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+    }
+
+    public void delDto(int position){
+        list.remove(position);
     }
 
     @NonNull
@@ -40,38 +47,36 @@ public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        holder.binding(holder, position);
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        CheckBox item_address_repository_box;
-        TextView item_address_repository_tv1, item_address_repository_tv2, item_address_repository_tv3;
+
+        TextView item_address_repository_tv1, item_address_repository_tv2, item_address_repository_tv3, item_address_repository_tv4, item_address_repository_tv5;
         ImageButton item_address_repository_btn1;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            item_address_repository_box = itemView.findViewById(R.id.item_address_repository_box);
             item_address_repository_tv1 = itemView.findViewById(R.id.item_address_repository_tv1);
             item_address_repository_tv2 = itemView.findViewById(R.id.item_address_repository_tv2);
             item_address_repository_tv3 = itemView.findViewById(R.id.item_address_repository_tv3);
+            item_address_repository_tv4 = itemView.findViewById(R.id.item_address_repository_tv4);
+            item_address_repository_tv5 = itemView.findViewById(R.id.item_address_repository_tv5);
             item_address_repository_btn1 = itemView.findViewById(R.id.item_address_repository_btn1);
 
-            item_address_repository_box.setOnClickListener(new CheckBox.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(((CheckBox)v).isChecked()){
-                        Toast.makeText(context, "체크", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, "체크 취소", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+        }
+        public void binding(ViewHolder holder, int position){
+            holder.item_address_repository_tv1.setText(list.get(position).getReceiver_name());
+            holder.item_address_repository_tv2.setText(list.get(position).getReceiver_phone());
+            holder.item_address_repository_tv3.setText(list.get(position).getAddr_post());
+            holder.item_address_repository_tv4.setText(list.get(position).getAddr_basic());
+            holder.item_address_repository_tv5.setText(list.get(position).getAddr_detail());
+
 
             item_address_repository_btn1.setOnClickListener(new CheckBox.OnClickListener() {
                 @Override
@@ -85,8 +90,9 @@ public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address
                     builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, "예 눌림", Toast.LENGTH_SHORT).show();
-
+                            delDto(position);
+                            dao.delete_addr(list.get(position).getAddr_num());
+                            notifyDataSetChanged();
                         }
                     });
 
@@ -94,7 +100,6 @@ public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address
                     builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(context, "아니오 눌림", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -102,10 +107,6 @@ public class Address_Repository_Rec_Adapter extends RecyclerView.Adapter<Address
                     dialog.show();
                 }
             });
-
-        }
-        public void binding(ViewHolder holder, int position){
-
         }
     }
 }

@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartRequest;
 
 import com.google.gson.Gson;
 
-import board.BoardDAO;
 import camping.CampingDAO;
 import common.CommonService;
 import common.OutPrintln;

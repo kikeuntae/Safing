@@ -7,13 +7,48 @@ public class ReviewVO {
 	    private String member_filepath	;
 	    private String board_content	;
 	    private String board_writedate	;
+	    private int	   board_id		;
+	    private int	   product_num		;
+	    private int	   package_num		;
 	    private int	   review_num		;
 	    private int	   rating		    ;
 	    private int	   board_like_cnt   ;
-	    private List<String> imagelist;
+	    private int    like_cnt			;
+	    private List<String> imagelist	;
 	    
-	   
 	    
+	    
+	 
+	    public int getBoard_id() {
+			return board_id;
+		}
+
+		public void setBoard_id(int board_id) {
+			this.board_id = board_id;
+		}
+
+		public int getProduct_num() {
+	        return product_num;
+	    }
+
+	    public void setProduct_num(int product_num) {
+	        this.product_num = product_num;
+	    }
+
+	    public int getPackage_num() {
+	        return package_num;
+	    }
+
+	    public void setPackage_num(int package_num) {
+	        this.package_num = package_num;
+	    }
+	    
+		public int getLike_cnt() {
+			return like_cnt;
+		}
+		public void setLike_cnt(int list_cnt) {
+			this.like_cnt = list_cnt;
+		}
 		public int getReview_num() {
 			return review_num;
 		}

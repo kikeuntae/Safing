@@ -13,7 +13,7 @@ public class Product_DetailVO {
     private int     order_count       ;
     private String  product_kind      ;
     private String  file_path_info	  ;
-    private String  file_path	 	;
+    private String  file_path	 	    ;
 
     public String getFile_path() {
         return file_path;

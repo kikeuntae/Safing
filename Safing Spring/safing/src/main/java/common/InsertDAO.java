@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import board.Board_FileVO;
 import member.MemberVO;
 
 @Service
@@ -43,11 +42,7 @@ public class InsertDAO {
 		return sql.update("insert.mapper.member_insert", vo)== 1 ? true : false;
 		
 	}
-	
-	//동영상등록
-		public boolean insert_boardfile(Board_FileVO vo){
-			return sql.update("insert.mapper.insert_boardfile", vo)== 1 ? true : false;		
-	}
+
 		
 
 	//패키지 리스트

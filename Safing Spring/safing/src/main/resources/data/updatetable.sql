@@ -87,6 +87,8 @@ BEGIN
 END;
 
 
+
+
 -- campinfo 수정
 
 DROP TABLE camping CASCADE CONSTRAINTS;
@@ -368,8 +370,29 @@ ALTER TABLE ORDER_DETAIL_CNT drop constraint SYS_C0024772;
 
 ALTER TABLE ORDER_DETAIL_CNT modify order_num not null;
 
+--order_detail_cnt 수정
+CREATE SEQUENCE seq_order_detail_cnt
+START WITH 1 INCREMENT BY 1;
+
+CREATE TRIGGER trg_order_detail_cnt
+    BEFORE INSERT ON order_detail_cnt
+    FOR EACH ROW
+BEGIN
+    SELECT seq_order_detail_cnt.NEXTVAL INTO :NEW.order_detail_cnt_num FROM dual;
+END;
 
 
+drop SEQUENCE seq_order_detail_cnt;
+
+drop TRIGGER trg_order_detail_cnt;
 
 
+CREATE SEQUENCE seq_order_ing
+START WITH 1 INCREMENT BY 1;
 
+CREATE TRIGGER trg_order_ing
+    BEFORE INSERT ON order_ing
+    FOR EACH ROW
+BEGIN
+    SELECT seq_order_ing.NEXTVAL INTO :NEW.order_num FROM dual;
+END;

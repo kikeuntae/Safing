@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
 
-import board.Board_FileVO;
 import common.CommonService;
 import common.ImginsertVO;
 import common.InsertDAO;
@@ -112,21 +111,21 @@ public class InsertController {
 			return "redirect:/" + result;
 		}
 		
-		//동영상 넣기
-		@ResponseBody
-		@RequestMapping ("/insert_boardfile.bo")
-		public String insert_boardfile(Board_FileVO vo, MultipartFile file, HttpSession session) {
-			
-			// 파일 정보가 있다면
-			if ( ! file.isEmpty() ) {
-				vo.setBoard_id(66);
-				vo.setFile_name(file.getOriginalFilename());
-				vo.setFile_path(service.fileupload("board_file", file, session));
-			}
-			
-			boolean result = dao.insert_boardfile(vo);
-			return "redirect:/" + result;
-		}
+//		//동영상 넣기
+//		@ResponseBody
+//		@RequestMapping ("/insert_boardfile.bo")
+//		public String insert_boardfile(Board_FileVO vo, MultipartFile file, HttpSession session) {
+//			
+//			// 파일 정보가 있다면
+//			if ( ! file.isEmpty() ) {
+//				vo.setBoard_id(66);
+//				vo.setFile_name(file.getOriginalFilename());
+//				vo.setFile_path(service.fileupload("board_file", file, session));
+//			}
+//			
+//			boolean result = dao.insert_boardfile(vo);
+//			return "redirect:/" + result;
+//		}
 
 		//테마 리스트
 		@ResponseBody

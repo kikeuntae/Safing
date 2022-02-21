@@ -44,10 +44,17 @@ public class Product_Package_Fragment extends Fragment {
     NavigationView shop_product_view;
     MainActivity mainActivity = new MainActivity();
     ShopDAO dao = new ShopDAO();
+    String review;
     int package_num = 0;
 
     public Product_Package_Fragment(Context context, int package_num) {
         this.context = context;
+        this.package_num = package_num;
+    }
+
+    public Product_Package_Fragment(Context context, int package_num, String review) {
+        this.context = context;
+        this.review = review;
         this.package_num = package_num;
     }
 
@@ -98,7 +105,13 @@ public class Product_Package_Fragment extends Fragment {
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("상세정보"));
         shop_product_tab1.addTab(shop_product_tab1.newTab().setText("리뷰"));
 
-        changeFragment(new Product_Pacakage_Detail_Fragment(context, package_num));
+
+        if(("review").equals(review)){
+            changeFragment(new Product_Review_Fragment(context, package_num, "package"));
+            shop_product_tab1.selectTab(shop_product_tab1.getTabAt(1));
+        } else {
+            changeFragment(new Product_Pacakage_Detail_Fragment(context, package_num));
+        }
 
         shop_product_tab1.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -121,8 +134,6 @@ public class Product_Package_Fragment extends Fragment {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-
-
 
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.safing.R;
+import com.example.safing.async.CommonVal;
+import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.AddressVO;
 import com.example.safing.shop.adapter.Address_Repository_Rec_Adapter;
 
 import java.util.ArrayList;
@@ -20,6 +23,9 @@ public class Address_Repogitory_Fragment extends Fragment {
     Context context;
     LinearLayoutManager manager;
     RecyclerView Address_Repogitory_rec;
+
+    ArrayList<AddressVO> list = new ArrayList<>();
+    ShopDAO dao = new ShopDAO();
 
     public Address_Repogitory_Fragment(Context context){
         this.context = context;
@@ -33,16 +39,17 @@ public class Address_Repogitory_Fragment extends Fragment {
 
         Address_Repogitory_rec = rootView.findViewById(R.id.Address_Repogitory_rec);
 
-        setRec1();
+        setRec();
 
         return rootView;
     }
-    public void setRec1(){
+    public void setRec(){
+        list = dao.addrss_list(CommonVal.loginInfo.getMember_id());
+
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-      //  ArrayList<Address_RepositoryDTO> list = new ArrayList<>();
 
         Address_Repogitory_rec.setLayoutManager(manager);
-        Address_Repository_Rec_Adapter adapter_rec1 = new Address_Repository_Rec_Adapter(context);
+        Address_Repository_Rec_Adapter adapter_rec1 = new Address_Repository_Rec_Adapter(context, list);
         Address_Repogitory_rec.setAdapter(adapter_rec1);
     }
 }

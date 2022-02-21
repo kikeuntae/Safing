@@ -1,12 +1,13 @@
-package address;
+package product;
 
 public class AddressVO {
-	private int		addr_num     ;		
-	private int		addr_post    ;		
-	private String	addr_basic   ;		
-	private String	addr_detail  ;      
-	private String	addr_setting ;
-	
+	private int		addr_num     	;
+	private int		addr_post     	;
+	private String	addr_basic    	;
+	private String	addr_detail     ;   
+	private String	addr_setting    ;   
+	private String	receiver_name   ;   
+	private String	receiver_phone  ;
 	public int getAddr_num() {
 		return addr_num;
 	}
@@ -37,7 +38,17 @@ public class AddressVO {
 	public void setAddr_setting(String addr_setting) {
 		this.addr_setting = addr_setting;
 	}
-	
-
+	public String getReceiver_name() {
+		return receiver_name;
+	}
+	public void setReceiver_name(String receiver_name) {
+		this.receiver_name = receiver_name;
+	}
+	public String getReceiver_phone() {
+		return receiver_phone;
+	}
+	public void setReceiver_phone(String receiver_phone) {
+		this.receiver_phone = receiver_phone;
+	}
 	
 }

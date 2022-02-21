@@ -1,5 +1,7 @@
 package com.example.safing.shop.adapter;
 
+import static com.example.safing.async.CommonAsk.FILE_PATH;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.safing.R;
 
 import java.util.ArrayList;
@@ -58,6 +61,7 @@ public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Imag
 
     }
     public void binding(ViewHolder holder, int position){
+        Glide.with(context).load(FILE_PATH + list.get(position)).into( holder.product_img1);
         holder.product_tv1.setText((position+1) +"/"+ list.size());
     }
 }

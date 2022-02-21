@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,8 +36,18 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
     ShopDAO dao = new ShopDAO();
     ArrayList<CartVO> list = new ArrayList<>();
     OnItemClick_Cart_Listener listener;
+    public boolean checked = true;
+    Product_Cart_Fragment fragment;
+    public ArrayList<Product_Cart_Rec_Adapter.ViewHolder> viewHolders = new ArrayList<>();
 
-    public Product_Cart_Rec_Adapter(Context context, ArrayList<CartVO> list) {
+    public Product_Cart_Rec_Adapter(Context context, ArrayList<CartVO> list , Product_Cart_Fragment fragment) {
+        this.context = context;
+        this.list = list;
+        this.fragment = fragment;
+        this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    public Product_Cart_Rec_Adapter(Context context, ArrayList<CartVO> list ) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -54,18 +65,30 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemview = inflater.inflate(R.layout.item_product_cart_rec, parent , false );
-        return new ViewHolder(itemview, this);
+        ViewHolder viewHolder =  new ViewHolder(itemview, this);
+        viewHolders.add(viewHolder);
+        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        holder.item_product_cart_rec_box.setChecked(checked);
+        holder.binding(holder, position);
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
 
     @Override
@@ -77,9 +100,9 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView item_product_cart_rec_img, item_product_cart_rec_btn1, product_cart_btn1;
+        ImageView item_product_cart_rec_img, item_product_cart_rec_btn1;
         TextView item_product_cart_rec_tv1, item_product_cart_rec_tv2, item_product_cart_rec_tv3, item_product_cart_rec_tv4;
-        CheckBox item_product_cart_rec_box, product_cart_box1;
+        public CheckBox item_product_cart_rec_box;
 
         public ViewHolder(@NonNull View itemView, OnItemClick_Cart_Listener listener) {
             super(itemView);
@@ -92,91 +115,7 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
             item_product_cart_rec_box = itemView.findViewById(R.id.item_product_cart_rec_box);
             item_product_cart_rec_btn1 = itemView.findViewById(R.id.item_product_cart_rec_btn1);
 
-            Product_Cart_Fragment fragment = new Product_Cart_Fragment(context);
-            product_cart_box1 = fragment.getActivity().findViewById(R.id.product_cart_box1);
-            product_cart_btn1 = fragment.getActivity().findViewById(R.id.product_cart_btn1);
 
-            item_product_cart_rec_img.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    if(listener != null){
-                        listener.onItemClick_Cart(ViewHolder.this,
-                                v, position);
-                    }
-                }
-            });
-
-
-            product_cart_box1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    item_product_cart_rec_box.setChecked(true);
-                }
-            });
-
-            if(item_product_cart_rec_box.isChecked()){
-                fragment.changePrice(list.get(getAdapterPosition()).getProduct_price(), getAdapterPosition());
-            }
-
-            product_cart_btn1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("주문삭제 확인");
-                    builder.setMessage("선택하신 주문을\n삭제하시겠습니까? ");
-                    builder.setIcon(R.drawable.question1);
-
-                    builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if(item_product_cart_rec_box.isChecked()){
-                                delDto(getAdapterPosition());
-                                notifyDataSetChanged();
-                                dao.delete_cart(list.get(getAdapterPosition()).getCart_num());
-                            }
-                        }
-                    });
-
-                    builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                        }
-                    });
-
-                    AlertDialog dialog  = builder.create();
-                    dialog.show();
-                }
-            });
-
-            item_product_cart_rec_btn1.setOnClickListener(new CheckBox.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("주문삭제 확인");
-                    builder.setMessage("선택하신 주문을\n삭제하시겠습니까? ");
-                    builder.setIcon(R.drawable.question1);
-
-                    builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            delDto(getAdapterPosition());
-                            notifyDataSetChanged();
-                            dao.delete_cart(list.get(getAdapterPosition()).getCart_num());
-                        }
-                    });
-
-                    builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    });
-
-                    AlertDialog dialog  = builder.create();
-                    dialog.show();
-                }
-            });
         }
         public void binding(ViewHolder holder, int position){
             Glide.with(context).load(FILE_PATH + list.get(position).getFile_path()).into(holder.item_product_cart_rec_img);
@@ -189,6 +128,62 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
             holder.item_product_cart_rec_tv2.setText(NumberFormat.getInstance().format(list.get(position).getProduct_price()/list.get(position).getOrder_count())+"원");
             holder.item_product_cart_rec_tv3.setText(list.get(position).getOrder_count()+"개");
             holder.item_product_cart_rec_tv4.setText(NumberFormat.getInstance().format(list.get(position).getProduct_price())+"원");
+
+
+
+            holder.item_product_cart_rec_img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(listener != null){
+                        listener.onItemClick_Cart(ViewHolder.this,
+                                v, position);
+                    }
+                }
+            });
+
+            holder.item_product_cart_rec_box.setChecked(checked);
+
+            holder.item_product_cart_rec_box.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(isChecked){
+                        fragment.changePrice();
+                    } else {
+                        fragment.changePrice();
+                    }
+                }
+            });
+
+            holder.item_product_cart_rec_btn1.setOnClickListener(new CheckBox.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("주문삭제 확인");
+                    builder.setMessage("선택하신 주문을\n삭제하시겠습니까?");
+                    builder.setIcon(R.drawable.question1);
+
+                    builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            delDto(position);
+                            dao.delete_cart(list.get(position).getCart_num());
+                            notifyDataSetChanged();
+
+                        }
+                    });
+
+                    builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+
+                    AlertDialog dialog  = builder.create();
+                    dialog.show();
+                }
+            });
 
         }
     }

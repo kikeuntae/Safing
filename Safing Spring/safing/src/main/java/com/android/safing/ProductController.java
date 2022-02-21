@@ -21,8 +21,6 @@ import org.springframework.web.multipart.MultipartRequest;
 
 import com.google.gson.Gson;
 
-import board.BoardDAO;
-import board.Board_FileVO;
 import common.CommonService;
 import common.ImginsertVO;
 import common.OutPrintln;
@@ -32,12 +30,14 @@ import common.TagVO;
 import common.ThemeRecDTO;
 import member.MemberDAO;
 import member.MemberVO;
+import product.AddressVO;
 import product.CartVO;
 import product.ProductDAO;
 import product.ProductVO;
 import product.Product_DetailVO;
 import product.Product_PackageVO;
 import product.Product_Package_DetailVO;
+import product.PurchaseHistoryVO;
 import product.ReviewVO;
 
 @Controller
@@ -116,6 +116,75 @@ public class ProductController {
 		writer.println( gson.toJson(list));
 	}	
 	
+	
+	
+	//상품 리뷰리스트
+	@ResponseBody
+	@RequestMapping("/review_list_pro.sh")
+	public void  review_list_pro(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		int product_num = Integer.parseInt(req.getParameter("num"));
+		
+		List<ReviewVO> list = dao.review_list_pro(product_num);
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+	}
+	
+	//패키지 리뷰리스트
+	@ResponseBody
+	@RequestMapping("/review_list_pack.sh")
+	public void  review_list_pack(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		int package_num = Integer.parseInt(req.getParameter("num"));
+		
+		List<ReviewVO> list = dao.review_list_pack(package_num);
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+	}
+	
+	
+	//리뷰 좋아요 수정
+	@ResponseBody
+	@RequestMapping("/board_like_cnt_update.sh")
+	public void  board_like_cnt_update(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		ReviewVO vo = new ReviewVO();
+		vo.setReview_num(Integer.parseInt(req.getParameter("review_num")));
+		vo.setLike_cnt(Integer.parseInt(req.getParameter("like_cnt")));
+		
+		dao.board_like_cnt_update(vo);
+	}
+	
+	//리뷰등록
+	@ResponseBody
+	@RequestMapping("/review_intsert.sh")
+	public void  review_intsert(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		int result = dao.review_intsert(gson.fromJson(req.getParameter("vo"), ReviewVO.class));
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(result));
+	}
+	//장바구니 리스트
+	@ResponseBody
+	@RequestMapping("/cart_list.sh")
+	public void  cart_list(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		List<CartVO> list = dao.cart_list(req.getParameter("member_id"));
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+	}
+	
 	//장바구니 담기 상품
 	@ResponseBody
 	@RequestMapping("/insert_cart_pro.sh")
@@ -136,80 +205,20 @@ public class ProductController {
 	@RequestMapping("/insert_cart_pack.sh")
 	public void  insert_cart_pack(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		int idx = Integer.parseInt(req.getParameter("idx"));
-		List<CartVO> list = null;
+		int priceSum = Integer.parseInt(req.getParameter("priceSum"));
+		List<CartVO> list = new ArrayList<>();
 		for(int i = 0 ; i < idx; i++) {
-			list.add(gson.fromJson(req.getParameter("vo"), CartVO.class));
+			list.add(gson.fromJson(req.getParameter("list"), CartVO.class));
 		}
 		
-		int result = dao.insert_cart_pack(list);
+		int result = dao.insert_cart_pack(list, priceSum);
 		
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
 		writer.println( gson.toJson(result));
-	}
-	
-	
-	//상품 리뷰리스트
-	@ResponseBody
-	@RequestMapping("/review_list_pro.sh")
-	public void  review_list_pro(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		int product_num = Integer.parseInt(req.getParameter("num"));
-		
-		List<ReviewVO> list = dao.review_list_pro(product_num);
-		
-		req.setCharacterEncoding("UTF-8");
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html");
-		PrintWriter writer = res.getWriter();
-		writer.println( gson.toJson(list));
-	}
-	
-	
-	
-	//패키지 리뷰리스트
-	@ResponseBody
-	@RequestMapping("/review_list_pack.sh")
-	public void  review_list_pack(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		int package_num = Integer.parseInt(req.getParameter("num"));
-		
-		List<ReviewVO> list = dao.review_list_pack(package_num);
-		
-		req.setCharacterEncoding("UTF-8");
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html");
-		PrintWriter writer = res.getWriter();
-		writer.println( gson.toJson(list));
-	}
-	
-	//리뷰 좋아요 수정
-	@ResponseBody
-	@RequestMapping("/board_like_cnt_update.sh")
-	public void  board_like_cnt_update(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		int review_num = Integer.parseInt(req.getParameter("review_num"));
-		int like_cnt = Integer.parseInt(req.getParameter("like_cnt"));
-		
-		List<Integer> list = null;
-		list.add(review_num);
-		list.add(like_cnt);
-		
-		dao.board_like_cnt_update(list);
-		
-	}
-	
-	//장바구니 리스트
-	@ResponseBody
-	@RequestMapping("/cart_list.sh")
-	public void  cart_list(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		List<CartVO> list = dao.cart_list(req.getParameter("member_id"));
-		
-		req.setCharacterEncoding("UTF-8");
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html");
-		PrintWriter writer = res.getWriter();
-		writer.println( gson.toJson(list));
-	}
+	}	
 	
 	//장바구니 삭제
 	@ResponseBody
@@ -218,4 +227,80 @@ public class ProductController {
 		dao.delete_cart(Integer.parseInt(req.getParameter("cart_num")));
 	
 	}
+	
+	//구매내역 리스트
+	@ResponseBody
+	@RequestMapping("/purchaseHistory_list.sh")
+	public void  purchaseHistory_list(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		List<PurchaseHistoryVO> list = dao.purchaseHistory_list(req.getParameter("member_id"));
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+	}
+	
+	//구매내역 환불여부
+	@ResponseBody
+	@RequestMapping("/update_refund.sh")
+	public void  update_refund(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		dao.update_refund(gson.fromJson(req.getParameter("vo"), PurchaseHistoryVO.class));
+		
+	}
+	
+	
+	
+	//기본주소 불러오기
+	@ResponseBody
+	@RequestMapping("/default_addrss.sh")
+	public void  default_addrss(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		AddressVO vo = dao.default_addrss(req.getParameter("member_id"));
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(vo));
+	}
+	
+	//주소 리스트
+	@ResponseBody
+	@RequestMapping("/addrss_list.sh")
+	public void  addrss_list(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		List<AddressVO> list = dao.addrss_list(req.getParameter("member_id"));
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+	}
+	
+	//기본 주소 변경
+	@ResponseBody
+	@RequestMapping("/update_address.sh")
+	public void  update_address(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		dao.update_address(Integer.parseInt(req.getParameter("addr_num")));
+		
+	}
+	
+	//주소 등록
+	@ResponseBody
+	@RequestMapping("/insert_address.sh")
+	public void  insert_address(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		dao.insert_address(gson.fromJson(req.getParameter("vo"), AddressVO.class), req.getParameter("member_id"));
+		
+	}
+	
+	
+	
+	//주소 삭제
+	@ResponseBody
+	@RequestMapping("/delete_addr.sh")
+	public void  delete_addr(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		dao.delete_addr(Integer.parseInt(req.getParameter("addr_num")));
+			
+	}
+	
 }
