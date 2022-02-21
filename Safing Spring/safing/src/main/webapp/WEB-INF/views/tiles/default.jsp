@@ -12,10 +12,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>IoT 과정 > ${title } </title>
+<title>Safing home > ${title } </title>
 
-<link rel="icon" type="image/x-icon" href="imgs/hanul.ico" />
-<link rel="stylesheet" type="text/css" href="css/common.css?v=<%=new Date().getTime() %>">
+<link rel="stylesheet" type="text/css" href="css/tiles.css?v=<%=new Date().getTime() %>">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>

@@ -1,65 +1,54 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link rel='stylesheet' type="text/css" href="css/common.css?v=<%= new Date().getTime() %>" >
-<!-- <script type="text/javascript" src='js/jquery-3.6.0.min.js'></script> -->
-<script type="text/javascript" src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<style>										<%-- css?v=<%= new java.util.Date().getTime() %> --%>
-	header ul, header ul li {
-		margin :0;
-		padding : 0;
-		display: inline;
-	}
-	
-	header .category{
-		font-size : 18px;
-	}
-	
-	header .category ul li:not(:first-child) {
-		padding-left: 30px;
-	}
-	
-	header .category ul li a:hover, header .category ul li a.active {
-		font-weight: bold;
-		color : #0000cd;
-	}
-</style>
-<header style="border-bottom: 1px solid #ccc; padding : 15px 0; text-align : left">
-	<div class='category' style="margin-left: 200px;">
-		<ul>
-			<li><a href='<c:url value="/" />'> <img src="imgs/hanul.logo.png"></a></li>
-			<li><a href="list.cu" ${category eq 'cu' ? "class='active'" : '' } >회원 관리</a></li>
-			<li><a href="list.hr" ${category eq 'hr' ? "class='active'" : '' } >쇼핑몰</a></li>
-			<li><a href="list.no" ${category eq 'no' ? "class='active'" : '' } >공지사항</a></li>
-			<li><a href="list.bo" ${category eq 'bo' ? "class='active'" : '' } >캠핑 자유게시판</a></li>
-			<li><a href="list.yu" ${category eq 'yu' ? "class='active'" : '' } >유튜브 리스트</a></li>
-		</ul>
-		<div style='position: absolute; right: 0; top: 20px; margin-right: 200px;'>
-		<ul>
-			<!-- 로그인하지 않은 상태 -->
-				<c:if test="${ empty loginInfo }">
-					<li>				
-						<a class='btn-fill' href='login'>로그인</a>
-						<a class='btn-fill' href='member'>회원가입</a>
-					</li>
-				</c:if>
-			<!-- 로그인한 상태 -->
-				<c:if test="${ !empty loginInfo }">
-					<li>				
-						<strong>${loginInfo.member_name }</strong> 님 
-						<a class='btn-fill' href='logout'>로그아웃</a>
-					</li>
-				</c:if>
-					
-		</ul>
-		
-		</div>
-		
-		
-	</div>
-</header>
 
-
-
-
-
+<!-- tiels 라이브러리를 사용할 수 있도록 선언 -->
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%-- <c:choose>
+	<c:when test="${category eq 'cu' }"><c:set var='title' value="고객관리"/> </c:when>
+	<c:when test="${category eq 'hr' }"><c:set var='title' value="사원정보"/> </c:when>
+	<c:when test="${category eq 'no' }"><c:set var='title' value="공지사항"/> </c:when>
+	<c:when test="${category eq 'bo' }"><c:set var='title' value="방명록"/> </c:when>
+	<c:when test="${category eq 'da' }"><c:set var='title' value="공공데이터"/> </c:when>
+	<c:when test="${category eq 'join' }"><c:set var='title' value="회원가입"/> </c:when>
+</c:choose>
+ --%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Safing > </title>
+       <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Safing</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+		<link rel='stylesheet' type="text/css" href="css/tiles.css?v=<%= new Date().getTime() %>" >
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="home.ma">Safing</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">쇼핑</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">자유게시판</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">공지사항</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        </body>

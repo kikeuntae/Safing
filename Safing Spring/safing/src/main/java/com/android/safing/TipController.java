@@ -38,8 +38,8 @@ public class TipController {
 	//tip 리스트
 	@ResponseBody
 	@RequestMapping("/tip_rec.home")
-	public void  list(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		List<YoutubeTipVO> list = dao.list();
+	public void  tip_list(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		List<YoutubeTipVO> list = dao.tip_list();
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");

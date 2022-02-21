@@ -24,14 +24,13 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-			
+		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
-		<!-- 한글 깨짐 처리 -->
-	
+	<!-- 한글 깨짐 처리 -->
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -50,11 +49,4 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern> <!-- 모든 요청에 대해서 이 필터를 거치게 함 -->
 	</filter-mapping>
-	
-	<session-config>
-		<session-timeout>60</session-timeout> <!-- 분 단위 -->
-	</session-config>
-	
-
-
 </web-app>

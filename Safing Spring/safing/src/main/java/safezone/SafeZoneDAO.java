@@ -25,6 +25,20 @@ public class SafeZoneDAO {
 	}
 	
 	
+	public SearchPage search_list(SearchPage page) {
+		// 전체 게시글 수 조회
+		page.setTotalList(sql.selectOne("sfzone.mapper.totalList", page));
+		// 페이징 처리된 전체 게시글 목록 조회
+		page.setList( sql.selectList("sfzone.mapper.search_list", page));
+		
+		return page;
+	}
+
+
+	public SafeZoneVO campinfo_detail(int contentid) {
+		
+		return sql.selectOne("sfzone.mapper.detail", contentid);
+	}
 	
 
 	

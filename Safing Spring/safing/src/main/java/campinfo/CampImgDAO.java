@@ -15,8 +15,8 @@ public class CampImgDAO {
 	
 	
 	//캠핑장 상세 이미지 목록
-	public List<CampImgVO> list(String contentid) {
-		return sql.selectList("campimg_list.mapper.campimglist", contentid);
+	public List<CampImgVO> list(String img_contentid) {
+		return sql.selectList("campimg_list.mapper.campimglist", img_contentid);
 	}
 	
 	

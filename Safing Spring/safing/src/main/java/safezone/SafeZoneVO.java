@@ -1,11 +1,49 @@
 package safezone;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 public class SafeZoneVO implements Serializable {
 	
 	private String 	contentid, facltnm, addr1, intro, resvecl, tel, homepage, induty, prmisnde, insrncat, animalcmgcl, facltdivnm,
     mangedivnm,  mgcdiv, operdecl, toiletco, swrmco, wtrplco, sbrscl, mapx, mapy, sfzone, firstimageurl ;
+	private HashMap<String,String> iconList = new HashMap<String,String>();
+	
+	public void setIconList() {
+		String[] iconarr = this.sbrscl.split(",");
+		if(iconarr.length > 0 ) {
+			for(int i = 0 ; i<iconarr.length ; i ++){
+				if(iconarr[i].equals("전기")) this.iconList.put("전기" , "ico_volt.png");
+				else if(iconarr[i].equals("무선인터넷"))  this.iconList.put("무선인터넷" , "ico_wifi.png");
+				else if(iconarr[i].equals("장작판매"))  this.iconList.put("장작판매" , "ico_wood.png");
+				else if(iconarr[i].equals("온수"))  this.iconList.put("온수" , "ico_hotwater.png");
+				else if(iconarr[i].equals("트램폴린"))  this.iconList.put("트램폴린" , "ico_tramp.png");
+				else if(iconarr[i].equals("물놀이장"))  this.iconList.put("물놀이장" , "ico_pool.png");
+				else if(iconarr[i].equals("놀이터"))  this.iconList.put("놀이터" , "ico_playzone.png");
+				else if(iconarr[i].equals("산책로"))  this.iconList.put("산책로" , "ico_walk.png");
+				else if(iconarr[i].equals("운동장"))  this.iconList.put("운동장" , "ico_ground.png");
+				else if(iconarr[i].equals("운동시설"))  this.iconList.put("운동시설" , "ico_sports.png");
+				else if(iconarr[i].equals("마트.편의점"))  this.iconList.put("마트.편의점" , "ico_mart.png");
+	
+			}
+		}
+	}
+
+	public HashMap<String,String> getIconList() {
+		return iconList;
+	}
+
+	
+
+	private int no;
+	
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
 
 	public String getContentid() {
 		return contentid;
@@ -154,9 +192,13 @@ public class SafeZoneVO implements Serializable {
 	public String getSbrscl() {
 		return sbrscl;
 	}
-
+	
 	public void setSbrscl(String sbrscl) {
 		this.sbrscl = sbrscl;
+		if(sbrscl != null && sbrscl.length() > 1) {
+			setIconList();
+		}
+	
 	}
 
 	public String getMapx() {
