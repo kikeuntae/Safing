@@ -45,8 +45,6 @@ public class MemberController {
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
 		
-		System.out.println(vo.getMember_id());
-		
 		
 		PrintWriter writer = res.getWriter();
 		writer.println( gson.toJson(vo));

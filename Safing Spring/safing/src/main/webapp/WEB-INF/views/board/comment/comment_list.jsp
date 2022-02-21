@@ -5,15 +5,15 @@
 <c:forEach items="${list }" var="vo" varStatus="status">
 <!-- 	<hr /> -->
 	${status.index eq 0 ? '<hr>' : ''} <!-- 첫번째 순서 값에 hr 태그 부여 -->
-	<div data-seq="${vo.id }" class='left'>${vo.name} [ ${vo.writedate } ]
+	<div data-seq="${vo.comment_id }" class='left'>${vo.member_id} [ ${vo.comment_regdate } ]
 	<!-- 로그인한 사용자가 작성한 댓글인 경우 수정/삭제 가능 -->
-	<c:if test="${loginInfo.id eq vo.writer }">
+	<c:if test="${loginInfo.member_id eq vo.member_id }">
 		<span style="float: right;">
 			<a class='btn-fill-s btn-modify-save'>수정</a>
 			<a class='btn-fill-s btn-delete-cancel'>삭제</a>		
 		</span>	
 	</c:if>	
-		<div class='original'>${fn:replace(fn:replace(vo.content, lf, '<br>'), crlf, '<br>')}</div>
+		<div class='original'>${fn:replace(fn:replace(vo.comment_content, lf, '<br>'), crlf, '<br>')}</div>
 		<div class='modify'></div>	
 	</div>
 	<hr />
@@ -39,8 +39,8 @@ $('.btn-modify-save').on('click', function () {
 			type : 'post'	// json방식으로 값을 보낼 땐 반드시 post 방식으로 전달
 			, contentType : 'application/json'
 			, url:'board/comment/update'			
-			, data : JSON.stringify( {id : $div.data('seq')
-							, content:$div.find('textarea').val() })
+			, data : JSON.stringify( {comment_id : $div.data('seq')
+							, comment_content : $div.find('textarea').val() })
 			, success: function ( response ) {
 				alert ('댓글 변경' + response);
 				comment_list();

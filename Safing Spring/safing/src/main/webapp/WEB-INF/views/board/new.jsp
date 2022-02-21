@@ -8,7 +8,7 @@
 <script type="text/javascript" src='js/file_check.js?v=<%=new Date().getTime()%>'></script>
 </head>
 <body>
-<h3>방명록 글쓰기</h3>
+<h3>캠핑 자유게시판 글쓰기</h3>
 <!-- 파일 첨부하여 submit 하는 경우
 	1. method 는 post 로 지정
 	2. form 에는 반드시 enctype='multipart/form-data' 지정
@@ -18,13 +18,20 @@
 		<tr>
 			<th class='w-px120'>제목</th>
 			<td>
-				<input type='text' name="title" title='제목' class='chk' />
+				<input type='text' name="board_title" title='제목' class='chk' />
 			</td>
+			<li>
+				<select name='board_kinds' class='w-px90' >
+					<option value="free" selected="selected" >free</option>
+					<option value="video">video</option>
+					<option value="camping">camping</option>
+				</select>
+			</li>
 		</tr>
 		<tr>
 			<th>내용</th>
 			<td>
-				<textarea name='content' class='chk' title='내용' ></textarea>
+				<textarea name='board_content' class='chk' title='내용' ></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -39,12 +46,13 @@
 				<span id='preview'></span>
 				<a id='delete-file'><i class='font-img fas fa-minus-circle'></i></a>						
 			</td>
-		</tr>	
+		</tr>
+			
 	</table>
 </form>
 <div class='btnSet'>
 	<a class='btn-fill' onclick='if ( emptyCheck() ) $("form").submit()'>저장하기</a>
-	<a class='btn-empty' href='list.no'>취소</a>
+	<a class='btn-fill' href='list.bo'>취소</a>
 </div>
 </body>
 </html>

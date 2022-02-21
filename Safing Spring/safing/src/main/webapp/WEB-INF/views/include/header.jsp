@@ -28,11 +28,11 @@
 	<div class='category' style="margin-left: 200px;">
 		<ul>
 			<li><a href='<c:url value="/" />'> <img src="imgs/hanul.logo.png"></a></li>
-			<li><a href="list.cu" ${category eq 'cu' ? "class='active'" : '' } >고객관리</a></li>
-			<li><a href="list.hr" ${category eq 'hr' ? "class='active'" : '' } >사원정보</a></li>
-			<li><a href="list.no" ${category eq 'no' ? "class='active'" : '' }>공지사항</a></li>
-			<li><a href="list.bo" ${category eq 'bo' ? "class='active'" : '' }>방명록</a></li>
-			<li><a href="list.da">공공 데이터</a></li>
+			<li><a href="list.cu" ${category eq 'cu' ? "class='active'" : '' } >회원 관리</a></li>
+			<li><a href="list.hr" ${category eq 'hr' ? "class='active'" : '' } >쇼핑몰</a></li>
+			<li><a href="list.no" ${category eq 'no' ? "class='active'" : '' } >공지사항</a></li>
+			<li><a href="list.bo" ${category eq 'bo' ? "class='active'" : '' } >캠핑 자유게시판</a></li>
+			<li><a href="list.yu" ${category eq 'yu' ? "class='active'" : '' } >유튜브 리스트</a></li>
 		</ul>
 		<div style='position: absolute; right: 0; top: 20px; margin-right: 200px;'>
 		<ul>
@@ -46,7 +46,7 @@
 			<!-- 로그인한 상태 -->
 				<c:if test="${ !empty loginInfo }">
 					<li>				
-						<strong>${loginInfo.name }</strong> 님 
+						<strong>${loginInfo.member_name }</strong> 님 
 						<a class='btn-fill' href='logout'>로그아웃</a>
 					</li>
 				</c:if>

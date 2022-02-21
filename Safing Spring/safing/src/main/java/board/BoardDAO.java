@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import member.MemberVO;
+import tip.YoutubeTipVO;
+
 @Service
 public class BoardDAO {
 	
@@ -56,9 +59,9 @@ public class BoardDAO {
 		
 	}
 	//댓글 출력
-	public List<Board_CommentVO> comment_list(int video_id) {
+	public List<Board_CommentVO> comment_list(int id) {
 		// TODO Auto-generated method stub
-		return sql.selectList("board.mapper.comment_list", video_id);
+		return sql.selectList("board.mapper.comment_list", id);
 	}
 
 	//댓글 수정
@@ -79,9 +82,105 @@ public class BoardDAO {
 		return sql.selectOne("board.mapper.movie_comment_cnt", id);
 	}
 
-	public Object board_list(BoardPage page) {
-		// TODO Auto-generated method stub
-		return null;
+	public BoardPage board_list(BoardPage page) {
+		// 전체 게시글 수 조회
+		page.setTotalList(sql.selectOne("board.mapper.totalList", page));
+		// 페이징 처리된 전체 게시글 목록 조회
+		page.setList( sql.selectList("board.mapper.list", page) );
+		return page;
 	}
 	
+
+	public int board_insert(BoardVO vo) {		
+		return sql.insert("board.mapper.board_insert", vo);
+	}
+
+
+	public BoardVO board_detail(int id) {
+		return sql.selectOne("board.mapper.detail", id);
+	}
+
+	
+	public int board_read(int id) {
+		return sql.update("board.mapper.read", id);
+	}
+
+	//게시판 글 수정
+	public int board_update(BoardVO vo) {
+		return sql.update("board.mapper.board_update", vo);
+	}
+
+
+	public int board_delete(int id) {
+		return sql.delete("board.mapper.delete", id);
+	}
+
+
+	public int board_comment_insert(Board_CommentVO vo) {
+		return sql.insert("board.mapper.comment_insert", vo);
+	}
+
+	
+	public int board_comment_update(Board_CommentVO vo) {
+		return sql.update("board.mapper.comment_update", vo);
+	}
+
+	public int board_comment_delete(int id) {
+		return sql.delete("board.mapper.comment_delete", id);
+	}
+
+	
+	public List<Board_CommentVO> board_comment_list(int id) {
+		return sql.selectList("board.mapper.board_comment_list", id);
+	}
+
+	//임시로그인
+	public MemberVO login(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return sql.selectOne("board.mapper.login", vo);
+		
+	}
+
+	//글쓰기 이미지 파일 저장
+	public void board_insert_img(BoardVO vo) {
+		// TODO Auto-generated method stub
+		sql.insert("board.mapper.board_insert_img", vo);
+	}
+
+	//게시판의 사진 찾기
+	public List<Board_FileVO> board_file_select(int id) {
+		// TODO Auto-generated method stub
+		return sql.selectList("board.mapper.board_select_img", id);
+
+	}
+
+	//게시판 이미지 수정
+	public void board_update_img(Board_FileVO vo) {
+		// TODO Auto-generated method stub
+		sql.update("board.mapper.board_update_img", vo);
+	}
+	
+
+	//게시판(공지사항) 리스트 출력
+	public BoardPage board_list_notice(BoardPage page) {
+		// 전체 게시글 수 조회
+		page.setTotalList(sql.selectOne("board.mapper.totalList_no", page));
+		// 페이징 처리된 전체 게시글 목록 조회
+		page.setList( sql.selectList("board.mapper.list_no", page) );
+		return page;
+	}
+	//게시판(유튜브) 리스트 출력
+	public BoardPage board_list_youtube(BoardPage page) {
+		// 전체 게시글 수 조회
+		page.setTotalList(sql.selectOne("board.mapper.totalList_yu", page));
+		// 페이징 처리된 전체 게시글 목록 조회
+		page.setList( sql.selectList("board.mapper.list_yu", page) );
+		
+		return page;
+	}
+
+	public int board_new() {
+		// TODO Auto-generated method stub
+		return sql.selectOne("board.mapper.board_new");
+	}
 }

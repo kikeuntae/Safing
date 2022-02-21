@@ -7,23 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>방명록</h3>
+<h3>캠핑 자유게시판</h3>
 <div id='list-top'>
 <form action="list.bo" method="post">
 <input type="hidden" name="curPage" value="1" />
-<input type="hidden" name="id" />
+<input type="hidden" name="id"  value="master"/>
 	<div>
 		<!-- 검색 처리 -->
 		<ul>
 			<li>
 				<select name="search" class='w-px90'>
 					<option value="all" ${page.search eq 'all' ? 'selected' : '' }>전체</option>
-					<option value="title" ${page.search eq 'title' ? 'selected' : '' }>제목</option>
-					<option value="content" ${page.search eq 'content' ? 'selected' : '' }>내용</option>
-					<option value="writer" ${page.search eq 'writer' ? 'selected' : '' }>작성자</option>
+					<option value="board_title" ${page.search eq 'board_title' ? 'selected' : '' }>제목</option>
+					<option value="board_content" ${page.search eq 'board_content' ? 'selected' : '' }>내용</option>
+					<option value="member_id" ${page.search eq 'member_id' ? 'selected' : '' }>작성자</option>
 				</select>			
 			</li>
-			<li><input type='text' name='keyword' value="${page.keyword }" class='w-px300' /></li>
+			<li><input type='text' name='keyword' value="${page.keyword}" class='w-px300' /></li>
 			<li><a class='btn-fill' onclick='$("form").submit()'>검색</a></li>		
 		</ul>		
 		<ul>
@@ -58,9 +58,9 @@
 	<ul class='grid'>
 		<c:forEach items="${page.list }" var="vo">
 			<li>
-				<div><a onclick='go_detail(${vo.id})'>${vo.title }</a></div>
-				<div>${vo.name }</div>
-				<div>${vo.writedate } [${vo.readcnt }] <span style="float: right;">${empty vo.filename ? '' : "<img src='imgs/attach.png' class='file-img' />" }</span> </div>
+				<div><a onclick='go_detail(${vo.member_id})'>${vo.board_title }</a></div>
+				<div>${vo.member_id }</div>
+				<div>${vo.board_writedate } [${vo.board_read_cnt }] <span style="float: right;">${empty vo.file_name ? '' : "<img src='imgs/attach.png' class='file-img' />" }</span> </div>
 			</li>
 		</c:forEach>
 	</ul>
@@ -89,13 +89,14 @@
 		<c:forEach items="${page.list }" var="vo">
 		<tr>
 			<td>${vo.no }</td>
-			<td class='left'><a onclick='go_detail(${vo.id})'>${vo.title }</a></td>
-			<td>${vo.name }</td>
-			<td>${vo.writedate }</td>
-			<td>${vo.readcnt }</td>
-			<td>${empty vo.filename ? '' : '<img src="imgs/attach.png" class="file-img" />'}</td>			
+			<td class='left'><a onclick='go_detail(${vo.board_id})'>${vo.board_title }</a></td>
+			<td>${vo.member_id }</td>
+			<td>${vo.board_writedate }</td>
+			<td>${vo.board_read_cnt }</td>
+			<td>${empty vo.file_name ? '' : '<img src="imgs/attach.png" class="file-img" />'}</td>			
 		</tr>
 		</c:forEach>
+		
 	</tbody>
 </table>
 </c:if>
@@ -114,10 +115,6 @@
 
 </body>
 </html>
-
-
-
-
 
 
 
