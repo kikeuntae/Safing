@@ -80,6 +80,27 @@
             android:required="false" />
 
         <activity
+            android:name=".shop.activity.SearchAddrActivity"
+            android:exported="false" />
+        <activity
+            android:name=".shop.activity.Review_Result_Activity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
+        <activity
+            android:name=".shop.activity.Purchase_Result_Activity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
+        <activity
+            android:name=".shop.activity.Review_Image_Activity"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
             android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>
