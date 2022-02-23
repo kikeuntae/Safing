@@ -1,11 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>공지사항</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" type="text/css" />
+<!-- Google fonts-->
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel='stylesheet' type="text/css" href="css/board.css?v=<%= new Date().getTime() %>">
+
 <style type="text/css">
 	#popup { width: 450px; height: 450px; border: 2px solid #666; display: none; }
 	#popup-background {
@@ -60,7 +77,7 @@
 	</tr>
 </table>
 
-<div class='btnSet'>
+<div class='btnSet' style="display: flex; margin: 10px auto; width: 25%">
 	<a class='btn-fill' onclick='$("form").submit()'>목록으로</a>
 	<!-- 글쓴이만 수정/삭제 권한을 가짐 -->
 	<c:if test="${vo.member_id eq loginInfo.member_id }">

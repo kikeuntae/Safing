@@ -73,6 +73,12 @@ public class MemberDAO {
 		// TODO Auto-generated method stub
 		sql.update("member.mapper.update_cusotomer", vo);
 	}
+
+	//프로필이미지 업데이트
+	public int img_update(String string, MemberVO vo) {
+		// TODO Auto-generated method stub
+		return sql.update("member.mapper.update_img", vo);
+	}
 	
 	
 }

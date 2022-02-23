@@ -1,10 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Safing Board</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" type="text/css" />
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link rel='stylesheet' type="text/css" href="css/board.css?v=<%= new Date().getTime() %>">
 </head>
 <body>
 <h3>캠핑 자유게시판</h3>
@@ -28,7 +39,7 @@
 		</ul>		
 		<ul>
 			<li>
-				<select name='pageList' class='w-px90' onchange="$('form').submit()">
+				<select name='pageList' class='w-px90' onchange="$('form').submit()" style="">
 					<option value="10" ${page.pageList eq 10 ? 'selected' : '' }>10개씩</option>
 					<option value="15" ${page.pageList eq 15 ? 'selected' : '' }>15개씩</option>
 					<option value="20" ${page.pageList eq 20 ? 'selected' : '' }>20개씩</option>
@@ -101,7 +112,7 @@
 </table>
 </c:if>
 </div>
-<div class='btnSet'>
+<div class='btnSet' style="display: flex;">
 	<jsp:include page="/WEB-INF/views/include/page.jsp" />
 </div>
 

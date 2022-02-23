@@ -82,6 +82,24 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".mypage.fragment.CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.FAQActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.FindActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.QNAActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.SettingActivity"
+            android:exported="false" />
+        <activity
             android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -95,6 +113,7 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -107,6 +126,9 @@
                 android:name="com.kakao.sdk.AppKey"
                 android:value="cad9d128e6313db0c6b34ec4aab5209a" />
         </provider>
+
+
+
     </application>
 
 </manifest>

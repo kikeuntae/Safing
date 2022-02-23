@@ -1,11 +1,9 @@
 package com.example.safing;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -15,6 +13,7 @@ import android.widget.Toast;
 import com.example.safing.home.fragment.HomeFragment;
 import com.example.safing.iot.fragment.IoTFragment;
 import com.example.safing.movie.fragment.MovieFragment;
+import com.example.safing.mypage.fragment.LoginActivity;
 import com.example.safing.mypage.fragment.MypageFragment;
 import com.example.safing.shop.fragment.Product_PurchaseHistory_Fragment;
 import com.example.safing.shop.fragment.ShopFragment;
@@ -55,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                     changeFragment(new ShopFragment(MainActivity.this));
                     return true;
                 }else if(item.getItemId() == R.id.tab5){
+                    //Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
+                    //startActivity(intent1);
                     changeFragment(new MypageFragment(MainActivity.this));
                     return true;
                 }

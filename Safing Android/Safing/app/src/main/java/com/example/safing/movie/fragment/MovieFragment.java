@@ -41,15 +41,6 @@ public class MovieFragment extends Fragment {
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_movie, container, false);
 
-
-        Board_Movie_DTO test = new Board_Movie_DTO();
-        test.setMember_id("master");
-        test.setBoard_title("test_title_update");
-        test.setBoard_content("test_content_update");
-
-
-
-
         tab_layout = rootView.findViewById(R.id.movie_tab);
         pager2 = rootView.findViewById(R.id.movie_pager);
 
@@ -63,7 +54,7 @@ public class MovieFragment extends Fragment {
 
 
         List<Board_Movie_DTO> videoItems2  = new ArrayList<>();
-        videoItems2 = dao.list();
+        videoItems2 = dao.list_new();
         adapter2 =new Moive_Adapter1(getContext() , videoItems2);
 
 
@@ -78,6 +69,7 @@ public class MovieFragment extends Fragment {
                 super.onPageSelected(position);
                 now_state = position;
                 adapter1.setVideo(position);
+                adapter2.setVideo(position);
 
             }
 

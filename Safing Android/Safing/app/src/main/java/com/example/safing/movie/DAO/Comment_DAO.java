@@ -28,9 +28,9 @@ public class Comment_DAO {
         service = new CommonAsk("memberimg.me");
         //MemberVO member = new MemberVO();
         MemberVO vo = new MemberVO();
-        //member.setMember_id(member_id);
-        String str = gson.toJson(member_id);
-        service.params.add(new AskParam("member_id", member_id));
+        vo.setMember_id(member_id);
+        String str = gson.toJson(vo);
+        service.params.add(new AskParam("vo", str));
         in = CommonMethod.excuteAsk(service);
         try {
             vo = gson.fromJson(new InputStreamReader(in), new TypeToken<MemberVO>() {
@@ -40,8 +40,9 @@ public class Comment_DAO {
             Log.d(TAG, "gson error");
         }
 
-        String path = "http://192.168.0.65:80/safing/resources/";
-        String imgUrl = path + vo.getMember_filepath();
+        /*String path = "http://192.168.0.65:80/safing/resources/";*/
+        String imgUrl = vo.getMember_filepath();
+
         return imgUrl;
     }
 

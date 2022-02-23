@@ -7,6 +7,7 @@ import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
 import com.example.safing.movie.DTO.Board_Movie_DTO;
 import com.example.safing.movie.DTO.Movie_comment_DTO;
+import com.example.safing.mypage.VO.MemberVO;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -95,5 +96,37 @@ public class Movie_DAO {
     }
 
 
+    public List<Board_Movie_DTO> list_new() { //db 동영상 가져오기
+        {
+            service = new CommonAsk("movielist_new.bo");
+            in = CommonMethod.excuteAsk(service);
+            List<Board_Movie_DTO> list = new ArrayList<>();
+            try {
+                list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<Board_Movie_DTO>>() {
+                }.getType());
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.d(TAG, "gson error");
+            }
+            return list;
+        }
+    }
 
+    public List<Board_Movie_DTO> list_mypage(MemberVO vo) { // 마이페이지 동영상 리스트
+        {
+            List<Board_Movie_DTO> list = new ArrayList<>();
+            String str = gson.toJson(vo);
+            service = new CommonAsk("movielist_mypage.bo");
+            service.params.add(new AskParam("vo",str));
+            in = CommonMethod.excuteAsk(service);
+            try {
+                list = gson.fromJson(new InputStreamReader(in), new TypeToken<List<Board_Movie_DTO>>() {
+                }.getType());
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.d(TAG, "gson error");
+            }
+            return list;
+        }
+    }
 }

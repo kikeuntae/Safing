@@ -60,7 +60,7 @@
 	</tr>
 </table>
 
-<div class='btnSet'>
+<div class='btnSet' style="display: flex; margin: 10px auto; width: 25%">
 	<a class='btn-fill' onclick='$("form").submit()'>목록으로</a>
 	<!-- 글쓴이만 수정/삭제 권한을 가짐 -->
 	<c:if test="${loginInfo.member_admin eq 'y' }">

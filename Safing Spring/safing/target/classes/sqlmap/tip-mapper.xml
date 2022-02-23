@@ -14,20 +14,7 @@
     </update>
     		
     		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
+    	    		
     		<!-- 유튜브 이미지 입력 (임시?)-->
     <insert id="insert_youtube">
     	insert into youtubetip ( thumbnails, youtubetitle, youtubecontent, play,board_id)

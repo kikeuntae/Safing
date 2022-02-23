@@ -36,11 +36,11 @@ public class MemberController {
 	@RequestMapping("/memberimg.me")
 	public void img(HttpServletRequest req, HttpServletResponse res, HttpSession session) throws Exception {
 
-		String strVo = req.getParameter("member_id");	
-		MemberVO member = new MemberVO();
-		member.setMember_id(strVo);
+		String strVo = req.getParameter("vo");	
+		MemberVO vo = gson.fromJson(strVo, MemberVO.class);
 		
-		MemberVO vo = dao.memberimg(member);
+		
+		vo = dao.memberimg(vo);
 		req.setCharacterEncoding("UTF-8");
 		res.setCharacterEncoding("UTF-8");
 		res.setContentType("text/html");
@@ -49,6 +49,33 @@ public class MemberController {
 		PrintWriter writer = res.getWriter();
 		writer.println( gson.toJson(vo));
 		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/memberimg_up.me")
+	public void test(HttpServletRequest req , HttpServletResponse res ,HttpSession session) throws IOException {
+		String tempVo = req.getParameter("vo");
+		MemberVO vo = gson.fromJson(tempVo, MemberVO.class);
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		int result = 0;
+		MultipartRequest mulReq = (MultipartRequest) req;
+		MultipartFile file = mulReq.getFile("file");
+		if(file != null) {
+			System.out.println("Null 아님 파일 들어옴");
+			String path = service.fileupload("member", file, session);
+			String server_path = "http://" + req.getLocalAddr()
+			+ ":" + req.getLocalPort() + req.getContextPath()+"/resources/";
+			System.out.println(server_path + path);
+			vo.setMember_filepath(server_path + path);
+			result = dao.img_update("member.mapper.insert", vo);
+		}else {
+			System.out.println("Null임 파일 안들어옴..");
+		
+		}
+		writer.print(result);
 	}
 
 	

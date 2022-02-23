@@ -247,7 +247,7 @@ a:hover {
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
-  color: inherit;
+  color: #123123;
   text-decoration: none;
 }
 
@@ -307,6 +307,7 @@ svg {
 
 table {
   caption-side: bottom;
+  color: black;
   border-collapse: collapse;
 }
 
@@ -11508,4 +11509,8 @@ html {
 
 .copyright {
   background-color: #85897B;
+}
+
+table > thead > tbody > tr > td {
+	color: blue;
 }

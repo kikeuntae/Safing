@@ -23,10 +23,14 @@
 		<put-attribute name="content" value ="/WEB-INF/views/login/login.jsp"/>
 	</definition>
   
+  <!-- tiles 제외시키기 -->
+  	<!-- <definition name="board/list" extends ="empty">
+		<put-attribute name="content" value ="/WEB-INF/views/board/list.jsp" />
+	</definition> -->
+  
   <definition name="main/home" template="/WEB-INF/views/tiles/default.jsp">
   	<put-attribute name="content" value="/WEB-INF/views/main/home.jsp" />
   </definition>
-  
- 
+
   
 </tiles-definitions>

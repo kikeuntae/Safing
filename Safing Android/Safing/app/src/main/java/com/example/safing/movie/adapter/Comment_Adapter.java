@@ -1,6 +1,8 @@
 package com.example.safing.movie.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -119,12 +121,36 @@ public class Comment_Adapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-                dto.setMember_id("master");
-                dao.delete(dto);
-                Toast.makeText(context, "삭제되었습니다", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                list.remove(position);
-                notifyDataSetChanged();
+                builder.setTitle("삭제하시겠습니까?");
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        dto.setMember_id("master");
+                        dao.delete(dto);
+                        Toast.makeText(context, "삭제되었습니다", Toast.LENGTH_SHORT).show();
+
+                        list.remove(position);
+                        notifyDataSetChanged();
+
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+
+                    }
+                });
+
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
 
             }
         });
@@ -149,11 +175,13 @@ public class Comment_Adapter extends BaseAdapter {
 
                     list.get(position).setComment_content(dto.getComment_content());
                     notifyDataSetChanged();
+                    Toast.makeText(context, "수정이 완료되었습니다", Toast.LENGTH_SHORT).show();
 
                     update_status = false;
                 }else {//수정중이 아닐때
                     viewHolder.tv_content.setEnabled(true);
                     viewHolder.tv_content.requestFocus();
+                    Toast.makeText(context, "글자를 수정해주세요", Toast.LENGTH_SHORT).show();
 
                     update_status = true;
                 }

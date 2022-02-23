@@ -7,8 +7,8 @@
     <LinearLayout
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#4FC3C1C1"
+        android:layout_height="100dp"
+        android:background="#00000000"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -60,7 +60,7 @@
                 android:layout_marginTop="3dp"
                 android:textColor="@color/black"
                 android:background="@null"
-                android:text="이 어플은 매우 좋은 어플입니다.이 어플은 매우 좋은 어플입니다.이 어플은 매우 좋은 어플입니다." />
+                android:text="이 어플은 매우 좋은 어플aaaaaa" />
         </LinearLayout>
 
         <LinearLayout
@@ -70,20 +70,23 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/comment_delete"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#4FC3C1C1"
-                android:src="@android:drawable/ic_delete" />
+                android:id="@+id/comment_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:backgroundTint="#00000000"
+                android:src="@drawable/comment_delete"
+                 />
 
             <ImageButton
-                android:id="@+id/comment_update"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#4FC3C1C1"
-                android:src="@drawable/btn_next" />
+                android:id="@+id/comment_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:backgroundTint="#00000000"
+                android:src="@drawable/comment_update" />
         </LinearLayout>
     </LinearLayout>
 

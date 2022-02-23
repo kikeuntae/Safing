@@ -2,6 +2,7 @@ package com.example.safing.movie.adapter;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -145,7 +146,7 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
     //inner class..
     class VH extends RecyclerView.ViewHolder {
         ImageView movie_pager_volume, movie_pager_comment, movie_pager_like, movie_pager_share;
-        TextView movie_pager_title, movie_pager_tag, movie_pager_comment_cnt, movie_pager_like_cnt;
+        TextView movie_pager_title, movie_pager_content, movie_pager_comment_cnt, movie_pager_like_cnt, movie_pager_id;
 
         private PlayerView exoPlayerView;
         private SimpleExoPlayer player;
@@ -161,9 +162,11 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
             movie_pager_share = itemView.findViewById(R.id.movie_pager_share);
 
             movie_pager_title = itemView.findViewById(R.id.movie_pager_title);
-            movie_pager_tag = itemView.findViewById(R.id.movie_pager_tag);
+            movie_pager_content = itemView.findViewById(R.id.movie_pager_content);
             movie_pager_comment_cnt = itemView.findViewById(R.id.movie_pager_comment_cnt);
             movie_pager_like_cnt = itemView.findViewById(R.id.movie_pager_like_cnt);
+            movie_pager_id =itemView.findViewById(R.id.movie_pager_id);
+
 
 
         } // public VH
@@ -183,8 +186,8 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
 
 
                 //String videoUrl = "http://192.168.0.65:80/safing/resources/upload/board_file/2022/02/06/7ff0dcea-0b36-4041-bdbf-3035f6ef4184_video11.mp4";
-                String path = "http://192.168.0.65:80/safing/resources/";
-                String videoUrl = path + videodb.getFile_path();
+                //String path = "http://192.168.0.65:80/safing/resources/";
+                String videoUrl = videodb.getFile_path();
 
                 MediaSource mediaSource = buildMediaSource(Uri.parse(videoUrl));
                 videoItem.getPlayer().prepare(mediaSource, true, false);
@@ -245,6 +248,22 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
                 holder.movie_pager_share.setOnClickListener(new View.OnClickListener() { //공유버튼
                     @Override
                     public void onClick(View v) {
+                        Uri uri = Uri.parse(videodb.getFile_path());
+
+/*                        //동영상공유하면 꺼짐..
+                        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+
+                        sharingIntent.setType("video/*");
+                        sharingIntent.putExtra(Intent.EXTRA_STREAM, uri);
+                        
+                        Intent shareIntent = Intent.createChooser(sharingIntent, "동영상공유");
+                        context.startActivity(shareIntent);*/
+
+                        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                        sharingIntent.setType("text/plain");		// 고정 text
+                        sharingIntent.putExtra(Intent.EXTRA_TEXT, videodb.getFile_path());
+                        sharingIntent.setPackage("com.kakao.talk");	// 고정 text
+                        context.startActivity(sharingIntent);
 
                     }
                 });
@@ -253,8 +272,9 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
 
 
         public void setDto(Board_Movie_DTO video_db) {
-            movie_pager_title.setText(video_db.getBoard_title());
-            movie_pager_tag.setText(video_db.getBoard_title());
+            movie_pager_title.setText(video_db.getBoard_title()+"");
+            movie_pager_content.setText(video_db.getBoard_content()+"");
+            movie_pager_id.setText(video_db.getMember_id()+"");
             movie_pager_like_cnt.setText(video_db.getBoard_like_cnt()+"");
             movie_pager_comment_cnt.setText(video_db.getBoard_comment_cnt()+"");
         }
@@ -280,6 +300,8 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
             Movie_dialog.callFunction();
 
         }
+
+
 
     } // class VH
 

@@ -267,24 +267,34 @@ public class BoardController {
 	//동영상 등록
 	@ResponseBody
 	@RequestMapping("/movieinsert.bo")
-	public void join(HttpServletRequest req, HttpServletResponse res, HttpSession session, MultipartFile file) throws Exception {
-	PrintWriter writer = outprintln.outprintln(req, res);	
-	String strVo = req.getParameter("vo");	
-	Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
-	vo.setBoard_kinds("video");
+	public void insert(HttpServletRequest req , HttpServletResponse res ,HttpSession session) throws IOException {	
+		
+	String tempVo = req.getParameter("vo");
+	Board_MovieDTO vo = gson.fromJson(tempVo, Board_MovieDTO.class);
+	req.setCharacterEncoding("UTF-8");
+	res.setCharacterEncoding("UTF-8");
+	res.setContentType("text/html");
+	PrintWriter writer = res.getWriter();
+	int result = 0;
+	MultipartRequest mulReq = (MultipartRequest) req;
+	MultipartFile file = mulReq.getFile("file");
+	if(file != null) {
+		System.out.println("Null 아님 파일 들어옴");
+		String path = service.fileupload("board_file", file, session);
+		String server_path = "http://" + req.getLocalAddr()
+		+ ":" + req.getLocalPort() + req.getContextPath()+"/resources/";
+		System.out.println(server_path + path);
+		vo.setFile_path(server_path + path); 
+		vo.setFile_name(path);
+		dao.movie_create(vo);
+		
+	}else {
+		System.out.println("Null임 파일 안들어옴..");
 	
-	dao.movie_create(vo);
-	
-	
-	
-	
-	//int file_id = dao.file_select(vo); 
-	
-	/*
-	 * if ( ! file.isEmpty() ) { vo.setBoard_id(file_id);
-	 * vo.setFile_name(file.getOriginalFilename());
-	 * vo.setFile_path(service.fileupload("board_file", file, session)); }
-	 */
+	}
+	writer.print(result);
+
+
 	
 	}
 
@@ -301,15 +311,44 @@ public class BoardController {
 		writer.println( gson.toJson(list));
 		
 	}
+	//동영상 정보 목록(최신순)
+	@ResponseBody
+	@RequestMapping("/movielist_new.bo")
+	public void  list_new(HttpServletRequest req, HttpServletResponse res) throws Exception{
+
+		List<Board_MovieDTO> list = dao.movielist_new();
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
 
 	
 	//동영상 정보수정
 	@ResponseBody
 	@RequestMapping("/movieupdate.bo")
-	public void  update(HttpServletRequest req, HttpServletResponse res) throws Exception{
+	public void  update(HttpServletRequest req, HttpServletResponse res,HttpSession session) throws Exception{
 		PrintWriter writer = outprintln.outprintln(req, res);
 		String strVo = req.getParameter("vo");	
 		Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
+		
+		MultipartRequest mulReq = (MultipartRequest) req;
+		MultipartFile file = mulReq.getFile("file");
+		if(file != null) {
+			System.out.println("Null 아님 파일 들어옴");
+			String path = service.fileupload("board_file", file, session);
+			String server_path = "http://" + req.getLocalAddr()
+			+ ":" + req.getLocalPort() + req.getContextPath()+"/resources/";
+			System.out.println(server_path + path);
+			vo.setFile_path(server_path + path); 
+			vo.setFile_name(path);
+		}else {
+			System.out.println("Null임 파일 그대로");
+			vo.setFile_path(null);
+		}
+		
 		
 		dao.movie_update(vo);
 		
@@ -359,6 +398,25 @@ public class BoardController {
 		writer.println( gson.toJson(comment_cnt));
 	}
 	
+	
+	//동영상 정보 목록(마이페이지)
+	@ResponseBody
+	@RequestMapping("/movielist_mypage.bo")
+	public void  list_mypage(HttpServletRequest req, HttpServletResponse res) throws Exception{
+
+		String strVo = req.getParameter("vo");
+		MemberVO vo = gson.fromJson(strVo, MemberVO.class);
+		List<Board_MovieDTO> list = dao.movielist_mypage(vo);
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(list));
+		
+	}
+	
+	
+	
 	// 유튜브 목록화면 요청
 			@RequestMapping ("/list.yu")
 			public String list_yu(HttpSession session , Model model
@@ -370,7 +428,7 @@ public class BoardController {
 				
 				session.setAttribute("category", "yu"); // category 에 cu 를 설정
 				
-				// DB에서 공지사항 정보를 조회해와 목록화면에 출력
+		// DB에서 공지사항 정보를 조회해와 목록화면에 출력
 				page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
 				page.setSearch(search);		// 검색 조건 값을 page에 담음
 				page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
@@ -425,8 +483,7 @@ public class BoardController {
 				model.addAttribute("page", page);
 				return "board/redirect";
 			}
-	
-
+		
 
 	
 	

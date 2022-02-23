@@ -87,6 +87,7 @@ public class Movie_dialog extends AppCompatActivity {
         adapter = new Comment_Adapter(context,list);
         comment_listview.setAdapter(adapter);
         // 커스텀 다이얼로그를 노출한다.
+        dlg.getWindow().setGravity(Gravity.BOTTOM);
         dlg.show();
 
         // 커스텀 다이얼로그의 각 위젯들을 정의한다.

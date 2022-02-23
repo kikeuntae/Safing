@@ -25,6 +25,9 @@ public class BoardDAO {
 	//동영상 정보 수정 
 	public void movie_update(Board_MovieDTO vo){
 		sql.update("board.mapper.movieupdate", vo);
+		if(!(vo.getFile_path().equals(null))) {
+		sql.update("board_update_img", vo);
+		}
 	}
 	
 	//동영상 정보 삭제
@@ -37,6 +40,8 @@ public class BoardDAO {
 	public void movie_create(Board_MovieDTO vo) {
 		// TODO Auto-generated method stub
 		sql.insert("board.mapper.moviecreate", vo);
+		vo.setBoard_id(sql.selectOne("board.mapper.board_new"));
+		sql.insert("board.mapper.board_insert_img", vo);
 	}
 
 	//좋아요 처리
@@ -179,8 +184,22 @@ public class BoardDAO {
 		return page;
 	}
 
+	//방금만든 board_id값 조회하기
 	public int board_new() {
 		// TODO Auto-generated method stub
 		return sql.selectOne("board.mapper.board_new");
 	}
+
+	//동영상 최신리스트 순서
+	public List<Board_MovieDTO> movielist_new() {
+		// TODO Auto-generated method stub
+		return sql.selectList("board.mapper.movielist_new");
+	}
+
+	//동영상 마이페이지 리스트
+	public List<Board_MovieDTO> movielist_mypage(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return sql.selectList("board.mapper.movielist_mypage",vo);
+	}
+	
 }
