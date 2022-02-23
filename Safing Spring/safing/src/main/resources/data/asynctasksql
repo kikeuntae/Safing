@@ -1,0 +1,659 @@
+select p.*, (select tag_key from board_tag where p.package_num = package_num) tag_key
+from product_package p;
+
+desc product;
+
+select p.product_num, p.product_name, p.product_price, p.product_stock,
+     (select ROUND(AVG(rating),2) from product_review where product_num = p.product_num) rating,
+     (select COUNT(*) from product_review where product_num = p.product_num) re_count,
+     (select tag_key from board_tag where p.product_num = product_num) tag_key,
+     (select file_name, min(file_num) from product_file where p.product_num = product_num group by file_name) file_name, 
+     (select file_path, min(file_num) from product_file where p.product_num = product_num group by file_path) file_path
+from product p
+where product_kind like '%의자%';
+        
+select * from product_review;
+
+select * from product_file;
+
+select file_name,  min(file_num) from product_file group by file_name;
+
+
+-- Theme_Pager_list
+
+select p.Package_num, p.package_name,
+       (select facltnm from (select rownum no, c.* from CAMPINFO c where firstimageurl not like '%-%' and rownum < 10) c where c.no = p.no) facltnm,
+        (select tag_key from board_tag where  p.Package_num = Package_num and Package_num is not null) tag_key,
+        (select firstimageurl from (select rownum no, c.* from CAMPINFO c where firstimageurl not like '%-%' and rownum < 10) c where c.no = p.no) firstimageurl,
+        (select file_path from product_file where file_num = (select min(file_num) from product_file where  
+(select product_num from PACKAGE_DETAIL where product_num = 
+(select Min(product_num) from PACKAGE_DETAIL where p.Package_num = Package_num)) = product_num)) file_path1,
+        (select file_path from product_file where file_num = (select min(file_num)+1 from product_file where  
+(select product_num from PACKAGE_DETAIL where product_num = 
+(select Min(product_num) from PACKAGE_DETAIL where p.Package_num = Package_num)) = product_num)) file_path2
+from  (select rownum no, p.* from product_package p) p;
+
+ 
+(select product_num from PACKAGE_DETAIL where product_num = 
+(select Min(product_num) from PACKAGE_DETAIL where p.Package_num = Package_num));
+
+(select facltdivnm from (select rownum no, c.* from CAMPINFO c where firstimageurl not like '%-%' and rownum < 10));
+
+select * from PACKAGE_DETAIL order by package_num;
+
+select * from PRODUCT_REVIEW order by package_num;
+
+--package_detail
+select p.package_num, p.package_name, p.package_price,
+      (select ROUND(AVG(rating),2) from product_review where  p.package_num = package_num) rating,
+      (select COUNT(*) from product_review where  p.package_num = package_num and package_num is not null) re_count
+from product_package p
+where package_num = 2;
+
+
+--package_imagelist
+select * 
+from product_package;
+
+select file_path imagelist
+from PRODUCT_FILE f
+where PRODUCT_NUM in (select PRODUCT_NUM
+                     from PACKAGE_DETAIL
+                    where package_num = 3)
+and  file_num = (select min(file_num) from product_file where  f.PRODUCT_NUM = PRODUCT_NUM)
+order by file_num desc;
+
+
+--package_kindlist
+select PRODUCT_KIND
+from PRODUCT p
+where PRODUCT_NUM in (select PRODUCT_NUM
+                     from PACKAGE_DETAIL
+                    where package_num = 2)
+and PRODUCT_KIND is not null;
+                    
+desc product;                    
+insert all
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('2', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('3', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('4', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('5', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('6', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('7', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('8', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('9', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('11', 0 , 0)
+select * from dual;
+
+commit;
+
+select * from product_package;
+
+select * from product where PRODUCT_PRICE = 0;
+
+select * from PACKAGE_DETAIL order by package_num;
+
+insert all
+into PACKAGE_DETAIL (PRODUCT_num, package_num)
+values (91, 2)
+into PACKAGE_DETAIL (PRODUCT_num, package_num)
+values (92, 3)
+into PACKAGE_DETAIL (PRODUCT_num, package_num)
+values (93, 4)
+into PACKAGE_DETAIL (PRODUCT_num, package_num)
+values (94, 5)
+into PACKAGE_DETAIL (PRODUCT_num, package_num)
+values (95, 6)
+into PACKAGE_DETAIL (PRODUCT_num, package_num)
+values (96, 7)
+into PACKAGE_DETAIL (PRODUCT_num, package_num)
+values (97, 8)
+into PACKAGE_DETAIL (PRODUCT_num, package_num)
+values (98, 9)
+into PACKAGE_DETAIL (PRODUCT_num, package_num)
+values (99, 11)
+select * from dual;
+
+commit;
+
+
+select * from product_file order by product_num desc;
+
+
+
+--product_detail
+select p.product_num, p.product_name, p.product_price,
+      (select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
+      (select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count
+from product p
+where product_num = 2;
+
+--product_imagelist
+select file_path imagelist
+from PRODUCT_FILE
+where product_num = 2;
+
+
+SELECT b.*, f.*, c.board_comment_cnt
+FROM board b 
+LEFT JOIN board_file f
+on (b.board_id = f.board_id)
+LEFT JOIN (select comment_root, count(*) board_comment_cnt from BOARD_COMMENT group by comment_root) c
+on (b.board_id = c.comment_root)
+where b.board_kinds = 'video';
+
+select board_id, count(*) board_comment_cnt 
+from board 
+where board_kinds = 'comment' 
+group by board_id;
+
+select * from board
+where board_kinds = '' ;
+
+select * from BOARD_COMMENT;
+
+select * from order_ing;
+
+alter table order_ing add product_cnt number default 0 not null;
+alter table order_ing drop column product_cnt;
+
+desc order_ing;
+
+select * from cart;
+
+insert all
+into order_detail_cnt(order_num, product_num, product_cnt)
+values (5, 12, 1)
+into order_detail_cnt(order_num, product_num, product_cnt)
+values (7, 22, 2)
+select * from dual;
+
+insert all
+into order_detail_cnt(order_num, product_num, product_cnt)
+values (1, 16, 1)
+into order_detail_cnt(order_num, product_num, product_cnt)
+values (3, 50, 2)
+select * from dual;
+
+update order_detail_cnt set product_num = 22 where order_num = 7;
+
+commit;
+select * from order_detail_cnt order by order_num;
+
+select * from order_result;
+
+insert all
+into order_detail_cnt(order_num, product_num, package_num, product_cnt)
+values (6, product_num, 6, 1)
+select product_num
+from (select product_num from package_detail where package_num = 6 
+        and product_num in (select product_num from product where product_price > 0));
+
+alter table order_detail_cnt drop constraint FK_order_num;
+
+insert all
+into order_detail_cnt(order_num, product_num, package_num, product_cnt)
+values (2, product_num, 3, 1)
+select product_num
+from (select product_num from package_detail where package_num = 3 
+        and product_num in (select product_num from product where product_price > 0));
+
+
+insert all
+into order_detail_cnt(order_num, product_num, package_num, order_count)
+values (4, product_num, 7, 1)
+select product_num
+from (select product_num from package_detail where package_num = 7 
+        and product_num in (select product_num from product where product_price > 0));
+
+commit;
+
+
+select * from board_tag order by tag_num;
+
+delete from board_tag where tag_num >300;
+
+
+
+--product_details_page_pro
+
+select p.product_num, p.product_name, p.product_price, p.product_stock,
+(select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path,
+        (select file_path from product_file where file_num = (select max(file_num) from product_file where  p.product_num = product_num)) file_path_info
+		from  product p
+where p.product_price >0
+and product_num = 2;
+        
+select * from product_file order by file_num, product_num;       
+
+update  product_file set product_num = 52 where file_name = '취사BBQ5-1.png';
+        
+commit;      
+        
+--product_details_page_pack        
+select p.product_num, p.product_name, p.product_price, p.product_stock,
+(select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path,
+        (select file_path from product_file where file_num = (select max(file_num) from product_file where  p.product_num = product_num)) file_path_info
+		from  product p
+where p.product_price > 0
+and product_num in (select product_num from package_detail where package_num = 2);     
+select rownum no, c.* from ORDER_DETAIL_CNT c order by no;
+select * from ORDER_ING;
+select * from product_package;
+
+select * from cart;
+
+desc cart;
+
+desc board;
+
+select * from board where BOARD_KINDS = 'comment';
+delete from board where BOARD_KINDS = 'comment';
+
+commit;
+
+select * from BOARD_COMMENT;
+
+alter table BOARD_COMMENT drop column comment_root;
+
+select * from board where BOARD_KINDS = 'video';
+
+
+
+
+select p.Package_num, p.package_name,
+            (select facltnm from (select rownum no, c.* from CAMPINFO c where firstimageurl not like '%-%' and rownum < 10) c where c.no = p.no) facltnm,
+            (select tag_key from board_tag where  p.Package_num = Package_num and Package_num is not null) tag_key,
+            (select firstimageurl from (select rownum no, c.* from CAMPINFO c where firstimageurl not like '%-%' and rownum < 10) c where c.no = p.no) firstimageurl,
+            (select file_path from product_file where file_num = (select min(file_num) from product_file where  
+            (select product_num from PACKAGE_DETAIL where product_num = 
+            (select Max(product_num) from PACKAGE_DETAIL where p.Package_num = Package_num)) = product_num)) file_path1,
+            (select file_path from product_file where file_num = (select min(file_num) from product_file where  
+            (select product_num from PACKAGE_DETAIL where product_num = 
+            (select Min(product_num) from PACKAGE_DETAIL where p.Package_num = Package_num)) = product_num)) file_path2
+    from  (select rownum no, p.* from product_package p) p;
+
+select p.*,
+(select file_path 
+from product_file 
+where file_num = (select min(file_num) 
+                    from product_file 
+                    where  (select product_num 
+                            from PACKAGE_DETAIL 
+                            where product_num =
+(select Max(product_num) from PACKAGE_DETAIL where p.Package_num = Package_num)) = product_num)) file_path1
+from  (select rownum no, p.* from product_package p) p;
+
+select * from product_file order by file_num desc;
+
+select * from product order by product_num desc;
+
+delete from product where PRODUCT_num > 90;
+
+insert all
+into PACKAGE_DETAIL (product_num, package_num)
+values (101, 2)
+into PACKAGE_DETAIL (product_num, package_num)
+values (102, 3)
+into PACKAGE_DETAIL (product_num, package_num)
+values (103, 4)
+into PACKAGE_DETAIL (product_num, package_num)
+values (104, 5)
+into PACKAGE_DETAIL (product_num, package_num)
+values (105, 6)
+into PACKAGE_DETAIL (product_num, package_num)
+values (106, 7)
+into PACKAGE_DETAIL (product_num, package_num)
+values (107, 8)
+into PACKAGE_DETAIL (product_num, package_num)
+values (108, 9)
+into PACKAGE_DETAIL (product_num, package_num)
+values (109, 11)
+select * from dual;
+
+select * from PACKAGE_DETAIL order by package_num, product_num;
+
+select * from product_package order by package_num;
+
+
+insert all
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('2', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('3', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('4', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('5', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('6', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('7', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('8', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('9', 0 , 0)
+into product (PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_STOCK)
+values ('11', 0 , 0)
+select * from dual;
+
+commit;
+
+select p.product_num, p.product_name, p.product_price, p.product_stock,
+        		(select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
+        		(select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
+     		    (select tag_key from board_tag where  p.product_num = product_num and product_num is not null) tag_key,
+     		    (select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path
+		from  product p
+		where product_kind like '%'||'감성용품'||'%';
+
+
+
+
+select p.product_num, p.product_name, p.product_price, p.product_stock,
+      			(select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
+     			(select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
+     			(select file_path from product_file where file_num = (select max(file_num) from product_file where  p.product_num = product_num)) file_path_info
+		from product p
+		where product_num = 2;
+
+
+	select p.product_num, p.product_name, p.product_price, p.product_stock,
+        (select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path,
+        (select file_path from product_file where file_num = (select max(file_num) from product_file where  p.product_num = product_num)) file_path_info
+	from  product p
+	where p.product_price > 0
+	and product_num in (select product_num from package_detail where package_num = 2);
+
+select * from PRODUCT_REVIEW where package_num = 2;
+select * from PRODUCT_REVIEW_IMAGEFILE where review_num = 93803;
+
+select * from board where board_kinds ='review';
+
+select * from PRODUCT_REVIEW where package_num = 2;
+
+select * from PRODUCT_REVIEW_IMAGEFILE;
+
+select * from cart;
+
+select r.member_id, (select member_filepath from member where r.member_id = member_id) member_filepath, b.board_content, b.board_writedate, b.board_like_cnt, r.review_num, r.rating
+from (select max(review_num) review_num, rating, member_id, board_id, package_num from PRODUCT_REVIEW where package_num = 2 group by rating, member_id, board_id, package_num) r,
+     (select board_content, board_writedate, board_like_cnt, board_id from board where b.board_id = r.board_id) b         
+where r.package_num = 2;
+
+
+select r.member_id, (select member_filepath from member where r.member_id = member_id) member_filepath, r.review_num, r.rating, b.board_content, b.board_writedate, b.board_like_cnt
+from (select max(review_num) review_num, rating, member_id, board_id, package_num from PRODUCT_REVIEW where package_num = 2 group by rating, member_id, board_id, package_num) r
+LEFT OUTER JOIN (select board_content, board_writedate, board_like_cnt, board_id from board) b
+on b.board_id = r.board_id;
+
+
+select max(review_num) review_num, rating, member_id, board_id from PRODUCT_REVIEW where package_num = 2 group by rating, member_id,board_id;
+
+select board_content, board_writedate, board_like_cnt, board_id from board where board_id = 12;
+
+
+
+select r.member_id, (select member_filepath from member where r.member_id = member_id) member_filepath, r.review_num, r.rating, b.board_content, b.board_writedate, b.board_like_cnt
+from (select max(review_num) review_num, rating, member_id, board_id, product_num from PRODUCT_REVIEW where product_num = 2 group by rating, member_id, board_id, product_num) r
+LEFT OUTER JOIN (select board_content, board_writedate, board_like_cnt, board_id from board) b
+on b.board_id = r.board_id;
+
+select 1+-1 from dual;
+
+update board set board_like_cnt = board_like_cnt ++1 where board_id = (select board_id from PRODUCT_REVIEW where review_num = 93803);
+
+select * from cart;
+
+select * from product where product_num = 5;
+
+select * from PRODUCT_FILE;
+
+select * from PRODUCT_PACKAGE;
+
+product_name, package_name, file_path
+
+select c.cart_num, c.product_num, c.package_num, c.product_price, c.order_count, p.product_name, k.package_name
+from cart c
+LEFT OUTER JOIN product p
+on  p.product_num = c.product_num
+LEFT OUTER JOIN product_package k
+on  k.package_num = c.package_num
+where member_id = 'in2thefree';
+
+select * from PRODUCT_FILE;
+
+LEFT OUTER JOIN (select file_path, product_num, max(file_num) from PRODUCT_FILE group by file_path, product_num ) f
+on  f.product_num = c.product_num
+
+select file_path, product_num, max(file_num) from PRODUCT_FILE group by file_path, product_num;
+
+
+select file_path from PRODUCT_FILE where product_num = (select max(product_num) from PACKAGE_DETAIL where package_num = 2)
+
+select file_path 
+from product_file 
+where product_num = (select max(product_num) from package_detail where product_num = #{product_num})
+
+
+select file_path
+from product_file 
+where file_num = (select max(file_num) from product_file where product_num =2);
+
+select * from ORDER_ING;
+
+update ORDER_ING set order_count = 1;
+
+update ORDER_ING 
+set product_price = (select product_price from product where product_num = ORDER_ING.product_num)
+where product_num =  (select product_num from product where  product_num = ORDER_ING.product_num)
+;
+
+update ORDER_ING 
+set product_price = (select package_price from product_package where package_num = ORDER_ING.package_num)
+where package_num =  (select package_num from product_package where  package_num = ORDER_ING.package_num)
+;
+
+select * from ORDER_RESULT;
+
+update ORDER_RESULT 
+set product_price = (select product_price from product where product_num = ORDER_RESULT.product_num)
+where product_num =  (select product_num from product where  product_num = ORDER_RESULT.product_num)
+;
+
+update ORDER_RESULT 
+set product_price = (select package_price from product_package where package_num = ORDER_RESULT.package_num)
+where package_num =  (select package_num from product_package where  package_num = ORDER_RESULT.package_num)
+;
+
+select * from product_package;
+
+alter table ORDER_ING add order_count number ;
+alter table ORDER_ING add product_price number ;
+
+alter table ORDER_RESULT add order_count number ;
+alter table ORDER_RESULT add product_price number ;
+
+commit;
+
+desc ORDER_RESULT;
+
+desc ORDER_ING;
+
+alter table ORDER_RESULT add CONSTRAINT FK_order_state_num FOREIGN KEY(order_state_num) REFERENCES order_state(order_state_num) ON DELETE CASCADE;
+alter table ORDER_RESULT drop CONSTRAINT FK_order_state_num;
+
+alter table ORDER_ING modify order_date default sysdate;
+
+alter table ORDER_RESULT modify RESULT_DATE default sysdate;
+
+select * from ORDER_DETAIL_CNT order by order_num;
+
+alter table ORDER_DETAIL_CNT add CONSTRAINT FK_order_num_detail_cnt FOREIGN KEY(order_num) REFERENCES ORDER_ING(order_num) ON DELETE CASCADE;
+
+select * from ORDER_ING;
+
+select * from ORDER_result;
+
+desc ORDER_RESULT;
+
+desc ORDER_ING;
+
+insert all 
+into ORDER_ING(ORDER_NUM, MEMBER_ID, PRODUCT_NUM, PACKAGE_NUM, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR, ORDER_COUNT, PRODUCT_PRICE)
+values(ORDER_NUM, MEMBER_ID, PRODUCT_NUM, PACKAGE_NUM, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR, ORDER_COUNT, PRODUCT_PRICE)
+select *
+from ORDER_result
+where order_num = 4;
+
+select * from ORDER_DETAIL_CNT;
+
+delete from ORDER_DETAIL_CNT where order_num < 5;
+
+commit;
+
+drop SEQUENCE seq_order_ing;
+drop TRIGGER trg_order_ing;
+
+select * from product_file;
+
+select p.package_num, p.package_name,
+        (select ROUND(AVG(rating),2) from product_review where  p.package_num = package_num) rating,
+        (select COUNT(*) from product_review where  p.package_num = package_num and package_num is not null) re_count,
+        (select file_path from product_file where file_num = (select max(file_num) from product_file where product_num = (select min(product_num) from package_detail where  p.package_num = package_num))) file_path_info
+from product_package p
+where package_num = 2;
+
+select * from product_file;
+
+select min(product_num) from package_detail where package_num = 2
+
+select file_path imagelist
+from product_file f
+where product_num = 2
+and file_num < (select max(file_num) from product_file where product_num = f.product_num)
+order by file_num;
+
+
+select * from cart;
+
+delete from cart where cart_num = 21;
+
+commit;
+
+select * from
+product_review_imagefile 
+order by review_image_num;
+
+select file_path imagelist from product_review_imagefile 
+		where review_num =93793
+		order by review_image_num;
+        
+        
+select * from order_result;        
+        
+select * from order_ing;        
+        
+select * from cart;
+        
+select * from ORDER_DETAIL_CNT order by order_num;
+
+delete from ORDER_DETAIL_CNT where order_state_num >2;
+
+
+insert all
+into order_detail_cnt(order_num, product_num, package_num, order_count)
+values (6, product_num, 6, 1)
+select product_num
+from (select product_num from package_detail where package_num = 6 
+        and product_num in (select product_num from product where product_price > 0));
+
+insert all
+into order_detail_cnt(order_num, product_num, order_count)
+values (2, 16, 1)
+into order_detail_cnt(order_num, product_num, order_count)
+values (4, 50, 1)
+into order_detail_cnt(order_num, product_num, order_count)
+values (5, 12, 1)
+into order_detail_cnt(order_num, product_num, order_count)
+values (7, 22, 1)
+select * from dual;
+
+
+commit;
+
+insert all 
+into ORDER_ING(ORDER_NUM, MEMBER_ID, PRODUCT_NUM, PACKAGE_NUM, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR, ORDER_COUNT, PRODUCT_PRICE)
+values(ORDER_NUM, MEMBER_ID, PRODUCT_NUM, PACKAGE_NUM, ORDER_STATE_NUM, ORDER_DATE, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR, ORDER_COUNT, PRODUCT_PRICE)
+select *
+from ORDER_result
+where order_num = 4;
+
+delete from ORDER_ING where order_num > 7;
+
+roll back;
+
+alter table cart_detail_cnt drop constraint FK_ORDER_NUM_CART_DETAIL_CNT;
+
+alter table order_detail_cnt add constraint FK_order_num_detail_cnt foreign key(ORDER_NUM) references order_ing(order_num);
+
+desc order_detail_cnt;
+
+select * from cart_detail_cnt;
+
+select * from cart;
+
+insert all
+into cart_detail_cnt(cart_num, product_num, package_num, order_count)
+values (4, product_num, 9, 1)
+select product_num
+from (select product_num from package_detail where package_num = 9 
+     and product_num in (select product_num from product where product_price > 0));
+commit;
+
+select * from address;
+select * from ADDRESS_SUB;
+
+desc address;
+
+기근태	010-5895-0560
+이지강	010-4547-8710
+노명운	010-9860-7688
+강은혜	010-2050-5154
+김승경	010-5612-5925
+
+update address
+set receiver_name = '김승경', 
+    receiver_phone = '010-5612-5925'
+where addr_num =5;    
+    
+
+alter table address add receiver_name VARCHAR2(30 BYTE);
+alter table address add receiver_phone VARCHAR2(30 BYTE);
+
+commit;
+select * from order_ing;
+
+select *
+from address a
+left outer join ADDRESS_SUB s
+on a.addr_num = s.addr_num
+where s.member_id = 'in2thefree'
+and a.addr_setting = 'y';
+
+select *
+from address a
+left outer join ADDRESS_SUB s
+on a.addr_num = s.addr_num
+where s.member_id = 'in2thefree';
+
+
