@@ -9,18 +9,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-
     <androidx.cardview.widget.CardView
-
-        android:layout_width="250dp"
+        android:id="@+id/youtubeview"
+        android:layout_width="200dp"
         android:layout_height="150dp"
         app:cardCornerRadius="10dp"
-        android:layout_margin="10dp">
+        android:layout_margin="20dp">
     <ImageView
-        android:id="@+id/thumbnails"
+        android:id="@+id/youtubeview1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
         android:src="@drawable/youtube">
     </ImageView>
     </androidx.cardview.widget.CardView>
@@ -32,12 +31,22 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:text="유튜브 제목 들어올 곳유튜브 제목 들어올 곳유튜브 제목 들어올 곳"
+        android:text="유튜브 제목 들어올 곳"
         android:textStyle="bold"
         android:textSize="20dp"
         android:textColor="@color/black">
     </TextView>
-
+    <TextView
+        android:id="@+id/youtubecontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="간략한 내용 들어갈 곳"
+        android:textStyle="bold"
+        android:textSize="15dp">
+    </TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

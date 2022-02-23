@@ -10,7 +10,6 @@
         android:layout_margin="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/insert_myimg"
             android:layout_width="70dp"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
@@ -25,19 +24,16 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/movie_title_et"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="제목을 입력하세요"
+                android:text="제목을 입력하세요"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <EditText
-                android:visibility="gone"
-                android:id="@+id/movie_tag_et"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="#태그를 입력해주세요"
+                android:text="#태그를 입력해주세요"
                 android:textSize="13dp" />
         </LinearLayout>
 
@@ -48,53 +44,65 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:background="@color/black"
-                android:id="@+id/movie_insert_ok"
                 android:scaleType="fitXY"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/exo_ic_check">
-            </ImageButton>
+                android:src="@drawable/exo_ic_check"></ImageButton>
         </LinearLayout>
 
     </LinearLayout>
 
     <EditText
-        android:id="@+id/movie_content_et"
-        android:layout_width="match_parent"
-        android:layout_height="140dp"
         android:layout_margin="10dp"
-        android:hint="내용을 입력해주세요!\n아래는 동영상 입니다."/>
+        android:text="내용을 입력해주세요!\n아래는 사진or동영상 입니다.\n 여기서 더넣을게 있나..?"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="170dp">
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
         <ImageView
-            android:id="@+id/insert_movie1"
-            android:src="@drawable/youtube"
-            android:background="@color/teal_700"
+            android:src="@drawable/camimg2"
             android:layout_margin="5dp"
             android:layout_width="120dp"
             android:layout_height="120dp"/>
-        <LinearLayout
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="30dp">
-            <TextView
-                android:id="@+id/insert_movie1_size"
-                android:layout_weight="1"
-                android:hint="최대 50MB입니다"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <ImageView
+            android:background="@color/teal_700"
+            android:src="@drawable/exo_icon_repeat_one"
+            android:layout_margin="5dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"/>
+        <ImageView
+            android:background="@color/teal_700"
+            android:src="@drawable/exo_ic_check"
+            android:layout_margin="5dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <TextView
+            android:layout_weight="1"
+            android:text="사진첨부한 파일이름 "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_weight="1"
+            android:text="사진첨부한 파일이름 "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_weight="1"
+            android:text="사진첨부한 파일이름 "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
-
-
-    </LinearLayout>
 
 
 </LinearLayout>

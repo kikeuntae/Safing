@@ -13,11 +13,13 @@ import android.widget.TextView;
 
 import com.example.safing.MainActivity;
 import com.example.safing.R;
+import com.example.safing.shop.VO.PurchaseHistoryVO;
 
 
 public class Purchase_Result_Activity extends AppCompatActivity {
     TextView purchase_result_tv1;
     Button purchase_result_btn1, purchase_result_btn2;
+    PurchaseHistoryVO vo = new PurchaseHistoryVO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

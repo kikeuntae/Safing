@@ -6,8 +6,8 @@
     android:id="@+id/rec_item_theme_linearlayout"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
-        android:layout_width="200dp"
-        android:layout_height="150dp"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
         app:cardCornerRadius="10dp"
         app:cardUseCompatPadding="true"
         >
@@ -15,25 +15,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
-                android:id="@+id/firstimageurl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/sfimgv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@drawable/safezone"
                 android:scaleType="fitXY"
                 android:tint="#83121212"
                 tools:ignore="UseAppTint"/>
             <TextView
-            android:id="@+id/facltnm1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="#동,면 들어올곳"
-            android:background="#00000000">
-        </TextView>
+                android:id="@+id/sftext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="#광주광역시\n#서구\n#농성동"
+                android:background="#00000000">
+            </TextView>
         </FrameLayout>
 
     </androidx.cardview.widget.CardView>

@@ -19,7 +19,6 @@
                 android:orientation="horizontal"
                 android:weightSum="10">
 
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -28,7 +27,7 @@
                         android:id="@id/exo_play"
                         style="@style/ExoMediaButton.Play"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="200dp"
+                        android:layout_marginLeft="150dp"
                         android:layout_marginTop="20dp"
                         android:background="#32000000" />
 
@@ -36,10 +35,9 @@
                         android:id="@id/exo_pause"
                         style="@style/ExoMediaButton.Pause"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="200dp"
+                        android:layout_marginLeft="150dp"
                         android:layout_marginTop="20dp"
                         android:background="#32000000" />
-
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
@@ -105,32 +103,31 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/movie_pager_title"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/nanumgothic"
-                    android:gravity="center_vertical"
-                    android:text="\@Y_Watersports"/>
+                    <TextView
+                        android:id="@+id/movie_pager_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/nanumgothic"
+                        android:gravity="center_vertical"
+                        android:text="\@Y_Watersports"/>
                     <TextView
                         android:id="@+id/movie_pager_id"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:layout_gravity="center"
                         android:textColor="#ffffff"
                         android:textStyle="bold"
                         android:textSize="20dp"
                         android:fontFamily="@font/nanumgothic"
-                        android:gravity="center"
+                        android:gravity="right"
                         android:text="\@Y_Watersports"/>
                 </LinearLayout>
                 <TextView
-                    android:id="@+id/movie_pager_content"
+                    android:id="@+id/movie_pager_tag"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"

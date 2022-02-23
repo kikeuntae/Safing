@@ -159,7 +159,8 @@
                                     android:layout_marginRight="10dp"
                                     android:fontFamily="@font/ibmplexsanslight"/>
                                 <EditText
-                                    android:id="@+id/address_defualt_tv1"
+                                    android:paddingLeft="10dp"
+                                    android:id="@+id/product_purchase_orderer_tv1"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textColor="#8C8A8A"
@@ -181,7 +182,8 @@
                                     android:textColor="#000000"
                                     android:fontFamily="@font/ibmplexsanslight"/>
                                 <EditText
-                                    android:id="@+id/address_defualt_tv2"
+                                    android:gravity="center"
+                                    android:id="@+id/product_purchase_orderer_tv2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
@@ -200,7 +202,8 @@
                                     android:textColor="#000000"
                                     android:fontFamily="@font/ibmplexsanslight"/>
                                 <EditText
-                                    android:id="@+id/address_defualt_tv3"
+                                    android:gravity="center"
+                                    android:id="@+id/product_purchase_orderer_tv3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:textColor="#8C8A8A"
@@ -219,7 +222,8 @@
                                     android:textColor="#000000"
                                     android:fontFamily="@font/ibmplexsanslight"/>
                                 <EditText
-                                    android:id="@+id/address_defualt_tv4"
+                                    android:gravity="center"
+                                    android:id="@+id/product_purchase_orderer_tv4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:textColor="#8C8A8A"
@@ -338,7 +342,10 @@
                                     android:layout_marginVertical="10dp"
                                     android:layout_marginHorizontal="20dp"
                                     android:gravity="center"
-                                    android:visibility="gone">
+                                    android:background="@drawable/button_round8"
+                                    android:visibility="gone"
+                                    android:padding="5dp"
+                                    android:paddingLeft="10dp">
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="0dp"
@@ -833,9 +840,9 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_weight="1"
-                android:layout_gravity="center">
+                android:gravity="center">
                 <Button
                     android:id="@+id/product_purchase_btn1"
                     android:layout_width="match_parent"
