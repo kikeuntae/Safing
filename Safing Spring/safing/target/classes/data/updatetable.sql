@@ -158,6 +158,18 @@ END;
 ALTER TABLE product_package modify PACKAGE_PRICE null;
 
 
+drop SEQUENCE seq_product_package;
+drop TRIGGER trg_product_package;
+
+insert into product_package (PACKAGE_NUM, PACKAGE_NAME, PACKAGE_PRICE)
+values (0,'0',0);
+
+commit;
+
+desc product_package;
+select * from product_package;
+
+
 --product 수정
 ALTER TABLE product ADD product_kind varchar2(20);
 ALTER TABLE product modify product_date default sysdate;
@@ -174,7 +186,6 @@ CREATE TRIGGER trg_product
 BEGIN
     SELECT seq_product.NEXTVAL INTO :NEW.product_num FROM dual;
 END;
-
 
 -- board_tag 수정
 CREATE SEQUENCE seq_board_tag

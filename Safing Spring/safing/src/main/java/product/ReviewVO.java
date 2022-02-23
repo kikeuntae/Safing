@@ -7,6 +7,8 @@ public class ReviewVO {
 	    private String member_filepath	;
 	    private String board_content	;
 	    private String board_writedate	;
+	    private String file_path	;
+	    private int	   order_num		  ;
 	    private int	   board_id		;
 	    private int	   product_num		;
 	    private int	   package_num		;
@@ -17,9 +19,23 @@ public class ReviewVO {
 	    private List<String> imagelist	;
 	    
 	    
-	    
+	    public int getOrder_num() {
+	        return order_num;
+	    }
+
+	    public void setOrder_num(int order_num) {
+	        this.order_num = order_num;
+	    }
 	 
-	    public int getBoard_id() {
+	    public String getFile_path() {
+			return file_path;
+		}
+
+		public void setFile_path(String file_path) {
+			this.file_path = file_path;
+		}
+
+		public int getBoard_id() {
 			return board_id;
 		}
 

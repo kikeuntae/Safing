@@ -32,6 +32,7 @@ import member.MemberDAO;
 import member.MemberVO;
 import product.AddressVO;
 import product.CartVO;
+import product.Order_Detail_CntVO;
 import product.ProductDAO;
 import product.ProductVO;
 import product.Product_DetailVO;
@@ -207,8 +208,8 @@ public class ProductController {
 		int idx = Integer.parseInt(req.getParameter("idx"));
 		int priceSum = Integer.parseInt(req.getParameter("priceSum"));
 		List<CartVO> list = new ArrayList<>();
-		for(int i = 0 ; i < idx; i++) {
-			list.add(gson.fromJson(req.getParameter("list"), CartVO.class));
+		for(int i = 0 ; i < idx-1; i++) {
+			list.add(gson.fromJson(req.getParameter("list"+i), CartVO.class));
 		}
 		
 		int result = dao.insert_cart_pack(list, priceSum);
@@ -250,7 +251,6 @@ public class ProductController {
 	}
 	
 	
-	
 	//기본주소 불러오기
 	@ResponseBody
 	@RequestMapping("/default_addrss.sh")
@@ -289,10 +289,14 @@ public class ProductController {
 	@ResponseBody
 	@RequestMapping("/insert_address.sh")
 	public void  insert_address(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		dao.insert_address(gson.fromJson(req.getParameter("vo"), AddressVO.class), req.getParameter("member_id"));
+		int addr_num = dao.insert_address(gson.fromJson(req.getParameter("vo"), AddressVO.class), req.getParameter("member_id"));
 		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(addr_num));
 	}
-	
 	
 	
 	//주소 삭제
@@ -303,4 +307,70 @@ public class ProductController {
 			
 	}
 	
+	
+	//결제하기 장바구니
+	@ResponseBody
+	@RequestMapping("/insert_order_ing_cart.sh")
+	public void  insert_order_ing_cart(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		int idx = Integer.parseInt(req.getParameter("idx"));
+		AddressVO address = gson.fromJson(req.getParameter("address"), AddressVO.class);
+		
+		List<CartVO> list = new ArrayList<>();
+		for(int i = 0 ; i < idx-1; i++) {
+			list.add(gson.fromJson(req.getParameter("list"+i), CartVO.class));
+		}
+		
+		int result = dao.insert_order_ing_cart(list, address);
+		
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(result));
+			
+	}
+	
+	//결제하기 패키지
+	@ResponseBody
+	@RequestMapping("/insert_order_ing_pack.sh")
+	public void  insert_order_ing_pack(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		int idx = Integer.parseInt(req.getParameter("idx"));
+		AddressVO address = gson.fromJson(req.getParameter("address"), AddressVO.class);
+		CartVO vo = gson.fromJson(req.getParameter("vo"), CartVO.class);
+		
+		List<Order_Detail_CntVO> list = new ArrayList<>();
+		for(int i = 0 ; i < idx-2; i++) {
+			list.add(gson.fromJson(req.getParameter("list"+i), Order_Detail_CntVO.class));
+		}
+
+		
+		
+		int result = dao.insert_order_ing_pack(vo, list, address);
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(result));
+			
+	}
+	
+	
+	//결제하기 상품
+	@ResponseBody
+	@RequestMapping("/insert_order_ing_pro.sh")
+	public void  insert_order_ing_pro(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		CartVO vo = gson.fromJson(req.getParameter("vo"), CartVO.class);
+		AddressVO address = gson.fromJson(req.getParameter("address"), AddressVO.class);
+		
+		int result = dao.insert_order_ing_pro(vo, address);
+		
+		req.setCharacterEncoding("UTF-8");
+		res.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html");
+		PrintWriter writer = res.getWriter();
+		writer.println( gson.toJson(result));
+			
+	}
 }

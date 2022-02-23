@@ -114,3 +114,86 @@ values(#{board_content}, #{member_id}, #{rating}, #{board_id});
 
 insert into PRODUCT_REVIEW_IMAGEFILE (file_path, review_num)
 values(#{file_path},#{review_num});
+
+select max(board_id) from board where member_id = 'in2thefree';
+
+
+select * from board where member_id = 'in2thefree' order by board_id desc;
+
+delete from board where board_id >260;
+
+commit;
+
+select * from PRODUCT_REVIEW_IMAGEFILE order by review_num desc;
+
+select * from product order by product_num ;
+
+select * from member;
+
+select * from ORDER_RESULT;
+
+update ORDER_RESULT
+
+
+select * from ORDER_RESULT;
+select * from order_ing;
+select * from ORDER_DETAIL_CNT;
+
+select * from order_ing;
+
+insert into order_ing(member_id, product_num, package_num, reciver_num, receiver_addr, order_count, product_price)
+values(#{member_id}, #{product_num, package_num}, #{reciver_num}, #{receiver_addr}, #{order_count}, #{product_price})
+
+alter table order_ing modify order_state_num default 1;
+
+select * from ORDER_DETAIL_CNT;
+
+insert all 
+into ORDER_DETAIL_CNT(order_num, pakcage_num, product_num, order_count)
+values(#{order_num},package_num, product_num, order_count)
+select *
+from CART_DETAIL_CNT
+where cart_num = 86;
+
+select * from CART_DETAIL_CNT where cart_num = 86;
+
+select * from address;
+
+select * from PACKAGE_DETAIL;
+
+insert into order_ing(MEMBER_ID, PRODUCT_NUM, PACKAGE_NUM, ORDER_STATE_NUM, RECEIVER_NAME, RECEIVER_PHONE, RECEIVER_ADDR, ORDER_COUNT, PRODUCT_PRICE)
+values(#{MEMBER_ID}, 0, #{PACKAGE_NUM}, ORDER_STATE_NUM, #{RECEIVER_NAME}, #{RECEIVER_PHONE}, #{RECEIVER_ADDR}, #{ORDER_COUNT}, #{PRODUCT_PRICE})
+
+select * from order_ing;
+
+delete from order_ing where order_num >10;
+
+
+
+commit;
+
+desc order_ing;
+
+insert into order_ing(member_id, product_num, package_num, order_state_num, receiver_name, receiver_phone, receiver_addr, order_count, product_price)
+values('in2thefree', 0, 2, 1, '0', '0', '0', 0, 0)
+
+order_ing
+
+insert into order_detail_cnt(order_num, package_num, product_num, order_count)
+values(25, 1, 1,1);
+
+delete from order_detail_cnt  where order_num >30;
+
+select * from order_detail_cnt;
+
+
+insert all 
+into order_detail_cnt(order_num, package_num, product_num, order_count)
+values(44, package_num, product_num, order_count)
+select package_num, product_num, order_count
+from cart_detail_cnt
+where cart_num = 93;
+
+select * from cart_detail_cnt;
+
+select * from cart;

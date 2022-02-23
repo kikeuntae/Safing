@@ -76,11 +76,20 @@ public class ProductDAO {
 		
 		results.add(sql.insert("product.mapper.review_intsert", vo));
 		
-		vo.setBoard_id(sql.selectOne("product.mapper.select_board_num", vo.getMember_id()));
-		results.add(sql.insert("product.mapper.review_intsert_product", vo.getBoard_id()));
+		vo.setBoard_id(sql.selectOne("product.mapper.select_board_id", vo.getMember_id()));
 		
-		vo.setReview_num(sql.selectOne("product.mapper.select_review_num"));
-		results.add(sql.insert("product.mapper.review_intsert_imageList", vo));
+		if(vo.getProduct_num() > 0) {
+			results.add(sql.insert("product.mapper.review_intsert_product_pro", vo));			
+		} else {
+			results.add(sql.insert("product.mapper.review_intsert_product_pack", vo));			
+		}
+		
+		vo.setReview_num(sql.selectOne("product.mapper.select_review_num", vo.getMember_id()));
+		
+		for(String image : vo.getImagelist()) {
+			vo.setFile_path(image);
+			results.add(sql.insert("product.mapper.review_intsert_imageList", vo));			
+		}
 		
 		
 		for(int i : results) {
@@ -91,6 +100,11 @@ public class ProductDAO {
 				break;
 			}
 		}
+		
+		if(result == 1) {
+			sql.update("product.mapper.review_check_update", vo.getOrder_num());
+		}
+		
 		return result;
 	}
 	
@@ -121,8 +135,8 @@ public class ProductDAO {
 		ArrayList<Integer> results = new ArrayList<Integer>();
 		list.get(0).setProduct_price(priceSum);
 		CartVO cartvo = new CartVO(); 
-		int cart_num = sql.selectOne("product.mapper.select_cart_num", list.get(0).getMember_id());		
 		results.add(sql.insert("product.mapper.insert_cart_pack", list.get(0)));
+		int cart_num = sql.selectOne("product.mapper.select_cart_num", list.get(0).getMember_id());		
 		for (CartVO vo : list) {
 			vo.setCart_num(cart_num);
 			results.add(sql.insert("product.mapper.insert_cart_pack_detail", vo));
@@ -192,9 +206,12 @@ public class ProductDAO {
 	}
 	
 	//주소 등록
-	public void insert_address(AddressVO vo, String member_id) {
+	public int insert_address(AddressVO vo, String member_id) {
 		sql.insert("product.mapper.insert_address", vo);
 		sql.insert("product.mapper.insert_address_sub", member_id);
+		int addr_num = sql.selectOne("product.mapper.select_addr_num");
+		
+		return addr_num;
 	}
 	
 	//주소 삭제
@@ -202,4 +219,90 @@ public class ProductDAO {
 		sql.delete("product.mapper.delete_addr", addr_num);
 	}
 	
+	//결제하기 장바구니
+	public int insert_order_ing_cart(List<CartVO> list, AddressVO address) {
+		int result = 0;
+		ArrayList<Integer> results = new ArrayList<Integer>();
+		Order_IngVO ordervo = new Order_IngVO();
+		
+		for(int i = 0 ; i < list.size(); i++) {
+			ordervo.setMember_id(list.get(i).getMember_id());
+			ordervo.setCart_num(list.get(i).getCart_num());
+			ordervo.setProduct_num(list.get(i).getProduct_num());
+			ordervo.setPackage_num(list.get(i).getPackage_num());
+			ordervo.setOrder_count(list.get(i).getOrder_count());
+			ordervo.setProduct_price(list.get(i).getProduct_price());
+			ordervo.setReceiver_name(address.getReceiver_name());
+			ordervo.setReceiver_phone(address.getReceiver_phone());
+			ordervo.setReceiver_addr(address.getAddr_post() + " " + address.getAddr_basic() + " " + address.getAddr_detail());
+			if(list.get(i).getPackage_num()>0) {
+				results.add(sql.insert("product.mapper.insert_order_ing_pack", ordervo));
+				ordervo.setOrder_num(sql.selectOne("product.mapper.select_order_num"));
+				results.add(sql.insert("product.mapper.insert_order_ing_cart_detail", ordervo));	
+				results.add(sql.delete("product.mapper.delete_cart_detail_cnt", ordervo));	
+			} else {
+				results.add(sql.insert("product.mapper.insert_order_ing_pro", ordervo));
+			}
+			results.add(sql.insert("product.mapper.delete_cart", ordervo.getCart_num()));
+		}
+		
+		for(int i : results) {
+			if(i > 0) {
+				result = i;
+			} else {
+				result = 0;
+				break;
+			}
+		}
+		return result;
+	}
+	
+	//결제하기 패키지
+	public int insert_order_ing_pack(CartVO vo, List<Order_Detail_CntVO> list, AddressVO address) {
+		int result = 0;
+		ArrayList<Integer> results = new ArrayList<Integer>();
+		Order_IngVO ordervo = new Order_IngVO();
+		ordervo.setMember_id(vo.getMember_id());
+		ordervo.setPackage_num(vo.getPackage_num());
+		ordervo.setOrder_count(vo.getOrder_count());
+		ordervo.setProduct_price(vo.getProduct_price());
+		ordervo.setReceiver_name(address.getReceiver_name());
+		ordervo.setReceiver_phone(address.getReceiver_phone());
+		ordervo.setReceiver_addr(address.getAddr_post() + " " + address.getAddr_basic() + " " + address.getAddr_detail());
+		
+		results.add(sql.insert("product.mapper.insert_order_ing_pack", ordervo));
+		
+		int order_num = sql.selectOne("product.mapper.select_order_num");
+		
+		for(Order_Detail_CntVO cntvo : list) {
+			cntvo.setOrder_num(order_num);
+			results.add(sql.insert("product.mapper.insert_order_ing_pack_detail", cntvo));		
+		}
+	
+		for(int i : results) {
+			if(i > 0) {
+				result = i;
+			} else {
+				result = 0;
+				break;
+			}
+		}
+		return result;
+	}
+	
+	//결제하기 상품
+	public int insert_order_ing_pro(CartVO vo, AddressVO address) {
+		Order_IngVO ordervo = new Order_IngVO();
+		ordervo.setMember_id(vo.getMember_id());
+		ordervo.setProduct_num(vo.getProduct_num());
+		ordervo.setOrder_count(vo.getOrder_count());
+		ordervo.setProduct_price(vo.getProduct_price());
+		ordervo.setReceiver_name(address.getReceiver_name());
+		ordervo.setReceiver_phone(address.getReceiver_phone());
+		ordervo.setReceiver_addr(address.getAddr_post() + " " + address.getAddr_basic() + " " + address.getAddr_detail());
+		
+		int result = sql.insert("product.mapper.insert_order_ing_pro", ordervo);
+		
+		return result;
+	}
 }
