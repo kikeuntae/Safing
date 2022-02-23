@@ -37,13 +37,15 @@ public class Product_Package_Fragment extends Fragment {
     Button shop_product_btn1;
     NavigationView shop_product_view;
     MainActivity mainActivity = new MainActivity();
+    int package_num = 0;
 
     public Product_Package_Fragment(Context context){
         this.context = context;
     }
 
-    public Product_Package_Fragment() {
-
+    public Product_Package_Fragment(Context context, int package_num) {
+        this.context = context;
+        this.package_num = package_num;
     }
 
 

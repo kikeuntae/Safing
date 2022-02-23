@@ -10,22 +10,28 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.safing.R;
-import com.example.safing.VO.Board_FileVO;
 //import com.example.safing.adapter.Moive_Adapter1;
-import com.example.safing.movie.adapter.Moive_Adapter2;
+import com.example.safing.movie.DAO.Movie_DAO;
+import com.example.safing.movie.DTO.Board_Movie_DTO;
+import com.example.safing.movie.adapter.Moive_Adapter1;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MovieFragment extends Fragment {
     Context context;
     TabLayout tab_layout;
     ViewPager2 pager2;
-    Moive_Adapter2 adapter;
+    Moive_Adapter1 adapter1;
+    Moive_Adapter1 adapter2;
     int now_state = 0;
+
+    Movie_DAO dao= new Movie_DAO();
 
 
     public MovieFragment(Context context){
+
         this.context = context;
     }
 
@@ -41,14 +47,15 @@ public class MovieFragment extends Fragment {
         tab_layout.addTab(tab_layout.newTab().setText("감성"));
         tab_layout.addTab(tab_layout.newTab().setText("추천"));
 
-        ArrayList<Board_FileVO> videoItems  = new ArrayList<>();
-        adapter =new Moive_Adapter2(getContext() , videoItems);
+        List<Board_Movie_DTO> videoItems  = new ArrayList<>();
+        videoItems = dao.list();
+        adapter1 =new Moive_Adapter1(getContext() , videoItems);
 
-        videoItems.add(new Board_FileVO(1,"아이디1","#태그1", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
-        videoItems.add(new Board_FileVO(2,"아이디2","#태그2","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"));
-        videoItems.add(new Board_FileVO(3,"아이디3","#태그3","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4"));
-        videoItems.add(new Board_FileVO(4,"아이디4","#태그4","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
-        videoItems.add(new Board_FileVO(5,"아이디5","#태그5","http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"));
+
+
+        List<Board_Movie_DTO> videoItems2  = new ArrayList<>();
+        videoItems2 = dao.list_new();
+        adapter2 =new Moive_Adapter1(getContext() , videoItems2);
 
 
         pager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -61,7 +68,8 @@ public class MovieFragment extends Fragment {
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 now_state = position;
-                adapter.setVideo(position);
+                adapter1.setVideo(position);
+                adapter2.setVideo(position);
 
             }
 
@@ -72,7 +80,7 @@ public class MovieFragment extends Fragment {
         });
 
         pager2.setOrientation(pager2.ORIENTATION_VERTICAL);
-        pager2.setAdapter(adapter);
+        pager2.setAdapter(adapter1);
 
         tab_layout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -80,10 +88,15 @@ public class MovieFragment extends Fragment {
                 int position = tab.getPosition();
                 if(position == 0){
                     pager2.setOrientation(pager2.ORIENTATION_VERTICAL);
-                    pager2.setAdapter(adapter);
+                    pager2.setAdapter(adapter1);
+
                 } else {
                     pager2.setOrientation(pager2.ORIENTATION_VERTICAL);
-                    pager2.setAdapter(adapter);
+                    pager2.setAdapter(adapter2);
+
+                    //dao.create(test);
+                    //dao.update(test);
+                    //dao.delete(test);
                 }
             }
 
@@ -104,13 +117,15 @@ public class MovieFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        adapter.setVideo(now_state);
+        adapter1.setVideo(now_state);
+        adapter2.setVideo(now_state);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        adapter.setVideo();
+        adapter1.setVideo();
+        adapter2.setVideo();
     }
 
     @Override
@@ -119,4 +134,6 @@ public class MovieFragment extends Fragment {
         super.onDestroy();
 
     }
+
+
 }

@@ -23,7 +23,7 @@
 
                 </ImageButton>
                 <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vpcaminfo"
+                    android:id="@+id/ad_vpcaminfo"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:src="@drawable/camimg2">

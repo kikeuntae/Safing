@@ -56,12 +56,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Safing"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".shop.activity.Purchase_Result_Activity"
             android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
             android:name=".shop.activity.Review_Image_Activity"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
         <activity
             android:name=".home.activity.TipActivity"
             android:exported="false" />
@@ -81,7 +82,22 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".home.activity.ThemePagerActivity"
+            android:name=".mypage.fragment.CreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.FAQActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.FindActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.QNAActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.fragment.SettingActivity"
             android:exported="false" />
         <activity
             android:name=".splash.SplashActivity"
@@ -93,6 +109,11 @@
             </intent-filter>
         </activity>
 
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -101,7 +122,13 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepath" />
+            <meta-data
+                android:name="com.kakao.sdk.AppKey"
+                android:value="cad9d128e6313db0c6b34ec4aab5209a" />
         </provider>
+
+
+
     </application>
 
 </manifest>

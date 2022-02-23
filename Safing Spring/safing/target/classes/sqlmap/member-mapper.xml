@@ -3,4 +3,55 @@
 
 <mapper namespace="member.mapper">
 
+ 
+ 	<!-- 안드 댓글 프로필이미지 정보 가져오기 -->
+	<select id="selectimg" resultType="member.MemberVO">
+	        select * from member where member_id = #{member_id}
+	</select>
+	
+	<!--(관리자) 회원 삭제 -->
+	<delete id= "delete">
+		delete from member
+		where member_id = #{member_id}	
+	</delete>
+	
+	<!--(관리자) 고객 목록불러오기 -->
+	<select id="list_customer" resultType="member.MemberVO">	 
+	SELECT * FROM member  
+	</select>
+
+	<!--(관리자) 고객 상세정보 불러오기 -->
+	<select id="detail_customer" resultType="member.MemberVO">	 
+	SELECT * FROM member where member_id = #{member_id} 
+	</select>
+
+	<!--(관리자) 고객 신규 입력 -->
+	<insert id="insert_customer">
+	insert into member 
+	( member_id, member_pw, member_name, member_age, member_gender, member_phone, member_admin,member_filename,member_filepath)
+ 	values 
+ 	(#{member_id}, #{member_pw}, #{member_name}, #{member_age}, 
+ 	#{member_gender,  jdbcType=VARCHAR}, #{member_phone}, #{member_admin,  jdbcType=VARCHAR},
+ 	#{member_filename,  jdbcType=VARCHAR},#{member_filepath,  jdbcType=VARCHAR})
+	</insert>
+	
+	<!--(관리자) 고객정보 수정 -->
+	<update id="update_cusotomer">
+		update member set  member_pw = #{member_pw} ,member_name = #{member_name} ,member_age = #{member_age}
+		 ,member_gender= #{member_gender} ,member_phone = #{member_phone} ,member_admin = #{member_admin} ,
+		 member_filename = #{member_filename,  jdbcType=VARCHAR}
+		 ,member_filepath = #{member_filepath,  jdbcType=VARCHAR}
+		where member_id = #{member_id}
+	</update>
+	
+	
+	<!--이미지 업데이트 -->
+	<update id="update_img">
+		update member set  	
+		 member_filename = #{member_filename,  jdbcType=VARCHAR}
+		 ,member_filepath = #{member_filepath,  jdbcType=VARCHAR}
+		where member_id = #{member_id}
+	</update>
+	
+
 </mapper>

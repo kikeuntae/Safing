@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sfzone.mapper">
+
+	<!-- sfzone 가입된 업장 목록ㄹ -->
+	<select id="sfzonelist" resultType="safezone.SafeZoneVO">
+		select contentid, facltnm, addr1, firstimageurl, intro, resvecl, tel, homepage, induty, prmisnde, insrncat, animalcmgcl, facltdivnm,
+				mangedivnm, mgcdiv, operdecl, toiletco, swrmco, wtrplco, sbrscl, mapx, mapy
+		
+		from campinfo
+		where sfzone = 'y'
+	</select>
+	
+	<!-- 검색기능(안드) -->
+	<select id="all_list" resultType="safezone.SafeZoneVO">
+		select rownum no, c.* 
+		from (select * 
+				from campinfo 
+				where facltnm like '%'||#{search, jdbcType=VARCHAR}||'%'
+				or addr1 like '%'||#{search, jdbcType=VARCHAR}||'%'
+				or induty like '%'||#{search, jdbcType=VARCHAR}||'%'
+				order by facltnm asc ) c
+	</select>
+ 	
+  <!--  전체 게시글 조회  -->
+ 	<select id="search_list" resultType="safezone.SafeZoneVO">             
+		select rownum no, c.* 
+		from (select * 
+		    from campinfo 
+		   	<include refid="search" />
+		    order by facltnm asc ) c
+		where rownum between #{beginList} and #{endList}
+	</select> 
+	 
+
+	<!-- 전체 게시글 수 조회 -->
+	<select id="totalList" resultType="integer">
+		select count(*) from campinfo <include refid="search" />	
+	</select>	
+
+	<sql id='search'>
+		where facltnm like '%'||#{keyword, jdbcType=VARCHAR}||'%'
+	    or addr1 like '%'||#{keyword, jdbcType=VARCHAR}||'%'
+	    or induty like '%'||#{keyword, jdbcType=VARCHAR}||'%'
+	</sql> 
+	 
+	<!-- 해당 글의 상세 정보 조회 -->
+	<select id="detail" resultType="safezone.SafeZoneVO">
+		select contentid, facltnm, addr1, firstimageurl, intro, resvecl, tel, homepage, induty, prmisnde, insrncat, animalcmgcl, facltdivnm,
+				mangedivnm, mgcdiv, operdecl, toiletco, swrmco, wtrplco, sbrscl, mapx, mapy		 
+		from campinfo		
+		where contentid = ${contentid}
+	</select> 
+
+	
+</mapper>

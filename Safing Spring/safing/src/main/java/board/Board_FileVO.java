@@ -1,11 +1,10 @@
 package board;
 
 public class Board_FileVO {
-	private int		board_file_id	  ; 
-	private int		board_id	      ; 
-	private String	member_id	      ; 
-	private String	board_file_name	  ; 
-	private String	board_file_path	  ;
+	private int 	board_file_id 	;	
+	private int 	board_id      	;	
+	private String 	file_name       ;   
+	private String 	file_path       ;
 	
 	public int getBoard_file_id() {
 		return board_file_id;
@@ -19,25 +18,19 @@ public class Board_FileVO {
 	public void setBoard_id(int board_id) {
 		this.board_id = board_id;
 	}
-	public String getMember_id() {
-		return member_id;
+	public String getFile_name() {
+		return file_name;
 	}
-	public void setMember_id(String member_id) {
-		this.member_id = member_id;
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
 	}
-	public String getBoard_file_name() {
-		return board_file_name;
+	public String getFile_path() {
+		return file_path;
 	}
-	public void setBoard_file_name(String board_file_name) {
-		this.board_file_name = board_file_name;
+	public void setFile_path(String file_path) {
+		this.file_path = file_path;
 	}
-	public String getBoard_file_path() {
-		return board_file_path;
-	}
-	public void setBoard_file_path(String board_file_path) {
-		this.board_file_path = board_file_path;
-	} 
-	
+	                
 
 
 }

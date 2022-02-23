@@ -10,33 +10,40 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedDispatcher;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.safing.shop.fragment.Product_Package_Fragment;
-import com.example.safing.home.DTO.SafeZoneRecDTO;
+import com.example.safing.async.OnItemClick_Theme_Listener;
+import com.example.safing.home.DAO.HomeDAO;
+import com.example.safing.home.DAO.SafeZoneRecDAO;
+import com.example.safing.home.DAO.YoutubeTipDAO;
 import com.example.safing.home.DTO.ThemeRecDTO;
-import com.example.safing.home.DTO.YouTubeTipRecDTO;
+import com.example.safing.home.VO.YoutubeTipVO;
+import com.example.safing.shop.fragment.Product_Package_Fragment;
+import com.example.safing.home.VO.SafeZoneRecVO;
 import com.example.safing.R;
-import com.example.safing.home.activity.HomeSearchActivity;
 import com.example.safing.MainActivity;
 import com.example.safing.home.activity.SafeGuardInfoActivity;
 import com.example.safing.home.adapter.SafeZoneRecAdapter;
 import com.example.safing.home.adapter.Theme_Pager_Adapter;
 import com.example.safing.home.adapter.YouTubeTipRecAdapter;
+import com.example.safing.shop.fragment.ShopFragment;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
     RecyclerView recysf, recyoutube ;
     Context context;
-    ViewPager2 pager2 , recyth;
-    ImageView home_search, sguse;
+    ViewPager2 rectheme;
+    ImageView home_search, sguse, thumbnails ;
     TextView packgemore;
     MainActivity mainActivity = new MainActivity();
     LinearLayout youtubetip1;
+
 
 
     public HomeFragment(Context context){
@@ -50,24 +57,21 @@ public class HomeFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
 
         recysf = rootView.findViewById(R.id.recysfzone1);
-        recyth = rootView.findViewById(R.id.rectheme);
+
+        mainActivity = (MainActivity) getActivity();
+
         recyoutube = rootView.findViewById(R.id.youtubetip);
         sguse = rootView.findViewById(R.id.sguse);
-        pager2 = rootView.findViewById(R.id.rectheme);
         youtubetip1 = rootView.findViewById(R.id.youtubetip1);
         home_search = rootView.findViewById(R.id.home_search);
         packgemore = rootView.findViewById(R.id.packgemore);
+        rectheme = rootView.findViewById(R.id.rectheme);
+        thumbnails = rootView.findViewById(R.id.thumbnails);
 
         //====================Recysfzone=====================================//
         recysf.findViewById(R.id.recysfzone1);
-
-        ArrayList<SafeZoneRecDTO> list = new ArrayList<>();
-        list.add(new SafeZoneRecDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new SafeZoneRecDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new SafeZoneRecDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new SafeZoneRecDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new SafeZoneRecDTO(R.layout.rec_item_sfzone, ""));
-        list.add(new SafeZoneRecDTO(R.layout.rec_item_sfzone, ""));
+        SafeZoneRecDAO dao1 = new SafeZoneRecDAO();
+        ArrayList<SafeZoneRecVO> list = dao1.sfzone_list();
 
         SafeZoneRecAdapter adapter1 = new SafeZoneRecAdapter(context, list);
 
@@ -80,37 +84,34 @@ public class HomeFragment extends Fragment {
 
         //=====================RecyclerCamTip========================================//
         recyoutube.findViewById(R.id.youtubetip);
-
-        ArrayList<YouTubeTipRecDTO> list2 = new ArrayList<>();
-        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
-        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
-        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
-        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
-        list2.add(new YouTubeTipRecDTO(R.layout.item_youtube_tip, ""));
-
+        YoutubeTipDAO dao = new YoutubeTipDAO();
+        ArrayList<YoutubeTipVO> list2 = dao.tip_list();
 
         YouTubeTipRecAdapter adapter2 = new YouTubeTipRecAdapter(context, list2);
-
         LinearLayoutManager layoutManager2 = new LinearLayoutManager(
                 context, RecyclerView.HORIZONTAL, false
         );
         recyoutube.setLayoutManager(layoutManager2);
         recyoutube.setAdapter(adapter2);
+
+
         //=====================RecyclerCamTip========================================//
 
         //=====================pagerTheme===================================//
 
-        ArrayList<ThemeRecDTO> list1 = new ArrayList<>();
-        list1.add(new ThemeRecDTO(R.layout.rec_item_theme, ""));
-        list1.add(new ThemeRecDTO(R.layout.rec_item_theme, ""));
-        list1.add(new ThemeRecDTO(R.layout.rec_item_theme, ""));
-        list1.add(new ThemeRecDTO(R.layout.rec_item_theme, ""));
-        list1.add(new ThemeRecDTO(R.layout.rec_item_theme, ""));
-        list1.add(new ThemeRecDTO(R.layout.rec_item_theme, ""));
-        list1.add(new ThemeRecDTO(R.layout.rec_item_theme, ""));
+        HomeDAO dao2 = new HomeDAO();
+        ArrayList<ThemeRecDTO> list1 = dao2.Theme_Pager();
 
-        Theme_Pager_Adapter adapter = new Theme_Pager_Adapter(context);
-        pager2.setAdapter(adapter);
+
+        Theme_Pager_Adapter adapter = new Theme_Pager_Adapter(context, list1);
+        rectheme.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new OnItemClick_Theme_Listener() {
+            @Override
+            public void onItemClick_package(Theme_Pager_Adapter.ViewHolder holderm, View view, int position) {
+                mainActivity.changeFragment(new Product_Package_Fragment(context, list1.get(position).getPackage_num()));
+            }
+        });
         //=====================pagerTheme===================================//
 
 
@@ -125,12 +126,14 @@ public class HomeFragment extends Fragment {
         });
 
 
+
         home_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(context, HomeSearchActivity.class);
-                startActivity(intent);
+                /*Intent intent  = new Intent(context, HomeSearchFragment.class);
+                startActivity(intent);*/
                 mainActivity = (MainActivity) getActivity();
+                mainActivity.changeFragment(new HomeSearchFragment(context));
                 mainActivity.overridePendingTransition(R.anim.slide_right_enter, R.anim.slide_left_exit);
             }
         });
@@ -140,7 +143,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mainActivity = (MainActivity) getActivity();
-                mainActivity.changeFragment(new Product_Package_Fragment(context));
+                mainActivity.changeFragment(new ShopFragment(context));
             }
         });
 
@@ -151,10 +154,9 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
-
-
-
     public void changeFragment(Fragment fragment){
-        mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.shop_container1 , fragment).commit();
+        mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.shop_container1 , fragment).addToBackStack(null).commit();
     }
+
+
 }

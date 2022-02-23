@@ -38,5 +38,22 @@ public class ProductDAO {
 		return sql.delete("product.mapper.delete", vo) == 1 ? true : false;
 	}
 	
+	//패키지 리스트
+	public List<Product_PackageVO> package_list(){
+		return sql.selectList("product.mapper.package_list");
+		
+	}
+	
+	//상품 리스트
+	public List<ProductVO> product_list(String search){
+		return sql.selectList("product.mapper.product_list", search);
+		
+	}
+	
+	//이미지등록
+	public void img_insert(ImginsertVO vo){
+		sql.insert("product.mapper.insert_img", vo);
+		
+	}
 	
 }
