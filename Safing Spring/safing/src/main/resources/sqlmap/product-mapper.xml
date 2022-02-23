@@ -1,6 +1,336 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="product.mapper">
 
+	<!-- 패키지 리스트 -->
+	<select id="package_list" resultType="product.Product_PackageVO">
+		select p.*, (select tag_key from board_tag where p.package_num = package_num) tag_key
+		from product_package p
+		where p.package_num >0 
+	</select>
+	
+	<!-- 상품 리스트 -->
+	<select id="product_list" resultType="product.ProductVO">
+		select p.product_num, p.product_name, p.product_price, p.product_stock,
+        		(select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
+        		(select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
+     		    (select tag_key from board_tag where  p.product_num = product_num and product_num is not null) tag_key,
+     		    (select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path
+		from  product p
+		where product_kind like '%'||#{search, jdbcType=VARCHAR}||'%'
+	</select>
+	
+	<!-- 패키지 상세정보  -->
+	<select id="package_detail" resultType="product.Product_Package_DetailVO">
+		select p.package_num, p.package_name,
+        (select ROUND(AVG(rating),2) from product_review where  p.package_num = package_num) rating,
+        (select COUNT(*) from product_review where  p.package_num = package_num and package_num is not null) re_count,
+        (select file_path from product_file where file_num = (select max(file_num) from product_file where product_num = (select min(product_num) from package_detail where  p.package_num = package_num))) file_path_info
+		from product_package p
+		where package_num = #{package_num}
+	</select>
+	
+	<!-- 패키지 상세이미지  -->
+	<select id="package_imagelist" resultType="String">
+		select file_path imagelist
+		from product_file f
+		where product_num in (select product_num
+	              		      from package_detail
+	                   		  where package_num = #{package_num})
+		and  file_num = (select min(file_num) from product_file where  f.product_num = product_num)
+		order by file_num desc
+	</select>
+	
+	<!-- 패키지 상세 상품종류  -->
+	<select id="package_kindlist" resultType="String">
+		select product_kind
+		from product p
+		where product_num in (select product_num
+                     			from package_detail
+                    			where package_num = 2)
+		and product_kind is not null
+	</select>
+	
+	<!-- 상품 상세정보  -->
+	<select id="product_detail" resultType="product.Product_DetailVO">
+		select p.product_num, p.product_name, p.product_price, p.product_stock,
+      			(select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
+     			(select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
+     			(select file_path from product_file where file_num = (select max(file_num) from product_file where  p.product_num = product_num)) file_path_info
+		from product p
+		where product_num = #{product_num}
+	</select>
+	
+	<!-- 상품 상세이미지  -->
+	<select id="product_imagelist" resultType="String">
+		select file_path imagelist
+		from product_file f
+		where product_num = #{product_num}
+		and file_num <![CDATA[<]]> (select max(file_num) from product_file where product_num = f.product_num)
+		order by file_num
+	</select>
+	
+	<!-- 패키지 상세정보 페이지  -->
+	<select id="product_details_page_pack" resultType="product.Product_DetailVO">
+	select p.product_num, p.product_name, p.product_price, p.product_stock,
+			(select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path,
+       		(select file_path from product_file where file_num = (select max(file_num) from product_file where  p.product_num = product_num)) file_path_info
+	from  product p
+	where p.product_price <![CDATA[>]]> 0
+	and product_num in (select product_num from package_detail where package_num = #{package_num}) 
+	</select>
+	
+	<!-- 상품 리뷰리스트 -->	
+	<select id="review_list_pro" resultType="product.ReviewVO">
+		select r.member_id, (select member_filepath from member where r.member_id = member_id) member_filepath, r.review_num, r.rating, b.board_content, b.board_writedate, b.board_like_cnt
+		from (select max(review_num) review_num, rating, member_id, board_id, product_num from product_review where product_num = #{product_num} group by rating, member_id, board_id, product_num) r
+		left outer join (select board_content, TO_CHAR(board_writedate, 'YYYY-MM-DD') board_writedate, board_like_cnt, board_id from board) b
+		on b.board_id = r.board_id
+		order by r.review_num desc
+	</select>	
+	
+	<!-- 패키지 리뷰리스트 -->
+	<select id="review_list_pack" resultType="product.ReviewVO">
+		select r.member_id, (select member_filepath from member where r.member_id = member_id) member_filepath, r.review_num, r.rating, b.board_content, b.board_writedate, b.board_like_cnt
+		from (select max(review_num) review_num, rating, member_id, board_id, package_num from product_review where package_num = #{package_num} group by rating, member_id, board_id, package_num) r
+		left outer join (select board_content, TO_CHAR(board_writedate, 'YYYY-MM-DD') board_writedate, board_like_cnt, board_id from board) b
+		on b.board_id = r.board_id
+		order by r.review_num desc
+	</select>
+	
+	<!-- 리뷰 이미지 -->
+	<select id="review_imagelist" resultType="String">
+		select file_path imagelist from product_review_imagefile 
+		where review_num = #{review_num}
+		order by review_image_num
+	</select>		
+		
+	<!-- 리뷰 좋아요 수정 -->
+	<update id="board_like_cnt_update">
+		update board set board_like_cnt = board_like_cnt + #{like_cnt}
+		where board_id = (select board_id from PRODUCT_REVIEW where review_num = #{review_num})
+	</update>
+	
+	
+	<!-- 리뷰등록-->
+	<insert id="review_intsert">
+		insert into board (member_id, board_title, board_content, board_kinds)
+		values(#{member_id}, #{member_id}||'review'||seq_board.nextval,#{board_content}, 'review')
+	</insert>
+	
+	<!-- 리뷰등록 게시판번호 찾기-->
+	<select id="select_board_id" resultType="Integer">
+		select max(board_id) from board where member_id = #{member_id}
+	</select>
+	
+	<!-- 리뷰게시판 등록 상품-->
+	<insert id="review_intsert_product_pro">
+		insert into product_review (product_num, package_num, member_id, rating, board_id)
+		values(#{product_num}, 0, #{member_id}, #{rating}, #{board_id})
+	</insert>
+	
+	<!-- 리뷰게시판 등록 패키지-->
+	<insert id="review_intsert_product_pack">
+		insert into product_review (product_num, package_num, member_id, rating, board_id)
+		values(0, #{package_num}, #{member_id}, #{rating}, #{board_id})
+	</insert>
+	
+	<!--리뷰게시판 등록 리뷰게시판번호 찾기-->
+	<select id="select_review_num" resultType="Integer">
+		select max(review_num) from product_review where member_id = #{member_id}
+	</select>
+	
+	<!-- 리뷰게시판 이미지등록-->
+	<insert id="review_intsert_imageList">
+		insert into product_review_imagefile (file_name, file_path, review_num)
+		values(#{member_id}||'review' ,#{file_path}, #{review_num})
+	</insert>
+	
+	<!-- 리뷰여부 변경-->
+	<update id="review_check_update">
+		update order_result set review_check = 'y' where order_num = #{order_num}
+	</update>
+	
+	
+	<!-- 장바구니 리스트 -->	
+	<select id="cart_list" resultType="product.CartVO">
+		select c.cart_num, c.product_num, c.package_num, c.product_price, c.order_count, p.product_name, k.package_name
+		from cart c
+		left outer join product p
+		on  p.product_num = c.product_num
+		left outer join product_package k
+		on  k.package_num = c.package_num
+		where member_id = #{member_id}
+		order by c.cart_num desc
+	</select>
+	
+	<!-- 장바구니 리스트 상품 이미지 -->	
+	<select id="cart_pro_file_path" resultType="String">
+		select file_path
+		from product_file 
+		where file_num = (select min(file_num) from product_file where product_num = #{product_num})
+	</select>
+	
+	<!-- 장바구니 리스트 패키지 이미지 -->	
+	<select id="cart_pack_file_path" resultType="String">
+		select file_path 
+		from product_file 
+		where product_num = (select max(product_num) from package_detail where package_num = #{package_num})
+	</select>
+	
+	<!-- 장바구니 담기 상품 -->
+	<insert id="insert_cart_pro">
+		insert into cart(member_id, product_num, product_price, order_count)
+		values (#{member_id}, #{product_num}, #{product_price}, #{order_count})
+	</insert>
+	
+	<!-- 장바구니 담기 패키지 -->
+	<insert id="insert_cart_pack">
+		insert into cart(member_id, package_num, product_price, order_count)
+		values (#{member_id}, #{package_num}, #{product_price}, 1)
+	</insert>
+	
+	<!-- 장바구니 담기 패키지 상세주문-->
+	<insert id="insert_cart_pack_detail">
+		insert into cart_detail_cnt(cart_num, product_num, package_num, order_count)
+		values (#{cart_num}, #{product_num}, #{package_num}, #{order_count})
+	</insert>
+	
+	<!-- 장바구니 담기 패키지 장바구니번호-->
+	<select id="select_cart_num" resultType="Integer">
+		select max(cart_num) from cart where member_id = #{member_id}
+	</select>
+	
+	<!-- 장바구니 삭제 -->	
+	<delete id="delete_cart">
+		delete from cart where cart_num = #{cart_num}
+	</delete>
+	
+	<!-- 구매내역 리스트 -->
+	<select id="purchaseHistory_list" resultType="product.PurchaseHistoryVO">
+		select o.order_num, o.product_num, o.package_num, o.product_price, o.order_state_num,
+      		   p.product_name, k.package_name, s.order_state_name, (select review_check from ORDER_RESULT where o.order_num = order_num) review_check
+		from order_ing o
+		left outer join product p
+		on  o.product_num = p.product_num
+		left outer join product_package k
+		on  o.package_num = k.package_num
+		left outer join ORDER_STATE s
+		on  o.order_state_num = s.order_state_num
+		where member_id = #{member_id}
+		order by order_num desc
+	</select>
+	
+	<!-- 구매내역 리스트 상품 이미지 -->	
+	<select id="purchaseHistory_pro_file_path" resultType="String">
+		select file_path
+		from product_file 
+		where file_num = (select min(file_num) from product_file where product_num = #{product_num})
+	</select>
+	
+	<!-- 구매내역 리스트 패키지 이미지 -->	
+	<select id="purchaseHistory_pack_file_path" resultType="String">
+		select file_path 
+		from product_file 
+		where product_num = (select max(product_num) from package_detail where package_num = #{package_num})
+	</select>
+	
+	<!-- 구매내역 환불여부 -->	
+	<update id="update_refund">
+		update order_ing set order_state_num = #{order_state_num} where order_num = #{order_num}
+	</update>
+	
+	<!-- 구매내역 환불여부 -->	
+	<update id="update_refund_result">
+		update order_result set order_state_num = #{order_state_num} where order_num = #{order_num}
+	</update>
+	
+	<!-- 기본주소 불러오기 -->	
+	<select id="default_addrss" resultType="product.AddressVO" >
+		select * from address a
+		left outer join ADDRESS_SUB s on a.addr_num = s.addr_num
+		where s.member_id = #{member} and a.addr_setting = 'y'
+	</select>
+	
+	<!-- 주소 리스트 -->	
+	<select id="addrss_list" resultType="product.AddressVO" >
+		select * from address a
+		left outer join ADDRESS_SUB s on a.addr_num = s.addr_num
+		where s.member_id = #{member}
+		order by a.addr_num
+	</select>
+	
+	<!-- 기본 주소 변경 -->
+	<update id="update_address">
+		update address set addr_setting = 'y' where addr_num = #{addr_num}
+	</update>
+	
+	<!-- 기본 주소 변경 -->
+	<update id="update_address_other">
+		update address set addr_setting = 'n'
+	</update>
+	
+	<!-- 주소 등록 -->
+	<insert id="insert_address">
+		insert into address (addr_post, addr_basic, addr_detail, addr_setting, receiver_name, receiver_phone)
+		values (#{addr_post}, #{addr_basic}, #{addr_detail}, 'n', #{receiver_name}, #{receiver_phone})
+	</insert>
+	
+	<!-- 주소 서브 등록 -->
+	<insert id="insert_address_sub">
+		insert into address_sub
+		values ((select max(addr_num) from address), #{member_id})
+	</insert>
+	
+	<!-- 주소 번호 찾기 -->
+	<select id="select_addr_num" resultType="Integer">
+		select max(addr_num) from address
+	</select>
+	
+	<!-- 주소 삭제 -->
+	<delete id="delete_addr">
+		delete from address where addr_num = #{addr_num}
+	</delete>
+	
+	<!-- 주소 삭제 -->
+	<delete id="delete_cart_detail_cnt">
+		delete from cart_detail_cnt where cart_num = #{cart_num}
+	</delete>
+
+	
+	<!-- 결제하기 장바구니 상세수량-->
+	<insert id="insert_order_ing_cart_detail">
+		insert all 
+		into order_detail_cnt(order_num, package_num, product_num, order_count)
+		values(#{order_num}, package_num, product_num, order_count)
+		select *
+		from cart_detail_cnt
+		where cart_num = #{cart_num}
+	</insert>
+	
+	<!-- 결제하기 패키지 상세수량-->
+	<insert id="insert_order_ing_pack_detail">
+		insert into order_detail_cnt(order_num, package_num, product_num, order_count)
+		values(#{order_num}, #{package_num}, #{product_num}, #{order_count})
+	</insert>
+	
+	<!-- 결제하기 주문번호 찾기-->
+	<select id="select_order_num" resultType="Integer">
+		select max(order_num) from order_ing
+	</select>
+	
+	<!-- 결제하기 패키지 -->
+	<insert id="insert_order_ing_pack">
+		insert into order_ing(member_id, product_num, package_num, order_state_num, receiver_name, receiver_phone, receiver_addr, order_count, product_price)
+		values(#{member_id}, 0, #{package_num}, 1, #{receiver_name}, #{receiver_phone}, #{receiver_addr}, #{order_count}, #{product_price})
+	</insert>
+	
+	
+	<!-- 결제하기 상품 -->
+	<insert id="insert_order_ing_pro">
+		insert into order_ing(member_id, product_num, package_num, order_state_num, receiver_name, receiver_phone, receiver_addr, order_count, product_price)
+		values(#{member_id}, #{product_num}, 0, 1, #{receiver_name}, #{receiver_phone}, #{receiver_addr}, #{order_count}, #{product_price})
+	</insert>
+	
+	
 </mapper>

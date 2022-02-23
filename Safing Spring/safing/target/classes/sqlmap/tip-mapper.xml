@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tip.mapper">
+
+<!-- =========================================안드 ========================================= -->
+
+	<!-- tip썸네일 화면 -->
+	<select id="tiplist" resultType="tip.YoutubeTipVO">
+		select id, thumbnails, youtubetitle, youtubecnt, youtubecontent, play
+		from youtubetip
+	</select>
+
+    <update id="readcnt">
+    	update youtubetip
+		set youtubecnt = youtubecnt + 1
+		where id = #{id}
+    </update>
+ <!-- =========================================안드 ========================================= -->
+ 
+ 
+ <!-- ========================================= 웹 ========================================= -->   		
+ 
+ 	<!-- 유튜브 게시글 수 조회 -->
+	<select id="totalList_yu" resultType="integer">
+		select count(*) from youtubetip
+	</select>
+	
+	<!-- 유튜브 게시글 조회 -->
+	<select id="list_yu" resultType="tip.YoutubeTipVO">
+		select y.*
+		from (select rownum no, y.*
+      		  from youtubetip y left outer join board b on b.board_id = y.board_id ) y
+		where y.no between #{beginList} and #{endList}
+	</select>
+	
+ 
+ 
+ 
+ 
+ <!-- ========================================= 웹 ========================================= -->   		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		
+    		<!-- 유튜브 이미지 입력 (임시?)-->
+    <insert id="insert_youtube">
+    	insert into youtubetip ( thumbnails, youtubetitle, youtubecontent, play,board_id)
+ 	values (#{thumbnails},#{youtubetitle},#{youtubecontent},#{play},#{board_id})
+    </insert>
+    
+    
+    <select id="youtube_detail" resultType="tip.YoutubeTipVO">
+    	select * from youtubetip where board_id = #{id}
+    </select>
+    
+    <update id="update_youtube">
+    	update youtubetip
+		set thumbnails=#{thumbnails}, youtubetitle= #{youtubetitle}, youtubecontent= #{youtubecontent}, play= #{play}
+		where board_id = #{board_id}
+    </update>
+	
+</mapper>

@@ -1,5 +1,7 @@
 package com.example.safing.shop.fragment;
 
+import static com.example.safing.async.CommonAsk.FILE_PATH;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -19,19 +21,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.safing.shop.DTO.Product_Cart_RecDTO;
+import com.bumptech.glide.Glide;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
+import com.example.safing.async.CommonVal;
+import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.AddressVO;
+import com.example.safing.shop.VO.CartVO;
+import com.example.safing.shop.VO.Order_Detail_CntVO;
+import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.activity.Purchase_Result_Activity;
 import com.example.safing.shop.adapter.Product_Cart_Rec_Adapter;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 
@@ -43,6 +54,7 @@ public class Product_Purchase_Fragment extends Fragment {
     public  boolean isClick4 = false;
 
     Context context;
+    Product_Cart_Rec_Adapter adapter_rec1;
     TabLayout product_purchase_tab1;
     MainActivity mainActivity = new MainActivity();
     LinearLayoutManager manager;
@@ -52,15 +64,26 @@ public class Product_Purchase_Fragment extends Fragment {
     ImageView product_purchase_toggle1, product_purchase_toggle2, product_purchase_toggle3, product_purchase_toggle4;
     LinearLayout product_purchase_updown1, product_purchase_updown2, product_purchase_updown3, product_purchase_updown4,product_purchase_updown5, product_purchase_updown6;
     CheckBox product_purchase_box1, product_purchase_box2, product_purchase_box3, product_purchase_box4, product_purchase_box5, product_purchase_box6;
+    EditText product_purchase_orderer_tv1, product_purchase_orderer_tv2, product_purchase_orderer_tv3, product_purchase_orderer_tv4;
+    TextView product_purchase_tv1, product_purchase_tv2, product_purchase_tv3;
     Button product_purchase_btn1;
 
+    ShopDAO dao = new ShopDAO();
+    Product_DetailVO vo = new Product_DetailVO();
+    ArrayList<CartVO> cartList = new ArrayList<>();
+    ArrayList<Order_Detail_CntVO> packCntList = new ArrayList<>();
+    public AddressVO addressVo = new AddressVO();
+    boolean purchase_chece = false;
 
-    public Product_Purchase_Fragment(Context context){
+    public Product_Purchase_Fragment(Context context, ArrayList<CartVO> cartList) {
         this.context = context;
+        this.cartList = cartList;
     }
 
-    public Product_Purchase_Fragment() {
-
+    public Product_Purchase_Fragment(Context context, ArrayList<CartVO> cartList, ArrayList<Order_Detail_CntVO> packCntList) {
+        this.context = context;
+        this.cartList = cartList;
+        this.packCntList = packCntList;
     }
 
     @Override
@@ -89,9 +112,23 @@ public class Product_Purchase_Fragment extends Fragment {
         product_purchase_box5 = rootView.findViewById(R.id.product_purchase_box5);
         product_purchase_box6 = rootView.findViewById(R.id.product_purchase_box6);
         product_purchase_btn1 = rootView.findViewById(R.id.product_purchase_btn1);
-
+        product_purchase_orderer_tv1 = rootView.findViewById(R.id.product_purchase_orderer_tv1);
+        product_purchase_orderer_tv2 = rootView.findViewById(R.id.product_purchase_orderer_tv2);
+        product_purchase_orderer_tv3 = rootView.findViewById(R.id.product_purchase_orderer_tv3);
+        product_purchase_orderer_tv4 = rootView.findViewById(R.id.product_purchase_orderer_tv4);
+        product_purchase_tv1 = rootView.findViewById(R.id.product_purchase_tv1);
+        product_purchase_tv2 = rootView.findViewById(R.id.product_purchase_tv2);
+        product_purchase_tv3 = rootView.findViewById(R.id.product_purchase_tv3);
 
         mainActivity = (MainActivity) getActivity();
+
+        //========= 정보입력 체크 리스트 =============
+
+        ArrayList<EditText> orderers = new ArrayList<>();
+        orderers.add(product_purchase_orderer_tv1);
+        orderers.add(product_purchase_orderer_tv2);
+        orderers.add(product_purchase_orderer_tv3);
+        orderers.add(product_purchase_orderer_tv4);
 
         //========= 토글 기능 =============
 
@@ -106,8 +143,6 @@ public class Product_Purchase_Fragment extends Fragment {
         toggleBtn(product_purchase_toggle3, product_purchase_updown3, clickList, 2);
         toggleBtn(product_purchase_toggle4, product_purchase_updown4, clickList, 3);
 
-        cardCheck(product_purchase_box1, product_purchase_updown5);
-        cardCheck(product_purchase_box2, product_purchase_updown6);
 
         //========= 햄버커 기능 ==============
 
@@ -125,38 +160,12 @@ public class Product_Purchase_Fragment extends Fragment {
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        //  Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-        //  header_text.setText(CommonVal.loginInfo.getMember_id());
 
+        if(CommonVal.loginInfo != null){
+            Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+            header_text.setText(CommonVal.loginInfo.getMember_id());
+        }
 
-        product_purchase_tab1.addTab(product_purchase_tab1.newTab().setText("기본 주소"));
-        product_purchase_tab1.addTab(product_purchase_tab1.newTab().setText("주소 선택"));
-
-        changeFragment(new Address_Default_Fragment(context));
-
-
-
-        product_purchase_tab1.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                int position = tab.getPosition();
-                if(position == 0){
-                    Toast.makeText(context, "기본 주소", Toast.LENGTH_SHORT).show();
-                    changeFragment(new Address_Default_Fragment(context));
-                } else {
-                    Toast.makeText(context, "다른주소", Toast.LENGTH_SHORT).show();
-
-                    changeFragment(new Address_Repogitory_Fragment(context));
-                }
-            }
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-            }
-        });
 
         //============= navigation view 기능=====
 
@@ -173,19 +182,141 @@ public class Product_Purchase_Fragment extends Fragment {
             }
         });
 
-        product_purchase_btn1.setOnClickListener(new View.OnClickListener() {
+
+        //=============== 주소 ======================
+
+        product_purchase_tab1.addTab(product_purchase_tab1.newTab().setText("기본 주소"));
+        product_purchase_tab1.addTab(product_purchase_tab1.newTab().setText("주소 선택"));
+
+        if(addressVo.getAddr_basic() == null){
+            changeFragment(new Address_Default_Fragment(context, Product_Purchase_Fragment.this));
+        } else {
+            changeFragment(new Address_Default_Fragment(context, addressVo, Product_Purchase_Fragment.this));
+            product_purchase_tab1.selectTab(product_purchase_tab1.getTabAt(0));
+
+        }
+
+        product_purchase_tab1.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "구매결과", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context, Purchase_Result_Activity.class);
-                startActivity(intent);
+            public void onTabSelected(TabLayout.Tab tab) {
+                int position = tab.getPosition();
+                if(position == 0){
+                    if(addressVo.getAddr_basic() == null){
+                        changeFragment(new Address_Default_Fragment(context, Product_Purchase_Fragment.this));
+                    } else {
+                        changeFragment(new Address_Default_Fragment(context, addressVo, Product_Purchase_Fragment.this));
+                    }
+                } else {
+                    changeFragment(new Address_Repogitory_Fragment(context , Product_Purchase_Fragment.this));
+                }
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
             }
         });
 
+        //=============== 주문자 ======================
 
+        /*if(CommonVal.loginInfo.getMember_id() != null){
+            product_purchase_orderer_tv1.setText(CommonVal.loginInfo.getMember_name());
+            String[] phone = CommonVal.loginInfo.getMember_phone().split("-");
+
+            product_purchase_orderer_tv2.setText(phone[0]);
+            product_purchase_orderer_tv3.setText(phone[1]);
+            product_purchase_orderer_tv3.setText(phone[2]);
+        }*/
+
+
+        //=============== 주문상품 ======================
 
         setRec1();
 
+        //=============== 결제수단 ======================
+
+        product_purchase_box1.setChecked(true);
+        product_purchase_updown5.setVisibility(View.VISIBLE);
+
+        product_purchase_box1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true) {
+                    product_purchase_updown5.setVisibility(View.VISIBLE);
+                    product_purchase_updown6.setVisibility(View.GONE);
+                    product_purchase_box2.setChecked(false);
+                }
+            }
+        });
+
+        product_purchase_box2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked == true){
+                    product_purchase_updown6.setVisibility(View.VISIBLE);
+                    product_purchase_updown5.setVisibility(View.GONE);
+                    product_purchase_box1.setChecked(false);
+                }
+            }
+        });
+
+        //=============== 결제 동의 =====================
+
+        product_purchase_box6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    purchase_chece = true;
+                } else {
+                    purchase_chece = false;
+                }
+            }
+        });
+
+        //=============== 결제하기 =====================
+        product_purchase_btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(("0원").equals(product_purchase_tv1.getText()+"")){
+                    Toast.makeText(context, "주문상품을 체크해주세요.", Toast.LENGTH_SHORT).show();
+                    product_purchase_toggle3.requestFocus();
+                }else if(product_purchase_box2.isChecked()) {
+                    for(EditText edt : orderers){
+                        if((edt.getText()+"").trim().length()<1){
+                            Toast.makeText(context, "주문자 정보를 입력해주세요", Toast.LENGTH_SHORT).show();
+                            edt.requestFocus();
+                        }
+                    }
+                    product_purchase_toggle4.requestFocus();
+                }else if(!purchase_chece){
+                    Toast.makeText(context, "결제동의를 해주세요.", Toast.LENGTH_SHORT).show();
+                    product_purchase_box6.requestFocus();
+                } else {
+                    int result = 0;
+                    if(cartList.get(0).getCart_num()> 0){
+                        result = dao.insert_order_ing_cart(cartList, addressVo);
+                    } else if(packCntList.size() > 0){
+                        result = dao.insert_order_ing_pack(cartList.get(0), packCntList, addressVo);
+                    } else {
+                        result = dao.insert_order_ing_pro(cartList.get(0), addressVo);
+                    }
+                    if(result >0){
+                        Intent intent = new Intent(context, Purchase_Result_Activity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(context, "구매실패", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+            }
+        });
+
+        setRec1();
+        setPrice();
 
         return rootView;
     }
@@ -197,10 +328,9 @@ public class Product_Purchase_Fragment extends Fragment {
 
     public void setRec1(){
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
-        ArrayList<Product_Cart_RecDTO> list = new ArrayList<>();
 
         product_purchase_rec1.setLayoutManager(manager);
-        Product_Cart_Rec_Adapter adapter_rec1 = new Product_Cart_Rec_Adapter(context);
+        adapter_rec1 = new Product_Cart_Rec_Adapter(context, cartList, Product_Purchase_Fragment.this);
         product_purchase_rec1.setAdapter(adapter_rec1);
     }
 
@@ -221,17 +351,48 @@ public class Product_Purchase_Fragment extends Fragment {
         });
     }
 
-    public void cardCheck(CheckBox checkBox, LinearLayout linear){
-        checkBox.setOnClickListener(new CheckBox.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(checkBox.isChecked()){
-                    linear.setVisibility(View.VISIBLE);
-                } else {
-                    linear.setVisibility(View.GONE);
-                }
+    public void changePrice(){
+        int courier = 0;
+        int priceSum = 0;
+
+        for (int i = 0 ; i < cartList.size() ; i++) {
+            if(adapter_rec1.viewHolders.get(i).item_product_cart_rec_box.isChecked()){
+                priceSum += (cartList.get(i).getProduct_price());
             }
-        }) ;
+        }
+
+        if (priceSum == 0 ){
+            courier = 0;
+        } else if(priceSum < 100000){
+            courier = 5000;
+        }
+
+        int priceSum2 = priceSum + courier;
+
+        product_purchase_tv1.setText(NumberFormat.getInstance().format(priceSum)+"원");
+        product_purchase_tv2.setText(NumberFormat.getInstance().format(courier)+"원");
+        product_purchase_tv3.setText(NumberFormat.getInstance().format(priceSum2)+"원");
+    }
+
+    public void setPrice(){
+        int courier = 0;
+        int priceSum = 0;
+
+        for (CartVO vo : cartList) {
+            priceSum += vo.getProduct_price();
+        }
+
+        if (priceSum == 0 ){
+            courier = 0;
+        } else if(priceSum < 100000){
+            courier = 5000;
+        }
+
+        int priceSum2 = priceSum + courier;
+
+        product_purchase_tv1.setText(NumberFormat.getInstance().format(priceSum)+"원");
+        product_purchase_tv2.setText(NumberFormat.getInstance().format(courier)+"원");
+        product_purchase_tv3.setText(NumberFormat.getInstance().format(priceSum2)+"원");
     }
 
 }

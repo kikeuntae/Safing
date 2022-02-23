@@ -10,7 +10,57 @@ public class BoardVO {
 	private int	   board_read_cnt	;   
 	private int    board_like_cnt	;   
 	private String board_kinds   	;
-	
+	private int no, next, prev;
+	private String name, next_title, prev_title, file_name, file_path;
+
+	public String getFile_name() {
+		return file_name;
+	}
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
+	}
+	public String getFile_path() {
+		return file_path;
+	}
+	public void setFile_path(String file_path) {
+		this.file_path = file_path;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public int getNext() {
+		return next;
+	}
+	public void setNext(int next) {
+		this.next = next;
+	}
+	public int getPrev() {
+		return prev;
+	}
+	public void setPrev(int prev) {
+		this.prev = prev;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getNext_title() {
+		return next_title;
+	}
+	public void setNext_title(String next_title) {
+		this.next_title = next_title;
+	}
+	public String getPrev_title() {
+		return prev_title;
+	}
+	public void setPrev_title(String prev_title) {
+		this.prev_title = prev_title;
+	}
 	public int getBoard_id() {
 		return board_id;
 	}

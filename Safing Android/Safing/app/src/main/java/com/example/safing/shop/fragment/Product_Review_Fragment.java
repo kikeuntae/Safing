@@ -15,15 +15,25 @@ import android.view.ViewGroup;
 
 import com.example.safing.R;
 
-import com.example.safing.shop.adapter.Producdt_Review_Apdater;
+import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.ReviewVO;
+import com.example.safing.shop.adapter.Product_Review_Apdater;
+
+import java.util.ArrayList;
 
 public class Product_Review_Fragment extends Fragment {
     Context context;
     RecyclerView product_review_rec;
     LinearLayoutManager manager;
+    int num = 0;
+    String category = "";
+    ArrayList<ReviewVO> list = new ArrayList<>();
+    ShopDAO dao = new ShopDAO();
 
-    public Product_Review_Fragment(Context context){
+    public Product_Review_Fragment(Context context,  int num, String category){
         this.context = context;
+        this.num = num;
+        this.category = category;
     }
 
     @Override
@@ -33,16 +43,22 @@ public class Product_Review_Fragment extends Fragment {
 
         product_review_rec = rootView.findViewById(R.id.product_review_rec);
 
-        setRec1();
+        setRec(num, category);
 
         return rootView;
     }
 
-    public void setRec1(){
+    public void setRec(int num, String category){
+        if(("product").equals(category)){
+            list = dao.review_list_pro(num);
+        } else {
+            list = dao.review_list_pack(num);
+        }
+
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
 
         product_review_rec.setLayoutManager(manager);
-        Producdt_Review_Apdater adapter_rec1 = new Producdt_Review_Apdater(context);
+        Product_Review_Apdater adapter_rec1 = new Product_Review_Apdater(context, list);
         product_review_rec.setAdapter(adapter_rec1);
 
     }

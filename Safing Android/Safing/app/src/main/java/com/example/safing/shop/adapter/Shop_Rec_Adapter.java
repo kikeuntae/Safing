@@ -1,38 +1,40 @@
 package com.example.safing.shop.adapter;
 
+import static com.example.safing.async.CommonAsk.FILE_PATH;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safing.shop.DTO.Product_InfoDTO;
+import com.bumptech.glide.Glide;
 import com.example.safing.R;
-import com.example.safing.async.OnItemClick_product_Listener;
+import com.example.safing.async.OnItemClick_Product_Listener;
+import com.example.safing.shop.VO.ProductVO;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.ViewHolder> implements OnItemClick_product_Listener {
+public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.ViewHolder> implements OnItemClick_Product_Listener {
     boolean bookMark = true;
     Context context;
-    ArrayList<Product_InfoDTO> list;
+    ArrayList<ProductVO> list;
     LayoutInflater inflater;
+    OnItemClick_Product_Listener listener;
 
-    OnItemClick_product_Listener listener;
-
-    public Shop_Rec_Adapter(Context context) {
+    public Shop_Rec_Adapter(Context context, ArrayList<ProductVO> list) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
 
-    public void addDto(Product_InfoDTO dto){
+    public void addDto(ProductVO dto){
         list.add(dto);
     }
 
@@ -40,11 +42,11 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
         list.remove(position);
     }
 
-    public void setOnItemClickListener(OnItemClick_product_Listener listener){
+    public void setOnItemClickListener(OnItemClick_Product_Listener listener){
         this.listener = listener;
     }
 
-    public Product_InfoDTO getItem(int position){
+    public ProductVO getItem(int position){
         return list.get(position);
     }
 
@@ -52,18 +54,18 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemview = inflater.inflate(R.layout.item_product_info, parent , false );
+        View itemview = inflater.inflate(R.layout.item_product_rec, parent , false );
         return new ViewHolder(itemview, this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        binding(holder, position);
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
 
     @Override
@@ -74,24 +76,25 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView product_img1, product_img2;
-        TextView product_tv1, product_tv2, product_tv3, product_tv4, product_tv5, product_tv6, product_tv7, product_tv8, product_tv9;
+        ImageView product_rec_img1;
+        TextView product_rec_tv1, product_rec_tv2, product_rec_tv3, product_rec_tv4, product_rec_tv5, product_rec_tv6, product_rec_tv7, product_rec_tv8;
 
-        public ViewHolder(@NonNull View itemView, OnItemClick_product_Listener listener) {
+        public ViewHolder(@NonNull View itemView, OnItemClick_Product_Listener listener) {
             super(itemView);
-            product_img1 = itemView.findViewById(R.id.product_img1);
-            product_img2 = itemView.findViewById(R.id.product_img2);
-            product_tv1 = itemView.findViewById(R.id.product_tv1);
-            product_tv2 = itemView.findViewById(R.id.product_tv2);
-            product_tv3 = itemView.findViewById(R.id.product_tv3);
-            product_tv4 = itemView.findViewById(R.id.product_tv4);
-            product_tv5 = itemView.findViewById(R.id.product_tv5);
-            product_tv6 = itemView.findViewById(R.id.product_tv6);
-            product_tv7 = itemView.findViewById(R.id.product_tv7);
-            product_tv8 = itemView.findViewById(R.id.product_tv8);
-            product_tv9 = itemView.findViewById(R.id.product_tv9);
+            product_rec_img1 = itemView.findViewById(R.id.product_rec_img1);
+            product_rec_tv1 = itemView.findViewById(R.id.product_rec_tv1);
+            product_rec_tv2 = itemView.findViewById(R.id.product_rec_tv2);
+            product_rec_tv3 = itemView.findViewById(R.id.product_rec_tv3);
+            product_rec_tv4 = itemView.findViewById(R.id.product_rec_tv4);
+            product_rec_tv5 = itemView.findViewById(R.id.product_rec_tv5);
+            product_rec_tv6 = itemView.findViewById(R.id.product_rec_tv6);
+            product_rec_tv7 = itemView.findViewById(R.id.product_rec_tv7);
+            product_rec_tv8 = itemView.findViewById(R.id.product_rec_tv8);
 
-            product_img1.setOnClickListener(new View.OnClickListener() {
+
+
+
+            product_rec_img1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
@@ -101,26 +104,25 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
                     }
                 }
             });
-
-            product_img2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(bookMark== true) {
-                        Toast.makeText(context, "장바구니", Toast.LENGTH_SHORT).show();
-                        product_img2.setImageResource(R.drawable.bookmark2);
-                        bookMark= false;
-                    }else {
-                        Toast.makeText(context, "장바구니 취소", Toast.LENGTH_SHORT).show();
-                        product_img2.setImageResource(R.drawable.bookmark1);
-                        bookMark= true;
-                    }
-
-                }
-            });
-
         }
-        public void binding(ViewHolder holder, int position){
+    }
 
+    public void binding(ViewHolder holder, int position){
+        if(list.get(position).getProduct_stock() < 1){
+            delDto(position);
+        }else {
+            Glide.with(context).load(FILE_PATH + list.get(position).getFile_path()).into( holder.product_rec_img1);
+            holder.product_rec_tv1.setText(list.get(position).getProduct_name());
+            holder.product_rec_tv2.setText(list.get(position).getRating()+"");
+            holder.product_rec_tv3.setText("("+list.get(position).getRe_count()+")");
+            holder.product_rec_tv4.setText(NumberFormat.getInstance().format(list.get(position).getProduct_price())+"원");
+
+            String[] tag = list.get(position).getTag_key().split("#");
+            holder.product_rec_tv5.setText("#" + tag[1]);
+            holder.product_rec_tv6.setText("#" + tag[2]);
+            holder.product_rec_tv7.setText("#" + tag[3]);
+            holder.product_rec_tv8.setText("#" + tag[4]);
         }
+
     }
 }
