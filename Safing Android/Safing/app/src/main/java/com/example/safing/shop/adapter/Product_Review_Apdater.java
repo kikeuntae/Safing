@@ -89,8 +89,22 @@ public class Product_Review_Apdater extends RecyclerView.Adapter<Product_Review_
 
         public void binding(ViewHolder holder, int position){
             Glide.with(context).load(FILE_PATH + list.get(position).getMember_filepath()).into( holder.item_product_review_profile);
-            Glide.with(context).load(FILE_PATH + list.get(position).getImagelist().get(0)).into( holder.item_product_review_img1);
-            Glide.with(context).load(FILE_PATH + list.get(position).getImagelist().get(1)).into( holder.item_product_review_img2);
+
+            if(list.get(position).getImagelist().get(0).indexOf("/storage/") != -1){
+                Glide.with(context).load(list.get(position).getImagelist().get(0)).into( holder.item_product_review_img1);
+                if(list.get(position).getImagelist().size() >1){
+                    Glide.with(context).load(list.get(position).getImagelist().get(1)).into( holder.item_product_review_img2);
+                }
+            } else {
+                Glide.with(context).load(FILE_PATH + list.get(position).getImagelist().get(0)).into( holder.item_product_review_img1);
+                if(list.get(position).getImagelist().size() >1){
+                    Glide.with(context).load(FILE_PATH + list.get(position).getImagelist().get(1)).into( holder.item_product_review_img2);
+                }
+
+            }
+
+
+
             holder.item_product_review_rating.setRating(list.get(position).getRating());
             holder.item_product_review_tv1.setText(list.get(position).getRating()+"");
             holder.item_product_review_tv2.setText(list.get(position).getMember_id());

@@ -11,7 +11,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -19,12 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
-import com.example.safing.async.CommonVal;
 import com.example.safing.async.OnItemClick_Cart_Listener;
-import com.example.safing.async.OnItemClick_product_Detail_Listener;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.shop.VO.CartVO;
 import com.example.safing.shop.fragment.Product_Cart_Fragment;
+import com.example.safing.shop.fragment.Product_Purchase_Fragment;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -38,12 +36,25 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
     OnItemClick_Cart_Listener listener;
     public boolean checked = true;
     Product_Cart_Fragment fragment;
+    Product_Purchase_Fragment purchase_fragment;
+
+    int root_check = 0;
+
     public ArrayList<Product_Cart_Rec_Adapter.ViewHolder> viewHolders = new ArrayList<>();
 
     public Product_Cart_Rec_Adapter(Context context, ArrayList<CartVO> list , Product_Cart_Fragment fragment) {
         this.context = context;
         this.list = list;
         this.fragment = fragment;
+        this.root_check = 0;
+        this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    public Product_Cart_Rec_Adapter(Context context, ArrayList<CartVO> list , Product_Purchase_Fragment purchase_fragment) {
+        this.context = context;
+        this.list = list;
+        this.purchase_fragment = purchase_fragment;
+        this.root_check = 1;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -148,9 +159,18 @@ public class Product_Cart_Rec_Adapter extends RecyclerView.Adapter<Product_Cart_
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if(isChecked){
-                        fragment.changePrice();
+                        if(root_check == 0){
+                            fragment.changePrice();
+                        } else if(root_check == 1) {
+                            purchase_fragment.changePrice();
+                        }
+
                     } else {
-                        fragment.changePrice();
+                        if(root_check == 0){
+                            fragment.changePrice();
+                        } else if(root_check == 1){
+                            purchase_fragment.changePrice();
+                        }
                     }
                 }
             });

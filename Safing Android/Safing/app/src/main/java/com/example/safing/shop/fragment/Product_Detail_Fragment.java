@@ -26,12 +26,11 @@ import com.bumptech.glide.Glide;
 import com.example.safing.MainActivity;
 import com.example.safing.R;
 import com.example.safing.async.CommonVal;
-import com.example.safing.async.OnItemClick_product_Detail_Listener;
-import com.example.safing.async.OnItemClick_product_Package_Detail_Listener;
+import com.example.safing.async.OnItemClick_Product_Detail_Listener;
 import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.CartVO;
 import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.adapter.Product_Detail_Apdater;
-import com.example.safing.shop.adapter.Product_Pakcage_Detail_Apdater;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -148,7 +147,15 @@ public class Product_Detail_Fragment extends Fragment {
                         }
                     });
                 } else {
-                    mainActivity.changeFragment(new Product_Purchase_Fragment(context, vo));
+                    ArrayList<CartVO> cartList = new ArrayList<>();
+                    cartList.add(new CartVO());
+                    cartList.get(0).setProduct_num(vo.getProduct_num());
+                    cartList.get(0).setProduct_name(vo.getProduct_name());
+                    cartList.get(0).setProduct_price(vo.getProduct_price()*vo.getOrder_count());
+                    cartList.get(0).setOrder_count(vo.getOrder_count());
+                    cartList.get(0).setFile_path(vo.getImagelist().get(0));
+
+                    mainActivity.changeFragment(new Product_Purchase_Fragment(context, cartList));
                 }
             }
         });
@@ -163,7 +170,7 @@ public class Product_Detail_Fragment extends Fragment {
         Product_Detail_Apdater adapter_rec = new Product_Detail_Apdater(context, vo, Product_Detail_Fragment.this);
         product_detail_rec.setAdapter(adapter_rec);
 
-        adapter_rec.setOnItemClickListener(new OnItemClick_product_Detail_Listener() {
+        adapter_rec.setOnItemClickListener(new OnItemClick_Product_Detail_Listener() {
             @Override
             public void onItemClick_detail(Product_Detail_Apdater.ViewHolder holderm, View view, int position) {
                 if(product_num == vo.getProduct_num()){
@@ -195,3 +202,4 @@ public class Product_Detail_Fragment extends Fragment {
     }
 
 }
+

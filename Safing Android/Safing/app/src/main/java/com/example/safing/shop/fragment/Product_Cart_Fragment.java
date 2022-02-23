@@ -15,7 +15,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -24,7 +23,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,12 +32,9 @@ import com.example.safing.R;
 import com.example.safing.MainActivity;
 import com.example.safing.async.CommonVal;
 import com.example.safing.async.OnItemClick_Cart_Listener;
-import com.example.safing.async.OnItemClick_product_Detail_Listener;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.shop.VO.CartVO;
-import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.adapter.Product_Cart_Rec_Adapter;
-import com.example.safing.shop.adapter.Product_Detail_Apdater;
 import com.google.android.material.navigation.NavigationView;
 
 import java.text.NumberFormat;
@@ -158,6 +153,36 @@ public class Product_Cart_Fragment extends Fragment {
                 dialog.show();
             }
         });
+
+
+        //============= 구매하기 버튼 ========
+        product_cart_btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(CommonVal.loginInfo.getMember_id().isEmpty()){
+                    android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(context);
+                    builder.setTitle("로그인 확인");
+                    builder.setMessage("로그인이 필요합니다.");
+                    builder.setIcon(R.drawable.question1);
+                    builder.setPositiveButton("로그인하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //  mainActivity.changeFragment(new LoginFragment(context));
+                        }
+                    });
+                    builder.setPositiveButton("쇼핑하기", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context, "쇼핑하기", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                } else {
+                    mainActivity.changeFragment(new Product_Purchase_Fragment(context, list));
+                }
+            }
+        });
+
 
         setRec();
         setPrice();

@@ -8,6 +8,7 @@ import com.example.safing.async.CommonMethod;
 import com.example.safing.async.CommonVal;
 import com.example.safing.shop.VO.AddressVO;
 import com.example.safing.shop.VO.CartVO;
+import com.example.safing.shop.VO.Order_Detail_CntVO;
 import com.example.safing.shop.VO.ProductVO;
 import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.VO.Product_PackageVO;
@@ -132,13 +133,15 @@ public class ShopDAO {
         CartVO cartvo = new CartVO();
         service = new CommonAsk("insert_cart_pack.sh");
         service.params.add(new AskParam("priceSum",priceSum+""));
+        int i = 0;
         for (Product_DetailVO vo: list) {
             cartvo.setMember_id(CommonVal.loginInfo.getMember_id());
             cartvo.setProduct_num(vo.getProduct_num());
             cartvo.setPackage_num(packge_num);
             cartvo.setProduct_price(priceSum);
             cartvo.setOrder_count(vo.getOrder_count());
-            service.params.add(new AskParam("list", gson.toJson(cartvo)));
+            service.params.add(new AskParam("list"+i, gson.toJson(cartvo)));
+            i++;
         }
 
         in = CommonMethod.excuteAsk(service);
@@ -270,7 +273,7 @@ public class ShopDAO {
 
     //주소 리스트
     public ArrayList<AddressVO> addrss_list(String member_id){
-        service = new CommonAsk("default_addrss.sh");
+        service = new CommonAsk("addrss_list.sh");
         service.params.add(new AskParam("member_id", member_id));
         in = CommonMethod.excuteAsk(service);
         ArrayList<AddressVO> list = new ArrayList<>();
@@ -289,16 +292,23 @@ public class ShopDAO {
         service = new CommonAsk("update_address.sh");
         service.params.add(new AskParam("addr_num", addr_num+""));
         in = CommonMethod.excuteAsk(service);
-
     }
 
     //주소등록
-    public void insert_address(AddressVO newVo){
+    public int insert_address(AddressVO newVo){
         service = new CommonAsk("insert_address.sh");
         service.params.add(new AskParam("member_id", CommonVal.loginInfo.getMember_id()));
         service.params.add(new AskParam("vo", gson.toJson(newVo)));
         in = CommonMethod.excuteAsk(service);
+        int addr_num = 0;
+        try{
+            addr_num = gson.fromJson(new InputStreamReader(in), Integer.class);
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
 
+        return addr_num;
     }
 
     //주소삭제
@@ -308,6 +318,66 @@ public class ShopDAO {
         in = CommonMethod.excuteAsk(service);
     }
 
+    //결제하기 장바구니
+    public int insert_order_ing_cart(ArrayList<CartVO> cartList, AddressVO addressVo){
+        service = new CommonAsk("insert_order_ing_cart.sh");
+        service.params.add(new AskParam("address", gson.toJson(addressVo)));
+        int i = 0;
+        for (CartVO vo: cartList) {
+            vo.setMember_id(CommonVal.loginInfo.getMember_id());
+            service.params.add(new AskParam("list"+i, gson.toJson(vo)));
+            i++;
+        }
+        in = CommonMethod.excuteAsk(service);
+        int result = 0;
+        try{
+            result = gson.fromJson(new InputStreamReader(in), Integer.class);
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+        return result;
+    }
 
 
+    //결제하기 패키지
+    public int insert_order_ing_pack(CartVO cartvo, ArrayList<Order_Detail_CntVO> packCntList, AddressVO addressVo){
+        service = new CommonAsk("insert_order_ing_pack.sh");
+        cartvo.setMember_id(CommonVal.loginInfo.getMember_id());
+        service.params.add(new AskParam("vo", gson.toJson(cartvo)));
+        service.params.add(new AskParam("address", gson.toJson(addressVo)));
+
+        int i = 0;
+        for (Order_Detail_CntVO vo: packCntList) {
+            service.params.add(new AskParam("list"+i, gson.toJson(vo)));
+            i++;
+        }
+
+        in = CommonMethod.excuteAsk(service);
+        int result = 0;
+        try{
+            result = gson.fromJson(new InputStreamReader(in), Integer.class);
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+        return result;
+    }
+
+    //결제하기 상품
+    public int insert_order_ing_pro(CartVO vo, AddressVO addressVo){
+        service = new CommonAsk("insert_order_ing_pro.sh");
+        vo.setMember_id(CommonVal.loginInfo.getMember_id());
+        service.params.add(new AskParam("vo", gson.toJson(vo)));
+        service.params.add(new AskParam("address", gson.toJson(addressVo)));
+        in = CommonMethod.excuteAsk(service);
+        int result = 0;
+        try{
+            result = gson.fromJson(new InputStreamReader(in), Integer.class);
+        } catch (Exception e){
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
+        return result;
+    }
 }

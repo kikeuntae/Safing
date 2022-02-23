@@ -61,7 +61,13 @@ public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Imag
 
     }
     public void binding(ViewHolder holder, int position){
-        Glide.with(context).load(FILE_PATH + list.get(position)).into( holder.product_img1);
+        if(list.get(position).indexOf("/storage/") != -1){
+            Glide.with(context).load(list.get(position)).into( holder.product_img1);
+
+        } else {
+            Glide.with(context).load(FILE_PATH + list.get(position)).into( holder.product_img1);
+        }
+
         holder.product_tv1.setText((position+1) +"/"+ list.size());
     }
 }

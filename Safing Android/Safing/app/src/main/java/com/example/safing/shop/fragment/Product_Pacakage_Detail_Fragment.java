@@ -22,11 +22,11 @@ import com.bumptech.glide.Glide;
 import com.example.safing.MainActivity;
 import com.example.safing.R;
 import com.example.safing.async.CommonVal;
-import com.example.safing.async.OnItemClick_product_Detail_Listener;
-import com.example.safing.async.OnItemClick_product_Package_Detail_Listener;
+import com.example.safing.async.OnItemClick_Product_Package_Detail_Listener;
 import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.CartVO;
+import com.example.safing.shop.VO.Order_Detail_CntVO;
 import com.example.safing.shop.VO.Product_DetailVO;
-import com.example.safing.shop.adapter.Product_Detail_Apdater;
 import com.example.safing.shop.adapter.Product_Pakcage_Detail_Apdater;
 
 import java.text.NumberFormat;
@@ -43,14 +43,17 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
     ShopDAO dao = new ShopDAO();
     ArrayList<Product_DetailVO> list = new ArrayList<>();
     MainActivity mainActivity = new MainActivity();
+    ArrayList<String> imageList = new ArrayList<>();
+
     int sendPriceSum = 0;
-
     int packge_num = 0;
+    String packge_name = "";
 
-
-    public Product_Pacakage_Detail_Fragment(Context context, int packge_num){
+    public Product_Pacakage_Detail_Fragment(Context context, int packge_num, String packge_name, ArrayList<String> imageList){
         this.context = context;
         this.packge_num = packge_num;
+        this.packge_name = packge_name;
+        this.imageList = imageList;
     }
 
     @Override
@@ -150,7 +153,24 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
                         }
                     });
                 } else {
-                    mainActivity.changeFragment(new Product_Purchase_Fragment(context, list));
+                    ArrayList<CartVO> cartList = new ArrayList<>();
+                    ArrayList<Order_Detail_CntVO> packCntList = new ArrayList<>();
+
+                    cartList.add(new CartVO());
+                    cartList.get(0).setPackage_num(packge_num);
+                    cartList.get(0).setPackage_name(packge_name);
+                    cartList.get(0).setProduct_price(sendPriceSum);
+                    cartList.get(0).setOrder_count(1);
+                    cartList.get(0).setFile_path(imageList.get(0));
+
+                    for(int i = 0 ; i < list.size() ; i ++) {
+                        packCntList.add(new Order_Detail_CntVO());
+                        packCntList.get(i).setPackage_num(packge_num);
+                        packCntList.get(i).setProduct_num(list.get(i).getProduct_num());
+                        packCntList.get(i).setOrder_count(list.get(i).getOrder_count());
+                    }
+
+                    mainActivity.changeFragment(new Product_Purchase_Fragment(context, cartList, packCntList));
                 }
             }
         });
@@ -164,9 +184,7 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
         Product_Pakcage_Detail_Apdater adapter_rec = new Product_Pakcage_Detail_Apdater(context, list, Product_Pacakage_Detail_Fragment.this);
         product_detail_rec.setAdapter(adapter_rec);
 
-
-
-        adapter_rec.setOnItemClickListener(new OnItemClick_product_Package_Detail_Listener() {
+        adapter_rec.setOnItemClickListener(new OnItemClick_Product_Package_Detail_Listener() {
             @Override
             public void onItemClick_detail(Product_Pakcage_Detail_Apdater.ViewHolder holderm, View view, int position) {
                 mainActivity.changeFragment(new Product_Fragment(context, list.get(position).getProduct_num()));

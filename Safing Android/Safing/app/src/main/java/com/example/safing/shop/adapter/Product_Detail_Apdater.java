@@ -17,19 +17,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
-import com.example.safing.async.OnItemClick_product_Detail_Listener;
+import com.example.safing.async.OnItemClick_Product_Detail_Listener;
 import com.example.safing.shop.VO.Product_DetailVO;
 import com.example.safing.shop.fragment.Product_Detail_Fragment;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 
-public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_Apdater.ViewHolder> implements OnItemClick_product_Detail_Listener {
+public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_Apdater.ViewHolder> implements OnItemClick_Product_Detail_Listener {
 
     Context context;
     LayoutInflater inflater;
     Product_Detail_Fragment fragment;
-    OnItemClick_product_Detail_Listener listener;
+    OnItemClick_Product_Detail_Listener listener;
     Product_DetailVO vo = new Product_DetailVO();
 
     public Product_Detail_Apdater(Context context,  Product_DetailVO vo, Product_Detail_Fragment fragment) {
@@ -41,7 +40,7 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
     }
 
 
-    public void setOnItemClickListener(OnItemClick_product_Detail_Listener listener){
+    public void setOnItemClickListener(OnItemClick_Product_Detail_Listener listener){
         this.listener = listener;
     }
 
@@ -76,7 +75,7 @@ public class Product_Detail_Apdater extends RecyclerView.Adapter<Product_Detail_
         ImageButton item_product_detail_btn1, item_product_detail_btn2;
         int cnt = 1;
 
-        public ViewHolder(@NonNull View itemView, OnItemClick_product_Detail_Listener listener) {
+        public ViewHolder(@NonNull View itemView, OnItemClick_Product_Detail_Listener listener) {
             super(itemView);
 
             item_product_detail_img = itemView.findViewById(R.id.item_product_detail_img);

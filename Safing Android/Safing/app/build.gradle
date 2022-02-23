@@ -27,11 +27,6 @@ android {
     useLibrary 'org.apache.http.legacy'
     /*apacthe httpClient라는 기능을 사용하기위한것.*/
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
 }
 
 dependencies {

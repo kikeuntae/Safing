@@ -113,6 +113,7 @@ public class Review_Fragment extends Fragment {
         review_imgbtn4 = rootView.findViewById(R.id.review_imgbtn4);
         review_btn1 = rootView.findViewById(R.id.review_btn1);
         review_btn2 = rootView.findViewById(R.id.review_btn2);
+        toolbar = rootView.findViewById(R.id.review_toolbar);
 
         mainActivity = (MainActivity) getActivity();
 
@@ -165,11 +166,29 @@ public class Review_Fragment extends Fragment {
         //권한요청 메소드
         checkDangerousPermissions();
 
-        review_imagelist.get(imgbtn_check).getImageView().setOnClickListener(new View.OnClickListener() {
+        review_imgbtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialog();
+            }
+        });
 
+        review_imgbtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+        review_imgbtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+        review_imgbtn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
             }
         });
 
@@ -216,19 +235,22 @@ public class Review_Fragment extends Fragment {
                     review_etv.requestFocus();
                 } else {
                     reviewVO.setMember_id(CommonVal.loginInfo.getMember_id());
-                    reviewVO.setRating(review_rating.getNumStars());
+                    reviewVO.setOrder_num(vo.getOrder_num());
+                    reviewVO.setRating((int) review_rating.getRating());
                     reviewVO.setBoard_content(review_etv.getText()+"");
 
                     if(vo.getProduct_num() > 0){
                         reviewVO.setProduct_num(vo.getProduct_num());
                     } else {
-                        reviewVO.setProduct_num(vo.getPackage_num());
+                        reviewVO.setPackage_num(vo.getPackage_num());
                     }
 
 
                     ArrayList<String> imagelist = new ArrayList<>();
                     for (Review_ImageListVO vo:review_imagelist) {
-                        imagelist.add(vo.getImg_filepath());
+                        if(vo.getImg_filepath() != null){
+                            imagelist.add(vo.getImg_filepath());
+                        }
                     }
 
 
@@ -259,24 +281,24 @@ public class Review_Fragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                         if (spn_item[i].equals("카메라")) {
-                            Toast.makeText(mainActivity, "카메라 선택됨", Toast.LENGTH_SHORT).show();
 
                             //API 요즘 버전은 카메라 관련 서비스가 복잡함
                             //provider라는 카메라의 사진을 가지고 올 수 있는 객체도 필요하고 file객체도 필요
                             go_Camera();
 
                         } else {
-                            Toast.makeText(mainActivity, "갤러리 선택됨", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent();
                             intent.setType("image/*");
                             intent.setAction(Intent.ACTION_PICK);
                             startActivityForResult(Intent.createChooser(intent, "select Pictuer"),GALLERY_IMG);
                         }
+
                         dialog.dismiss();
                     }
                 });
         dialog = builder.create();
         dialog.show();
+        imgbtn_check++;
     }
 
     public void go_Camera(){
@@ -322,7 +344,6 @@ public class Review_Fragment extends Fragment {
         }
         //Multipart에 보내기 위한 임시파일이 있는 곳의 절대경로를 저장하는 로직이 필요함(String)
         img_filepath = curFile.getAbsolutePath(); //절대 경로
-
         return curFile;
 
     }
@@ -334,17 +355,21 @@ public class Review_Fragment extends Fragment {
         if(requestCode == GALLERY_IMG && resultCode == mainActivity.RESULT_OK){
             Uri galleryUri = data.getData();
             img_filepath = getPathFromURI(galleryUri);
-            Glide.with(context).load(galleryUri).into(review_imgbtn1);
+            Glide.with(context).load(galleryUri).into(review_imagelist.get(imgbtn_check-1).getImageView());
         } else if (requestCode == CAMERA_REQ && resultCode == mainActivity.RESULT_OK){
             //갤러리에 사진을 저장하고 저장한 Uri를 통해서 다시 Glide를 통해 붙이기
             //Uri gellaryAddpic메소드 하기전
 
             //Uri cameraUri = data.getData();
-            Glide.with(context).load(img_filepath).into(review_imagelist.get(imgbtn_check).getImageView());
+            Glide.with(context).load(img_filepath).into(review_imagelist.get(imgbtn_check-1).getImageView());
         }
-        review_imagelist.get(imgbtn_check).setImg_filepath(img_filepath);
-        imgbtn_check++;
-        review_imagelist.get(imgbtn_check).getImageView().setVisibility(View.VISIBLE);
+
+        if(imgbtn_check >3){
+            imgbtn_check = 3;
+        } else {
+            review_imagelist.get(imgbtn_check-1).setImg_filepath(img_filepath);
+            review_imagelist.get(imgbtn_check).getImageView().setVisibility(View.VISIBLE);
+        }
 
     }
 

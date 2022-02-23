@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.example.safing.shop.adapter.Product_Detail_Apdater;
 
-public interface OnItemClick_product_Detail_Listener {
+public interface OnItemClick_Product_Detail_Listener {
     void onItemClick_detail(Product_Detail_Apdater.ViewHolder holderm,
                                    View view, int position);
 

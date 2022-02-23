@@ -17,21 +17,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
-import com.example.safing.async.OnItemClick_product_Detail_Listener;
-import com.example.safing.async.OnItemClick_product_Package_Detail_Listener;
+import com.example.safing.async.OnItemClick_Product_Package_Detail_Listener;
 import com.example.safing.shop.VO.Product_DetailVO;
-import com.example.safing.shop.fragment.Product_Detail_Fragment;
 import com.example.safing.shop.fragment.Product_Pacakage_Detail_Fragment;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product_Pakcage_Detail_Apdater.ViewHolder> implements OnItemClick_product_Package_Detail_Listener {
+public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product_Pakcage_Detail_Apdater.ViewHolder> implements OnItemClick_Product_Package_Detail_Listener {
 
     Context context;
     LayoutInflater inflater;
     Product_Pacakage_Detail_Fragment fragment;
-    OnItemClick_product_Package_Detail_Listener listener;
+    OnItemClick_Product_Package_Detail_Listener listener;
     ArrayList<Product_DetailVO> list = new ArrayList<>();
 
     public Product_Pakcage_Detail_Apdater(Context context, ArrayList<Product_DetailVO> list, Product_Pacakage_Detail_Fragment fragment) {
@@ -43,7 +41,7 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
     }
 
 
-    public void setOnItemClickListener(OnItemClick_product_Package_Detail_Listener listener){
+    public void setOnItemClickListener(OnItemClick_Product_Package_Detail_Listener listener){
         this.listener = listener;
     }
 
@@ -83,7 +81,7 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
         ImageButton item_product_detail_btn1, item_product_detail_btn2;
         int cnt = 1;
 
-        public ViewHolder(@NonNull View itemView, OnItemClick_product_Package_Detail_Listener listener) {
+        public ViewHolder(@NonNull View itemView, OnItemClick_Product_Package_Detail_Listener listener) {
             super(itemView);
 
             item_product_detail_img = itemView.findViewById(R.id.item_product_detail_img);
@@ -105,7 +103,6 @@ public class Product_Pakcage_Detail_Apdater extends RecyclerView.Adapter<Product
             holder.item_product_detail_img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     if (listener != null) {
                         listener.onItemClick_detail(ViewHolder.this,
                                 v, position);

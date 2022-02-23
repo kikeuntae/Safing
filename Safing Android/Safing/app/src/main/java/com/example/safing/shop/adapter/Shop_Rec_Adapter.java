@@ -14,18 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
-import com.example.safing.async.OnItemClick_product_Listener;
+import com.example.safing.async.OnItemClick_Product_Listener;
 import com.example.safing.shop.VO.ProductVO;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.ViewHolder> implements OnItemClick_product_Listener {
+public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.ViewHolder> implements OnItemClick_Product_Listener {
     boolean bookMark = true;
     Context context;
     ArrayList<ProductVO> list;
     LayoutInflater inflater;
-    OnItemClick_product_Listener listener;
+    OnItemClick_Product_Listener listener;
 
     public Shop_Rec_Adapter(Context context, ArrayList<ProductVO> list) {
         this.context = context;
@@ -42,7 +42,7 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
         list.remove(position);
     }
 
-    public void setOnItemClickListener(OnItemClick_product_Listener listener){
+    public void setOnItemClickListener(OnItemClick_Product_Listener listener){
         this.listener = listener;
     }
 
@@ -79,7 +79,7 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
         ImageView product_rec_img1;
         TextView product_rec_tv1, product_rec_tv2, product_rec_tv3, product_rec_tv4, product_rec_tv5, product_rec_tv6, product_rec_tv7, product_rec_tv8;
 
-        public ViewHolder(@NonNull View itemView, OnItemClick_product_Listener listener) {
+        public ViewHolder(@NonNull View itemView, OnItemClick_Product_Listener listener) {
             super(itemView);
             product_rec_img1 = itemView.findViewById(R.id.product_rec_img1);
             product_rec_tv1 = itemView.findViewById(R.id.product_rec_tv1);

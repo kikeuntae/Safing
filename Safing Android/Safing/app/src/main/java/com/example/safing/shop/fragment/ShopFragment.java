@@ -32,10 +32,9 @@ import com.example.safing.shop.VO.Product_PackageVO;
 import com.example.safing.shop.adapter.Shop_Rec_Adapter;
 import com.example.safing.shop.adapter.Shop_Package_Apdater;
 import com.example.safing.async.OnItemClick_Package_Listener;
-import com.example.safing.async.OnItemClick_product_Listener;
+import com.example.safing.async.OnItemClick_Product_Listener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -209,7 +208,7 @@ public class ShopFragment extends Fragment{
         adapter_rec2 = new Shop_Rec_Adapter(context, list);
         shop_rec2.setAdapter(adapter_rec2);
 
-        adapter_rec2.setOnItemClickListener(new OnItemClick_product_Listener() {
+        adapter_rec2.setOnItemClickListener(new OnItemClick_Product_Listener() {
             @Override
             public void onItemClick_product(Shop_Rec_Adapter.ViewHolder holderm, View view, int position) {
 
