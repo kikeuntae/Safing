@@ -15,6 +15,10 @@ import com.example.safing.iot.fragment.IoTFragment;
 import com.example.safing.movie.fragment.MovieFragment;
 import com.example.safing.mypage.fragment.LoginActivity;
 import com.example.safing.mypage.fragment.MypageFragment;
+import com.example.safing.iot.fragment.IoTFragment;
+import com.example.safing.shop.VO.PurchaseHistoryVO;
+import com.example.safing.shop.fragment.Product_Fragment;
+import com.example.safing.shop.fragment.Product_Package_Fragment;
 import com.example.safing.shop.fragment.Product_PurchaseHistory_Fragment;
 import com.example.safing.shop.fragment.ShopFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -37,15 +41,16 @@ public class MainActivity extends AppCompatActivity {
         changeFragment(nowFragment);
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build(); StrictMode.setThreadPolicy(policy); }
+        PurchaseHistoryVO vo = (PurchaseHistoryVO) intent.getSerializableExtra("vo");
 
         bottom_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.tab1){
-                    changeFragment(new HomeFragment(MainActivity.this));
+
                     return true;
                 }else if(item.getItemId() == R.id.tab2){
-                    changeFragment(new MovieFragment(MainActivity.this));
+
                     return true;
                 }else if(item.getItemId() == R.id.tab3){
                     changeFragment(new IoTFragment(MainActivity.this));
@@ -66,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
 
         if(("Product_PurchaseHistory_Fragment").equals(chageFrag)){
             changeFragment(new Product_PurchaseHistory_Fragment(MainActivity.this));
+        } else if(("review").equals(chageFrag)){
+            if(vo.getProduct_num()> 0){
+                changeFragment(new Product_Fragment(MainActivity.this, vo.getProduct_num(), "review"));
+            } else {
+                changeFragment(new Product_Package_Fragment(MainActivity.this, vo.getPackage_num(), "review"));
+            }
         }
     }
     public void changeFragment(Fragment fragment){

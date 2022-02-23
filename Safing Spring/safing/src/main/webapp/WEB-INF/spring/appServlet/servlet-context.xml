@@ -48,7 +48,7 @@
 	
 	<context:component-scan base-package="com.android.safing" />
 	
-	
-	
+
+
 </beans:beans>
 
