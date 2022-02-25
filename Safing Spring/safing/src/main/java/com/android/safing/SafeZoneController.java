@@ -71,7 +71,7 @@ public class SafeZoneController {
 	
 	// 캠핑장 목록화면 요청 (웹)
 	@RequestMapping ("/search_list.ma")
-	public String list(HttpSession session , Model model
+	public String search_list(HttpSession session , Model model
 			, String search, String keyword
 			, @RequestParam (defaultValue = "1") int curPage
 			, @RequestParam (defaultValue = "10") int pageList
@@ -91,11 +91,11 @@ public class SafeZoneController {
 	// 캠핑장 정보 상세화면 요청
 	
 		@RequestMapping ("/detail.ma")
-		public String detail(int contentid, Model model, String img_contentid) {
+		public String detail(int contentid, Model model) {
 			
 			// 해당 방명록 글을 DB에서 조회해와 상세화면에 출력
 			model.addAttribute("vo", dao.campinfo_detail(contentid) ) ;
-			model.addAttribute("vo1", dao2.list(img_contentid) ) ;
+			model.addAttribute("img_list", dao2.img_list(contentid) ) ;
 			
 			return "main/detail";
 		}

@@ -32,7 +32,7 @@
 </head>
 <body>
 	<div id='wrap'>
-		<tiles:insertAttribute name="header"/>
+		<tiles:insertAttribute name="header" />
 		
 		<div id='content'>
 		<tiles:insertAttribute name="content" />

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tip.mapper">
+
+<!-- =========================================안드 ========================================= -->
+
 	<!-- tip썸네일 화면 -->
 	<select id="tiplist" resultType="tip.YoutubeTipVO">
 		select id, thumbnails, youtubetitle, youtubecnt, youtubecontent, play
@@ -12,5 +15,52 @@
 		set youtubecnt = youtubecnt + 1
 		where id = #{id}
     </update>
+ <!-- =========================================안드 ========================================= -->
+ 
+ 
+ <!-- ========================================= 웹 ========================================= -->   		
+ 
+ 	<!-- 유튜브 게시글 수 조회 -->
+	<select id="totalList_yu" resultType="integer">
+		select count(*) from youtubetip
+	</select>
+	
+	<!-- 유튜브 게시글 조회 -->
+	<select id="list_yu" resultType="tip.YoutubeTipVO">
+		select y.*
+		from (select rownum no, y.*
+      		  from youtubetip y left outer join board b on b.board_id = y.board_id ) y
+		where y.no between #{beginList} and #{endList}
+	</select>
+	
+ 	<!-- 유튜브 게시글 상세 조회 -->                                                                         
+	<select id="detail" resultType="tip.YoutubeTipVO">                                                       
+	select *                                                                                             
+	from youtubetip                                                                                      
+	where id = #{id}                                                                                     
+	</select>
+  
+  	<update id="update">
+  		update youtubetip set thumbnails = #{thumbnails}, 
+  							  youtubetitle = #{youtubetitle}, 
+  							  youtubecontent = #{youtubecontent}, 
+  							  play = #{play}
+  		where id = #{id}
+  	</update>
+  	
+  	<insert id="insert">
+    	insert into youtubetip ( thumbnails, youtubetitle, youtubecontent, play)
+ 					values (#{thumbnails},#{youtubetitle},#{youtubecontent},#{play})
+    </insert>
+ 
+ 
+ <!-- 해당 글 삭제 처리 -->
+	<delete id="delete">
+		delete from youtubetip
+		where id = #{id}
+	</delete>
+ 
+ <!-- ========================================= 웹 ========================================= -->   		
+    	
 	
 </mapper>

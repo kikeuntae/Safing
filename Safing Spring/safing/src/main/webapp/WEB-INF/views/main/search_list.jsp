@@ -101,7 +101,10 @@
 		
 
 
-		</c:forEach>		
+		</c:forEach>	
+		<div class='btnSet'>
+	<jsp:include page="/WEB-INF/views/include/page.jsp" />						
+</div>	
 <script type="text/javascript">
 
 	var str = ${vo.sbrscl};

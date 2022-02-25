@@ -22,26 +22,45 @@
 				order by facltnm asc ) c
 	</select>
  	
+ 	
+
+ 	
+ 	<sql id='where_search'>
+		<!-- 제목에 '테스트' 문자가 있는 것을 조회한다면 where title like '테스트' -->
+		<if test="search == 'facltnm' or search == 'addr1'">
+			where ${search} like '%'||#{keyword}||'%'		
+		</if>
+		
+		
+		<if test="search == 'all' ">
+			where facltnm like '%'||#{keyword}||'%'
+			or addr1 like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+
+ 	
+ 	
+ 	<!-- 전체 게시글 수 조회 -->
+	<select id="totalList" resultType="integer">
+		select count(*) from campinfo <include refid="where_search" />	
+	</select>	
+ 	
+ 	
   <!--  전체 게시글 조회  -->
  	<select id="search_list" resultType="safezone.SafeZoneVO">             
-		select rownum no, c.* 
-		from (select * 
-		    from campinfo 
-		   	<include refid="search" />
+		select c.* 
+		from (select rownum no ,  c.*
+		    from campinfo c <include refid="where_search" />
 		    order by facltnm asc ) c
-		where rownum between #{beginList} and #{endList}
+		where c.no between #{beginList} and #{endList}
 	</select> 
 	 
 
-	<!-- 전체 게시글 수 조회 -->
-	<select id="totalList" resultType="integer">
-		select count(*) from campinfo <include refid="search" />	
-	</select>	
-
+	
 	<sql id='search'>
-		where facltnm like '%'||#{keyword, jdbcType=VARCHAR}||'%'
-	    or addr1 like '%'||#{keyword, jdbcType=VARCHAR}||'%'
-	    or induty like '%'||#{keyword, jdbcType=VARCHAR}||'%'
+		where facltnm like '%'||#{keyword}||'%'
+	    or addr1 like '%'||#{keyword}||'%'
+	 
 	</sql> 
 	 
 	<!-- 해당 글의 상세 정보 조회 -->

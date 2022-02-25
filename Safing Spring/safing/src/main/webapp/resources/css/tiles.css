@@ -247,7 +247,7 @@ a:hover {
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
-  color: inherit;
+  color: #123123;
   text-decoration: none;
 }
 
@@ -307,6 +307,7 @@ svg {
 
 table {
   caption-side: bottom;
+  color: black;
   border-collapse: collapse;
 }
 
@@ -11508,4 +11509,16 @@ html {
 
 .copyright {
   background-color: #85897B;
+}
+
+table > thead > tbody > tr > td {
+	color: blue;
+}
+
+.page_list {
+		display: flex; margin: 0 auto;
+}
+
+.page_on, .page_off, .page_next, .page_last, .page_prev, .page_first {
+		display: inline-block; line-height: 30px; margin: 0; width: 35px;
 }

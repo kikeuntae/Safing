@@ -13,7 +13,7 @@
 	</c:if>	
 	<!-- 현재 페이지가 아닌 경우 -->
 	<c:if test="${no ne page.curPage }">
-		<a class='page_off' onclick="go_page(${no })">${no }</a>
+		<a class='page_off' onclick="go_page(${no})">${no }</a>
 	</c:if>
 </c:forEach>
 

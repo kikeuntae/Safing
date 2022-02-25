@@ -1,5 +1,7 @@
 package board;
 
+import java.util.Date;
+
 public class Board_CommentVO {
 	private int		comment_id     		;
 	private int		board_id       		;
@@ -8,7 +10,14 @@ public class Board_CommentVO {
 	private String	comment_regdate 	;
 	private int		comment_lev         ;
 	private int		comment_seq         ;
+	private int		comment_root         ;
 	
+	public int getComment_root() {
+		return comment_root;
+	}
+	public void setComment_root(int comment_root) {
+		this.comment_root = comment_root;
+	}
 	public int getComment_id() {
 		return comment_id;
 	}

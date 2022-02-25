@@ -1,7 +1,7 @@
 package tip;
 
 public class YoutubeTipVO {
-	int  id, youtubecnt, board_id;
+	int   id, youtubecnt, board_id;
     String thumbnails, youtubetitle, youtubecontent, play;
 
 	

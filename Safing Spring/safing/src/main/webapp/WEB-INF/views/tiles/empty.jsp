@@ -5,6 +5,6 @@
 <head>
 </head>
 <body>
-	<tiles:insertAttribute name="content"/>
+	<tiles:insertAttribute name="content" ignore="true"/>
 </body>
 </html>

@@ -13,9 +13,9 @@
 <link rel='stylesheet' type="text/css" href="css/search.css?v=<%= new Date().getTime() %>">
 </head>
 <body>
-	<%-- <div class="header-nav">
-		<jsp:include page="/WEB-INF/views/include/header.jsp" />
-	</div> --%>
+
+<form class="form-subscribe" id="contactForm" action="search_list.ma" method="post">
+	<input type="hidden" name="curPage" value="1" /> 
 		<!-- Masthead-->
 	<div class="s-masthead">
 		<div class="container position-relative">
@@ -31,18 +31,30 @@
 						<!-- To make this form functional, sign up at-->
 						<!-- https://startbootstrap.com/solution/contact-forms-->
 						<!-- to get an API token!-->
-						<form class="form-subscribe" id="contactForm" action="search_list.ma" method="post">
+						<div style="display: flex;">
+							<ul>
+								<li>
+									<select name='search' style=" width: 70%">
+										<option value="all" ${page.search eq 'all' ? 'selected' : '' }>전체</option>
+										<option value="facltnm" ${page.search eq 'facltnm' ? 'selected' : '' }>캠핑장 이름</option>
+										<option value="addr1" ${page.search eq 'addr1' ? 'selected' : '' }>주소</option>										
+									</select>
+								</li>
+							</ul>
+						
 							<!-- Email address input-->
 							<div class="row">
 								<div class="col">
-									<input class="form-control form-control-lg" type="text"
-									 name="keyword" placeholder="캠핑장명, 주소, 테마를 검색하세요" value="${page.keyword}" />
+									<input class="form-control form-control-lg" type="text" style="width: 320px"
+									 name="keyword" placeholder="캠핑장명, 주소를 검색하세요" value="${page.keyword}" />
 								</div>
 								<div class="col-auto">
 									<a class='btn-fill' onclick='$("form").submit()'>검색</a>
 								</div>
 							</div>
-						</form>
+
+						
+						</div>
 							<!-- Submit success message-->
 							<!---->
 							<!-- This is what your users will see when the form-->
@@ -71,7 +83,6 @@
 		</div>
 	</div>
 
-
-
+</form>
 </body>
 </html>

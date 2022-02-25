@@ -4,13 +4,14 @@ import java.io.Serializable;
 
 public class CampImgVO implements Serializable {
 
-    String contentid, imageurl, imageid;
-
-    public String getContentid() {
+    String  imageurl, imageid;
+    int contentid;
+    
+    public int getContentid() {
         return contentid;
     }
 
-    public void setContentid(String contentid) {
+    public void setContentid(int contentid) {
         this.contentid = contentid;
     }
 
