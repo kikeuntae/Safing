@@ -32,8 +32,8 @@
 <c:forEach items="${page.list}" var="vo">
 <div class="camp_search_list">
 				<div class="c_list update">
-					<a href="/bsite/camp/info/read.do?c_no=3348&amp;viewType=read01&amp;listOrdrTrget=last_updusr_pnttm" class="dc_none"><span class="skip">캠핑장정보 더보기</span>
-						<div class="img_box" >
+					<a href="detail.ma?contentid=${vo.contentid }" class="dc_none"><span class="skip">캠핑장정보 더보기</span>
+						<div class="img_box">
 						<c:choose >
 						<c:when test="${vo.firstimageurl eq '-' }"><img src="img/emptyimage.png" alt="${vo.facltnm}"></c:when>
 							<c:otherwise>

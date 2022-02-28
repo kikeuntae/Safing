@@ -20,43 +20,12 @@
 <form action="list.yu" method="post">
 <input type="hidden" name="curPage" value="1" />
 <input type="hidden" name="id"  value="master"/>
-	<div>
-		<!-- 검색 처리 -->
-		<ul>
-			<li>
-				<select name="search" class='w-px90'>
-					<option value="all" ${page.search eq 'all' ? 'selected' : '' }>전체</option>
-					<option value="board_title" ${page.search eq 'board_title' ? 'selected' : '' }>제목</option>
-					<option value="board_content" ${page.search eq 'board_content' ? 'selected' : '' }>내용</option>
-					<option value="member_id" ${page.search eq 'member_id' ? 'selected' : '' }>작성자</option>
-				</select>			
-			</li>
-			<li><input type='text' name='keyword' value="${page.keyword}" class='w-px300' /></li>
-			<li><a class='btn-fill' onclick='$("form").submit()'>검색</a></li>		
-		</ul>		
-		<ul>
-			<li>
-				<select name='pageList' class='w-px90' onchange="$('form').submit()">
-					<option value="10" ${page.pageList eq 10 ? 'selected' : '' }>10개씩</option>
-					<option value="15" ${page.pageList eq 15 ? 'selected' : '' }>15개씩</option>
-					<option value="20" ${page.pageList eq 20 ? 'selected' : '' }>20개씩</option>
-					<option value="25" ${page.pageList eq 25 ? 'selected' : '' }>25개씩</option>
-					<option value="30" ${page.pageList eq 30 ? 'selected' : '' }>30개씩</option>			
-				</select>
-			</li>
-		
-			<li>
-				<select name="viewType" onchange="$('form').submit()">
-					<option value="grid" ${page.viewType eq 'grid' ? 'selected' : '' }>그리드 형태</option>						
-					<option value="list" ${page.viewType eq 'list' ? 'selected' : '' }>리스트 형태</option>
-				</select>
-			</li>
+	
 			<!-- 관리자만 글쓰기 기능 -->
 			<c:if test="${loginInfo.member_admin eq 'y' }">
-				<li><a class='btn-fill' href='new.yu'>글쓰기</a></li>
+				<li><a class='btn-fill' href='new.yu' style="width: 100px; margin-left: 10px ">글쓰기</a></li>
 			</c:if>
-		</ul>
-	</div>
+	
 </form>
 </div>
 <div id='data-list'>
@@ -65,7 +34,7 @@
 <c:if test="${page.viewType eq 'grid'}"><!-- viewType 값이 'grid' 이면 그리드형태를 나타냄 -->
 	<ul class='grid'>
 		<c:forEach items="${page.list }" var="vo">
-			<li style="width: 23%; height: 345px">
+			<li style="width: 23%; height: 345px; margin-right: 10px;">
 				<div style="height: 100%">
 				<a onclick='go_detail(${vo.id})'><img src="${vo.thumbnails }" style="width: 100%; height: 50%"></a>
 				<a>${vo.youtubetitle }</a>

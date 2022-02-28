@@ -32,7 +32,7 @@
 						<!-- https://startbootstrap.com/solution/contact-forms-->
 						<!-- to get an API token!-->
 						<div style="display: flex;">
-							<ul>
+							<ul class="de">
 								<li>
 									<select name='search' style=" width: 70%">
 										<option value="all" ${page.search eq 'all' ? 'selected' : '' }>전체</option>

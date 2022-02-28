@@ -36,15 +36,15 @@
 		<tr>
 			<th>유튜브썸네일</th>
 			<td>
-				<input type='text' name="play" title='제목' class='chk' value="" placeholder="https://img.youtube.com/vi/Tmuq76PeTf4/0.jpg"/>
-				<a href='img/upload.png' onclick=" window.open(this.href, '_blank', 'width=800, height=600'); return false;">&nbsp;&nbsp;예시보기</a>
+				<input type='text' name="thumbnails" title='제목' class='chk' value="" placeholder="https://img.youtube.com/vi/Tmuq76PeTf4/0.jpg" />
+				<a href='img/upload.png' onclick=" window.open(this.href, '_blank', 'width=800, height=600'); return false;" style="width:100px">&nbsp;&nbsp;예시보기</a>
 			</td>
 		</tr>
 		<tr>
 			<th>유튜브재생ID</th>
 			<td>
-				<input type='text' name="thumbnails" title='제목' class='chk' value="" />
-				<a href='img/upload.png' onclick=" window.open(this.href, '_blank', 'width=800, height=600'); return false;">&nbsp;&nbsp;예시보기</a>
+				<input type='text' name="play" title='제목' class='chk' value="" />
+				<a href='img/upload.png' onclick=" window.open(this.href, '_blank', 'width=800, height=600'); return false;" style="width:100px">&nbsp;&nbsp;예시보기</a>
 			</td>
 		</tr>
 			

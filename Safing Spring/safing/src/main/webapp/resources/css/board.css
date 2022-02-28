@@ -200,6 +200,7 @@ a.btn-fill, a.btn-empty {
 	padding: 3px 10px;
 	border: 1px solid #85897B;
 	border-radius: 3px;
+	text-decoration-line : none;
 	box-shadow: 2px 2px 3px #ccc; /* 오른쪽, 아래쪽, 번짐 정도 */
 }
 

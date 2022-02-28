@@ -9,17 +9,20 @@
 <title>camp info</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" type="text/css" />
+
 <!-- Google fonts-->
 <link
 	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link rel='stylesheet' type="text/css"
-	href="css/sub_layout.css?v=<%=new Date().getTime()%>">
+<link rel='stylesheet' type="text/css" href="css/sub_layout.css?v=<%=new Date().getTime()%>">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
+<!-- modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.1-beta/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet">
+
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
 	crossorigin="anonymous"></script>
@@ -142,7 +145,7 @@
 
 						<div class="line_100"></div>
 						<div class="layout">
-							<ul class="camp_tab05">
+							<ul class="camp_tab05" style="list-style: none;">
 								<li><a
 									href="/bsite/camp/info/read.do?c_no=100254&amp;viewType=read01"
 									class="camp_intro">캠핑장 소개</a></li>
@@ -151,8 +154,7 @@
 							<div class="camp_intro">
 
 								<p class="camp_intro_txt">
-									<span>${vo.intro } </span> <span class="date_info">최종 정보
-										수정일 : <%=new Date().getTime()%></span>
+									<span>${vo.intro } 
 								</p>
 								<h3 class="icon_h3">캠핑장 시설정보</h3>
 
@@ -215,33 +217,30 @@
 								<div class="box_photo">
 									<div id="gallery"
 										style="max-width: 100%; min-width: 150px; overflow: visible; height: auto;"
-										class="ug-gallery-wrapper ug-theme-tiles">
-										<div class="ug-overlay-disabled" style="display: none"></div>
-										<div
-											class="ug-tiles-wrapper ug-tiletype-columns ug-tiles-rest-mode ug-tiles-transit"
-											style="position: relative; height: 177px;">
-											<div
-												class="ug-thumb-wrapper ug-tile ug-tile-clickable ug-thumb-ratio-set"
-												style="z-index: 1; background-color: rgb(240, 240, 240); display: block; width: 236px; height: 177px; position: absolute; margin: 0px; left: 4px; top: 0px; opacity: 1;">
-												<div class="ug-thumb-overlay"
-													style="background-color: rgba(0, 0, 0, 0.4); width: 236px; height: 177px; left: 0px; top: 0px; position: absolute; margin: 0px; opacity: 0;">
-													<div class="ug-tile-icon ug-button-play ug-icon-zoom"
-														style="position: absolute; margin: 0px; left: 99px; top: 70px;">
-													</div>
-												</div>
-												<c:forEach items="${img_list}" var="vo">
+										class="ug-gallery-wrapper ug-theme-tiles" >
+										<c:forEach items="${img_list}" var="vo">
 													<c:choose>
-														<c:when test="${vo.imageurl eq null }">
+														<c:when test="${vo.imageurl eq null }">			
 															<img src="img/emptyimage.png" src=""
-																style="width: 236px; height: 177px; left: 0px; top: 0px;">
+																style="width: 236px; height: 177px; left: 0px; top: 0px; margin:10px;">												
 														</c:when>
 														<c:otherwise>
+														<a href="${vo.imageurl }" data-toggle="lightbox" data-gallery="example-gallery" style="display: contents;">
 															<img src="${vo.imageurl }"
 																class="ug-thumb-image ug-trans-enabled"
-																style="width: 236px; height: 177px; left: 0px; top: 0px;">
+																style="width: 236px; height: 177px; left: 0px; top: 0px; margin:10px; overflow: visible;">
+																</a>
 														</c:otherwise>
 													</c:choose>
 												</c:forEach>
+										<div class="ug-overlay-disabled" style="display: none">
+											</div>
+										<div
+											class="ug-tiles-wrapper ug-tiletype-columns ug-tiles-rest-mode ug-tiles-transit"
+											style="position: relative; height: 177px;">
+
+												</div>
+												
 
 
 
@@ -257,11 +256,7 @@
 							<div style="margin-top: -30px; margin-bottom: 30px;">※ 모든
 								컨텐츠의 저작권은 Safing에 있습니다. 무단 사용 및 불법 재배포는 법적 조치를 받을 수 있습니다.</div>
 							<!-- 		<button type="button" class="btn_grey_M">더보기</button> -->
-							<script>
-			$(document).ready(function() {
-				$("#gallery").unitegallery();
-			});
-		</script>
+
 						</div>
 					</div>
 				</div>
@@ -271,8 +266,14 @@
 	<!--//콘텐츠박스-->
 	</section>
 	</div>
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d84d17c12c47d013c9658aecf9316aea"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d84d17c12c47d013c9658aecf9316aea"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+		
+		
 	<script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -295,6 +296,26 @@ marker.setMap(map);
 
 // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 // marker.setMap(null);    
+
+
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+});
 </script>
+
 </body>
+<style>
+.ekko-lightbox-nav-overlay a:last-child span {
+    text-align: right;
+    color: white;
+    font-size: 50px;
+}
+.ekko-lightbox-nav-overlay a span {
+    padding: 0 30px;
+    color: white;
+    font-size: 50px;
+}
+
+</style>
 </html>
