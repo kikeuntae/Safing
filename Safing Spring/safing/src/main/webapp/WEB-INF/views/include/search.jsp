@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<form class="form-subscribe" id="contactForm" action="search_list.ma" method="post">
+<form class="form-subscribe" id="contactForm" action="search_list.ma" method="post" style="margin-top: 16px;">
 	<input type="hidden" name="curPage" value="1" /> 
 		<!-- Masthead-->
 	<div class="s-masthead">

@@ -215,8 +215,8 @@ div.s-masthead {
   background-color: #343a40;
   background: url("../img/visual.png") no-repeat center center;
   background-size: cover;
-  padding-top: 15rem;
-  padding-bottom: 8rem;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 
 .header-nav{

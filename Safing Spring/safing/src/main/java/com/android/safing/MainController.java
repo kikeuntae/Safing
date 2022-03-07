@@ -1,5 +1,7 @@
 package com.android.safing;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,9 +30,11 @@ public class MainController {
 	
 	// main화면 요청
 	@RequestMapping ("/home.ma")
-	public String board(Model  model) {
+	public String board(Model  model, HttpSession session) {
 		model.addAttribute("list", dao.list());
 		model.addAttribute("tip_list", dao1.tip_list());
+		
+		session.setAttribute("category", "ma"); // category 에 yu 를 설정
 		return "main/home";
 	}
 	

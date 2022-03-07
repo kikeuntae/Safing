@@ -83,6 +83,7 @@ public class SafeZoneController {
 		page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
 		page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
 		page.setViewType(viewType);	// 게시판 형태를 page에 담음
+		session.setAttribute("category", "ma");
 		
 		model.addAttribute("page", dao.search_list(page));
 		return "main/search_list";

@@ -80,7 +80,7 @@ public class TipController {
 						, @RequestParam (defaultValue = "10") int pageList
 						, @RequestParam (defaultValue = "grid") String viewType ) {
 					
-					session.setAttribute("category", "yu"); // category 에 cu 를 설정
+					session.setAttribute("category", "yu"); // category 에 yu 를 설정
 					
 					// DB에서 공지사항 정보를 조회해와 목록화면에 출력
 					page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
