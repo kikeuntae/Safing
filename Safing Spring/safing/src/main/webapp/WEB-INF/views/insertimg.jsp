@@ -30,12 +30,12 @@ function fnSubmit(){
 </script>
 </head>
 <body>
-<h3>상품등록</h3>
+<h3>방명록 글쓰기</h3>
 <!-- 파일 첨부하여 submit 하는 경우
 	1. method 는 post 로 지정
 	2. form 에는 반드시 enctype='multipart/form-data' 지정
  -->
-<form action="insert_profile.bo" method="post" onsubmit="return fnSubmit()" enctype="multipart/form-data">
+<form action="insert_img.bo" method="post" onsubmit="return fnSubmit()" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<th>첨부파일</th>
