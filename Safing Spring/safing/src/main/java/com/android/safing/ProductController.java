@@ -22,12 +22,6 @@ import org.springframework.web.multipart.MultipartRequest;
 import com.google.gson.Gson;
 
 import common.CommonService;
-import common.ImginsertVO;
-import common.OutPrintln;
-import common.Product_FileVO;
-import common.ProductinVO;
-import common.TagVO;
-import common.ThemeRecDTO;
 import member.MemberDAO;
 import member.MemberVO;
 import product.AddressVO;
@@ -46,7 +40,6 @@ public class ProductController {
 	Gson gson = new Gson();
 	
 	@Autowired private CommonService service;
-	@Autowired private OutPrintln outprintln;
 	@Autowired private ProductDAO dao;
 
 	

@@ -3,7 +3,6 @@ package com.example.safing.home.adapter;
 import static com.example.safing.async.CommonAsk.FILE_PATH;
 
 import android.content.Context;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
-import com.example.safing.async.CommonAsk;
-import com.example.safing.async.CommonVal;
 import com.example.safing.async.OnItemClick_Theme_Listener;
 import com.example.safing.home.DTO.ThemeRecDTO;
 

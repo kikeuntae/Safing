@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
-import com.example.safing.R;
 import com.example.safing.MainActivity;
+import com.example.safing.R;
 
 public class HomeSearchActivity extends AppCompatActivity {
     SearchView searchView;

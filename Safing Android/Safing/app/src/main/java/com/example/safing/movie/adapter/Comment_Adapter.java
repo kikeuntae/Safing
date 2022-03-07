@@ -14,10 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.safing.MainActivity;
 import com.example.safing.R;
 import com.example.safing.movie.DAO.Comment_DAO;
 import com.example.safing.movie.DTO.Movie_comment_DTO;
+import com.example.safing.mypage.VO.MemberVO;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,16 +36,15 @@ public class Comment_Adapter extends BaseAdapter {
     LayoutInflater inflater;
     Comment_DAO dao= new Comment_DAO();
     Movie_comment_DTO dto = new Movie_comment_DTO();
-
-    long now = System.currentTimeMillis();
-    Date date = new Date(now);
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     boolean update_status = false;
+    MemberVO login_vo = new MemberVO();
 
     public Comment_Adapter(Context context, ArrayList<Movie_comment_DTO> list) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        login_vo = MainActivity.getLogin_member();
 
     }
     public void addDto(Movie_comment_DTO dto){
@@ -90,7 +92,7 @@ public class Comment_Adapter extends BaseAdapter {
             viewHolder.tv_content = itemView.findViewById(R.id.comment_contents);
             viewHolder.tv_date = itemView.findViewById(R.id.comment_date);
             viewHolder.tv_name = itemView.findViewById(R.id.comment_name);
-            viewHolder.cv_userimg = itemView.findViewById(R.id.comment_img);
+            viewHolder.cv_userimg = itemView.findViewById(R.id.comment_list_img);
             viewHolder.ib_delete = itemView.findViewById(R.id.comment_delete);
             viewHolder.ib_update = itemView.findViewById(R.id.comment_update);
 
@@ -103,18 +105,21 @@ public class Comment_Adapter extends BaseAdapter {
         // 선택한 dto 데이터 가져오기
         Movie_comment_DTO dto = list.get(position);
         String name = dto.getMember_id();
-        String date = dto.getComment_regdate();
+        String date =dto.getComment_regdate();
+
+
+
         String content = dto.getComment_content();
-        String usrt_ing = dao.memberImg(name);
+        String usrt_img = dao.memberImg(dto.getMember_id());
 
         // 화면에 데이터 연결하기
         //viewHolder.cv_userimg.setImageURI(Uri.parse(usrt_ing));
         Glide.with(itemView)
-                .load(Uri.parse(usrt_ing))
+                .load(Uri.parse(usrt_img))
                 .into(viewHolder.cv_userimg);
         viewHolder.tv_name.setText(name);
 
-        viewHolder.tv_date.setText(date);
+        viewHolder.tv_date.setText(date+"");
         viewHolder.tv_content.setText(content);
         
         viewHolder.ib_delete.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +134,6 @@ public class Comment_Adapter extends BaseAdapter {
                     @Override
                     public void onClick(DialogInterface dialog, int id)
                     {
-                        dto.setMember_id("master");
                         dao.delete(dto);
                         Toast.makeText(context, "삭제되었습니다", Toast.LENGTH_SHORT).show();
 
@@ -168,7 +172,6 @@ public class Comment_Adapter extends BaseAdapter {
             public void onClick(View v) {
                 if(update_status){ //수정중일떄
                     dto.setComment_content( viewHolder.tv_content.getText()+"");
-                    dto.setMember_id("master");
                     dao.update(dto);
                     viewHolder.tv_content.clearFocus();
                     viewHolder.tv_content.setEnabled(false);

@@ -39,14 +39,14 @@
             android:layout_weight="2"
             android:layout_marginLeft="10dp"
             android:orientation="vertical">
-                <TextView
-                    android:id="@+id/item_product_cart_rec_tv1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:text="상품명 들어올 위치상품명 들어올 위치상품명 들어올 위치"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/item_product_cart_rec_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:text="상품명 들어올 위치상품명 들어올 위치상품명 들어올 위치"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,19 +87,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="수량 : "
-                android:textStyle="bold"
-                android:textColor="#477F83"/>
-            <TextView
-                android:id="@+id/item_product_cart_rec_tv3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="개"
-                android:textColor="#477F83"
-                android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="수량 : "
+                    android:textStyle="bold"
+                    android:textColor="#477F83"/>
+                <TextView
+                    android:id="@+id/item_product_cart_rec_tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="개"
+                    android:textColor="#477F83"
+                    android:textStyle="bold"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -118,8 +118,17 @@
                     android:text="원"
                     android:textColor="#477F83"
                     android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/item_product_cart_rec_tv5"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="invisible"/>
+                <TextView
+                    android:id="@+id/item_product_cart_rec_tv6"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="invisible"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
-

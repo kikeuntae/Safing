@@ -21,8 +21,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.safing.MainActivity;
 import com.example.safing.R;
-import com.example.safing.async.CommonVal;
+
 import com.example.safing.async.OnItemClick_Product_Package_Detail_Listener;
+import com.example.safing.mypage.VO.MemberVO;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.shop.VO.CartVO;
 import com.example.safing.shop.VO.Order_Detail_CntVO;
@@ -44,6 +45,8 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
     ArrayList<Product_DetailVO> list = new ArrayList<>();
     MainActivity mainActivity = new MainActivity();
     ArrayList<String> imageList = new ArrayList<>();
+    MemberVO login_vo = new MemberVO();
+
 
     int sendPriceSum = 0;
     int packge_num = 0;
@@ -59,6 +62,8 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        login_vo = MainActivity.getLogin_member();
+
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_product_pacakage_detail, container, false);
 
         product_detail_rec = rootView.findViewById(R.id.product_detail_rec);
@@ -81,7 +86,7 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
         product_detail_btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(CommonVal.loginInfo.getMember_id().isEmpty()){
+                if(login_vo.getMember_id().isEmpty()){
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle("로그인 확인");
                     builder.setMessage("로그인이 필요합니다.");
@@ -134,7 +139,7 @@ public class Product_Pacakage_Detail_Fragment extends Fragment {
         product_detail_btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(CommonVal.loginInfo.getMember_id().isEmpty()){
+                if(login_vo.getMember_id().isEmpty()){
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle("로그인 확인");
                     builder.setMessage("로그인이 필요합니다.");

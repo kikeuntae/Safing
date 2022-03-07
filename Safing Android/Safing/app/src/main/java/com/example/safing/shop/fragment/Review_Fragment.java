@@ -44,6 +44,7 @@ import com.bumptech.glide.Glide;
 import com.example.safing.MainActivity;
 import com.example.safing.R;
 import com.example.safing.async.CommonVal;
+import com.example.safing.mypage.VO.MemberVO;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.shop.VO.PurchaseHistoryVO;
 import com.example.safing.shop.VO.ReviewVO;
@@ -72,6 +73,7 @@ public class Review_Fragment extends Fragment {
     RatingBar review_rating;
     EditText review_etv;
     Button review_btn1, review_btn2;
+    MemberVO login_vo = new MemberVO();
 
     int rating_check = 0;
     int imgbtn_check = 0;
@@ -97,6 +99,8 @@ public class Review_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        login_vo= MainActivity.getLogin_member();
+
         View rootView =  inflater.inflate(R.layout.fragment_review, container, false);
 
         review_view = rootView.findViewById(R.id.review_view);
@@ -133,9 +137,9 @@ public class Review_Fragment extends Fragment {
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        if(CommonVal.loginInfo != null){
-            Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-            header_text.setText(CommonVal.loginInfo.getMember_id());
+        if(login_vo != null){
+            Glide.with(context).load(FILE_PATH + login_vo.getMember_filepath()).into(header_imge);
+            header_text.setText(login_vo.getMember_id());
         }
 
         //============= navigation view 기능=====
@@ -234,7 +238,7 @@ public class Review_Fragment extends Fragment {
                     Toast.makeText(context, "내용을 10자 이상 작성해주세요.", Toast.LENGTH_SHORT).show();
                     review_etv.requestFocus();
                 } else {
-                    reviewVO.setMember_id(CommonVal.loginInfo.getMember_id());
+                    reviewVO.setMember_id(login_vo.getMember_id());
                     reviewVO.setOrder_num(vo.getOrder_num());
                     reviewVO.setRating((int) review_rating.getRating());
                     reviewVO.setBoard_content(review_etv.getText()+"");

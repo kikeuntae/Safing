@@ -25,7 +25,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
-import com.example.safing.async.CommonVal;
+import com.example.safing.mypage.VO.MemberVO;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.shop.VO.Product_PackageVO;
 import com.example.safing.shop.VO.Product_Package_DetailVO;
@@ -46,6 +46,8 @@ public class Product_Package_Fragment extends Fragment {
     ShopDAO dao = new ShopDAO();
     String review;
     int package_num = 0;
+    MemberVO login_vo = new MemberVO();
+
 
     public Product_Package_Fragment(Context context, int package_num) {
         this.context = context;
@@ -61,6 +63,8 @@ public class Product_Package_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        login_vo = MainActivity.getLogin_member();
         View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_product_package, container, false);
 
         shop_product_tab1 = rootView.findViewById(R.id.shop_product_tab1);
@@ -87,9 +91,9 @@ public class Product_Package_Fragment extends Fragment {
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        if(CommonVal.loginInfo != null){
-            Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-            header_text.setText(CommonVal.loginInfo.getMember_id());
+        if(login_vo != null){
+            Glide.with(context).load(FILE_PATH + login_vo.getMember_filepath()).into(header_imge);
+            header_text.setText(login_vo.getMember_id());
         }
 
         //=========패키지 이미지 페이저 ==============

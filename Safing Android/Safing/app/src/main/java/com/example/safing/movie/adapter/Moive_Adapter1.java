@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,9 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.safing.MainActivity;
 import com.example.safing.R;
-import com.example.safing.movie.DAO.Comment_DAO;
 import com.example.safing.movie.DAO.Movie_DAO;
 import com.example.safing.movie.DTO.Board_Movie_DTO;
 import com.example.safing.movie.DTO.Movie_EXO_DTO;
@@ -225,7 +222,7 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
                     @Override
                     public void onClick(View v) {
                         if (heart_change == true) {
-                            Toast.makeText(context, "좋아요", Toast.LENGTH_SHORT).show();
+
                             movie_pager_like.setImageResource(R.drawable.heart2);
 
                             heart_change = false;
@@ -234,7 +231,7 @@ public class Moive_Adapter1 extends RecyclerView.Adapter<Moive_Adapter1.VH> {
                             dao.like(videodb);
                             movie_pager_like_cnt.setText(like_count+"");
                         } else {
-                            Toast.makeText(context, "좋아요 취소", Toast.LENGTH_SHORT).show();
+
                             movie_pager_like.setImageResource(R.drawable.heart1);
                             heart_change = true;
                             int like_count = videodb.getBoard_like_cnt()-1;

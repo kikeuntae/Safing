@@ -65,9 +65,9 @@ public class CamInfoActivity extends AppCompatActivity implements MapView.OpenAP
         Intent intent = getIntent();
         vo = (SafeZoneRecVO) intent.getSerializableExtra("vo");
 
-       CUSTOM_MARKER_POINT  = MapPoint.mapPointWithGeoCoord(Double.parseDouble(vo.getMapy()) , (Double.parseDouble(vo.getMapx())));
-       CUSTOM_MARKER_POINT2 = MapPoint.mapPointWithGeoCoord(Double.parseDouble(vo.getMapy()) , (Double.parseDouble(vo.getMapx())));
-       DEFAULT_MARKER_POINT = MapPoint.mapPointWithGeoCoord(Double.parseDouble(vo.getMapy()) , (Double.parseDouble(vo.getMapx())));
+        CUSTOM_MARKER_POINT  = MapPoint.mapPointWithGeoCoord(Double.parseDouble(vo.getMapy()) , (Double.parseDouble(vo.getMapx())));
+        CUSTOM_MARKER_POINT2 = MapPoint.mapPointWithGeoCoord(Double.parseDouble(vo.getMapy()) , (Double.parseDouble(vo.getMapx())));
+        DEFAULT_MARKER_POINT = MapPoint.mapPointWithGeoCoord(Double.parseDouble(vo.getMapy()) , (Double.parseDouble(vo.getMapx())));
         MapLayout mapLayout = new MapLayout(this);
         mMapView = mapLayout.getMapView();
 
@@ -302,8 +302,8 @@ public class CamInfoActivity extends AppCompatActivity implements MapView.OpenAP
     //지도가 초기화 되고나서 실행됩니당.
     @Override
     public void onMapViewInitialized(MapView mapView) {
-            //Double.parseDouble(vo.getMapx());
-            mapView.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord(Double.parseDouble(vo.getMapy()), Double.parseDouble(vo.getMapx())), 2, true);
+        //Double.parseDouble(vo.getMapx());
+        mapView.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord(Double.parseDouble(vo.getMapy()), Double.parseDouble(vo.getMapx())), 2, true);
 
     }
     //지도의 중심 부분이 이동되었을때 위경도를 알아오기위한 처리를 넣어주심됩니다.
@@ -411,7 +411,7 @@ public class CamInfoActivity extends AppCompatActivity implements MapView.OpenAP
             ((TextView) mCalloutBalloon.findViewById(R.id.m_addr1)).setText(vo.getAddr1());
             return mCalloutBalloon;
 
-           // sbrscl.setText(vo.getSbrscl());
+            // sbrscl.setText(vo.getSbrscl());
         }
 
         @Override

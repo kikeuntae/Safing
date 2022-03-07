@@ -13,8 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.safing.MainActivity;
 import com.example.safing.R;
 
+import com.example.safing.mypage.VO.MemberVO;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.shop.VO.ReviewVO;
 import com.example.safing.shop.adapter.Product_Review_Apdater;
@@ -29,6 +31,7 @@ public class Product_Review_Fragment extends Fragment {
     String category = "";
     ArrayList<ReviewVO> list = new ArrayList<>();
     ShopDAO dao = new ShopDAO();
+    MemberVO login_vo = new MemberVO();
 
     public Product_Review_Fragment(Context context,  int num, String category){
         this.context = context;
@@ -39,6 +42,8 @@ public class Product_Review_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        login_vo = MainActivity.getLogin_member();
+
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_review_product, container, false);
 
         product_review_rec = rootView.findViewById(R.id.product_review_rec);

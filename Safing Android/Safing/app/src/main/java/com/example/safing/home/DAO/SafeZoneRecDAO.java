@@ -6,7 +6,6 @@ import com.example.safing.async.AskParam;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
 import com.example.safing.home.VO.SafeZoneRecVO;
-import com.example.safing.home.VO.YoutubeTipVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

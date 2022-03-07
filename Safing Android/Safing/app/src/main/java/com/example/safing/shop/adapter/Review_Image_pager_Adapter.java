@@ -1,10 +1,7 @@
 package com.example.safing.shop.adapter;
 
-<<<<<<< HEAD
-=======
 import static com.example.safing.async.CommonAsk.FILE_PATH;
 
->>>>>>> a02f5b8566c4136a456a66620dcd97c975ed763f
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,28 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-<<<<<<< HEAD
-<<<<<<< HEAD:Safing Android/Safing/app/src/main/java/com/example/safing/shop/adapter/Review_Image_pager_Adapter.java
-import com.example.safing.shop.DTO.Shop_Product_PagerDTO;
-=======
->>>>>>> a02f5b8566c4136a456a66620dcd97c975ed763f:Safing Android/Safing/app/src/main/java/com/example/safing/shop/adapter/Review_Image_Rec_Adapter.java
-=======
 import com.bumptech.glide.Glide;
->>>>>>> a02f5b8566c4136a456a66620dcd97c975ed763f
 import com.example.safing.R;
 
 import java.util.ArrayList;
 
-<<<<<<< HEAD
-public class Review_Image_Rec_Adapter extends RecyclerView.Adapter<Review_Image_Rec_Adapter.ViewHolder> {
-    Context context;
-  //  ArrayList<Shop_Product_PagerDTO> list;
-    LayoutInflater inflater;
-
-    public Review_Image_Rec_Adapter(Context context) {
-        this.context = context;
-   //     this.list = list;
-=======
 public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Image_pager_Adapter.ViewHolder> {
     Context context;
     ArrayList<String> list = new ArrayList<>();
@@ -45,7 +25,6 @@ public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Imag
     public Review_Image_pager_Adapter(Context context, ArrayList<String> list) {
         this.context = context;
         this.list = list;
->>>>>>> a02f5b8566c4136a456a66620dcd97c975ed763f
         this.inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
@@ -66,11 +45,7 @@ public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Imag
 
     @Override
     public int getItemCount() {
-<<<<<<< HEAD
-        return 5;
-=======
         return list.size();
->>>>>>> a02f5b8566c4136a456a66620dcd97c975ed763f
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -86,9 +61,6 @@ public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Imag
 
     }
     public void binding(ViewHolder holder, int position){
-<<<<<<< HEAD
-        holder.product_tv1.setText((position+1) +"/"+ 5);
-=======
         if(list.get(position).indexOf("/storage/") != -1){
             Glide.with(context).load(list.get(position)).into( holder.product_img1);
 
@@ -97,6 +69,5 @@ public class Review_Image_pager_Adapter extends RecyclerView.Adapter<Review_Imag
         }
 
         holder.product_tv1.setText((position+1) +"/"+ list.size());
->>>>>>> a02f5b8566c4136a456a66620dcd97c975ed763f
     }
 }

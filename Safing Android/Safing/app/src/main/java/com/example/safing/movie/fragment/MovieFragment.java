@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.safing.R;
-//import com.example.safing.adapter.Moive_Adapter1;
 import com.example.safing.movie.DAO.Movie_DAO;
 import com.example.safing.movie.DTO.Board_Movie_DTO;
 import com.example.safing.movie.adapter.Moive_Adapter1;

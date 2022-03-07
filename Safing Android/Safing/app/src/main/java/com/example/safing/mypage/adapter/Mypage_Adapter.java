@@ -1,13 +1,8 @@
 package com.example.safing.mypage.adapter;
 
-import static com.example.safing.async.CommonAsk.MEMBER_ID;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,15 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.safing.MainActivity;
 import com.example.safing.R;
-import com.example.safing.home.activity.CamInfoActivity;
-import com.example.safing.home.VO.SafeZoneRecVO;
 import com.example.safing.movie.DAO.Movie_DAO;
 import com.example.safing.movie.DTO.Board_Movie_DTO;
-import com.example.safing.movie.fragment.Movie_insertFragment;
 import com.example.safing.movie.fragment.Movie_updateFragment;
 
-import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Mypage_Adapter extends RecyclerView.Adapter<Mypage_Adapter.ViewHolder> {

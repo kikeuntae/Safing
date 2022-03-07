@@ -12,7 +12,7 @@ public class CommonMethod {
     public static InputStream excuteAsk(AsyncTask<String, String, InputStream> ask) {
         InputStream in = null;
         try {
-             in = ask.execute().get();
+            in = ask.execute().get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

@@ -1,7 +1,6 @@
 package com.example.safing.movie.fragment;
 
 import static android.app.Activity.RESULT_OK;
-
 import static com.example.safing.async.CommonAsk.MEMBER_ID;
 
 import android.Manifest;
@@ -31,7 +30,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.bumptech.glide.Glide;
 import com.example.safing.MainActivity;
@@ -39,10 +37,10 @@ import com.example.safing.R;
 import com.example.safing.async.AskParam;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
-import com.example.safing.fragment.LoginFragment;
 import com.example.safing.movie.DAO.Comment_DAO;
 import com.example.safing.movie.DAO.Movie_DAO;
 import com.example.safing.movie.DTO.Board_Movie_DTO;
+import com.example.safing.mypage.VO.MemberVO;
 import com.example.safing.mypage.fragment.MypageFragment;
 import com.google.gson.Gson;
 
@@ -60,12 +58,14 @@ public class Movie_insertFragment extends Fragment {
     Context context;
     MainActivity mainActivity = new MainActivity();
     Movie_DAO dao= new Movie_DAO();
+    Comment_DAO dao_comment = new Comment_DAO();
     EditText movie_title_et,movie_tag_et,movie_content_et;
     ImageButton movie_ok;
     ImageView movie1,movie2,movie3;
     CircleImageView insert_myimg;
     TextView size1,size2,size3;
     MypageFragment MypageFragment;
+    MemberVO member = new MemberVO();
 
     AlertDialog dialog;
     final int GALLERY_IMG = 1001;
@@ -102,17 +102,28 @@ public class Movie_insertFragment extends Fragment {
         insert_myimg = rootView.findViewById(R.id.insert_myimg);
         size1 = rootView.findViewById(R.id.insert_movie1_size);
 
+        MemberVO vo = MainActivity.getLogin_member();
 
         Comment_DAO img = new Comment_DAO();
-        Glide.with(rootView).load(Uri.parse(img.memberImg(MEMBER_ID))).into(insert_myimg);
+        String url = dao_comment.memberImg(vo.getMember_id());
+        if(url!=null){
+            Glide.with(context)
+                    .load(Uri.parse(url))
+                    .into(insert_myimg);
+        }else {
+            Glide.with(context)
+                    .load(R.drawable.profile)
+                    .into(insert_myimg);
+        }
         Board_Movie_DTO dto = new Board_Movie_DTO();
+        member = MainActivity.getLogin_member();
 
         movie_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 dto.setBoard_title(movie_title_et.getText()+"");
-                dto.setMember_id("master");
+                dto.setMember_id(member.getMember_id());
                 dto.setBoard_content(movie_content_et.getText()+"");
                 dto.setBoard_kinds("video");
 

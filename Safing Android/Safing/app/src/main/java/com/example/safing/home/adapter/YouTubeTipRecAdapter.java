@@ -13,10 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.safing.async.CommonVal;
+import com.example.safing.R;
 import com.example.safing.home.DAO.YoutubeTipDAO;
 import com.example.safing.home.VO.YoutubeTipVO;
-import com.example.safing.R;
 import com.example.safing.home.activity.TipActivity;
 
 import java.util.ArrayList;

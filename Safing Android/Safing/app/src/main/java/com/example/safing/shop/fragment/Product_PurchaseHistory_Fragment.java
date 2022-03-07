@@ -28,6 +28,7 @@ import com.example.safing.MainActivity;
 import com.example.safing.async.CommonVal;
 import com.example.safing.async.OnItemClick_Cart_Listener;
 import com.example.safing.async.OnItemClick_PurcahseHistory_Listener;
+import com.example.safing.mypage.VO.MemberVO;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.shop.VO.PurchaseHistoryVO;
 import com.example.safing.shop.adapter.Product_Cart_Rec_Adapter;
@@ -45,7 +46,7 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
     MainActivity mainActivity = new MainActivity();
     ShopDAO dao = new ShopDAO();
     ArrayList<PurchaseHistoryVO> list = new ArrayList<>();
-
+    MemberVO login_vo = new MemberVO();
 
     public Product_PurchaseHistory_Fragment(Context context){
         this.context = context;
@@ -54,6 +55,8 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        login_vo = MainActivity.getLogin_member();
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_product_purchase_history, container, false);
 
         toolbar = rootView.findViewById(R.id.product_purchaseHistory_toolbar);
@@ -78,9 +81,9 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        if(CommonVal.loginInfo != null){
-            Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-            header_text.setText(CommonVal.loginInfo.getMember_id());
+        if(login_vo != null){
+            Glide.with(context).load(FILE_PATH + login_vo.getMember_filepath()).into(header_imge);
+            header_text.setText(login_vo.getMember_id());
         }
 
         //============= navigation view 기능=====
@@ -104,7 +107,7 @@ public class Product_PurchaseHistory_Fragment extends Fragment {
     }
 
     public void setRec(){
-        list = dao.purchaseHistory_list(CommonVal.loginInfo.getMember_id());
+        list = dao.purchaseHistory_list(login_vo.getMember_id());
 
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
 

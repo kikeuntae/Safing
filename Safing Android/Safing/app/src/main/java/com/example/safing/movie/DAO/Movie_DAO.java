@@ -6,7 +6,6 @@ import com.example.safing.async.AskParam;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
 import com.example.safing.movie.DTO.Board_Movie_DTO;
-import com.example.safing.movie.DTO.Movie_comment_DTO;
 import com.example.safing.mypage.VO.MemberVO;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;

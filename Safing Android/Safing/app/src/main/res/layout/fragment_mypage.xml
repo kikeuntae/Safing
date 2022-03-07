@@ -134,6 +134,7 @@
                         android:orientation="vertical"
                         android:gravity="center">
                         <TextView
+                            android:id="@+id/mypage_shoppingbasket_sum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="-"
@@ -143,7 +144,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="팔로잉"/>
+                            android:text="장바구니"/>
                     </LinearLayout>
                 </LinearLayout>
                 <View

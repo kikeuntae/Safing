@@ -10,27 +10,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedDispatcher;
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.safing.MainActivity;
+import com.example.safing.R;
 import com.example.safing.async.OnItemClick_Theme_Listener;
 import com.example.safing.home.DAO.HomeDAO;
 import com.example.safing.home.DAO.SafeZoneRecDAO;
 import com.example.safing.home.DAO.YoutubeTipDAO;
 import com.example.safing.home.DTO.ThemeRecDTO;
-import com.example.safing.home.VO.YoutubeTipVO;
-import com.example.safing.shop.fragment.Product_Package_Fragment;
 import com.example.safing.home.VO.SafeZoneRecVO;
-import com.example.safing.R;
-import com.example.safing.MainActivity;
+import com.example.safing.home.VO.YoutubeTipVO;
 import com.example.safing.home.activity.SafeGuardInfoActivity;
 import com.example.safing.home.adapter.SafeZoneRecAdapter;
 import com.example.safing.home.adapter.Theme_Pager_Adapter;
 import com.example.safing.home.adapter.YouTubeTipRecAdapter;
+import com.example.safing.shop.fragment.Product_Package_Fragment;
 import com.example.safing.shop.fragment.ShopFragment;
 
 import java.util.ArrayList;
@@ -38,7 +36,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment{
     RecyclerView recysf, recyoutube ;
     Context context;
-    ViewPager2 rectheme;
+    RecyclerView rectheme;
     ImageView home_search, sguse, thumbnails ;
     TextView packgemore;
     MainActivity mainActivity = new MainActivity();

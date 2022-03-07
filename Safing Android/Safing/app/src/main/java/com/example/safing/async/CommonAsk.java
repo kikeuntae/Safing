@@ -43,7 +43,6 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
         this.params.add(new AskParam(key, value));
     }
 
-    //어싱크테스크를 excute(실행) ↓
     @Override
     protected InputStream doInBackground(String... strings) {
         postUrl = HTTPIP + SVRPATH + mapping ;
@@ -69,27 +68,27 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
         InputStream   in = null;
         try {
             in = httpClient.execute(httpPost).getEntity().getContent();
-          //  rtnString(in);
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //rtnString(in);
+
         return in;
     }
-    //DAO , COMMON 공통으로 사용할 클래스로 이동.
+
     public String rtnString(InputStream inputStream)  {
         try{
 
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        StringBuilder stringBuilder = new StringBuilder();
-        String line = null;
-        while( (line = reader.readLine()) != null  ){
-            stringBuilder.append( line + "\n");
-        }
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder stringBuilder = new StringBuilder();
+            String line = null;
+            while( (line = reader.readLine()) != null  ){
+                stringBuilder.append( line + "\n");
+            }
 
-        return stringBuilder.toString();
+            return stringBuilder.toString();
         }catch (IOException e){
 
         }

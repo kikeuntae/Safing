@@ -1,8 +1,5 @@
 package com.example.safing.home.VO;
 
-import android.view.animation.LayoutAnimationController;
-import android.widget.LinearLayout;
-
 import java.io.Serializable;
 
 public class YoutubeTipVO implements Serializable {

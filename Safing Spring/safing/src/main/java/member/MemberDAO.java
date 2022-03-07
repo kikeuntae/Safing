@@ -37,48 +37,6 @@ public class MemberDAO {
 	public boolean delete(MemberVO vo) {
 		return sql.delete("member.mapper.delete", vo) == 1 ? true : false;
 	}
-
-	//회원 프로필사진 가져오기
-	public MemberVO memberimg(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return sql.selectOne("member.mapper.selectimg", vo);
-	}
-
-	//관리자 (회원 지우기)
-	public void customer_delete(String member_id) {
-		// TODO Auto-generated method stub
-		sql.delete("member.mapper.delete", member_id);
-	}
-	
-	//관리자 (회원 리스트 확인)
-	public List<MemberVO> customer_list() {
-		// TODO Auto-generated method stub
-		return sql.selectList("member.mapper.list_customer");
-	}
-
-	//관리자 (회원 상세 확인)
-	public MemberVO cusotomer_detail(String member_id) {
-		// TODO Auto-generated method stub
-		return sql.selectOne("member.mapper.detail_customer", member_id);
-	}
-
-	//관리자 (회원 추가)
-	public void customer_insert(MemberVO vo) {
-		// TODO Auto-generated method stub
-		sql.insert("member.mapper.insert_customer", vo);
-	}
-
-	//관리자 (회원정보 수정)
-	public void customer_update(MemberVO vo) {
-		// TODO Auto-generated method stub
-		sql.update("member.mapper.update_cusotomer", vo);
-	}
-
-	//프로필이미지 업데이트
-	public int img_update(String string, MemberVO vo) {
-		// TODO Auto-generated method stub
-		return sql.update("member.mapper.update_img", vo);
-	}
 	
 	
 }

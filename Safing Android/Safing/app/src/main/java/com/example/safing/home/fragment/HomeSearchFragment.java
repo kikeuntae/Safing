@@ -3,29 +3,23 @@ package com.example.safing.home.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.activity.OnBackPressedCallback;
-import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.example.safing.MainActivity;
 import com.example.safing.R;
 import com.example.safing.home.DAO.SafeZoneRecDAO;
 import com.example.safing.home.VO.SafeZoneRecVO;
-import com.example.safing.home.activity.HomeSearchActivity;
-import com.example.safing.home.activity.SafeGuardInfoActivity;
 import com.example.safing.home.adapter.HomeSearchAdapter;
-import com.example.safing.shop.fragment.ShopFragment;
 
 import java.util.ArrayList;
 

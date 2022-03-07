@@ -1,10 +1,5 @@
 package com.example.safing.movie.DTO;
 
-import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.ui.PlayerView;
-
-import java.io.Serializable;
-
 public class Board_Movie_DTO  {
     private int	   board_id	        ;
     private String member_id	    ;

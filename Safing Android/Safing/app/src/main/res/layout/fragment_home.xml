@@ -142,12 +142,12 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <androidx.viewpager2.widget.ViewPager2
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rectheme"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            </androidx.viewpager2.widget.ViewPager2>
+            </androidx.recyclerview.widget.RecyclerView>
 
             <Button
                 android:id="@+id/packgemore"

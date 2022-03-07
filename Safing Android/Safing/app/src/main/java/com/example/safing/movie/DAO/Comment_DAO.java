@@ -5,7 +5,6 @@ import android.util.Log;
 import com.example.safing.async.AskParam;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
-import com.example.safing.movie.DTO.Board_Movie_DTO;
 import com.example.safing.movie.DTO.Movie_comment_DTO;
 import com.example.safing.mypage.VO.MemberVO;
 import com.google.common.reflect.TypeToken;
@@ -15,7 +14,6 @@ import com.google.gson.GsonBuilder;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Comment_DAO {
     private static final String TAG = "video";
@@ -94,8 +92,24 @@ public class Comment_DAO {
     }
 
 
-    public void comment_cnt_re() {
+    public MemberVO member_get(String member_id) { //프로필이미지 가져오기
+
+        service = new CommonAsk("memberimg.me");
+        //MemberVO member = new MemberVO();
+        MemberVO vo = new MemberVO();
+        vo.setMember_id(member_id);
+        String str = gson.toJson(vo);
+        service.params.add(new AskParam("vo", str));
+        in = CommonMethod.excuteAsk(service);
+        try {
+            vo = gson.fromJson(new InputStreamReader(in), new TypeToken<MemberVO>() {
+            }.getType());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d(TAG, "gson error");
+        }
 
 
+        return vo;
     }
 }

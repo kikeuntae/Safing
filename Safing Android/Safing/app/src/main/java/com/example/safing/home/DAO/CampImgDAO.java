@@ -5,7 +5,6 @@ import android.util.Log;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
 import com.example.safing.home.VO.CampImgVO;
-import com.example.safing.home.VO.SafeZoneRecVO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

@@ -12,12 +12,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.safing.MainActivity;
 import com.example.safing.R;
 import com.example.safing.async.AskParam;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
 import com.example.safing.async.NaverGetAsk;
+import com.example.safing.movie.DAO.Comment_DAO;
 import com.example.safing.mypage.VO.MemberVO;
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -54,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
     MemberVO dto = new MemberVO();
     InputStream in;
     Button find;
+    Boolean sns_chk = false;
+    MemberVO vo = new MemberVO();
 
 
     @Override
@@ -79,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         /*Drawable alpha = (findViewById(R.id.loginlayout)).getBackground();
         alpha.setAlpha(230);*/
 
-        KakaoSdk.init(this, "5f751e504b5fd8ab19b195be254992ae");//카카오
+        KakaoSdk.init(this, "cad9d128e6313db0c6b34ec4aab5209a");//카카오
 
         authLogin = OAuthLogin.getInstance();
         authLogin.showDevelopersLog(true);
@@ -87,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this,
                 "jP8OUbSsgMTpkHgqkM4B",
                 "VV7lUj9G96",
-                "Safing1"
+                "Safing"
         );//네이버
 
         loginButton = findViewById(R.id.naver_login);
@@ -210,7 +215,8 @@ public class LoginActivity extends AppCompatActivity {
                     MemberVO vo = gson.fromJson(new InputStreamReader(in), MemberVO.class);
                     if(vo != null){
                         Toast.makeText(LoginActivity.this, "로그인 성공!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this,SettingActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        MainActivity.setLogin_member(vo);
                         startActivity(intent);
                     }else{
                         Toast.makeText(LoginActivity.this, "로그인 실패!", Toast.LENGTH_SHORT).show();
@@ -281,6 +287,30 @@ public class LoginActivity extends AppCompatActivity {
                     Profile profile = kakaoAcount.getProfile();
                     if(profile != null){
                         Toast.makeText(LoginActivity.this, email +"님 환영", Toast.LENGTH_SHORT).show();
+
+
+                        // sns로그인한 계정이 DB에 있는지 확인
+                        Comment_DAO comment_dao = new Comment_DAO();
+                        vo = comment_dao.member_get(email);
+
+                            if(vo==null) { // sns 첫 로그인 시 DB에 이메일id로 회원가입 값 가져오면 되기는 한데 번거로우니 임시값 지정
+                                vo = new MemberVO();
+                                vo.setMember_id(email);
+                                vo.setMember_pw("TEST123*()");
+                                vo.setMember_phone("000-0000-0000");
+                                vo.setMember_name("카카오로그인회원");
+                                vo.setMember_age(100);
+                                vo.setMember_filepath("http://192.168.0.65:80/safing/resources/upload/member/2022/02/05/05f85ebb-187b-40de-84ee-733c5b65db5f_프로필1.jpg");
+                                service = new CommonAsk("join.me");
+                                String str = gson.toJson(vo);
+                                service.params.add(new AskParam("vo", str));
+                                //async.AskParam
+                                CommonMethod.excuteAsk(service);
+                            }
+
+
+
+                        MainActivity.setLogin_member(vo);
                         goMain();
 
                     }
@@ -328,7 +358,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
 
-        Intent intent = new Intent(LoginActivity.this, SettingActivity.class);
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
 
     }

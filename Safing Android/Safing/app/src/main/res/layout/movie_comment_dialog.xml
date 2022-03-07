@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.6"
         android:background="#00000000"
         android:orientation="horizontal">
 
@@ -21,15 +21,15 @@
             android:gravity="center">
 
             <ImageButton
-                android:background="#00000000"
                 android:id="@+id/movie_comment_exit"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:background="#00000000"
                 android:backgroundTint="#4FC3C1C1"
                 android:scaleType="fitXY"
-                android:src="@drawable/comment_downbacter" />
+                android:src="@drawable/backbtn_1" />
 
             <TextView
                 android:layout_width="0dp"
@@ -38,7 +38,7 @@
                 android:gravity="center"
                 android:text="Comment"
                 android:textAlignment="center"
-                android:textSize="30dp" />
+                android:textSize="20dp" />
         </LinearLayout>
 
 
@@ -54,10 +54,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#4FC3C1C1">
+        >
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/comment_img"
+            android:layout_margin="10dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -69,17 +70,17 @@
             android:layout_height="match_parent"
             android:textSize="20dp"
             android:layout_weight="5"
+            android:layout_marginLeft="5dp"
             android:background="@null"
             android:textColor="@color/black"
             android:hint="댓글을 입력하세요" />
 
         <ImageButton
             android:id="@+id/comment_insert"
-            android:scaleType="fitCenter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#4FC3C1C1"
+            android:scaleType="fitCenter"
             android:src="@drawable/comment_upbacter" />
 
     </LinearLayout>

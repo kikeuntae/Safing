@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.safing.MainActivity;
 import com.example.safing.R;
+import com.example.safing.mypage.fragment.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
     @Override
@@ -54,10 +55,12 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+
+                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
         }, 10);
     }
+
 }

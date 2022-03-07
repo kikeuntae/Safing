@@ -10,10 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-<<<<<<< HEAD:Safing Android/Safing/app/src/main/java/com/example/safing/shop/adapter/Review_Image_pager_Adapter.java
-import com.example.safing.shop.DTO.Shop_Product_PagerDTO;
-=======
->>>>>>> a02f5b8566c4136a456a66620dcd97c975ed763f:Safing Android/Safing/app/src/main/java/com/example/safing/shop/adapter/Review_Image_Rec_Adapter.java
 import com.example.safing.R;
 
 import java.util.ArrayList;

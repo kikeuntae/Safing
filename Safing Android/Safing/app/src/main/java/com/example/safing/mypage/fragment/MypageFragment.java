@@ -1,7 +1,6 @@
 package com.example.safing.mypage.fragment;
 
 import static android.app.Activity.RESULT_OK;
-
 import static com.example.safing.async.CommonAsk.MEMBER_ID;
 
 import android.Manifest;
@@ -39,23 +38,20 @@ import com.example.safing.R;
 import com.example.safing.async.AskParam;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
-import com.example.safing.fragment.LoginFragment;
-import com.example.safing.fragment.QNAFragment;
-import com.example.safing.fragment.SettingFragment;
 import com.example.safing.movie.DAO.Comment_DAO;
 import com.example.safing.movie.DAO.Movie_DAO;
 import com.example.safing.movie.DTO.Board_Movie_DTO;
-import com.example.safing.movie.adapter.Moive_Adapter1;
 import com.example.safing.movie.fragment.Movie_insertFragment;
 import com.example.safing.mypage.VO.MemberVO;
 import com.example.safing.mypage.adapter.Mypage_Adapter;
+import com.example.safing.shop.DAO.ShopDAO;
+import com.example.safing.shop.VO.CartVO;
 import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -70,7 +66,7 @@ public class MypageFragment extends Fragment {
     MainActivity mainActivity = new MainActivity();
     ImageView mypage_setting,mypage_add;
     Button mypage_login;
-    TextView mypage_id , mypage_board_cnt, mypage_like_sum;
+    TextView mypage_id , mypage_board_cnt, mypage_like_sum, mypage_shoppingbasket_sum;
     CircleImageView mypage_profile;
     AlertDialog dialog;
     final int GALLERY_IMG = 1001;
@@ -108,12 +104,13 @@ public class MypageFragment extends Fragment {
         rec= rootView.findViewById(R.id.mypage_recyclerView);
         mypage_board_cnt= rootView.findViewById(R.id.mypage_board_cnt);
         mypage_like_sum= rootView.findViewById(R.id.mypage_like_sum);
+        mypage_shoppingbasket_sum= rootView.findViewById(R.id.mypage_shoppingbasket_sum);
 
         //셋팅메뉴 이동
 
         List<Board_Movie_DTO> videoItems  = new ArrayList<>();
         MemberVO vo = new MemberVO();
-        vo.setMember_id(MEMBER_ID);
+        vo = MainActivity.getLogin_member();
         videoItems = dao.list_mypage(vo);
         adapter = new Mypage_Adapter(getContext() , videoItems);
         rec.setAdapter(adapter);
@@ -125,6 +122,13 @@ public class MypageFragment extends Fragment {
         }
         mypage_like_sum.setText(like_sum+"");
 
+        ShopDAO dao_shop = new ShopDAO();
+
+
+        ArrayList<CartVO> cart_list = dao_shop.cart_list(vo.getMember_id());
+
+        mypage_shoppingbasket_sum.setText(cart_list.size()+"");
+
 
 
 
@@ -132,10 +136,18 @@ public class MypageFragment extends Fragment {
 
 
         Comment_DAO dao = new Comment_DAO();
-        Glide.with(context)
-                .load(Uri.parse(dao.memberImg(MEMBER_ID)))
-                .into(mypage_profile);
-        mypage_id.setText(MEMBER_ID);
+        String url = dao.memberImg(vo.getMember_id());
+        if(url!=null){
+            Glide.with(context)
+                    .load(Uri.parse(url))
+                    .into(mypage_profile);
+        }else {
+            Glide.with(context)
+                    .load(R.drawable.profile)
+                    .into(mypage_profile);
+        }
+
+        mypage_id.setText(vo.getMember_id());
 
         mypage_profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,7 +169,8 @@ public class MypageFragment extends Fragment {
         mypage_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainActivity.changeFragment(new SettingFragment(context));
+                Intent intent = new Intent(context, SettingActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -333,9 +346,9 @@ public class MypageFragment extends Fragment {
     public void upload(){
     //MemberVO라는것을만들고 Spring도 MemberVO => Mapper추가해서 DB에 추가로직
     //Vo를 보내서 인서트하게끔 만들어야함.
-    MemberVO vo = new MemberVO();
-                    vo.setMember_id(MEMBER_ID);
-    Gson gson = new Gson();
+        MemberVO vo = new MemberVO();
+        vo = MainActivity.getLogin_member();
+        Gson gson = new Gson();
 
     CommonAsk commonAsk = new CommonAsk("memberimg_up.me");
                     commonAsk.params.add(new AskParam("vo", gson.toJson(vo)));

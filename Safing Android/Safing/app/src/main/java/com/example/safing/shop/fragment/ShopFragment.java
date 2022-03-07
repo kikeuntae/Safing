@@ -23,7 +23,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bumptech.glide.Glide;
 import com.example.safing.mypage.VO.MemberVO;
-import com.example.safing.async.CommonVal;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
@@ -52,6 +51,8 @@ public class ShopFragment extends Fragment{
     Shop_Rec_Adapter adapter_rec2;
     String query = "감성용품";
     ShopDAO dao = new ShopDAO();
+    MemberVO loging_vo = new MemberVO();
+
 
     public ShopFragment(Context context){
         this.context = context;
@@ -61,10 +62,7 @@ public class ShopFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_shop, container, false);
-
-        MemberVO member = new MemberVO();
-        member.setMember_id("in2thefree");
-        CommonVal.loginInfo = member;
+        loging_vo = MainActivity.getLogin_member();
 
         tab_layout = rootView.findViewById(R.id.shop_tab);
         shop_rec1 = rootView.findViewById(R.id.shop_rec1);
@@ -96,9 +94,9 @@ public class ShopFragment extends Fragment{
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        if(CommonVal.loginInfo != null){
-            Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-            header_text.setText(CommonVal.loginInfo.getMember_id());
+        if(loging_vo != null){
+            Glide.with(context).load(FILE_PATH + loging_vo.getMember_filepath()).into(header_imge);
+            header_text.setText(loging_vo.getMember_id());
         }
 
         //========= 탭 기능 ==============

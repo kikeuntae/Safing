@@ -64,14 +64,14 @@ public class CaminfoPager2Adapter extends RecyclerView.Adapter<CaminfoPager2Adap
 
         }
     }
-            //Glide.with(context).load(list.get(i).getImageurl()).into(holder.pager_campimg);
-            //holder.pager_campimg.setImageResource(R.drawable.emptyimage);
+    //Glide.with(context).load(list.get(i).getImageurl()).into(holder.pager_campimg);
+    //holder.pager_campimg.setImageResource(R.drawable.emptyimage);
     public void bind(ViewHolder holder, int i){
-            if (list.get(i).getImageurl() == null) {
-                holder.pager_campimg.setImageResource(R.drawable.emptyimage);
-            } else {
-                Glide.with(context).load(list.get(i).getImageurl()).into(holder.pager_campimg);
-            }
+        if (list.get(i).getImageurl() == null) {
+            holder.pager_campimg.setImageResource(R.drawable.emptyimage);
+        } else {
+            Glide.with(context).load(list.get(i).getImageurl()).into(holder.pager_campimg);
+        }
 
 
 

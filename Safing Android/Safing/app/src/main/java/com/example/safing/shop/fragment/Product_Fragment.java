@@ -1,9 +1,6 @@
 package com.example.safing.shop.fragment;
-<<<<<<< HEAD:Safing Android/Safing/app/src/main/java/com/example/safing/shop/fragment/Product_Fragment.java
-=======
 
 import static com.example.safing.async.CommonAsk.FILE_PATH;
->>>>>>> a02f5b8566c4136a456a66620dcd97c975ed763f:Safing Android/Safing/app/src/main/java/com/example/safing/fragment/Product_Fragment.java
 
 import android.app.Activity;
 import android.content.Context;
@@ -28,12 +25,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
-<<<<<<< HEAD:Safing Android/Safing/app/src/main/java/com/example/safing/shop/fragment/Product_Fragment.java
-=======
-import com.example.safing.async.CommonVal;
+import com.example.safing.mypage.VO.MemberVO;
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.shop.VO.Product_DetailVO;
->>>>>>> a02f5b8566c4136a456a66620dcd97c975ed763f:Safing Android/Safing/app/src/main/java/com/example/safing/fragment/Product_Fragment.java
 import com.example.safing.shop.adapter.Shop_Product_Pager_Adapter;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -51,6 +45,8 @@ public class Product_Fragment extends Fragment {
     int product_num = 0;
     String review;
     ShopDAO dao = new ShopDAO();
+    MemberVO login_vo = new MemberVO();
+
 
     public Product_Fragment(Context context, int product_num) {
         this.context = context;
@@ -66,6 +62,9 @@ public class Product_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        login_vo = MainActivity.getLogin_member();
+
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_product, container, false);
 
         shop_product_tab1 = rootView.findViewById(R.id.shop_product_tab1);
@@ -92,9 +91,9 @@ public class Product_Fragment extends Fragment {
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
-        if(CommonVal.loginInfo != null){
-            Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
-            header_text.setText(CommonVal.loginInfo.getMember_id());
+        if(login_vo != null){
+            Glide.with(context).load(FILE_PATH + login_vo.getMember_filepath()).into(header_imge);
+            header_text.setText(login_vo.getMember_id());
         }
 
 

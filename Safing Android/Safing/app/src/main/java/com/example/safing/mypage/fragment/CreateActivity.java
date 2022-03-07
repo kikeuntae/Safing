@@ -192,21 +192,6 @@ public class CreateActivity extends AppCompatActivity {
                 //create_edt_id,edit_up_pw,edit_up_pw2,create_edt_name,create_edt_birth;
         Button btn;
         btn = findViewById(R.id.sign_up2);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dto.setMember_id(create_edt_id.getText().toString());
-              //  dto.setMember_age(Integer.parseInt(create_edt_birth.getText().toString()));
-                dto.setMember_pw(edit_up_pw.getText().toString());
-                dto.setMember_phone(spinner.getSelectedItem()+""+phone.getText().toString()+phone2.getText().toString());
-                dto.setMember_name(create_edt_name.getText().toString());
-                service = new CommonAsk("join.me");
-                String str = gson.toJson(dto);
-                service.params.add(new AskParam("vo",str));
-                //async.AskParam
-                CommonMethod.excuteAsk(service);
-            }
-        });
 
     btn.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -272,6 +257,18 @@ public class CreateActivity extends AppCompatActivity {
                 input_check_num.requestFocus();
                 return;
             }
+
+            dto.setMember_id(create_edt_id.getText().toString());
+            //  dto.setMember_age(Integer.parseInt(create_edt_birth.getText().toString()));
+            dto.setMember_pw(edit_up_pw.getText().toString());
+            dto.setMember_phone(spinner.getSelectedItem()+""+phone.getText().toString()+phone2.getText().toString());
+            dto.setMember_name(create_edt_name.getText().toString());
+            service = new CommonAsk("join.me");
+            String str = gson.toJson(dto);
+            service.params.add(new AskParam("vo",str));
+            //async.AskParam
+            CommonMethod.excuteAsk(service);
+
         }
     });
 

@@ -36,7 +36,7 @@ public class ShopDAO {
         ArrayList<Product_PackageVO> list = new ArrayList<>();
         try{
             list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<Product_PackageVO> >(){}.getType());
-    } catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
             Log.d(TAG, "gson error");
         }

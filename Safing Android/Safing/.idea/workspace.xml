@@ -13,7 +13,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6db04f66-5b34-4f24-8b47-f9222eafaf7c" name="Default Changelist" comment="">
+    <list default="true" id="9e05f04c-453b-41e7-8b62-ba63bb0a3c6d" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../EX00_ServletConn/app/src/main/java/com/example/ex00_servletconn/AskTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../EX00_ServletConn/app/src/main/java/com/example/ex00_servletconn/UserDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Ex01_HelloWorld/app/src/main/java/com/example/ex01_helloworld/SubActivity.java" afterDir="false" />
@@ -125,17 +125,108 @@
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/java/com/example/project3_allview/pager/Frag_pagerMain.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/frag_pagermain.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Project3_AllView/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/async/NaverGetAsk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/async/OnItemClick_Package_Listener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/async/OnItemClick_Product_Listener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/fragment/CreateFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/fragment/LoginFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/fragment/QNAFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/fragment/SettingFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/VO/MemberVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/adapter/Mypage_Adapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/CreateActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/FAQActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/FindActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/FindFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/FindFragment2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/LoginActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/MypageFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/NoticeActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/QNAActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/java/com/example/safing/mypage/fragment/SettingActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/apple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/btn_signin_twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/comment_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/comment_downbacter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/comment_upbacter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/comment_update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/faq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/img_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/mypage_list_commentimg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/mypage_list_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/mypage_list_update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/drawable/writing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_cam_info.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_cam_info_admin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_create.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_faqactivity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_find.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_home_search.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_mypage_insert.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_mypage_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_mypage_qnaactivity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_mypage_setting.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_notice.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_pager.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_qnaactivity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_review.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_safe_guard_info.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_setting.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/activity_tip.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/fragment_create.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/fragment_find.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/fragment_find2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/fragment_mypage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/fragment_qna.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/fragment_setting.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/insert_activity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/item_movie_comment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/item_mypage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/item_pager_movie.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/item_product_info.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/item_rec_orderinfo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Safing/app/src/main/res/layout/movie_comment_dialog.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/async/NaverGetAsk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/CreateFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/LoginFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/QNAFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/fragment/SettingFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/async/OnItemClick_Theme_Listener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/DAO/CampImgDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/DAO/HomeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/DAO/SafeZoneRecDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/DAO/YoutubeTipDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/DTO/ThemeItemDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/DTO/ThemeRecDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/VO/CampImgVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/VO/SafeZoneRecVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/VO/YoutubeTipVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/activity/CamInfoActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/activity/HomeSearchActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/activity/SafeGuardInfoActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/activity/TipActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/adapter/CaminfoPager2Adapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/adapter/HomeSearchAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/adapter/SafeZoneRecAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/adapter/Theme_Pager_Adapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/adapter/YouTubeTipRecAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/fragment/HomeFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/home/fragment/HomeSearchFragment.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Comment_DAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Movie_DAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DTO/Board_Movie_DTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DTO/Movie_EXO_DTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DTO/Movie_comment_DTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DTO/Movie_pagerDTO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/adapter/Comment_Adapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/adapter/Moive_Adapter1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/MovieFragment.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_dialog.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_insertFragment.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_updateFragment.java" afterDir="false" />
@@ -151,46 +242,213 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/NoticeActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/QNAActivity.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/SettingActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/btn_signin_twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_arrow_map_present_tracking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_callout_balloon.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_callout_balloon_left_side_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_callout_balloon_right_side_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_map_present.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_map_present_direction.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_map_present_tracking.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_marker_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_marker_star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_poi_marker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_poi_marker_end.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_poi_marker_selected.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/custom_poi_marker_start.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/map_pin_blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/map_pin_red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/map_pin_yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/yasuo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/add_user.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/apple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/back_btn2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/backbtn_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bookmark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bookmark1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bookmark2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bookmark3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_next.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_signin_twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_left_image_cancel1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_left_image_like1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_left_image_like2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_round1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_round2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_round3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_round4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_round5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_round6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_round7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_round8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/camimg2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/camimg4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/camp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/camp09.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/camp10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/campack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/campingsearch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cancel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cancel1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cart.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/comment_delete.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/comment_downbacter.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/comment_upbacter.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/comment_update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/customer_service.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/down1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/edittext_rounded_corner_rectangle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/emptyimage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/etc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/eye.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/eyes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/fackbook.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/faq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/fire.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/fire1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/google1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/heart1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/heart2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_info_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_1.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_10.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/imgitem1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/iot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/item_color.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/kakao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/kakao1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/kakaoimg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/like1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/like2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/minus1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/movie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mute.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mypage_list_commentimg.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mypage_list_delete.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mypage_list_update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/naver.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/naver1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/notice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/package1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/package2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/packageicon.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/plus1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/purchase.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/question.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rec_round1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/reply.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/round_btn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/round_button.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/safezone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/safing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/setting.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sfguard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sfguard1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sfguard2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sfguard3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sfguard4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sfguard5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/share.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/shop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/speaker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/splash_bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/spot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_back.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_background1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_background2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_background3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_background4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_nomal_back.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_nomal_back1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_nomal_back2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_selector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_selector_back.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_selector_back1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_selector_back2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/tab_selector_back3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/test1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/text_round1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/text_round2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/text_round3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/text_round4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/up1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/visual.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/weather.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/writing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/yasuo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/youtube.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cam_info.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cam_info_admin.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_faqactivity.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_find.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home_search.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mypage_insert.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mypage_login.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mypage_qnaactivity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_mypage_setting.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notice.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_package_product.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pager.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_product.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_product_purchase.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_qnaactivity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_review.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_safe_guard_info.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_tip.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/custom_callout_balloon.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_find.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_find2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_qna.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_setting.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/insert_activity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home_search.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_mypage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_exoplayer_movie.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_movie_comment.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_mypage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_pager_movie.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_product_info.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_rec_orderinfo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_search_camp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_youtube_tip.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/movie_comment_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Safing1/app/src/main/res/drawable-v24/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Safing1/app/src/main/res/drawable-v24/yasuo1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Safing1/app/src/main/res/drawable/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Safing1/app/src/main/res/drawable/yasuo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/pager_item_caminfo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/pager_item_sfzone.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/rec_item_sfzone.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/rec_item_theme.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/AtakConn.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/AtaskConn.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../TEST_A/app/src/main/java/com/example/test_a/Atask/TestConn.java" afterDir="false" />
@@ -387,22 +645,14 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="valueResourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -417,46 +667,74 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProjectId" id="23zToVT66ZSWW3eu2PIbjGCPwXb" />
+  <component name="ProjectId" id="23ntnVHXIqhXagRQ6bpr2JMnEGT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.1/f0f93e67af3f7417bdd560d5142f6dec4fe629c3/recyclerview-1.2.1-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_RecyclerView_DIMENSIONS" value="1080&#10;1920" />
-    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.1/f0f93e67af3f7417bdd560d5142f6dec4fe629c3/recyclerview-1.2.1-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
-    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_SELECTED" value="ViewPager2" />
-    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/androidx.viewpager2/viewpager2/1.0.0/3c3569044e6969f1ee5c3aa03b08e6717a2d782f/viewpager2-1.0.0-sources.jar!/androidx/viewpager2/widget/ViewPager2.java_ViewPager2_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_RecyclerView_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
+    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.4.0/51035a8f6342c20d4d8f242d100e6f25e0c271ac/material-1.4.0-sources.jar!/com/google/android/material/navigation/NavigationBarView.java_NavigationBarView_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.4.0/51035a8f6342c20d4d8f242d100e6f25e0c271ac/material-1.4.0-sources.jar!/com/google/android/material/navigation/NavigationBarView.java_SELECTED" value="NavigationBarView" />
+    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.4.0/51035a8f6342c20d4d8f242d100e6f25e0c271ac/material-1.4.0-sources.jar!/com/google/android/material/navigation/NavigationView.java_NavigationView_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewC:/Users/hanul/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.4.0/51035a8f6342c20d4d8f242d100e6f25e0c271ac/material-1.4.0-sources.jar!/com/google/android/material/navigation/NavigationView.java_SELECTED" value="NavigationView" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_SELECTED" value="View" />
     <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/view/View.java_View_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/widget/CompoundButton.java_CompoundButton_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewC:/Users/hanul/AppData/Local/Android/Sdk/sources/android-31/android/widget/CompoundButton.java_SELECTED" value="CompoundButton" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.safing.movie.adapter" />
+    <key name="android.template.-1584835076">
+      <recent name="com.example.safing.activity" />
+    </key>
+    <key name="android.template.444151679">
+      <recent name="com.example.safing.shop.activity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\res\drawable" />
-      <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\res\layout" />
-      <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\java\com\example\safing\mypage" />
-      <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\java\com\example\safing\mypage\fragment" />
-      <recent name="D:\Study_Android\WorkSpace\Safing\app\src\main\res\drawable-v24" />
+      <recent name="D:\Study_Android\WorkSpace\Safing2\app\src\main\res\drawable" />
+      <recent name="D:\Study_Android\WorkSpace\Safing2\app\src\main\res\layout" />
+      <recent name="D:\Study_Android\WorkSpace\Safing2\app\src\main\java\com\example\safing\async" />
+      <recent name="D:\Study_Android\WorkSpace\Safing2\app\src\main\res" />
+      <recent name="D:\Study_Android\WorkSpace\Safing2\app\src\main\java\com\example\safing\home" />
+    </key>
+    <key name="android.template.-942365705">
+      <recent name="com.example.safing.shop.activity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\study_Android\workspace\Safing\app\src\main\java\com\example\safing\movie\adapter" />
+    </key>
+    <key name="android.template.-1707075483">
+      <recent name="com.example.safing.activity" />
+    </key>
+    <key name="android.template.-457645712">
+      <recent name="com.example.safing.activity" />
+    </key>
+    <key name="android.template.1334849988">
+      <recent name="com.example.safing.splash" />
+      <recent name="com.example.safing.activity" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.safing" />
+    </key>
+    <key name="android.template.-523390445">
+      <recent name="com.example.safing.activity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.safing.movie.fragment" />
       <recent name="com.example.safing.async" />
-      <recent name="com.example.safing.mypage.fragment" />
-      <recent name="com.example.safing.movie.DAO" />
-      <recent name="com.example.safing.movie.DTO" />
+      <recent name="com.example.safing.shop.adapter" />
+      <recent name="com.example.safing.adapter" />
+      <recent name="com.example.safing.fragment" />
+      <recent name="com.example.safing.DTO" />
     </key>
   </component>
   <component name="RunManager">
@@ -522,11 +800,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6db04f66-5b34-4f24-8b47-f9222eafaf7c" name="Default Changelist" comment="" />
-      <created>1642736090964</created>
+      <changelist id="9e05f04c-453b-41e7-8b62-ba63bb0a3c6d" name="Default Changelist" comment="" />
+      <created>1642381846967</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1642736090964</updated>
+      <updated>1642381846967</updated>
     </task>
     <servers />
   </component>
@@ -546,42 +824,86 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/MovieFragment.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="26" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/shop/adapter/Product_PurchaseHistory_Rec_Adapter.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Movie_DAO.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="27" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/shop/DAO/ShopDAO.java</url>
+          <line>333</line>
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_dialog.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="38" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/shop/DAO/ShopDAO.java</url>
+          <line>317</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/FindFragment.java</url>
+          <line>117</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/FindFragment2.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/CreateActivity.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/home/activity/CamInfoActivity.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/home/activity/CamInfoActivity.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/home/activity/CamInfoActivity.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/home/activity/CamInfoActivity.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/MypageFragment.java</url>
-          <line>268</line>
-          <option name="timeStamp" value="47" />
+          <line>346</line>
+          <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_updateFragment.java</url>
-          <line>328</line>
-          <option name="timeStamp" value="57" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/shop/fragment/Address_Default_Fragment.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/fragment/Movie_updateFragment.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="58" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/shop/fragment/Address_Repogitory_Fragment.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/mypage/fragment/MypageFragment.java</url>
+          <line>361</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/adapter/Comment_Adapter.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/safing/movie/DAO/Comment_DAO.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="125" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="app">
-        <watch expression="gson" language="JAVA" />
-        <watch expression="gson" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

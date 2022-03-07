@@ -1,28 +1,18 @@
 package com.example.safing.home.activity;
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.activity.OnBackPressedDispatcher;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.safing.MainActivity;
 import com.example.safing.R;
-import com.example.safing.home.DAO.YoutubeTipDAO;
 import com.example.safing.home.VO.YoutubeTipVO;
-import com.example.safing.home.adapter.YouTubeTipRecAdapter;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
-
-import java.util.ArrayList;
 
 public class TipActivity extends AppCompatActivity {
     YouTubePlayerView youtube_player_view;

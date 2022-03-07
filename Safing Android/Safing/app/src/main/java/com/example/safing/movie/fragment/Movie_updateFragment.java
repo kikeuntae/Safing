@@ -46,7 +46,6 @@ import com.google.gson.Gson;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -129,7 +128,6 @@ public class Movie_updateFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showDialog();
-
             }
         });
 

@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
-
 import com.example.safing.home.DTO.ThemeRecDTO;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
