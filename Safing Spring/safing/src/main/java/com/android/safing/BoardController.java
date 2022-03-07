@@ -1,25 +1,14 @@
 package com.android.safing;
 
 import java.io.File;
-<<<<<<< HEAD
 import java.io.PrintWriter;
-=======
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Iterator;
->>>>>>> origin/명운
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.eclipse.jdt.internal.compiler.ast.IPolyExpression;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.Profiles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,8 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 
 import board.BoardDAO;
 import board.BoardPage;
@@ -43,7 +30,6 @@ import common.CommonService;
 import common.OutPrintln;
 import member.MemberDAO;
 import member.MemberVO;
-import tip.YoutubeTipVO;
 
 @Controller
 public class BoardController {
@@ -54,7 +40,6 @@ public class BoardController {
 	@Autowired private CommonService service;
 	@Autowired private OutPrintln outprintln;
 	@Autowired private BoardDAO dao;
-	int port = 80;
 
 	// 게시판 글에 대한 댓글 삭제 처리 요청
 	@ResponseBody
@@ -64,13 +49,8 @@ public class BoardController {
 		dao.board_comment_delete(id);
 	}
 	
-<<<<<<< HEAD
 	
 	
-=======
-	
-	
->>>>>>> origin/명운
 	// 게시판 글에 대한 댓글 수정처리 요청
 	// 컨트롤러를 통해 보내고 있는 응답의 유형을 나타내기 위해 produces 를 사용하여 한글 깨짐 해결
 	// 이 "produces" 키워드는 ajax 요청에서 가장 유용하게 사용됨.
@@ -108,16 +88,11 @@ public class BoardController {
 	// 게시판 글 수정 저장처리 요청
 	@RequestMapping("/update.bo")
 	public String update(BoardVO vo, MultipartFile file, String attach
-<<<<<<< HEAD
 			, HttpSession session, Model model) {
-=======
-			, HttpSession session, Model model,HttpServletRequest req) throws UnknownHostException {
->>>>>>> origin/명운
 		
 		
 		// 원 글에 첨부 파일이 있었는지 조회
 		BoardVO board = dao.board_detail( vo.getBoard_id() );
-<<<<<<< HEAD
 		List<Board_FileVO> board_file = dao.board_file_select(vo.getBoard_id());
 		
 		
@@ -125,15 +100,6 @@ public class BoardController {
 		for (int i = 0; i < board_file.size(); i++) {
 			
 		String uuid = session.getServletContext().getRealPath("resources") + "/" + board_file.get(i).getFile_path();
-=======
-		Board_FileVO board_file = dao.board_file_select(vo.getBoard_id());
-		
-		
-			
-		String uuid =board_file.getFile_path();
-		
-		String server_path = "http://" + InetAddress.getLocalHost().getHostAddress() + ":"+port+"/safing/resources/";
->>>>>>> origin/명운
 		
 		// 파일을 첨부하지 않은 경우
 		if ( file.isEmpty() ) {
@@ -141,16 +107,11 @@ public class BoardController {
 			// 원래 첨부된 파일이 있었는데 삭제한 경우
 			if ( attach.isEmpty() ) {
 				// 원래 첨부되어 있는 파일이 있다면 서버의 물리적 영역에서 삭제
-<<<<<<< HEAD
 				if ( board_file.get(i).getFile_name() != null) {
-=======
-				if ( board_file.getFile_name() != null) {
->>>>>>> origin/명운
 					File f = new File(uuid); 
 					if (f.exists() ) f.delete();	// 파일이 존재하면 파일을 삭제 처리
 				}				
 			} else { // 원래 첨부된 파일을 그대로 사용하는 경우
-<<<<<<< HEAD
 				vo.setFile_name(board_file.get(i).getFile_name() );
 				vo.setFile_path(board_file.get(i).getFile_path() );				
 			}
@@ -162,34 +123,14 @@ public class BoardController {
 			dao.board_update_img(board_file.get(i));
 			// 원래 첨부되어 있는 파일이 있다면 서버의 물리적 영역에서 삭제
 			if ( board_file.get(i).getFile_name() != null) {
-=======
-				vo.setFile_name(board_file.getFile_name() );
-				vo.setFile_path(board_file.getFile_path() );				
-			}
-		} else { // 파일을 첨부한 경우
-			String path = common.fileupload("board_file", file, session);
-			vo.setFile_name( file.getOriginalFilename() );
-			vo.setFile_path(path);
-		
-			board_file.setFile_name( file.getOriginalFilename() );
-			board_file.setFile_path(path);
-			
-			dao.board_update_img(board_file);
-			
-			// 원래 첨부되어 있는 파일이 있다면 서버의 물리적 영역에서 삭제
-			if ( board_file.getFile_name() != null) {
->>>>>>> origin/명운
 				File f = new File(uuid); 
 				if (f.exists() ) f.delete();	// 파일이 존재하면 파일을 삭제 처리
 			}
 		}
 		
 		
-<<<<<<< HEAD
 		}	//for
 		}//if
-=======
->>>>>>> origin/명운
 		MemberVO member = (MemberVO) session.getAttribute("loginInfo");
 		vo.setMember_id(member.getMember_id());
 		
@@ -200,11 +141,6 @@ public class BoardController {
 		model.addAttribute("id", vo.getBoard_id());
 		dao.board_update(vo);
 		return "board/redirect";
-<<<<<<< HEAD
-=======
-		
-		
->>>>>>> origin/명운
 	}//update
 	
 	
@@ -223,12 +159,8 @@ public class BoardController {
 		// 첨부 파일이 있는 글에 대해서는 해당 파일을 서버의 물리적 영역에서 삭제
 		BoardVO vo = dao.board_detail(id);
 		if ( vo.getFile_path() != null) {
-<<<<<<< HEAD
 			File file = new File( session.getServletContext().getRealPath("resources") 
 					+ "/" + vo.getFile_path() );
-=======
-			File file = new File(vo.getFile_path());
->>>>>>> origin/명운
 			if ( file.exists() ) file.delete();
 		}
 		
@@ -269,7 +201,6 @@ public class BoardController {
 	
 	// 게시판 신규 저장 처리 요청
 	@RequestMapping ("/insert.bo")
-<<<<<<< HEAD
 	public String insert(BoardVO vo, MultipartFile file, HttpSession session) {
 		
 
@@ -349,107 +280,10 @@ public class BoardController {
 	 * vo.setFile_path(service.fileupload("board_file", file, session)); }
 	 */
 	
-=======
-	public String insert(BoardVO vo, MultipartFile file, HttpSession session, HttpServletRequest req , HttpServletResponse res) throws UnknownHostException {
-		
-
-		MemberVO member = (MemberVO) session.getAttribute("loginInfo");
-		vo.setMember_id(member.getMember_id()+"");
-		dao.board_insert(vo);
-		
-		// 파일 정보가 있다면
-		if ( ! file.isEmpty() ) {
-			String server_path = "http://" + InetAddress.getLocalHost().getHostAddress() + req.getContextPath()+"/resources/";
-			vo.setBoard_id(dao.board_new());
-			vo.setFile_name( file.getOriginalFilename() );
-			vo.setFile_path( server_path+common.fileupload("board_file", file, session) );
-			dao.board_insert_img(vo);
-		}
-			
-		
-		return "redirect:list.bo";
->>>>>>> origin/명운
-	}
-	
-	
-	// 게시판 신규 글 작성 화면 요청
-	@RequestMapping ("/new.bo")
-	public String board() {
-		return "board/new";
-	}
-	
-	// 게시판 목록화면 요청
-		@RequestMapping ("/list.bo")
-		public String list(HttpSession session , Model model
-				,String search
-				,String keyword
-				, @RequestParam (defaultValue = "1") int curPage
-				, @RequestParam (defaultValue = "10") int pageList
-				, @RequestParam (defaultValue = "list") String viewType ) {
-			session.setAttribute("category", "bo");
-			
-			// DB에서 게시판 정보를 조회해와 목록화면에 출력
-			page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
-			page.setSearch(search);		// 검색 조건 값을 page에 담음
-			page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
-			page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
-			page.setViewType(viewType);	// 게시판 형태를 page에 담음
-			
-			//귀찮으니 회원로그인 고정 값처리
-			MemberVO vo = new MemberVO();
-			MemberDAO member_dao = new MemberDAO();
-			vo.setMember_id("master");
-			vo  = dao.login(vo);
-			session.setAttribute("loginInfo", vo);
-			
-			
-			model.addAttribute("page", dao.board_list(page));		
-			return "board/list";
-		}
-
-<<<<<<< HEAD
-	//동영상 정보 목록
-	@ResponseBody
-=======
-	
-	
-	//동영상 등록
-	@ResponseBody
-	@RequestMapping("/movieinsert.bo")
-	public void insert(HttpServletRequest req , HttpServletResponse res ,HttpSession session) throws IOException {	
-		
-	String tempVo = req.getParameter("vo");
-	Board_MovieDTO vo = gson.fromJson(tempVo, Board_MovieDTO.class);
-	req.setCharacterEncoding("UTF-8");
-	res.setCharacterEncoding("UTF-8");
-	res.setContentType("text/html");
-	PrintWriter writer = res.getWriter();
-	int result = 0;
-	MultipartRequest mulReq = (MultipartRequest) req;
-	MultipartFile file = mulReq.getFile("file");
-	if(file != null) {
-		System.out.println("Null 아님 파일 들어옴");
-		String path = service.fileupload("board_file", file, session);
-		String server_path = "http://" + req.getLocalAddr()
-		+ ":" + req.getLocalPort() + req.getContextPath()+"/resources/";
-		System.out.println(server_path + path);
-		vo.setFile_path(server_path + path); 
-		vo.setFile_name(path);
-		dao.movie_create(vo);
-		
-	}else {
-		System.out.println("Null임 파일 안들어옴..");
-	
-	}
-	writer.print(result);
-
-
-	
 	}
 
 	//동영상 정보 목록
 	@ResponseBody
->>>>>>> origin/명운
 	@RequestMapping("/movielist.bo")
 	public void  list(HttpServletRequest req, HttpServletResponse res) throws Exception{
 
@@ -461,56 +295,16 @@ public class BoardController {
 		writer.println( gson.toJson(list));
 		
 	}
-<<<<<<< HEAD
-=======
-	//동영상 정보 목록(최신순)
-	@ResponseBody
-	@RequestMapping("/movielist_new.bo")
-	public void  list_new(HttpServletRequest req, HttpServletResponse res) throws Exception{
-
-		List<Board_MovieDTO> list = dao.movielist_new();
-		req.setCharacterEncoding("UTF-8");
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html");
-		PrintWriter writer = res.getWriter();
-		writer.println( gson.toJson(list));
-		
-	}
->>>>>>> origin/명운
 
 	
 	//동영상 정보수정
 	@ResponseBody
 	@RequestMapping("/movieupdate.bo")
-<<<<<<< HEAD
 	public void  update(HttpServletRequest req, HttpServletResponse res) throws Exception{
-=======
-	public void  update(HttpServletRequest req, HttpServletResponse res,HttpSession session) throws Exception{
->>>>>>> origin/명운
 		PrintWriter writer = outprintln.outprintln(req, res);
 		String strVo = req.getParameter("vo");	
 		Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
 		
-<<<<<<< HEAD
-=======
-		MultipartRequest mulReq = (MultipartRequest) req;
-		MultipartFile file = mulReq.getFile("file");
-		if(file != null) {
-			System.out.println("Null 아님 파일 들어옴");
-			String path = service.fileupload("board_file", file, session);
-			String server_path = "http://" + req.getLocalAddr()
-			+ ":" + req.getLocalPort() + req.getContextPath()+"/resources/";
-			System.out.println(server_path + path);
-			
-			vo.setFile_path(server_path + path); 
-			vo.setFile_name(path);
-		}else {
-			System.out.println("Null임 파일 그대로");
-			vo.setFile_path(null);
-		}
-		
-		
->>>>>>> origin/명운
 		dao.movie_update(vo);
 		
 	}
@@ -557,101 +351,10 @@ public class BoardController {
 		res.setContentType("text/html");
 		PrintWriter writer = res.getWriter();
 		writer.println( gson.toJson(comment_cnt));
-<<<<<<< HEAD
 	}
 	
 	
 
-=======
-	}
-	
-	
-	//동영상 정보 목록(마이페이지)
-	@ResponseBody
-	@RequestMapping("/movielist_mypage.bo")
-	public void  list_mypage(HttpServletRequest req, HttpServletResponse res) throws Exception{
-
-		String strVo = req.getParameter("vo");
-		MemberVO vo = gson.fromJson(strVo, MemberVO.class);
-		List<Board_MovieDTO> list = dao.movielist_mypage(vo);
-		req.setCharacterEncoding("UTF-8");
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html");
-		PrintWriter writer = res.getWriter();
-		writer.println( gson.toJson(list));
-		
-	}
-	
-	
-	
-	// 유튜브 목록화면 요청
-			@RequestMapping ("/list.yu")
-			public String list_yu(HttpSession session , Model model
-					,String search
-					,String keyword
-					, @RequestParam (defaultValue = "1") int curPage
-					, @RequestParam (defaultValue = "10") int pageList
-					, @RequestParam (defaultValue = "list") String viewType ) {
-				
-				session.setAttribute("category", "yu"); // category 에 cu 를 설정
-				
-		// DB에서 공지사항 정보를 조회해와 목록화면에 출력
-				page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
-				page.setSearch(search);		// 검색 조건 값을 page에 담음
-				page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
-				page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
-				page.setViewType(viewType);	// 게시판 형태를 page에 담음
-				
-				//귀찮으니 회원로그인 고정 값처리
-				MemberVO vo = new MemberVO();
-				MemberDAO member_dao = new MemberDAO();
-				vo.setMember_id("master");
-				vo  = dao.login(vo);
-				session.setAttribute("loginInfo", vo);
-				
-				
-				model.addAttribute("page", dao.board_list_youtube(page));		
-				return "youtube/list";
-			}	
-
-
-			// 유튜브 상세화면 요청
-			@RequestMapping ("/detail.yu")
-			public String detail_yu(int id
-					, Model model) {
-				
-				// 상세화면 요청 전 조회수 증가
-				dao.board_read(id);
-			
-				// 해당 게시판 글을 DB에서 조회해와 상세화면에 출력
-				model.addAttribute("vo", dao.board_detail(id) ) ;
-				model.addAttribute("crlf", "\r\n");
-				model.addAttribute("page", page);
-				return "youtube/detail";
-			}
-			
-
-
-			// 유튜브 글 삭제처리 요청
-			@RequestMapping("/delete.yu")
-			public String delete_yu(int id, HttpSession session, Model model) {
-				// 첨부 파일이 있는 글에 대해서는 해당 파일을 서버의 물리적 영역에서 삭제
-				BoardVO vo = dao.board_detail(id);
-				if ( vo.getFile_path() != null) {
-					File file = new File( session.getServletContext().getRealPath("resources") 
-							+ "/" + vo.getFile_path() );
-					if ( file.exists() ) file.delete();
-				}
-				
-				// 해당 게시판 글을 DB에서 삭제한 후 목록화면으로 연결
-				dao.board_delete(id);
-			//	return "redirect:list.bo";
-				model.addAttribute("uri", "list.yu");
-				model.addAttribute("page", page);
-				return "board/redirect";
-			}
-		
->>>>>>> origin/명운
 
 	
 	

@@ -211,27 +211,3 @@ CREATE TABLE member (
     CONSTRAINT CK_member_admin CHECK(member_admin IN ('y', 'n'))
 );
 
-
-create table order_detail_cnt(
-    order_detail_cnt_num number, 
-    order_num number,
-    package_num number null,
-    product_num number null,
-    order_count number default 0 not null,
-    CONSTRAINT PK_order_detail_cnt_num primary KEY(order_detail_cnt_num),
-    CONSTRAINT FK_order_num FOREIGN KEY(order_num) REFERENCES order_ing(order_num)
-);
-
-drop table order_detail_cnt;
-
-select * from cart;
-
-create table cart_detail_cnt(
-    cart_num number,
-    package_num number null,
-    product_num number null,
-    order_count number default 0 not null,
-    CONSTRAINT FK_order_num_cart_detail_cnt FOREIGN KEY(cart_num) REFERENCES cart(cart_num)
-);
-
-drop table cart_detail_cnt;

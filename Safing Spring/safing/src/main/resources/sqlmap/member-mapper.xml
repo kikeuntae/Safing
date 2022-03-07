@@ -9,35 +9,6 @@
 	        select * from member where member_id = #{member_id}
 	</select>
 	
-<<<<<<< HEAD
-=======
-		
-	<!-- 회원가입 -->
-	<insert id="insert">
-		insert into member ( member_id,member_pw,member_name,member_age,member_phone)
-		values (#{member_id},#{member_pw},#{member_name},#{member_age},#{member_phone})	
-	</insert>
-	
-	<select id="login" resultType="member.MemberVO">
-		SELECT * FROM member
-		WHERE member_id = #{member_id} AND member_pw = #{member_pw} 
-	</select>
-	
-	<select id="idCheck" resultType="member.MemberVO">
-		select member_id from member
-	</select>
-	
-	<select id="find_id" resultType="member.MemberVO">
-		select member_id from member where member_phone = #{phone}
-	</select>
-	
-	<select id="find_pw" resultType="member.MemberVO">
-		select member_pw from member 
-		where member_phone = #{phone} AND member_pw = #{member_pw}
-	</select>
-	
-	
->>>>>>> origin/명운
 	<!--(관리자) 회원 삭제 -->
 	<delete id= "delete">
 		delete from member
@@ -73,17 +44,5 @@
 		where member_id = #{member_id}
 	</update>
 	
-<<<<<<< HEAD
-=======
-	
-	<!--이미지 업데이트 -->
-	<update id="update_img">
-		update member set  	
-		 member_filename = #{member_filename,  jdbcType=VARCHAR}
-		 ,member_filepath = #{member_filepath,  jdbcType=VARCHAR}
-		where member_id = #{member_id}
-	</update>
-	
->>>>>>> origin/명운
 
 </mapper>

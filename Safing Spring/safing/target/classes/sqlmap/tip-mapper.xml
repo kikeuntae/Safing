@@ -15,7 +15,6 @@
 		set youtubecnt = youtubecnt + 1
 		where id = #{id}
     </update>
-<<<<<<< HEAD
  <!-- =========================================안드 ========================================= -->
  
  
@@ -63,26 +62,5 @@
  
  <!-- ========================================= 웹 ========================================= -->   		
     	
-=======
-    		
-    		
-    	    		
-    		<!-- 유튜브 이미지 입력 (임시?)-->
-    <insert id="insert_youtube">
-    	insert into youtubetip ( thumbnails, youtubetitle, youtubecontent, play,board_id)
- 	values (#{thumbnails},#{youtubetitle},#{youtubecontent},#{play},#{board_id})
-    </insert>
-    
-    
-    <select id="youtube_detail" resultType="tip.YoutubeTipVO">
-    	select * from youtubetip where board_id = #{id}
-    </select>
-    
-    <update id="update_youtube">
-    	update youtubetip
-		set thumbnails=#{thumbnails}, youtubetitle= #{youtubetitle}, youtubecontent= #{youtubecontent}, play= #{play}
-		where board_id = #{board_id}
-    </update>
->>>>>>> origin/명운
 	
 </mapper>

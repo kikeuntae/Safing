@@ -157,12 +157,8 @@ body {
 
 a:link, a:visited {
 	text-decoration: none;
-<<<<<<< HEAD
 	color : #735340;
 	font-weight: bold;
-=======
-	color : #000;
->>>>>>> origin/명운
 }
 
 #content {min-width: 1280px; min-height: 650px; height: 100%; padding :20px 0; margin-top: 90px;
@@ -203,23 +199,14 @@ table tr td a:hover, ul.grid li a:hover { font-weight: 700; color: red;}
 a.btn-fill, a.btn-empty {
 	text-align: center;
 	padding: 3px 10px;
-<<<<<<< HEAD
 	border: 1px solid #85897B;
 	border-radius: 3px;
 	text-decoration-line : none;
-=======
-	border: 1px solid #3367d6;
-	border-radius: 3px;
->>>>>>> origin/명운
 	box-shadow: 2px 2px 3px #ccc; /* 오른쪽, 아래쪽, 번짐 정도 */
 }
 
 a.btn-fill {
-<<<<<<< HEAD
 	background-color: #85897B;
-=======
-	background-color: #3367d6;
->>>>>>> origin/명운
 	color: #fff;
 	margin: 0px 10px 10px 0;
 }
@@ -227,24 +214,14 @@ a.btn-fill-s {
 	font-size: 13px; font-weight: bold; padding: 1px 10px;
 	border: 1px solid #c4dafc;
 	border-radius: 3px;
-<<<<<<< HEAD
 	box-shadow: 2px 2px 2px #85897B;
 	background: #b1cdfa;
 	color : #85897B; 
-=======
-	box-shadow: 2px 2px 2px #022d72;
-	background: #b1cdfa;
-	color : #0000cd; 
->>>>>>> origin/명운
 }
 
 a.btn-empty {
 	background-color: #fff;
-<<<<<<< HEAD
 	color: #85897B;
-=======
-	color: #3367d6;
->>>>>>> origin/명운
 }
 
 a:hover { cursor: pointer;}

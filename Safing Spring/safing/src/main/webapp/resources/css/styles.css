@@ -22,31 +22,19 @@
   --bs-teal: #20c997;
   --bs-cyan: #0dcaf0;
   --bs-white: #fff;
-<<<<<<< HEAD
   --bs-gray: #000000;
-=======
-  --bs-gray: #6c757d;
->>>>>>> origin/명운
   --bs-gray-dark: #343a40;
   --bs-gray-100: #f8f9fa;
   --bs-gray-200: #e9ecef;
   --bs-gray-300: #dee2e6;
   --bs-gray-400: #ced4da;
   --bs-gray-500: #adb5bd;
-<<<<<<< HEAD
   --bs-gray-600: #000000;
-=======
-  --bs-gray-600: #6c757d;
->>>>>>> origin/명운
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #000000;
   --bs-primary: #2a5555;
-<<<<<<< HEAD
   --bs-secondary: #000000;
-=======
-  --bs-secondary: #6c757d;
->>>>>>> origin/명운
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
@@ -322,11 +310,7 @@ table {
 caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   text-align: left;
 }
 
@@ -609,11 +593,7 @@ progress {
   margin-top: -1rem;
   margin-bottom: 1rem;
   font-size: 0.875em;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 .blockquote-footer::before {
   content: "— ";
@@ -644,11 +624,7 @@ progress {
 
 .figure-caption {
   font-size: 0.875em;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 
 .container,
@@ -2207,11 +2183,7 @@ progress {
 .form-text {
   margin-top: 0.25rem;
   font-size: 0.875em;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 
 .form-control {
@@ -2253,7 +2225,6 @@ progress {
   height: 1.5em;
 }
 .form-control::-moz-placeholder {
-<<<<<<< HEAD
   color: #000000;
   opacity: 1;
 }
@@ -2263,17 +2234,6 @@ progress {
 }
 .form-control::placeholder {
   color: #000000;
-=======
-  color: #6c757d;
-  opacity: 1;
-}
-.form-control:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-.form-control::placeholder {
-  color: #6c757d;
->>>>>>> origin/명운
   opacity: 1;
 }
 .form-control:disabled, .form-control[readonly] {
@@ -3103,13 +3063,8 @@ textarea.form-control-lg {
 
 .btn-secondary {
   color: #fff;
-<<<<<<< HEAD
   background-color: #000000;
   border-color: #000000;
-=======
-  background-color: #6c757d;
-  border-color: #6c757d;
->>>>>>> origin/명운
 }
 .btn-secondary:hover {
   color: #fff;
@@ -3132,13 +3087,8 @@ textarea.form-control-lg {
 }
 .btn-secondary:disabled, .btn-secondary.disabled {
   color: #fff;
-<<<<<<< HEAD
   background-color: #000000;
   border-color: #000000;
-=======
-  background-color: #6c757d;
-  border-color: #6c757d;
->>>>>>> origin/명운
 }
 
 .btn-success {
@@ -3350,7 +3300,6 @@ textarea.form-control-lg {
 }
 
 .btn-outline-secondary {
-<<<<<<< HEAD
   color: #000000;
   border-color: #000000;
 }
@@ -3358,38 +3307,20 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #000000;
   border-color: #000000;
-=======
-  color: #6c757d;
-  border-color: #6c757d;
-}
-.btn-outline-secondary:hover {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
->>>>>>> origin/명운
 }
 .btn-check:focus + .btn-outline-secondary, .btn-outline-secondary:focus {
   box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
 }
 .btn-check:checked + .btn-outline-secondary, .btn-check:active + .btn-outline-secondary, .btn-outline-secondary:active, .btn-outline-secondary.active, .btn-outline-secondary.dropdown-toggle.show {
   color: #fff;
-<<<<<<< HEAD
   background-color: #000000;
   border-color: #000000;
-=======
-  background-color: #6c757d;
-  border-color: #6c757d;
->>>>>>> origin/명운
 }
 .btn-check:checked + .btn-outline-secondary:focus, .btn-check:active + .btn-outline-secondary:focus, .btn-outline-secondary:active:focus, .btn-outline-secondary.active:focus, .btn-outline-secondary.dropdown-toggle.show:focus {
   box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
 }
 .btn-outline-secondary:disabled, .btn-outline-secondary.disabled {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   background-color: transparent;
 }
 
@@ -3552,11 +3483,7 @@ textarea.form-control-lg {
   color: #224444;
 }
 .btn-link:disabled, .btn-link.disabled {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 
 .btn-lg, .btn-group-lg > .btn {
@@ -3875,11 +3802,7 @@ textarea.form-control-lg {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
   font-size: 0.875rem;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   white-space: nowrap;
 }
 
@@ -4038,11 +3961,7 @@ textarea.form-control-lg {
   color: #224444;
 }
 .nav-link.disabled {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   pointer-events: none;
   cursor: default;
 }
@@ -4062,11 +3981,7 @@ textarea.form-control-lg {
   isolation: isolate;
 }
 .nav-tabs .nav-link.disabled {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   background-color: transparent;
   border-color: transparent;
 }
@@ -4878,19 +4793,11 @@ textarea.form-control-lg {
 .breadcrumb-item + .breadcrumb-item::before {
   float: left;
   padding-right: 0.5rem;
-<<<<<<< HEAD
   color: #000000;
   content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
 }
 .breadcrumb-item.active {
   color: #000000;
-=======
-  color: #6c757d;
-  content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
-}
-.breadcrumb-item.active {
-  color: #6c757d;
->>>>>>> origin/명운
 }
 
 .pagination {
@@ -4937,11 +4844,7 @@ textarea.form-control-lg {
   border-color: #2a5555;
 }
 .page-item.disabled .page-link {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   pointer-events: none;
   background-color: #fff;
   border-color: #dee2e6;
@@ -5210,11 +5113,7 @@ textarea.form-control-lg {
   border-bottom-left-radius: inherit;
 }
 .list-group-item.disabled, .list-group-item:disabled {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   pointer-events: none;
   background-color: #fff;
 }
@@ -5564,11 +5463,7 @@ textarea.form-control-lg {
   display: flex;
   align-items: center;
   padding: 0.5rem 0.75rem;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -6551,11 +6446,7 @@ textarea.form-control-lg {
 }
 
 .link-secondary {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 .link-secondary:hover, .link-secondary:focus {
   color: #565e64;
@@ -7005,11 +6896,7 @@ textarea.form-control-lg {
 }
 
 .border-secondary {
-<<<<<<< HEAD
   border-color: #000000 !important;
-=======
-  border-color: #6c757d !important;
->>>>>>> origin/명운
 }
 
 .border-success {
@@ -7890,11 +7777,7 @@ textarea.form-control-lg {
 
 .text-muted {
   --bs-text-opacity: 1;
-<<<<<<< HEAD
   color: #000000 !important;
-=======
-  color: #6c757d !important;
->>>>>>> origin/명운
 }
 
 .text-black-50 {
@@ -7933,14 +7816,7 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
-<<<<<<< HEAD
 
-=======
-.bg-secondary {
-  --bs-bg-opacity: 1;
-
-}
->>>>>>> origin/명운
 
 .bg-success {
   --bs-bg-opacity: 1;
@@ -11576,22 +11452,14 @@ video.bg-video {
   --bs-teal: #735340;
   --bs-cyan: #0dcaf0;
   --bs-white: #fff;
-<<<<<<< HEAD
   --bs-gray: #000000;
-=======
-  --bs-gray: #6c757d;
->>>>>>> origin/명운
   --bs-gray-dark: #343a40;
   --bs-gray-100: #f8f9fa;
   --bs-gray-200: #e9ecef;
   --bs-gray-300: #dee2e6;
   --bs-gray-400: #ced4da;
   --bs-gray-500: #adb5bd;
-<<<<<<< HEAD
   --bs-gray-600: #000000;
-=======
-  --bs-gray-600: #6c757d;
->>>>>>> origin/명운
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #735340;
@@ -11872,11 +11740,7 @@ table {
 caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   text-align: left;
 }
 
@@ -12159,11 +12023,7 @@ progress {
   margin-top: -1rem;
   margin-bottom: 1rem;
   font-size: 0.875em;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 .blockquote-footer::before {
   content: "— ";
@@ -12194,11 +12054,7 @@ progress {
 
 .figure-caption {
   font-size: 0.875em;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 
 .container,
@@ -13757,11 +13613,7 @@ progress {
 .form-text {
   margin-top: 0.25rem;
   font-size: 0.875em;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 
 .form-control {
@@ -13803,7 +13655,6 @@ progress {
   height: 1.5em;
 }
 .form-control::-moz-placeholder {
-<<<<<<< HEAD
   color: #000000;
   opacity: 1;
 }
@@ -13813,17 +13664,6 @@ progress {
 }
 .form-control::placeholder {
   color: #000000;
-=======
-  color: #6c757d;
-  opacity: 1;
-}
-.form-control:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-.form-control::placeholder {
-  color: #6c757d;
->>>>>>> origin/명운
   opacity: 1;
 }
 .form-control:disabled, .form-control[readonly] {
@@ -15068,11 +14908,7 @@ textarea.form-control-lg {
   color: #15967d;
 }
 .btn-link:disabled, .btn-link.disabled {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 
 .btn-lg, .btn-group-lg > .btn {
@@ -15391,11 +15227,7 @@ textarea.form-control-lg {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
   font-size: 0.875rem;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   white-space: nowrap;
 }
 
@@ -15554,11 +15386,7 @@ textarea.form-control-lg {
   color: #15967d;
 }
 .nav-link.disabled {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   pointer-events: none;
   cursor: default;
 }
@@ -15578,11 +15406,7 @@ textarea.form-control-lg {
   isolation: isolate;
 }
 .nav-tabs .nav-link.disabled {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   background-color: transparent;
   border-color: transparent;
 }
@@ -16394,19 +16218,11 @@ textarea.form-control-lg {
 .breadcrumb-item + .breadcrumb-item::before {
   float: left;
   padding-right: 0.5rem;
-<<<<<<< HEAD
   color: #000000;
   content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
 }
 .breadcrumb-item.active {
   color: #000000;
-=======
-  color: #6c757d;
-  content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
-}
-.breadcrumb-item.active {
-  color: #6c757d;
->>>>>>> origin/명운
 }
 
 .pagination {
@@ -16453,11 +16269,7 @@ textarea.form-control-lg {
   border-color: #735340;
 }
 .page-item.disabled .page-link {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   pointer-events: none;
   background-color: #fff;
   border-color: #dee2e6;
@@ -16726,11 +16538,7 @@ textarea.form-control-lg {
   border-bottom-left-radius: inherit;
 }
 .list-group-item.disabled, .list-group-item:disabled {
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   pointer-events: none;
   background-color: #fff;
 }
@@ -17080,11 +16888,7 @@ textarea.form-control-lg {
   display: flex;
   align-items: center;
   padding: 0.5rem 0.75rem;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
   background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -19398,11 +19202,7 @@ textarea.form-control-lg {
 
 .text-muted {
   --bs-text-opacity: 1;
-<<<<<<< HEAD
   color: #000000 !important;
-=======
-  color: #6c757d !important;
->>>>>>> origin/명운
 }
 
 .text-black-50 {
@@ -19441,14 +19241,7 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
-<<<<<<< HEAD
 
-=======
-.bg-secondary {
-  --bs-bg-opacity: 1;
- 
-}
->>>>>>> origin/명운
 
 .bg-success {
   --bs-bg-opacity: 1;
@@ -23066,11 +22859,7 @@ html {
 }
 .form-floating label {
   font-size: 1.5rem;
-<<<<<<< HEAD
   color: #000000;
-=======
-  color: #6c757d;
->>>>>>> origin/명운
 }
 
 .masthead {
@@ -23166,8 +22955,4 @@ header.masthead {
     padding-bottom: 8rem;
     width: 100%;
     height: 30%;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/명운

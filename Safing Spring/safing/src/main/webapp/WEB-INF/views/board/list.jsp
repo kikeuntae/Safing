@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<<<<<< HEAD
-=======
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
->>>>>>> origin/명운
 <%@page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
@@ -13,12 +9,6 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Safing Board</title>
-<<<<<<< HEAD
-=======
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" type="text/css" />
->>>>>>> origin/명운
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->

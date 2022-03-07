@@ -11516,7 +11516,6 @@ html {
 table > thead > tbody > tr > td {
 	color: blue;
 }
-<<<<<<< HEAD
 
 .page_list {
 		display: flex; margin: 0 auto;
@@ -11525,5 +11524,3 @@ table > thead > tbody > tr > td {
 .page_on, .page_off, .page_next, .page_last, .page_prev, .page_first {
 		display: inline-block; line-height: 30px; margin: 0; width: 35px;
 }
-=======
->>>>>>> origin/명운
