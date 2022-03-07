@@ -56,6 +56,7 @@
     </head>
     <header style="padding : 15px 0; text-align : center; display: flex; width: 80%;" >
         <!-- Navigation-->
+<<<<<<< HEAD
                 <a class="navbar-brand" href="home.ma" ${category eq 'ma' ? "class='active'" : '' }><img alt="logo" src="img/logo_color.png" style="width: 200px;"></a>          
               <div class='category' style="margin-left: 200px; margin-top: 25px;">
                     <ul >
@@ -65,6 +66,22 @@
                         <li ><a href="list.yu" ${category eq 'yu' ? "class='active'" : '' }>유튜브</a></li>
                         <li ><a href="list.cu" ${category eq 'cu' ? "class='active'" : '' }>관리자</a></li>
                         <li ><a href="login.lo" ${category eq 'lo' ? "class='active'" : '' }>로그인 / 회원가입</a></li>
+=======
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="home.ma">Safing</a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">쇼핑</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="list.bo">자유게시판</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="list.no">공지사항</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="list.yu">유튜브</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="list.cu">관리자</a></li>
+>>>>>>> origin/명운
                     </ul>
                   <div style='position: absolute; right: 0; top: 20px; margin-right: 200px;'>
 	<%-- 	<ul>

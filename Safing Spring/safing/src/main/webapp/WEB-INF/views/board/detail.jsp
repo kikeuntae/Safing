@@ -63,9 +63,16 @@
 		<td colspan="5" class='left'>${vo.file_name }
 			<!-- 파일이 있는 경우에만 파일 정보를 나타냄 -->
 			<!-- 페이지 이동하는 형태가 아니므로 id 값을 get 방식으로 전달 -->
+<<<<<<< HEAD
 			<c:if test="${ ! empty vo.file_name }">
 				<a id='preview'></a>
 				<a href='download.bo?id=${vo.member_id}'><i class='fas fa-download font-img' ></i></a>
+=======
+			<iframe width="300" height="300" src="${vo.file_path}" title="video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			<c:if test="${ ! empty vo.file_name }">
+				<a id='preview'></a>
+				<a href='download.bo?id=${vo.board_id}'><i class='fas fa-download font-img' ></i></a>
+>>>>>>> origin/명운
 			</c:if>
 		</td>
 	</tr>
