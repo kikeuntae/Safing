@@ -14,7 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.safing.R;
+<<<<<<< HEAD
 import com.example.safing.async.OnItemClick_Product_Listener;
+=======
+import com.example.safing.async.OnItemClick_product_Listener;
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 import com.example.safing.shop.VO.ProductVO;
 
 import java.text.NumberFormat;
@@ -27,6 +31,11 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
     LayoutInflater inflater;
     OnItemClick_Product_Listener listener;
 
+<<<<<<< HEAD
+=======
+    OnItemClick_product_Listener listener;
+
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
     public Shop_Rec_Adapter(Context context, ArrayList<ProductVO> list) {
         this.context = context;
         this.list = list;
@@ -111,6 +120,7 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
         if(list.get(position).getProduct_stock() < 1){
             delDto(position);
         }else {
+<<<<<<< HEAD
             Glide.with(context).load(FILE_PATH + list.get(position).getFile_path()).into( holder.product_rec_img1);
             holder.product_rec_tv1.setText(list.get(position).getProduct_name());
             holder.product_rec_tv2.setText(list.get(position).getRating()+"");
@@ -122,6 +132,19 @@ public class Shop_Rec_Adapter extends RecyclerView.Adapter<Shop_Rec_Adapter.View
             holder.product_rec_tv6.setText("#" + tag[2]);
             holder.product_rec_tv7.setText("#" + tag[3]);
             holder.product_rec_tv8.setText("#" + tag[4]);
+=======
+            Glide.with(context).load(list.get(position).getFile_path()).into( holder.product_rec_img1);
+            holder.product_rec_tv1.setText(list.get(position).getProduct_name());
+            holder.product_rec_tv2.setText(list.get(position).getRating()+"");
+            holder.product_rec_tv3.setText(list.get(position).getRe_count());
+            holder.product_rec_tv4.setText(list.get(position).getProduct_price());
+
+            String[] tag = list.get(position).getTag_key().split("#");
+            holder.product_rec_tv5.setText("#" + tag[0]);
+            holder.product_rec_tv6.setText("#" + tag[1]);
+            holder.product_rec_tv7.setText("#" + tag[2]);
+            holder.product_rec_tv8.setText("#" + tag[3]);
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         }
 
     }

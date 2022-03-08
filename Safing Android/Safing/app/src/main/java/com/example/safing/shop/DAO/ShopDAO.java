@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.safing.async.AskParam;
 import com.example.safing.async.CommonAsk;
 import com.example.safing.async.CommonMethod;
+<<<<<<< HEAD
 import com.example.safing.async.CommonVal;
 import com.example.safing.shop.VO.AddressVO;
 import com.example.safing.shop.VO.CartVO;
@@ -15,6 +16,12 @@ import com.example.safing.shop.VO.Product_PackageVO;
 import com.example.safing.shop.VO.Product_Package_DetailVO;
 import com.example.safing.shop.VO.PurchaseHistoryVO;
 import com.example.safing.shop.VO.ReviewVO;
+=======
+import com.example.safing.shop.DTO.Product_Cart_RecDTO;
+import com.example.safing.shop.DTO.Product_PurchaseHistory_RecDTO;
+import com.example.safing.shop.VO.ProductVO;
+import com.example.safing.shop.VO.Product_PackageVO;
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -29,9 +36,15 @@ public class ShopDAO {
     InputStream in;
     Gson gson = new Gson();
 
+<<<<<<< HEAD
     //패키지 리스트
     public ArrayList<Product_PackageVO> package_list(){
         service = new CommonAsk("package_list.sh");
+=======
+    //키지 리스트
+    public ArrayList<Product_PackageVO> package_list(){
+        service = new CommonAsk("package_rec.sh");
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         in = CommonMethod.excuteAsk(service);
         ArrayList<Product_PackageVO> list = new ArrayList<>();
         try{
@@ -40,12 +53,20 @@ public class ShopDAO {
             e.printStackTrace();
             Log.d(TAG, "gson error");
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         return list;
     }
 
     //상품 리스트
     public ArrayList<ProductVO> product_list(String query){
+<<<<<<< HEAD
         service = new CommonAsk("product_list.sh");
+=======
+        service = new CommonAsk("product_rec.sh");
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         service.params.add(new AskParam("search", query));
         in = CommonMethod.excuteAsk(service);
         ArrayList<ProductVO> list = new ArrayList<>();
@@ -59,6 +80,7 @@ public class ShopDAO {
         return list;
     }
 
+<<<<<<< HEAD
     //패키지 상세정보
     public Product_Package_DetailVO package_detail(int package_num){
         service = new CommonAsk("package_detail.sh");
@@ -218,10 +240,20 @@ public class ShopDAO {
         ArrayList<CartVO> list = new ArrayList<>();
         try{
             list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<CartVO> >(){}.getType());
+=======
+    //장바구니 리스트
+    public ArrayList<Product_Cart_RecDTO> cart_list(){
+        service = new CommonAsk("product_cart.sh");
+        in = CommonMethod.excuteAsk(service);
+        ArrayList<Product_Cart_RecDTO> list = new ArrayList<>();
+        try{
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<Product_Cart_RecDTO> >(){}.getType());
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         } catch (Exception e){
             e.printStackTrace();
             Log.d(TAG, "gson error");
         }
+<<<<<<< HEAD
         return list;
     }
 
@@ -279,6 +311,19 @@ public class ShopDAO {
         ArrayList<AddressVO> list = new ArrayList<>();
         try{
             list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<AddressVO> >(){}.getType());
+=======
+
+        return list;
+    }
+
+    //구매내역 리스트
+    public ArrayList<Product_PurchaseHistory_RecDTO> purchaseHistory_list(){
+        service = new CommonAsk("purchaseHistory_list.sh");
+        in = CommonMethod.excuteAsk(service);
+        ArrayList<Product_PurchaseHistory_RecDTO> list = new ArrayList<>();
+        try{
+            list = gson.fromJson(new InputStreamReader(in), new TypeToken< List<Product_PurchaseHistory_RecDTO> >(){}.getType());
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         } catch (Exception e){
             e.printStackTrace();
             Log.d(TAG, "gson error");
@@ -287,6 +332,7 @@ public class ShopDAO {
         return list;
     }
 
+<<<<<<< HEAD
     //기본 주소 변경
     public void update_address(int addr_num){
         service = new CommonAsk("update_address.sh");
@@ -380,4 +426,8 @@ public class ShopDAO {
         }
         return result;
     }
+=======
+
+
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 }

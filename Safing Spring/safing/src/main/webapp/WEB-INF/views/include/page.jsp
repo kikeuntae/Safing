@@ -46,10 +46,17 @@ function go_page( page ) {
 		width: 30px; height: 32px; color: #666; 
 		border: 1px solid gray; text-indent: -999999999999999px;
 	}
+<<<<<<< HEAD
 	.page_next { background: url("img/page_next.jpg") center no-repeat;}
 	.page_last { background: url("img/page_last.jpg") center no-repeat;}
 	.page_first { background: url("img/page_first.jpg") center no-repeat;}
 	.page_prev { background: url("img/page_prev.jpg") center no-repeat;}
+=======
+	.page_next { background: url("imgs/page_next.jpg") center no-repeat;}
+	.page_last { background: url("imgs/page_last.jpg") center no-repeat;}
+	.page_first { background: url("imgs/page_first.jpg") center no-repeat;}
+	.page_prev { background: url("imgs/page_prev.jpg") center no-repeat;}
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
 </style>
 

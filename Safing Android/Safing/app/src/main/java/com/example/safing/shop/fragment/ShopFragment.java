@@ -21,9 +21,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+<<<<<<< HEAD
 import com.bumptech.glide.Glide;
 import com.example.safing.mypage.VO.MemberVO;
 import com.example.safing.async.CommonVal;
+=======
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 import com.example.safing.shop.DAO.ShopDAO;
 import com.example.safing.R;
 import com.example.safing.MainActivity;
@@ -35,6 +38,7 @@ import com.example.safing.async.OnItemClick_Package_Listener;
 import com.example.safing.async.OnItemClick_Product_Listener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -50,8 +54,14 @@ public class ShopFragment extends Fragment{
     MainActivity mainActivity = new MainActivity();
     Shop_Package_Apdater adapter_rec1;
     Shop_Rec_Adapter adapter_rec2;
+<<<<<<< HEAD
     String query = "감성용품";
     ShopDAO dao = new ShopDAO();
+=======
+    Gson gson = new Gson();
+    String query;
+    ShopDAO dao;
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
     public ShopFragment(Context context){
         this.context = context;
@@ -96,10 +106,15 @@ public class ShopFragment extends Fragment{
         ImageView header_imge = nav_headerview.findViewById(R.id.header_imge);
         TextView header_text= nav_headerview.findViewById(R.id.header_text);
 
+<<<<<<< HEAD
         if(CommonVal.loginInfo != null){
             Glide.with(context).load(FILE_PATH + CommonVal.loginInfo.getMember_filepath()).into(header_imge);
             header_text.setText(CommonVal.loginInfo.getMember_id());
         }
+=======
+        //Glide.with(context).load(CommonVal.loginInfo.getMember_filepath()).into(header_imge);
+        //header_text.setText(CommonVal.loginInfo.getMember_id());
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
         //========= 탭 기능 ==============
 
@@ -114,32 +129,56 @@ public class ShopFragment extends Fragment{
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab.getPosition() == 0){
+<<<<<<< HEAD
                     query = tab.getText()+"";
+=======
+                    query = (String) tab_layout.getTag();
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 1){
+<<<<<<< HEAD
                     query = tab.getText()+"";
+=======
+                    query = (String) tab_layout.getTag();
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 2){
+<<<<<<< HEAD
                     query = tab.getText()+"";
+=======
+                    query = (String) tab_layout.getTag();
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 3){
+<<<<<<< HEAD
                     query = tab.getText()+"";
+=======
+                    query = (String) tab_layout.getTag();
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 4){
+<<<<<<< HEAD
                     query = tab.getText()+"";
+=======
+                    query = (String) tab_layout.getTag();
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
                 if(tab.getPosition() == 5){
+<<<<<<< HEAD
                     query = tab.getText()+"";
+=======
+                    query = (String) tab_layout.getTag();
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
                     shop_tv1.setText("검색상품 #"+query);
                     setRec2(query);
                 }
@@ -179,6 +218,8 @@ public class ShopFragment extends Fragment{
             }
         });
 
+        setRec1();
+
         return rootView;
     }
 
@@ -202,6 +243,14 @@ public class ShopFragment extends Fragment{
     public void setRec2(String query){
         ArrayList<ProductVO> list = dao.product_list(query);
 
+<<<<<<< HEAD
+=======
+    }
+
+    public void setRec2(String query){
+        ArrayList<ProductVO> list = dao.product_list(query);
+
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         manager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
 
         shop_rec2.setLayoutManager(manager);
@@ -212,7 +261,11 @@ public class ShopFragment extends Fragment{
             @Override
             public void onItemClick_product(Shop_Rec_Adapter.ViewHolder holderm, View view, int position) {
 
+<<<<<<< HEAD
                 mainActivity.changeFragment(new Product_Fragment(context, list.get(position).getProduct_num()));
+=======
+                mainActivity.changeFragment(new Product_Fragment(context));
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
             }
         });
     }

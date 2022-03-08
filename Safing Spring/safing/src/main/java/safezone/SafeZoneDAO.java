@@ -29,8 +29,12 @@ public class SafeZoneDAO {
 		// 전체 게시글 수 조회
 		page.setTotalList(sql.selectOne("sfzone.mapper.totalList", page));
 		// 페이징 처리된 전체 게시글 목록 조회
+<<<<<<< HEAD
 		List<SafeZoneVO> list = sql.selectList("sfzone.mapper.search_list", page);
 		page.setList( list);
+=======
+		page.setList( sql.selectList("sfzone.mapper.search_list", page));
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 		
 		return page;
 	}

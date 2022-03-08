@@ -44,5 +44,17 @@
 		where member_id = #{member_id}
 	</update>
 	
+<<<<<<< HEAD
+=======
+	
+	<!--이미지 업데이트 -->
+	<update id="update_img">
+		update member set  	
+		 member_filename = #{member_filename,  jdbcType=VARCHAR}
+		 ,member_filepath = #{member_filepath,  jdbcType=VARCHAR}
+		where member_id = #{member_id}
+	</update>
+	
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
 </mapper>

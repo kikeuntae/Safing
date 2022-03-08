@@ -26,9 +26,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+<<<<<<< HEAD
                 android:textColor="#F9F9FB"
                 android:textStyle="bold"
                 android:textSize="15dp"
+=======
+                android:textColor="@color/white"
+                android:textStyle="bold"
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
                 android:text="#광주광역시\n#서구\n#농성동"
                 android:background="#00000000">
             </TextView>

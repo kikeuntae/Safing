@@ -29,7 +29,10 @@ public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apda
     LayoutInflater inflater;
     OnItemClick_Package_Listener listener;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
     public Shop_Package_Apdater(Context context, ArrayList<Product_PackageVO> list) {
         this.context = context;
         this.list = list;
@@ -89,6 +92,10 @@ public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apda
             item_product_package_shop_tv = itemView.findViewById(R.id.item_product_package_shop_tv);
             item_product_package_shop_linear = itemView.findViewById(R.id.item_product_package_shop_linear);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
             item_product_package_shop_linear.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -104,8 +111,14 @@ public class Shop_Package_Apdater extends RecyclerView.Adapter<Shop_Package_Apda
     }
     public void binding(ViewHolder holder, int position){
         holder.item_product_package_shop_img.setColorFilter(Color.parseColor("#CD959595"), PorterDuff.Mode.MULTIPLY);
+<<<<<<< HEAD
         Glide.with(context).load(FILE_PATH + list.get(position).getFile_path()).into( holder.item_product_package_shop_img);
         String[] tag = list.get(position).getTag_key().split("#");
         holder.item_product_package_shop_tv.setText("#" + tag[1] + "\n" +"#" + tag[2] + "\n" + "#" + tag[3]);
+=======
+        Glide.with(context).load(list.get(position).getFile_path()).into( holder.item_product_package_shop_img);
+        String[] tag = list.get(position).getTag_key().split("#");
+        holder.item_product_package_shop_tv.setText("#" + tag[0] + "\n" +"#" + tag[1] + "\n" + "#" + tag[2]);
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
     }
 }

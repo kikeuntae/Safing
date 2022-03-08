@@ -23,9 +23,16 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
     HttpPost httpPost; //url을 담을 객체
 
     MultipartEntityBuilder builder;//파라메터,파일 등등을 보내기위한 객체
+<<<<<<< HEAD
     static final String HTTPIP = "http://192.168.0.22";//IP
     final String SVRPATH = "/safing/"; //
     static final public String FILE_PATH = HTTPIP +":80/safing/resources/";
+=======
+    final static String HTTPIP = "http://192.168.0.65";//IP
+    final String SVRPATH = "/safing/"; //
+    public static final String FILE_PATH= HTTPIP +":80/safing/resources/";
+    public static final String MEMBER_ID= "master";
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
     String mapping ;
     private String postUrl ;
 
@@ -67,7 +74,7 @@ public class CommonAsk extends AsyncTask<String,String,InputStream> {
         InputStream   in = null;
         try {
             in = httpClient.execute(httpPost).getEntity().getContent();
-
+          //  rtnString(in);
 
         } catch (IOException e) {
             e.printStackTrace();

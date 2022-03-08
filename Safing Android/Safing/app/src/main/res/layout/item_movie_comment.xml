@@ -5,13 +5,24 @@
     android:orientation="vertical">
 
     <LinearLayout
+<<<<<<< HEAD
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#4FC3C1C1"
+=======
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#00000000"
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         android:gravity="center"
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
+<<<<<<< HEAD
+=======
+            android:layout_margin="5dp"
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
             android:id="@+id/comment_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -40,6 +51,10 @@
 
                 <TextView
                     android:id="@+id/comment_date"
+<<<<<<< HEAD
+=======
+                    android:textSize="10dp"
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -55,7 +70,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+<<<<<<< HEAD
                 android:text="이 어플은 매우 좋은 어플입니다.이 어플은 매우 좋은 어플입니다.이 어플은 매우 좋은 어플입니다." />
+=======
+                android:textColor="@color/black"
+                android:background="@null"
+                android:text="이 어플은 매우 좋은 어플aaaaaa" />
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         </LinearLayout>
 
         <LinearLayout
@@ -65,6 +86,7 @@
             android:orientation="vertical">
 
             <ImageButton
+<<<<<<< HEAD
                 android:id="@+id/comment_delete"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -79,6 +101,25 @@
                 android:layout_weight="1"
                 android:backgroundTint="#4FC3C1C1"
                 android:src="@drawable/btn_next" />
+=======
+                android:layout_weight="1"
+                android:id="@+id/comment_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:backgroundTint="#00000000"
+                android:src="@drawable/comment_delete"
+                 />
+
+            <ImageButton
+                android:layout_weight="1"
+                android:id="@+id/comment_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:backgroundTint="#00000000"
+                android:src="@drawable/comment_update" />
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         </LinearLayout>
     </LinearLayout>
 

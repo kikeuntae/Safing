@@ -19,6 +19,7 @@
   </definition>
   
   <!-- tiles 제외시키기 -->
+<<<<<<< HEAD
   <definition name="login/login" extends ="empty">
   	<put-attribute name="content" value ="/WEB-INF/views/login/login.jsp"/>
   </definition>
@@ -28,6 +29,16 @@
 	<put-attribute name="content" value ="/WEB-INF/views/shop/{1}"/>
   </definition> 
   
+=======
+  	<definition name="login/login" extends ="empty">
+		<put-attribute name="content" value ="/WEB-INF/views/login/login.jsp"/>
+	</definition>
+  
+  <!-- tiles 제외시키기 -->
+  	<!-- <definition name="board/list" extends ="empty">
+		<put-attribute name="content" value ="/WEB-INF/views/board/list.jsp" />
+	</definition> -->
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
   
   <definition name="main/home" template="/WEB-INF/views/tiles/default.jsp">
   	<put-attribute name="content" value="/WEB-INF/views/main/home.jsp" />

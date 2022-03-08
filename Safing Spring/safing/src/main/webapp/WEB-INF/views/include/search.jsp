@@ -13,9 +13,15 @@
 <link rel='stylesheet' type="text/css" href="css/search.css?v=<%= new Date().getTime() %>">
 </head>
 <body>
+<<<<<<< HEAD
 
 <form class="form-subscribe" id="contactForm" action="search_list.ma" method="post">
 	<input type="hidden" name="curPage" value="1" /> 
+=======
+	<%-- <div class="header-nav">
+		<jsp:include page="/WEB-INF/views/include/header.jsp" />
+	</div> --%>
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 		<!-- Masthead-->
 	<div class="s-masthead">
 		<div class="container position-relative">
@@ -31,6 +37,7 @@
 						<!-- To make this form functional, sign up at-->
 						<!-- https://startbootstrap.com/solution/contact-forms-->
 						<!-- to get an API token!-->
+<<<<<<< HEAD
 						<div style="display: flex;">
 							<ul>
 								<li>
@@ -47,11 +54,20 @@
 								<div class="col">
 									<input class="form-control form-control-lg" type="text" style="width: 320px"
 									 name="keyword" placeholder="캠핑장명, 주소를 검색하세요" value="${page.keyword}" />
+=======
+						<form class="form-subscribe" id="contactForm" action="search_list.ma" method="post">
+							<!-- Email address input-->
+							<div class="row">
+								<div class="col">
+									<input class="form-control form-control-lg" type="text"
+									 name="keyword" placeholder="캠핑장명, 주소, 테마를 검색하세요" value="${page.keyword}" />
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 								</div>
 								<div class="col-auto">
 									<a class='btn-fill' onclick='$("form").submit()'>검색</a>
 								</div>
 							</div>
+<<<<<<< HEAD
 									<ul>
 			<li>
 				<select name='pageList' class='w-px90' onchange="$('form').submit()">
@@ -69,6 +85,9 @@
 		</ul>
 						
 						</div>
+=======
+						</form>
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 							<!-- Submit success message-->
 							<!---->
 							<!-- This is what your users will see when the form-->
@@ -97,6 +116,11 @@
 		</div>
 	</div>
 
+<<<<<<< HEAD
 </form>
+=======
+
+
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 </body>
 </html>

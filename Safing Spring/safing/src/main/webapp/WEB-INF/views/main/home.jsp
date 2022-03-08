@@ -34,6 +34,7 @@
 <div class="search">
 		<jsp:include page="/WEB-INF/views/include/search.jsp" />
 </div>
+<<<<<<< HEAD
 <section id="section2">
 <div class="section_02">
 		<div class="layout2">
@@ -109,6 +110,9 @@
 		</div>
 	</div>
 	</section>
+=======
+
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	<section id="section3">
 		<h2>
 			<span class="skip">한국관광공사 추천 2월의 낭만 여행</span>

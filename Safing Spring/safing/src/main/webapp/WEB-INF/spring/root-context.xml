@@ -6,7 +6,11 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+<<<<<<< HEAD
 	<context:component-scan base-package="board, camping, common, member, product, tip, safezone, campinfo, theme" />
+=======
+	<context:component-scan base-package="address, board, camping, cart, common, member, order, product, tip, safezone, campinfo, theme" />
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	<import resource="classpath:data/default.xml" />
 	
 	<bean id="multipartResolver"

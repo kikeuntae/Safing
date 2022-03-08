@@ -17,7 +17,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <title>Safing ${title } </title>
+=======
+<title>IoT 과정 > ${title } </title>
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 <style type="text/css">
 	#wrap {
 		display: flex; flex-direction: column; height: 100%;

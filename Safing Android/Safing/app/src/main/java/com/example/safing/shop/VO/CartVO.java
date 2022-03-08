@@ -1,39 +1,13 @@
 package com.example.safing.shop.VO;
 
 public class CartVO {
-    private int cart_num     	;
-    private String member_id    ;
-    private String product_name ;
-    private String package_name ;
-    private int product_num     ;
-    private int package_num     ;
-    private int product_price 	;
-    private int order_count   	;
-    private String file_path	;
+    private int		cart_num	  ;
+    private String	member_id	  ;
+    private int		product_num   ;
+    private int		package_num   ;
+    private int		product_price ;
+    private int		product_cnt   ;
 
-
-    public String getProduct_name() {
-        return product_name;
-    }
-
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
-    }
-
-    public String getPackage_name() {
-        return package_name;
-    }
-
-    public void setPackage_name(String package_name) {
-        this.package_name = package_name;
-    }
-
-    public String getFile_path() {
-        return file_path;
-    }
-    public void setFile_path(String file_path) {
-        this.file_path = file_path;
-    }
     public int getCart_num() {
         return cart_num;
     }
@@ -64,16 +38,10 @@ public class CartVO {
     public void setProduct_price(int product_price) {
         this.product_price = product_price;
     }
-    public int getOrder_count() {
-        return order_count;
+    public int getProduct_cnt() {
+        return product_cnt;
     }
-    public void setOrder_count(int order_count) {
-        this.order_count = order_count;
+    public void setProduct_cnt(int product_cnt) {
+        this.product_cnt = product_cnt;
     }
-
-
-
-
-
-
 }

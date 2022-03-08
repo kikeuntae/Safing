@@ -43,8 +43,11 @@ public class Product_Package_Fragment extends Fragment {
     SwipeRefreshLayout swipe;
     NavigationView shop_product_view;
     MainActivity mainActivity = new MainActivity();
+<<<<<<< HEAD
     ShopDAO dao = new ShopDAO();
     String review;
+=======
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
     int package_num = 0;
 
     public Product_Package_Fragment(Context context, int package_num) {
@@ -52,9 +55,14 @@ public class Product_Package_Fragment extends Fragment {
         this.package_num = package_num;
     }
 
+<<<<<<< HEAD
     public Product_Package_Fragment(Context context, int package_num, String review) {
         this.context = context;
         this.review = review;
+=======
+    public Product_Package_Fragment(Context context, int package_num) {
+        this.context = context;
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         this.package_num = package_num;
     }
 

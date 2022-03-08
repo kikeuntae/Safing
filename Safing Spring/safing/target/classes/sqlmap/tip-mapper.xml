@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tip.mapper">
+<<<<<<< HEAD
 
 <!-- =========================================안드 ========================================= -->
 
+=======
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	<!-- tip썸네일 화면 -->
 	<select id="tiplist" resultType="tip.YoutubeTipVO">
 		select id, thumbnails, youtubetitle, youtubecnt, youtubecontent, play
@@ -15,6 +18,7 @@
 		set youtubecnt = youtubecnt + 1
 		where id = #{id}
     </update>
+<<<<<<< HEAD
  <!-- =========================================안드 ========================================= -->
  
  
@@ -55,6 +59,11 @@
     		
     		
     		
+=======
+    		
+    		
+    	    		
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
     		<!-- 유튜브 이미지 입력 (임시?)-->
     <insert id="insert_youtube">
     	insert into youtubetip ( thumbnails, youtubetitle, youtubecontent, play,board_id)

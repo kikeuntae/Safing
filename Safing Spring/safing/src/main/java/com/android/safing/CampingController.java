@@ -26,6 +26,7 @@ public class CampingController {
 	@Autowired private campinfo.CampImgDAO dao;
 
 	
+<<<<<<< HEAD
 	//캠핑장 상세 사진 목록
 		@ResponseBody
 		@RequestMapping("/campimg_list.home")
@@ -33,6 +34,60 @@ public class CampingController {
 			
 
 			List<CampImgVO> list = dao.list(contentid);
+=======
+	/*
+	 * //캠핑 등록
+	 * 
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping("/insert.camp") public void join(HttpServletRequest req,
+	 * HttpServletResponse res, HttpSession session) throws Exception { PrintWriter
+	 * writer = outprintln.outprintln(req, res);
+	 * 
+	 * }
+	 * 
+	 * //캠핑 목록
+	 * 
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping("/list.camp") public void list(HttpServletRequest req,
+	 * HttpServletResponse res) throws Exception{ PrintWriter writer =
+	 * outprintln.outprintln(req, res); }
+	 * 
+	 * //캠핑 상세정보
+	 * 
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping("/detail.camp") public void detail(HttpServletRequest req,
+	 * HttpServletResponse res) throws Exception{ PrintWriter writer =
+	 * outprintln.outprintln(req, res); }
+	 * 
+	 * //캠핑 정보수정
+	 * 
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping("/update.camp") public void update(HttpServletRequest req,
+	 * HttpServletResponse res) throws Exception{ PrintWriter writer =
+	 * outprintln.outprintln(req, res); }
+	 * 
+	 * //캠핑 삭제
+	 * 
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping("/delete.camp") public void delete(HttpServletRequest req,
+	 * HttpServletResponse res) throws Exception{ PrintWriter writer =
+	 * outprintln.outprintln(req, res); }
+	 */
+	
+	//캠핑장 상세 사진 목록
+	//tip 리스트
+		@ResponseBody
+		@RequestMapping("/campimg_list.home")
+		public void  campimg_list(HttpServletRequest req, HttpServletResponse res, String img_contentid) throws Exception{
+			
+
+			List<CampImgVO> list = dao.list(img_contentid);
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 			req.setCharacterEncoding("UTF-8");
 			res.setCharacterEncoding("UTF-8");
 			res.setContentType("text/html");

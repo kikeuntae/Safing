@@ -55,6 +55,7 @@ public class ProductDAO {
 		return list;
 	}
 	
+<<<<<<< HEAD
 	//패키지 리뷰리스트
 	public List<ReviewVO> review_list_pack(int package_num ){
 		List<ReviewVO> list = sql.selectList("product.mapper.review_list_pack", package_num);
@@ -62,6 +63,24 @@ public class ProductDAO {
 			vo.setImagelist(sql.selectList("product.mapper.review_imagelist", vo.getReview_num()));
 		}
 		return list;
+=======
+	//패키지 리스트
+	public List<Product_PackageVO> package_list(){
+		return sql.selectList("product.mapper.package_list");
+		
+	}
+	
+	//상품 리스트
+	public List<ProductVO> product_list(String search){
+		return sql.selectList("product.mapper.product_list", search);
+		
+	}
+	
+	//이미지등록
+	public void img_insert(ImginsertVO vo){
+		sql.insert("product.mapper.insert_img", vo);
+		
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	}
 	
 	//리뷰 좋아요 수정

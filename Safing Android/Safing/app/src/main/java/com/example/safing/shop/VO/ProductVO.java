@@ -1,8 +1,11 @@
 package com.example.safing.shop.VO;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 import java.util.ArrayList;
 
+=======
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 public class ProductVO {
     private int		product_num 	;
     private String	product_name	;
@@ -13,6 +16,7 @@ public class ProductVO {
     private String	tag_key			;
     private String  file_path		;
 
+<<<<<<< HEAD
 
     public int getProduct_num() {
         return product_num;
@@ -42,6 +46,29 @@ public class ProductVO {
         return product_stock;
     }
 
+=======
+    public int getProduct_num() {
+        return product_num;
+    }
+    public void setProduct_num(int product_num) {
+        this.product_num = product_num;
+    }
+    public String getProduct_name() {
+        return product_name;
+    }
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+    public int getProduct_price() {
+        return product_price;
+    }
+    public void setProduct_price(int product_price) {
+        this.product_price = product_price;
+    }
+    public int getProduct_stock() {
+        return product_stock;
+    }
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
     public void setProduct_stock(int product_stock) {
         this.product_stock = product_stock;
     }
@@ -49,6 +76,7 @@ public class ProductVO {
     public double getRating() {
         return rating;
     }
+<<<<<<< HEAD
 
     public void setRating(double rating) {
         this.rating = rating;
@@ -66,6 +94,20 @@ public class ProductVO {
         return tag_key;
     }
 
+=======
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+    public int getRe_count() {
+        return re_count;
+    }
+    public void setRe_count(int re_count) {
+        this.re_count = re_count;
+    }
+    public String getTag_key() {
+        return tag_key;
+    }
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
     public void setTag_key(String tag_key) {
         this.tag_key = tag_key;
     }
@@ -75,7 +117,10 @@ public class ProductVO {
     }
 
     public void setFile_path(String file_path) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         this.file_path = file_path;
     }
 }

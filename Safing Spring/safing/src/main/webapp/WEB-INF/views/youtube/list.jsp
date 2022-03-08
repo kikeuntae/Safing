@@ -66,9 +66,15 @@
 	<ul class='grid'>
 		<c:forEach items="${page.list }" var="vo">
 			<li>
+<<<<<<< HEAD
 				<div><a onclick='go_detail(${vo.member_id})'>${vo.youtubetitle }</a></div>
 				<%-- <div>${vo.member_id }</div>
 				<div>${vo.board_writedate } [${vo.board_read_cnt }] <span style="float: right;">${empty vo.file_name ? '' : "<img src='imgs/attach.png' class='file-img' />" }</span> </div> --%>
+=======
+				<div><a onclick='go_detail(${vo.member_id})'>${vo.board_title }</a></div>
+				<div>${vo.member_id }</div>
+				<div>${vo.board_writedate } [${vo.board_read_cnt }] <span style="float: right;">${empty vo.file_name ? '' : "<img src='imgs/attach.png' class='file-img' />" }</span> </div>
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 			</li>
 		</c:forEach>
 	</ul>
@@ -96,12 +102,21 @@
 		</c:if>
 		<c:forEach items="${page.list }" var="vo">
 		<tr>
+<<<<<<< HEAD
 			<td>${vo.id }</td>
 			<td class='left'><a onclick='go_detail(${vo.id})'>${vo.youtubetitle}</a></td>
 			<%-- <td>${vo.member_id }</td>
 			<td>${vo.board_writedate }</td>
 			<td>${vo.board_read_cnt }</td>
 			<td>${empty vo.file_name ? '' : '<img src="imgs/attach.png" class="file-img" />'}</td>	 --%>		
+=======
+			<td>${vo.no }</td>
+			<td class='left'><a onclick='go_detail(${vo.board_id})'>${vo.board_title }</a></td>
+			<td>${vo.member_id }</td>
+			<td>${vo.board_writedate }</td>
+			<td>${vo.board_read_cnt }</td>
+			<td>${empty vo.file_name ? '' : '<img src="imgs/attach.png" class="file-img" />'}</td>			
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 		</tr>
 		</c:forEach>
 		

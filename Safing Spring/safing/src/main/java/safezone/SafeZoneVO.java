@@ -8,6 +8,7 @@ public class SafeZoneVO implements Serializable {
 	private String 	contentid, facltnm, addr1, intro, resvecl, tel, homepage, induty, prmisnde, insrncat, animalcmgcl, facltdivnm,
     mangedivnm,  mgcdiv, operdecl, toiletco, swrmco, wtrplco, sbrscl, mapx, mapy, sfzone, firstimageurl ;
 	private HashMap<String,String> iconList = new HashMap<String,String>();
+<<<<<<< HEAD
 	private int readcnt, no, next, prev;
 	
 	public int getReadcnt() {
@@ -34,6 +35,9 @@ public class SafeZoneVO implements Serializable {
 		this.prev = prev;
 	}
 
+=======
+	
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	public void setIconList() {
 		String[] iconarr = this.sbrscl.split(",");
 		if(iconarr.length > 0 ) {
@@ -60,6 +64,10 @@ public class SafeZoneVO implements Serializable {
 
 	
 
+<<<<<<< HEAD
+=======
+	private int no;
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	
 	public int getNo() {
 		return no;

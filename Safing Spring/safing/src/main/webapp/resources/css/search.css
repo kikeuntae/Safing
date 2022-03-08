@@ -1632,7 +1632,11 @@ input.txt_input{padding:10px 10px;}
 
 
 /*section2*/
+<<<<<<< HEAD
 	#section2{position:relative; width:80%; margin: 0 auto; }
+=======
+	#section2{position:relative; width:100%; }
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	.section_02{position:relative; width:100%; height:68px; display:block; border-bottom:1px solid #dedede;}
 		.notice_w{position:relative; width:50%; float:left; height:68px;}
 		.notice_w .tt{position:absolute; font-size:15px; color:#000; line-height:68px; font-weight:bold; background:url("/img/2018/main/notice_ico.png") no-repeat 0 23px; padding:0 0 0 35px; float:left; width:69px;}
@@ -1689,7 +1693,11 @@ input.txt_input{padding:10px 10px;}
 /************************************************************************************************************************************************************************/
 /*section3*/
 	#section3{position:relative; width:100%; overflow:hidden; }
+<<<<<<< HEAD
 	.section_03{position:relative; width:100%; overflow:hidden; min-height:auto; margin-top: -9px; background:#f0f1f5; padding:72px 0 93px 0;}
+=======
+	.section_03{position:relative; width:100%; overflow:hidden; min-height:auto; background:#f0f1f5; padding:72px 0 93px 0;}
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 		.section_03 .title_w{width:100%; position:relative; text-align:center; position:relative;}
 		.section_03 .tt_point{position:absolute; width:109px; height:33px;background:url("/img/2018/main/tt_bg01.png") no-repeat center center;top:15px; left:50%; margin-left:70px; }
 		
@@ -2579,7 +2587,11 @@ input.txt_input{padding:10px 10px;}
 	.link_div{width: 100%; height: 100%}
 	
 
+<<<<<<< HEAD
 .btnSet { margin-top: 20px; display: flex;}
+=======
+.btnSet { margin-top: 20px;}
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
 a.btn-fill, a.btn-empty {
 	text-align: center;

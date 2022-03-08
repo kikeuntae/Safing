@@ -28,7 +28,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+<<<<<<< HEAD
         android:paddingVertical="10dp"
+=======
+        android:paddingVertical="30dp"
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         android:paddingHorizontal="20dp"
         android:weightSum="3">
         <LinearLayout
@@ -106,6 +110,7 @@
                 android:fontFamily="@font/ibmplexsanslight"/>
         </LinearLayout>
     </LinearLayout>
+<<<<<<< HEAD
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -143,3 +148,6 @@
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+=======
+</LinearLayout>
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b

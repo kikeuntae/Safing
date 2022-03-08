@@ -9,6 +9,12 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Safing Board</title>
+<<<<<<< HEAD
+=======
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+	rel="stylesheet" type="text/css" />
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->

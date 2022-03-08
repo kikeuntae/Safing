@@ -2,7 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="campimg_list.mapper">
 
+<<<<<<< HEAD
 	<!-- 캠핑장 이미지 여러장 보기 -->
+=======
+	<!-- sfzone 가입된 업장 목록ㄹ -->
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	<select id="campimglist" resultType="campinfo.CampImgVO">
 		select  c.contentid , i.imageurl, i.imgid
 		from campinfo c left outer join campimg i on c.contentid = i.contentid
@@ -10,6 +14,7 @@
 		order by imgid asc
 	</select>
 	
+<<<<<<< HEAD
 		<!-- 캠핑장 이미지 여러장 보기 -->
 	<select id="wcampimglist" resultType="campinfo.CampImgVO">
 		select  c.contentid , i.imageurl, i.imgid
@@ -17,6 +22,9 @@
 		where c.contentid = #{contentid}
 		order by imgid asc
 	</select>
+=======
+	
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
 	
 </mapper>

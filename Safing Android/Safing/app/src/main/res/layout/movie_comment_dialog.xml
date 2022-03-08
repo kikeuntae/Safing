@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="wrap_content"
+=======
+    android:layout_height="300dp"
+    android:background="#00000000"
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
     android:orientation="vertical">
 
 
@@ -9,6 +14,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+<<<<<<< HEAD
         android:layout_weight="0.5"
         android:background="#4FC3C1C1"
         android:orientation="horizontal">
@@ -27,15 +33,43 @@
                 android:backgroundTint="#4FC3C1C1"
                 android:scaleType="fitXY"
                 android:src="@drawable/down1" />
+=======
+        android:layout_weight="1"
+        android:background="#00000000"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:background="#00000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageButton
+                android:background="#00000000"
+                android:id="@+id/movie_comment_exit"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4FC3C1C1"
+                android:scaleType="fitXY"
+                android:src="@drawable/comment_downbacter" />
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="8"
                 android:gravity="center"
+<<<<<<< HEAD
                 android:text="Comment(0)"
                 android:textAlignment="center"
                 android:textSize="20dp" />
+=======
+                android:text="Comment"
+                android:textAlignment="center"
+                android:textSize="30dp" />
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
         </LinearLayout>
 
 
@@ -64,17 +98,33 @@
             android:id="@+id/comment_content"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+<<<<<<< HEAD
             android:layout_weight="5"
+=======
+            android:textSize="20dp"
+            android:layout_weight="5"
+            android:background="@null"
+            android:textColor="@color/black"
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
             android:hint="댓글을 입력하세요" />
 
         <ImageButton
             android:id="@+id/comment_insert"
+<<<<<<< HEAD
             android:scaleType="fitXY"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="#4FC3C1C1"
             android:src="@drawable/right1" />
+=======
+            android:scaleType="fitCenter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#4FC3C1C1"
+            android:src="@drawable/comment_upbacter" />
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
     </LinearLayout>
 

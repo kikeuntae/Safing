@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<<<<<<< HEAD
 <%@page import="java.util.Date"%>
+=======
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
@@ -23,6 +27,9 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link rel='stylesheet' type="text/css" href="css/board.css?v=<%= new Date().getTime() %>">
 
+=======
+<title>Insert title here</title>
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 <style type="text/css">
 	#popup { width: 450px; height: 450px; border: 2px solid #666; display: none; }
 	#popup-background {
@@ -87,6 +94,17 @@
 	</c:if>
 </div>
 
+<<<<<<< HEAD
+=======
+<div class='comment'> 
+	<div id='comment_regist'> <!-- 댓글 등록 부분 -->
+		<span class='left'><strong>댓글작성</strong></span>
+		<span class='right'><a class='btn-fill-s' onclick='comment_regist()'>댓글등록</a></span>
+		<textarea id='comment_content'></textarea> <!-- 글을 작성할 부분 -->	
+	</div>
+	<div id='comment_list'></div>
+</div>
+>>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
 
 <!-- 목록 요청에 필요한 데이터를 post 방식으로 전달하는 방법 -->
