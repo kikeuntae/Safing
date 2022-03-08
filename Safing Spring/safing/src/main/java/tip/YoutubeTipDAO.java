@@ -9,10 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import board.BoardPage;
-<<<<<<< HEAD
 import board.BoardVO;
-=======
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
 @Service
 public class YoutubeTipDAO {
@@ -32,7 +29,6 @@ public class YoutubeTipDAO {
 	}
 	
 	
-<<<<<<< HEAD
 	//게시판(유튜브) 리스트 출력
 	public BoardPage board_list_youtube(BoardPage page) {
 		// 전체 게시글 수 조회
@@ -45,34 +41,32 @@ public class YoutubeTipDAO {
 	}
 
 	//글에 유튜브 업로드
-	public void board_insert_youtube(YoutubeTipVO vo) {
+	public void insert(YoutubeTipVO vo) {
 
-=======
-
-
-	//글에 유튜브 업로드
-	public void board_insert_youtube(YoutubeTipVO vo) {
-		// TODO Auto-generated method stub
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
-		sql.insert("tip.mapper.insert_youtube", vo);
+		sql.insert("tip.mapper.insert", vo);
 	}
+	
+	// 유튜브 상세화면 요청
+	public YoutubeTipVO detail(int id) {
+		return sql.selectOne("tip.mapper.detail", id);
+	}
+	
+	
 	//수정을 위한 유튜브  상세정보요청
-	public YoutubeTipVO youtube_detail(int id) {
-<<<<<<< HEAD
+	public YoutubeTipVO youtube_detail(int board_id) {
 
-=======
-		// TODO Auto-generated method stub
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
-		return  sql.selectOne("tip.mapper.youtube_detail", id);
+		return  sql.selectOne("tip.mapper.youtube_detail", board_id);
 	}
 
-	public void board_update_youtube(YoutubeTipVO vo) {
-<<<<<<< HEAD
+	// 유튜브 수정 요청
+	
+	public int update(YoutubeTipVO vo) {
+		return sql.update("tip.mapper.update", vo);
+	}
 
-=======
-		// TODO Auto-generated method stub
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
-		sql.insert("tip.mapper.update_youtube", vo);
+	// 유튜브 삭제 요청
+	public int delete(int id) {
+		return sql.delete("tip.mapper.delete", id);
 	}
 		
 	

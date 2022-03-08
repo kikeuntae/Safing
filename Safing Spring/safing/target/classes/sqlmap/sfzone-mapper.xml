@@ -22,7 +22,6 @@
 				order by facltnm asc ) c
 	</select>
  	
-<<<<<<< HEAD
  	
 
  	
@@ -62,28 +61,6 @@
 		where facltnm like '%'||#{keyword}||'%'
 	    or addr1 like '%'||#{keyword}||'%'
 	 
-=======
-  <!--  전체 게시글 조회  -->
- 	<select id="search_list" resultType="safezone.SafeZoneVO">             
-		select rownum no, c.* 
-		from (select * 
-		    from campinfo 
-		   	<include refid="search" />
-		    order by facltnm asc ) c
-		where rownum between #{beginList} and #{endList}
-	</select> 
-	 
-
-	<!-- 전체 게시글 수 조회 -->
-	<select id="totalList" resultType="integer">
-		select count(*) from campinfo <include refid="search" />	
-	</select>	
-
-	<sql id='search'>
-		where facltnm like '%'||#{keyword, jdbcType=VARCHAR}||'%'
-	    or addr1 like '%'||#{keyword, jdbcType=VARCHAR}||'%'
-	    or induty like '%'||#{keyword, jdbcType=VARCHAR}||'%'
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	</sql> 
 	 
 	<!-- 해당 글의 상세 정보 조회 -->

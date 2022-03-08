@@ -8,7 +8,7 @@
 <script type="text/javascript" src='js/file_check.js?v=<%=new Date().getTime()%>'></script>
 </head>
 <body>
-<h3>공지사항 쓰기</h3>
+<h3>유튜브 업로드</h3>
 <!-- 파일 첨부하여 submit 하는 경우
 	1. method 는 post 로 지정
 	2. form 에는 반드시 enctype='multipart/form-data' 지정

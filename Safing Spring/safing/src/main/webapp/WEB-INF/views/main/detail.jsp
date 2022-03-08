@@ -1,10 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-=======
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 <%@page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
@@ -13,18 +9,20 @@
 <title>camp info</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" type="text/css" />
+
 <!-- Google fonts-->
 <link
 	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<<<<<<< HEAD
-<link rel='stylesheet' type="text/css"
-	href="css/sub_layout.css?v=<%=new Date().getTime()%>">
+<link rel='stylesheet' type="text/css" href="css/sub_layout.css?v=<%=new Date().getTime()%>">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
+<!-- modal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.1-beta/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet">
+
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
 	crossorigin="anonymous"></script>
@@ -32,52 +30,16 @@
 
 <body>
 	<div id="s_contanier">
-=======
-<link rel='stylesheet' type="text/css" href="css/sub_layout.css?v=<%= new Date().getTime() %>">
-<!-- Font Awesome -->
-<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-<div id="s_contanier">
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 		<!--상단타이틀영역-->
 		<div id="sub_title_wrap2">
 			<!--Location-->
 			<div class="location_w2">
-<<<<<<< HEAD
 				<div class="location_inner2"></div>
-=======
-				<div class="location_inner2">
-					<div class="layout">
-						<a href="/" class="all_home"><span class="skip">홈으로</span></a>
-						<div class="mngroup depth1">
-							<p class="step">
-								캠핑GO</p>
-							<ul class="menuUl" style="display: none;">
-								<li class="menuLi depth1List"><a href="/zboard/list.do?lmCode=campNews">캠핑플러스</a></li>
-									<li class="menuLi depth1List"><a href="/zboard/list.do?lmCode=notice">고객센터</a></li>
-									</ul>
-						</div>
-						<div class="mngroup depth2">
-							<p class="step">
-								캠핑장 검색</p>
-							<ul class="menuUl" style="display: none;">
-								<li class="menuLi depth1List"><a href="/bsite/camp/info/list.do">캠핑장 검색</a></li>
-											<li class="menuLi depth1List"><a href="/bsite/camp/info/list.do">지도로 검색</a></li>
-									<li class="menuLi depth1List"><a href="/camp/recomend/list.do">이달의 추천 캠핑장</a></li>
-									<li class="menuLi depth1List"><a href="/zboard/list.do?lmCode=campEvent">캠핑장 이벤트</a></li>
-								</ul>
-						</div>
-					</div>
-				</div>
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 			</div>
 			<!--//Location-->
 			<div class="layout">
 				<!--타이틀-->
 				<div class="s_title2">
-<<<<<<< HEAD
 					<p class="camp_name">${vo.facltnm }</p>
 					<p class="camp_s_tt"></p>
 				</div>
@@ -90,22 +52,6 @@
 		</div>
 		<!--//상단타이틀영역-->
 		<div class="gray_bar"></div>
-=======
-					<p class="camp_name">
-						${vo.facltnm }</p>
-					<p class="camp_s_tt">
-						</p>
-				</div>
-			</div>
-			<div class="sub_bg_w">
-				<div class="camp_bg_03"><!-- <img src="img/visual3.jpg" style="display: inline-table; height: 700px;"> --></div>
-			</div>
-		</div>
-		<!--//상단타이틀영역-->
-		<div class="gray_bar">
-			
-		</div>
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
 		<section id="section1" style="right: 0px; margin-top: 90px; top: 20px">
 			<h2 class="skip" style="display: none;">캠핑장정보 영역 입니다.</h2>
@@ -117,7 +63,6 @@
 							<h2 class="skip">캠핑장 정보</h2>
 							<div class="camp_info_box">
 								<div class="img_b">
-<<<<<<< HEAD
 									<c:choose>
 										<c:when test="${vo.firstimageurl eq '-' }">
 											<img src="img/emptyimage.png" alt="${vo.facltnm}">
@@ -126,30 +71,17 @@
 											<img src="${vo.firstimageurl }" alt="${vo.facltnm}">
 										</c:otherwise>
 									</c:choose>
-=======
-									<c:choose >
-						<c:when test="${vo.firstimageurl eq '-' }"><img src="img/emptyimage.png" alt="${vo.facltnm}"></c:when>
-							<c:otherwise>
-								<img src="${vo.firstimageurl }" alt="${vo.facltnm}">	
-							</c:otherwise>
-						</c:choose>	
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 								</div>
 								<!--//S:table-->
 								<div class="cont_tb">
 									<table class="table">
-<<<<<<< HEAD
 
-=======
-										
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 										<colgroup>
 											<col style="width: 30%;">
 											<col style="width: 70%;">
 										</colgroup>
 										<tbody>
 											<tr>
-<<<<<<< HEAD
 												<th scope="col">주소</th>
 												<td>${vo.addr1 }</td>
 											</tr>
@@ -193,48 +125,6 @@
 											onclick="fnCampBkmk(); return false">찜하기</button>
 										<button type="button" class="btn_gB1 btn_modify"
 											onclick="location.href='/zboard/createForm.do?lmCode=campRequest&amp;c_no=100254'; return false;">정보수정요청</button>
-=======
-													<th scope="col">주소</th>
-													<td>${vo.addr1 }</td>
-												</tr>
-											<tr class="camp_call_pcVer">
-													<th scope="col">문의처</th>
-													<td>
-														${vo.tel }</td>
-												</tr>
-											<tr>
-													<th scope="col">예약 구분</th>
-													<td>${vo.resvecl }</td>
-												</tr>
-											<tr>
-													<th scope="col">캠핑장 유형</th>
-													<td>${vo.induty }</td>
-												</tr>
-											<tr>
-													<th scope="col">운영기간</th>
-													<td>봄, 여름, 가을, 겨울</td>
-												</tr>
-											<tr>
-													<th scope="col">운영일</th>
-													<td>${vo.operdecl }</td>
-												</tr>
-											<tr>
-													<th scope="col">주변이용가능시설</th>
-													<td>낚시, 해수욕, 농어촌체험시설</td>
-												</tr>
-											</tbody>
-									</table>
-									<div class="camp_call_tmVer">
-											<ul>
-												<li class="tt">문의처</li>
-												<li class="call"><a href="tel:01064860548" title="전화하기" class="btn_bB1 best">전화하기</a></li>
-											</ul>
-										</div>
-									<div class="btn_w">
-										<button type="button" class="btn_bB1 best" onclick="fnCampLike(); return false">추천하기</button>
-										<button type="button" class="btn_rB1 zzim" onclick="fnCampBkmk(); return false">찜하기</button>
-										<button type="button" class="btn_gB1 btn_modify" onclick="location.href='/zboard/createForm.do?lmCode=campRequest&amp;c_no=100254'; return false;">정보수정요청</button>
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 									</div>
 								</div>
 								<!--//E:table-->
@@ -252,11 +142,10 @@
 				<!--내용시작-->
 				<div id="contents">
 					<div class="camp_cont_w">
-<<<<<<< HEAD
 
 						<div class="line_100"></div>
 						<div class="layout">
-							<ul class="camp_tab05">
+							<ul class="camp_tab05" style="list-style: none;">
 								<li><a
 									href="/bsite/camp/info/read.do?c_no=100254&amp;viewType=read01"
 									class="camp_intro">캠핑장 소개</a></li>
@@ -265,8 +154,7 @@
 							<div class="camp_intro">
 
 								<p class="camp_intro_txt">
-									<span>${vo.intro } </span> <span class="date_info">최종 정보
-										수정일 : <%=new Date().getTime()%></span>
+									<span>${vo.intro } 
 								</p>
 								<h3 class="icon_h3">캠핑장 시설정보</h3>
 
@@ -326,104 +214,33 @@
 
 
 								<h3 class="icon_h3 mt_50">${vo.facltnm }</h3>
-=======
-						
-						<div class="line_100">
-						
-						</div>
-						<div class="layout">
-							<ul class="camp_tab05">
-								<li ><a href="/bsite/camp/info/read.do?c_no=100254&amp;viewType=read01" class="camp_intro">캠핑장 소개</a></li>
-							</ul>
-
-							<div class="camp_intro">
-			
-	<p class="camp_intro_txt">
-			<span>${vo.intro } </span> <span class="date_info">최종 정보 수정일 : <%= new Date().getTime() %></span>
-		</p>
-	<h3 class="icon_h3">캠핑장 시설정보</h3>
-
-			<div class="camp_item_box">
-					
-						<div class="icon_flex">
-							<c:forEach items="${vo.iconList}" var="icon">
-							<div>
-								<div ><img src="img/${icon.value}"></div>
-								<div style="display: block; color: #123456">${icon.key}</div>							
-							</div>	
-							</c:forEach>
-						</div>	
-		</div>
-	<h3 class="icon_h3">기타 주요시설</h3>
-	<section id="table_type03">
-
-		<div class="table_w">
-			<table class="table_t4 camp_etc_tb">
-				<caption>
-					<strong>기타 주요시설 안내 테이블</strong>
-					
-				</caption>
-
-				<tbody class="t_c">
-					<tr>
-						<th scope="col">SafeZone 가입 유무</th>
-						<td>
-							<ul class="table_ul05">
-								<li> ${vo.sfzone }</li>
-								</ul>
-						</td>
-					</tr>
-					<tr>
-						<th scope="col">반려동물 출입</th>
-						<td class="etc_type">${vo.animalcmgcl }</td>
-					</tr>
-					<tr>
-						<th scope="col">바베큐</th>
-						<td class="etc_type">개별</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<p class="camp_intro_txt">
-			<span class="info_notice">
-				&nbsp;* Safing에 등록된 정보는 현장상황과 다소 다를 수 있으니 <span class="info_f_red">반려동물 동반 여부, 부가 시설물, 추가차량</span> 등 원활한 캠핑을 위해 꼭 필요한 사항은 해당 캠핑장에 미리 확인하시기 바랍니다.
-			</span> 
-		</p>
-	</section>
-	<h3 class="icon_h3 mt_50">
-			${vo.facltnm }</h3>
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 								<div class="box_photo">
 									<div id="gallery"
 										style="max-width: 100%; min-width: 150px; overflow: visible; height: auto;"
-										class="ug-gallery-wrapper ug-theme-tiles">
-										<div class="ug-overlay-disabled" style="display: none"></div>
-										<div
-											class="ug-tiles-wrapper ug-tiletype-columns ug-tiles-rest-mode ug-tiles-transit"
-											style="position: relative; height: 177px;">
-											<div
-												class="ug-thumb-wrapper ug-tile ug-tile-clickable ug-thumb-ratio-set"
-												style="z-index: 1; background-color: rgb(240, 240, 240); display: block; width: 236px; height: 177px; position: absolute; margin: 0px; left: 4px; top: 0px; opacity: 1;">
-												<div class="ug-thumb-overlay"
-													style="background-color: rgba(0, 0, 0, 0.4); width: 236px; height: 177px; left: 0px; top: 0px; position: absolute; margin: 0px; opacity: 0;">
-													<div class="ug-tile-icon ug-button-play ug-icon-zoom"
-														style="position: absolute; margin: 0px; left: 99px; top: 70px;">
-													</div>
-												</div>
-<<<<<<< HEAD
-												<c:forEach items="${img_list}" var="vo">
+										class="ug-gallery-wrapper ug-theme-tiles" >
+										<c:forEach items="${img_list}" var="vo">
 													<c:choose>
-														<c:when test="${vo.imageurl eq null }">
+														<c:when test="${vo.imageurl eq null }">			
 															<img src="img/emptyimage.png" src=""
-																style="width: 236px; height: 177px; left: 0px; top: 0px;">
+																style="width: 236px; height: 177px; left: 0px; top: 0px; margin:10px;">												
 														</c:when>
 														<c:otherwise>
+														<a href="${vo.imageurl }" data-toggle="lightbox" data-gallery="example-gallery" style="display: contents;">
 															<img src="${vo.imageurl }"
 																class="ug-thumb-image ug-trans-enabled"
-																style="width: 236px; height: 177px; left: 0px; top: 0px;">
+																style="width: 236px; height: 177px; left: 0px; top: 0px; margin:10px; overflow: visible;">
+																</a>
 														</c:otherwise>
 													</c:choose>
 												</c:forEach>
+										<div class="ug-overlay-disabled" style="display: none">
+											</div>
+										<div
+											class="ug-tiles-wrapper ug-tiletype-columns ug-tiles-rest-mode ug-tiles-transit"
+											style="position: relative; height: 177px;">
+
+												</div>
+												
 
 
 
@@ -439,30 +256,7 @@
 							<div style="margin-top: -30px; margin-bottom: 30px;">※ 모든
 								컨텐츠의 저작권은 Safing에 있습니다. 무단 사용 및 불법 재배포는 법적 조치를 받을 수 있습니다.</div>
 							<!-- 		<button type="button" class="btn_grey_M">더보기</button> -->
-							<script>
-=======
-												<img
-													<%-- src="${vo1.imageurl }" --%>
-													alt="공둘 캠핑장(02)" class="ug-thumb-image ug-trans-enabled"
-													style="width: 236px; height: 177px; left: 0px; top: 0px;">
-											</div>
-											
-										</div>
-										<div class="ug-tiles-preloader ug-preloader-trans"
-											style="opacity: 1; position: absolute; margin: 0px; left: 584px; top: 100px; display: none;"></div>
-									</div>
-								</div>
-								<div style="margin-top: -30px; margin-bottom: 30px;">
-			※ 모든 컨텐츠의 저작권은 Safing에 있습니다. 무단 사용 및 불법 재배포는 법적 조치를 받을 수 있습니다.
-		</div>
-		<!-- 		<button type="button" class="btn_grey_M">더보기</button> -->
-		<script>
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
-			$(document).ready(function() {
-				$("#gallery").unitegallery();
-			});
-		</script>
-<<<<<<< HEAD
+
 						</div>
 					</div>
 				</div>
@@ -472,8 +266,14 @@
 	<!--//콘텐츠박스-->
 	</section>
 	</div>
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d84d17c12c47d013c9658aecf9316aea"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d84d17c12c47d013c9658aecf9316aea"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+		
+		
 	<script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -496,16 +296,26 @@ marker.setMap(map);
 
 // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 // marker.setMap(null);    
+
+
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+});
 </script>
-=======
-	</div></div>
-					</div>
-				</div>
-				<!--//내용종료-->
-			</div>
-			<!--//콘텐츠박스-->
-		</section>
-	</div>
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
+
 </body>
+<style>
+.ekko-lightbox-nav-overlay a:last-child span {
+    text-align: right;
+    color: white;
+    font-size: 50px;
+}
+.ekko-lightbox-nav-overlay a span {
+    padding: 0 30px;
+    color: white;
+    font-size: 50px;
+}
+
+</style>
 </html>

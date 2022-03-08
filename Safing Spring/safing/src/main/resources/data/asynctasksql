@@ -17,3 +17,77 @@ select * from product_review;
 select * from product_file;
 
 select file_name,  min(file_num) from product_file group by file_name;
+
+select * from product;
+
+select p.product_num, p.product_name, p.product_price, p.product_stock,
+        		(select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
+        		(select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
+     		    (select tag_key from board_tag where  p.product_num = product_num and product_num is not null) tag_key,
+     		    (select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path
+		from  product p
+		where product_kind like '%'||#{search, jdbcType=VARCHAR}||'%'
+        
+select * from product_package;        
+        
+        
+select * 
+		from (select rownum no, p.* 
+				from  (select p.product_num, p.product_name, p.product_price, p.product_stock,
+		       		  (select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
+	 	        	  (select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
+		   		      (select tag_key from board_tag where  p.product_num = product_num and product_num is not null) tag_key,
+		   		      (select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path
+					  from  product p ) p)
+		where no between 1 and 20       ;
+        
+        
+        select * from product_package;
+        
+        
+         select * from CART_DETAIL_CNT;
+        
+        select * from cart;
+        
+        select * from member;
+        
+insert into product_package (PACKAGE_NUM, PACKAGE_NAME, PACKAGE_PRICE, FILE_NAME, FILE_PATH)
+values(0, "구매null값", 0, "0", "0");        
+
+select * from product_package; 
+
+select * from PRODUCT_FILE;
+desc; 
+
+desc product;
+
+
+insert into product (product_num, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_STOCK)
+values(01343, 'asdf', 12321, 24);
+
+select * from product order by product_num desc;
+
+select * from product_package;
+
+delete from product where product_num =2;
+
+commit;
+
+rollback;
+
+alter table order_result modify review_check VARCHAR2(3) DEFAULT 'n';
+
+ALTER TABLE address ADD addr_setting VARCHAR2(3) DEFAULT 'n';
+
+insert into order_result(order_state_num, receiver_name, receiver_phone, receiver_addr,
+								 order_num, member_id, product_num, package_num, order_count, product_price)
+values (3,'1', '1','1',
+        121, '2', 0, 0, 0, 0);
+
+select * from order_ing;
+
+select * from order_result;
+
+commit;
+
+delete from order_result where order_num = 121;

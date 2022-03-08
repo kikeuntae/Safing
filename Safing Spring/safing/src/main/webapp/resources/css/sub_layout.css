@@ -2130,6 +2130,7 @@ text-overflow: ellipsis;overflow: hidden; }
 		
 	.icon_flex {
 		display: flex;
+		text-align: center;
 		margin-right: 20px;
 	}
 	

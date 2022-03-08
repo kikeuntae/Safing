@@ -59,6 +59,30 @@ BEGIN
     SELECT seq_order_state.NEXTVAL INTO :NEW.order_state_num FROM dual;
 END;
 
+drop SEQUENCE seq_order_state;
+drop TRIGGER trg_order_state;
+
+insert into product_package (PACKAGE_NUM, PACKAGE_NAME, PACKAGE_PRICE, FILE_NAME, FILE_PATH)
+values(0, "구매null값", 0, "0", "0");
+
+select * from product_package;
+
+--product 수정
+CREATE SEQUENCE seq_product
+START WITH 1 INCREMENT BY 1;
+
+CREATE TRIGGER trg_product
+    BEFORE INSERT ON product
+    FOR EACH ROW
+BEGIN
+    SELECT seq_product.NEXTVAL INTO :NEW.product_num FROM dual;
+END;
+
+drop SEQUENCE seq_product;
+drop TRIGGER trg_product;
+
+desc product_package;
+
 --member 수정
 ALTER TABLE member ADD member_phone VARCHAR2(30) NOT NULL;
 
@@ -134,3 +158,33 @@ WHERE R.ROWID IN (
                     WHERE RA.RN > 1 );
 
 ALTER TABLE CAMPINFO ADD CONSTRAINT PK_campinfo_contentid primary key(contentid);
+
+select * from order_result;
+
+select o.order_num, o.product_num, o.package_num, o.product_price, o.order_state_num,
+       p.product_name, k.package_name, s.order_state_name, nvl((select review_check from ORDER_RESULT where o.order_num = order_num), 'null') review_check
+from order_ing o
+left outer join product p
+on  o.product_num = p.product_num
+left outer join product_package k
+on  o.package_num = k.package_num
+left outer join ORDER_STATE s
+on  o.order_state_num = s.order_state_num
+where member_id = 'in2thefree'
+order by order_num desc;
+
+select * from PRODUCT_FILE order by product_num desc;
+
+desc PRODUCT_FILE ;
+
+insert into PRODUCT_FILE(product_num, file_name, file_path)
+values (113, '123', '213');
+
+rollback;
+
+select * from product order by product_num desc;
+
+
+select * from product_file bo;
+
+select * from product order by product_num;

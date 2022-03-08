@@ -9,10 +9,20 @@ public class Product_Package_DetailVO {
 	    private String package_name       ;
 	    private double	rating			  ;
 	    private int		re_count		  ;
+	    private int		package_price	;
 	    private String  file_path_info	  ;
 	    private String  file_path	 	  ;
-
-	    public String getFile_path() {
+   
+	    
+	    
+	    
+	    public int getPackage_price() {
+			return package_price;
+		}
+		public void setPackage_price(int package_price) {
+			this.package_price = package_price;
+		}
+		public String getFile_path() {
 	        return file_path;
 	    }
 	    public void setFile_path(String file_path) {

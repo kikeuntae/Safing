@@ -406,7 +406,7 @@
 		.camp_search_list{position:relative; width:100%; height:auto; clear:both;}
 		.camp_search_list .c_list{position:relative; padding:25px 20px; height:auto; overflow:hidden; border-bottom:1px solid #dbdbdb;}
 		.camp_search_list .c_list.update{background:#f8fcfe; width: 80%; margin: 0 auto;}
-		.camp_search_list .c_list .img_box{width:275px; height:195px;position:relative; float:left;}
+		.camp_search_list .c_list .img_box{width:330px; height:215px;position:relative; float:left;}
 		.camp_search_list .c_list .img_box img{width:100%; height:100%; object-fit: cover;}
 		/*휴업 및 폐쇄*/
 		.campshutdown{position:absolute; width:100%; height:100%; background-color: rgba( 0, 0, 0, 0.5 ); left:0; top:0; font-size:0; line-height:0;}
@@ -1551,6 +1551,7 @@
 	.icon_flex {
 		display: flex;
 		margin-right: 20px;
+		text-align: center;
 	}
 	
 	.icon_flex div{

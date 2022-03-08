@@ -13,7 +13,7 @@
 	</c:if>	
 	<!-- 현재 페이지가 아닌 경우 -->
 	<c:if test="${no ne page.curPage }">
-		<a class='page_off' onclick="go_page(${no})">${no }</a>
+		<a class='page_off' onclick="go_page(${no })">${no }</a>
 	</c:if>
 </c:forEach>
 
@@ -34,7 +34,7 @@ function go_page( page ) {
 </script>
 <style>
 	.page_on, .page_off, .page_next, .page_last, .page_prev, .page_first {
-		display: inline-block; line-height: 30px; margin: 0;
+		display: inline-block; line-height: 30px; margin: 0; text-align: center
 	}
 	.page_on {
 		border: 1px solid #777; background-color: #999; color: #fff; font-weight: bold;
@@ -46,18 +46,11 @@ function go_page( page ) {
 		width: 30px; height: 32px; color: #666; 
 		border: 1px solid gray; text-indent: -999999999999999px;
 	}
-<<<<<<< HEAD
 	.page_next { background: url("img/page_next.jpg") center no-repeat;}
 	.page_last { background: url("img/page_last.jpg") center no-repeat;}
 	.page_first { background: url("img/page_first.jpg") center no-repeat;}
 	.page_prev { background: url("img/page_prev.jpg") center no-repeat;}
-=======
-	.page_next { background: url("imgs/page_next.jpg") center no-repeat;}
-	.page_last { background: url("imgs/page_last.jpg") center no-repeat;}
-	.page_first { background: url("imgs/page_first.jpg") center no-repeat;}
-	.page_prev { background: url("imgs/page_prev.jpg") center no-repeat;}
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
-</style>
+</style> 
 
 

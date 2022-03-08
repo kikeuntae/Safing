@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.mapper">
+
+	<!-- 전체 상품 수 조회 -->
+	<select id="totalList" resultType="integer">
+		select count(*) 
+		from (select * from product where product_price  <![CDATA[>]]> 0) p
+		<include refid="product_search"/>
+	</select>	
+	
+	<!-- 패키지조회 -->
+	<select id="package_list" resultType="product.Product_PackageVO">
+		select p.*, (select tag_key from board_tag where p.package_num = package_num) tag_key
+		from product_package p
+		where p.package_num >0
+		order by p.package_num
+	</select>
+
+
+	<!-- 상품조회 -->
+	<select id="product_list" resultType="product.ProductVO">
+		select * 
+		from (select rownum no, p.* 
+		      from (select p.product_num, p.product_name, p.product_price, p.product_stock, p.product_kind,
+		            (select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
+		            (select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
+		            (select tag_key from board_tag where  p.product_num = product_num and product_num is not null) tag_key,
+		            (select file_path from product_file where file_num = (select min(file_num) from product_file where  p.product_num = product_num)) file_path
+		            from  product p
+		            where p.product_price  <![CDATA[>]]> 0) p
+		       <include refid="product_search" />) 
+		where no between #{beginList} and #{endList}
+	</select>
+	
+	<!-- 상품 조건 조회 -->
+	<sql id='product_search'>
+		<if test="search == 'all' ">
+			where p.product_kind is not null
+		</if>
+		<if test="search != 'all' and search != null">
+			where p.product_kind like '%'||#{search, jdbcType=VARCHAR}||'%'
+		</if>
+		<if test="keyword != null and keyword != ''">
+			where p.product_kind like '%'||#{keyword}||'%'
+			or p.product_name like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+	
+	<!-- 패키지 상세 리스트 -->
+	<select id="package_detail" resultType="product.Product_Package_DetailVO">
+		select p.package_num, p.package_name, p.package_price,
+        (select ROUND(AVG(rating),2) from product_review where  p.package_num = package_num) rating,
+        (select COUNT(*) from product_review where  p.package_num = package_num and package_num is not null) re_count,
+        (select file_path from product_file where file_num = (select max(file_num) from product_file where product_num = (select min(product_num) from package_detail where  p.package_num = package_num))) file_path_info
+		from product_package p
+	</select> 
+	
+	<!-- 패키지 상세이미지  -->
+	<select id="package_imagelist" resultType="String">
+		select file_path imagelist
+		from product_file f
+		where product_num in (select product_num
+	              		      from package_detail
+	                   		  where package_num = #{package_num})
+		and  file_num = (select min(file_num) from product_file where  f.product_num = product_num)
+		order by file_num desc
+	</select>
+	
+	<!-- 패키지 상세 상품종류  -->
+	<select id="package_kindlist" resultType="String">
+		select product_kind
+		from product p
+		where product_num in (select product_num
+                     			from package_detail
+                    			where package_num = #{package_num})
+		and product_kind is not null
+	</select>
+	
+	<!-- 상품 상세정보  -->
+	<select id="product_detail" resultType="product.Product_DetailVO">
+	select * 
+	from (select rownum no, p.* 
+		  from (select p.product_num, p.product_name, p.product_price, p.product_stock,
+      			(select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
+     			(select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
+     			(select file_path from product_file where file_num = (select max(file_num) from product_file where  p.product_num = product_num)) file_path_info
+				 from product p
+				 where p.product_price  <![CDATA[>]]> 0
+		         order by p.product_num)
+		  p)
+	where no between #{beginList} and #{endList}
+	
+	</select>
+	
+	
+	<!-- 상품 상세이미지  -->
+	<select id="product_imagelist" resultType="String">
+		select file_path imagelist
+		from product_file f
+		where product_num = #{product_num}
+		and file_num <![CDATA[<]]> (select max(file_num) from product_file where product_num = f.product_num)
+		order by file_num
+	</select>
+	
+	
+	
+	<!-- 상품관리 페이지  -->
+	<select id="product_manage_list" resultType="product.ProductManageVO">
+		select * 
+		from (select rownum no, p.*
+		      from (select product_num, product_name, product_price, product_stock, TO_CHAR(product_date, 'YYYY-MM-DD') product_date, product_kind
+		            from product where product_price <![CDATA[>]]> 0 order by product_num) p
+		      <include refid="product_search"/>
+		      order by no desc)
+		where no between #{beginList} and #{endList}
+	</select>
+	
+	<!-- 상품관리 상품등록  -->
+	<insert id="product_insert">
+		insert into product(product_num, product_name, product_price, product_stock, product_kind)
+		values (#{product_num}, #{product_name}, #{product_price}, #{product_stock}, #{product_kind})
+	</insert>
+	
+	<!-- 상품관리 상품번호 찾기-->
+	<select id="select_product_num" resultType="Integer">
+		select max(product_num) from product
+	</select>
+	
+	<!-- 상품관리 상품이미지등록  -->
+	<insert id="product_image_insert">
+		insert into product_file(product_num, file_name, file_path)
+		values (#{product_num}, #{file_name}, #{file_path})
+	</insert>
+	
+	<!-- 상품관리 수정  -->
+	<update id="product_update">
+		update product
+		set product_name = #{product_name}, product_price= #{product_price}, product_stock = #{product_stock}, product_kind = #{product_kind}
+		where product_num = #{product_num}
+	</update>
+	
+	<!-- 상품관리 삭제  -->
+	<delete id="product_delete">
+		delete from product where product_num = #{product_num}
+	</delete>
+	
+	<!-- 상품관리 이미지 삭제  -->
+	<delete id="product_image_delete">
+		delete from product_file where product_num = #{product_num}
+	</delete>
+	
+	
+	<!-- 전체 주문관리 수 조회 -->
+	<select id="order_totalList" resultType="integer">
+		select count(*) 
+		from (select * from order_ing o <include refid="order_search"/>)
+	</select>
+	
+	<!-- 주문관리 페이지  -->
+	<select id="order_manage_list" resultType="product.OrderManageVO">
+		select * 
+		from (select rownum no, o.*
+		      from (select order_num, member_id, product_num, package_num, order_state_num, TO_CHAR(order_date, 'YYYY-MM-DD') order_date, receiver_name, receiver_phone, receiver_addr, order_count, product_price   
+		            from order_ing order by order_num) o
+		      <include refid="order_search"/>
+		      order by no desc)
+		where no between #{beginList} and #{endList}
+	</select>
+	
+	<!-- 주문관리 조건 조회 -->
+	<sql id='order_search'>
+		<if test="keyword != null and keyword != ''">
+			where o.receiver_name like '%'||#{keyword}||'%'
+			or o.receiver_addr like '%'||#{keyword}||'%'
+			or o.member_id like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+	
+	<!-- 주문관리 수정  -->
+	<update id="order_update">
+		update order_ing set order_state_num = #{order_state_num} where order_num = #{order_num}
+	</update>
+	
+	<!-- 주문관리 중복확인  -->
+	<select id="order_result_select" resultType="Integer">
+		select count(*) from order_result where order_num = #{order_num}
+	</select>
+	
+	
+	<!-- order_result 정보등록  -->
+	<insert id="order_result_insert">
+		insert into order_result(order_state_num, receiver_name, receiver_phone, receiver_addr,
+								 order_num, member_id, product_num, package_num, order_count, product_price)
+		values (#{order_state_num},#{receiver_name}, #{receiver_phone}, #{receiver_addr},
+		        #{order_num},  #{member_id}, #{product_num}, #{package_num}, #{order_count}, #{product_price})
+	</insert>
+	
+</mapper>

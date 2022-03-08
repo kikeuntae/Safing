@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tip.mapper">
-<<<<<<< HEAD
 
 <!-- =========================================안드 ========================================= -->
 
-=======
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	<!-- tip썸네일 화면 -->
 	<select id="tiplist" resultType="tip.YoutubeTipVO">
 		select id, thumbnails, youtubetitle, youtubecnt, youtubecontent, play
@@ -18,7 +15,6 @@
 		set youtubecnt = youtubecnt + 1
 		where id = #{id}
     </update>
-<<<<<<< HEAD
  <!-- =========================================안드 ========================================= -->
  
  
@@ -37,48 +33,34 @@
 		where y.no between #{beginList} and #{endList}
 	</select>
 	
+ 	<!-- 유튜브 게시글 상세 조회 -->                                                                         
+	<select id="detail" resultType="tip.YoutubeTipVO">                                                       
+	select *                                                                                             
+	from youtubetip                                                                                      
+	where id = #{id}                                                                                     
+	</select>
+  
+  	<update id="update">
+  		update youtubetip set thumbnails = #{thumbnails}, 
+  							  youtubetitle = #{youtubetitle}, 
+  							  youtubecontent = #{youtubecontent}, 
+  							  play = #{play}
+  		where id = #{id}
+  	</update>
+  	
+  	<insert id="insert">
+    	insert into youtubetip ( thumbnails, youtubetitle, youtubecontent, play)
+ 					values (#{thumbnails},#{youtubetitle},#{youtubecontent},#{play})
+    </insert>
  
  
- 
+ <!-- 해당 글 삭제 처리 -->
+	<delete id="delete">
+		delete from youtubetip
+		where id = #{id}
+	</delete>
  
  <!-- ========================================= 웹 ========================================= -->   		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-    		
-=======
-    		
-    		
-    	    		
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
-    		<!-- 유튜브 이미지 입력 (임시?)-->
-    <insert id="insert_youtube">
-    	insert into youtubetip ( thumbnails, youtubetitle, youtubecontent, play,board_id)
- 	values (#{thumbnails},#{youtubetitle},#{youtubecontent},#{play},#{board_id})
-    </insert>
-    
-    
-    <select id="youtube_detail" resultType="tip.YoutubeTipVO">
-    	select * from youtubetip where board_id = #{id}
-    </select>
-    
-    <update id="update_youtube">
-    	update youtubetip
-		set thumbnails=#{thumbnails}, youtubetitle= #{youtubetitle}, youtubecontent= #{youtubecontent}, play= #{play}
-		where board_id = #{board_id}
-    </update>
+    	
 	
 </mapper>

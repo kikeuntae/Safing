@@ -157,7 +157,8 @@ body {
 
 a:link, a:visited {
 	text-decoration: none;
-	color : #000;
+	color : #735340;
+	font-weight: bold;
 }
 
 #content {min-width: 1280px; min-height: 650px; height: 100%; padding :20px 0; margin-top: 90px;
@@ -198,13 +199,14 @@ table tr td a:hover, ul.grid li a:hover { font-weight: 700; color: red;}
 a.btn-fill, a.btn-empty {
 	text-align: center;
 	padding: 3px 10px;
-	border: 1px solid #3367d6;
+	border: 1px solid #85897B;
 	border-radius: 3px;
+	text-decoration-line : none;
 	box-shadow: 2px 2px 3px #ccc; /* 오른쪽, 아래쪽, 번짐 정도 */
 }
 
 a.btn-fill {
-	background-color: #3367d6;
+	background-color: #85897B;
 	color: #fff;
 	margin: 0px 10px 10px 0;
 }
@@ -212,14 +214,14 @@ a.btn-fill-s {
 	font-size: 13px; font-weight: bold; padding: 1px 10px;
 	border: 1px solid #c4dafc;
 	border-radius: 3px;
-	box-shadow: 2px 2px 2px #022d72;
+	box-shadow: 2px 2px 2px #85897B;
 	background: #b1cdfa;
-	color : #0000cd; 
+	color : #85897B; 
 }
 
 a.btn-empty {
 	background-color: #fff;
-	color: #3367d6;
+	color: #85897B;
 }
 
 a:hover { cursor: pointer;}

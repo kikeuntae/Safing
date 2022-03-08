@@ -24,7 +24,8 @@
 	<resources location="/resources/upload/" mapping="/upload/**" />	
 	<!-- assets 영상 맵핑 -->
 	<resources location="/resources/mp4/" mapping="/mp4/**" />
-
+	<!-- shop_img 영상 맵핑 -->
+	<resources location="/resources/shop_img/" mapping="/shop_img/**" />
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -34,8 +35,8 @@
 		<!-- 순서를 1로 변경 지정 -->		
 	</beans:bean>
 	
-		<!-- 화면의 레이아웃을 지정하기 위한 tiles 라이브러리 설정
-		view의 순서를 지정 -->
+	<!-- 화면의 레이아웃을 지정하기 위한 tiles 라이브러리 설정
+	view의 순서를 지정 -->
 	<beans:bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
 		<beans:property name="order" value="0" />
 	</beans:bean>
@@ -48,7 +49,10 @@
 	
 	<context:component-scan base-package="com.android.safing" />
 	
-	
-	
-</beans:beans>
+	<!-- 스프링에서 기본으로 제공하는 multipartResolver는 CommonsMultipartResolver 이므로, 순수한 multipartResolver를 사용하기 위해 빈 이름으로 "multipartResolver"를 등록해야함 + 프로퍼티를 이용 최대 가능한 업로드 사이즈 지정함 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10000000"></beans:property>
+	</beans:bean>
+		
+	</beans:beans>
 

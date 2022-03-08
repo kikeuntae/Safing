@@ -51,13 +51,11 @@ public class NoticeController {
 		
 		// 원 글에 첨부 파일이 있었는지 조회
 		BoardVO board = dao.board_detail( vo.getBoard_id() );
-		List<Board_FileVO> board_file = dao.board_file_select(vo.getBoard_id());
+		Board_FileVO board_file = dao.board_file_select(vo.getBoard_id());
 		
-		
-		if(!(board_file == null)) {
-		for (int i = 0; i < board_file.size(); i++) {
+
 			
-		String uuid = session.getServletContext().getRealPath("resources") + "/" + board_file.get(i).getFile_path();
+		String uuid = session.getServletContext().getRealPath("resources") + "/" + board_file.getFile_path();
 		
 		// 파일을 첨부하지 않은 경우
 		if ( file.isEmpty() ) {
@@ -65,30 +63,28 @@ public class NoticeController {
 			// 원래 첨부된 파일이 있었는데 삭제한 경우
 			if ( attach.isEmpty() ) {
 				// 원래 첨부되어 있는 파일이 있다면 서버의 물리적 영역에서 삭제
-				if ( board_file.get(i).getFile_name() != null) {
+				if ( board_file.getFile_name() != null) {
 					File f = new File(uuid); 
 					if (f.exists() ) f.delete();	// 파일이 존재하면 파일을 삭제 처리
 				}				
 			} else { // 원래 첨부된 파일을 그대로 사용하는 경우
-				vo.setFile_name(board_file.get(i).getFile_name() );
-				vo.setFile_path(board_file.get(i).getFile_path() );				
+				vo.setFile_name(board_file.getFile_name() );
+				vo.setFile_path(board_file.getFile_path() );				
 			}
 		} else { // 파일을 첨부한 경우
 			vo.setFile_name( file.getOriginalFilename() );
 			vo.setFile_path( common.fileupload("board", file, session) );
-			board_file.get(i).setFile_name( file.getOriginalFilename() );
-			board_file.get(i).setFile_path(common.fileupload("board", file, session) );
-			dao.board_update_img(board_file.get(i));
+			board_file.setFile_name( file.getOriginalFilename() );
+			board_file.setFile_path(common.fileupload("board", file, session) );
+			dao.board_update_img(board_file);
 			// 원래 첨부되어 있는 파일이 있다면 서버의 물리적 영역에서 삭제
-			if ( board_file.get(i).getFile_name() != null) {
+			if ( board_file.getFile_name() != null) {
 				File f = new File(uuid); 
 				if (f.exists() ) f.delete();	// 파일이 존재하면 파일을 삭제 처리
 			}
 		}
 		
 		
-		}	//for
-		}//if
 		MemberVO member = (MemberVO) session.getAttribute("loginInfo");
 		vo.setMember_id(member.getMember_id());
 		

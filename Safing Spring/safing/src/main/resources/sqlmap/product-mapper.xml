@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="product.mapper">
-<<<<<<< HEAD
 
 	<!-- 패키지 리스트 -->
 	<select id="package_list" resultType="product.Product_PackageVO">
 		select p.*, (select tag_key from board_tag where p.package_num = package_num) tag_key
 		from product_package p
-		where p.package_num >0 
-=======
-	<!-- 패키지 리스트 -->
-	<select id="package_list" resultType="product.Product_PackageVO">
-		select p.package_num, p.file_path, t.tag_key
-		from product_package p,
-			(select tag_key, min(tag_num), package_num
-			from board_tag 
-			group by tag_key, package_num) t
-		where p.package_num = t.package_num
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
+		where p.package_num > 0 
 	</select>
 	
 	<!-- 상품 리스트 -->
 	<select id="product_list" resultType="product.ProductVO">
-<<<<<<< HEAD
 		select p.product_num, p.product_name, p.product_price, p.product_stock,
         		(select ROUND(AVG(rating),2) from product_review where  p.product_num = product_num) rating,
         		(select COUNT(*) from product_review where  p.product_num = product_num and product_num is not null) re_count,
@@ -138,7 +126,7 @@
 	<!-- 리뷰게시판 등록 상품-->
 	<insert id="review_intsert_product_pro">
 		insert into product_review (product_num, package_num, member_id, rating, board_id)
-		values(#{product_num}, 0, #{member_id}, #{rating}, #{board_id})
+		values(#{product_num}, 10, #{member_id}, #{rating}, #{board_id})
 	</insert>
 	
 	<!-- 리뷰게시판 등록 패키지-->
@@ -218,10 +206,15 @@
 		delete from cart where cart_num = #{cart_num}
 	</delete>
 	
+	<!-- 장바구니 상세주문수량 삭제 -->	
+	<delete id="delete_cart_detail_cnt">
+		delete from cart_detail_cnt where cart_num = #{cart_num}
+	</delete>
+	
 	<!-- 구매내역 리스트 -->
 	<select id="purchaseHistory_list" resultType="product.PurchaseHistoryVO">
 		select o.order_num, o.product_num, o.package_num, o.product_price, o.order_state_num,
-      		   p.product_name, k.package_name, s.order_state_name, (select review_check from ORDER_RESULT where o.order_num = order_num) review_check
+      		   p.product_name, k.package_name, s.order_state_name, nvl((select review_check from ORDER_RESULT where o.order_num = order_num), 'null') review_check
 		from order_ing o
 		left outer join product p
 		on  o.product_num = p.product_num
@@ -303,11 +296,6 @@
 	<delete id="delete_addr">
 		delete from address where addr_num = #{addr_num}
 	</delete>
-	
-	<!-- 주소 삭제 -->
-	<delete id="delete_cart_detail_cnt">
-		delete from cart_detail_cnt where cart_num = #{cart_num}
-	</delete>
 
 	
 	<!-- 결제하기 장바구니 상세수량-->
@@ -341,32 +329,8 @@
 	<!-- 결제하기 상품 -->
 	<insert id="insert_order_ing_pro">
 		insert into order_ing(member_id, product_num, package_num, order_state_num, receiver_name, receiver_phone, receiver_addr, order_count, product_price)
-		values(#{member_id}, #{product_num}, 0, 1, #{receiver_name}, #{receiver_phone}, #{receiver_addr}, #{order_count}, #{product_price})
+		values(#{member_id}, #{product_num}, 10, 1, #{receiver_name}, #{receiver_phone}, #{receiver_addr}, #{order_count}, #{product_price})
 	</insert>
 	
 	
-=======
-		select p.product_num, p.product_name, p.product_price, p.product_stock, r.rating, r.re_count, t.tag_key, f.file_path 
-		from product p,
-			(select tag_key, min(tag_num), product_num
-			from board_tag 
-			group by tag_key, product_num) t,
-			(select product_num, file_path, min(file_num)
-			from product_file
-			group by tag_key, product_num) f,
-			(select avg(rating) rating, count(*) re_count, product_num
-			from product_review
-			group by product_num) r
-		where p.product_num = t.product_num
-		and	p.product_num = f.product_num
-		and	p.product_num = r.product_num
-		and product_kind '%'||#{search, jdbcType=VARCHAR}||'%'
-	</select>
-	
-	<insert id="insert_img">
-		insert into product_package (PACKAGE_NAME, FILE_NAME, FILE_PATH)
-		values(감성캠핑, #{file_name}, #{file_path})
-	</insert>
-	
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 </mapper>

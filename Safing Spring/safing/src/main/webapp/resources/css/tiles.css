@@ -237,7 +237,7 @@ sup {
 
 a {
   color: black;
-  text-decoration: underline;
+  text-decoration: none;
   display: inline-block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
 
 
@@ -570,7 +570,7 @@ progress {
 
 .list-inline {
   padding-left: 0;
-  list-style: none;
+  list-style: none !important;
 }
 
 .list-inline-item {
@@ -2223,7 +2223,7 @@ progress {
   background-color: #fff;
   border-color: #85897B;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem #735340;
+  box-shadow: 0 0 0 0.01rem #735340;
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
@@ -3227,7 +3227,7 @@ textarea.form-control-lg {
   color: #000;
   background-color: #f9fafb;
   border-color: #f9fafb;
-  box-shadow: 0 0 0 0.25rem rgba(211, 212, 213, 0.5);
+  box-shadow: 0 0 0 0.01rem rgba(211, 212, 213, 0.5);
 }
 .btn-check:checked + .btn-light, .btn-check:active + .btn-light, .btn-light:active, .btn-light.active, .show > .btn-light.dropdown-toggle {
   color: #000;
@@ -3257,7 +3257,7 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #1c1f23;
   border-color: #1a1e21;
-  box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5);
+  box-shadow: 0 0 0 0.01rem rgba(66, 70, 73, 0.5);
 }
 .btn-check:checked + .btn-dark, .btn-check:active + .btn-dark, .btn-dark:active, .btn-dark.active, .show > .btn-dark.dropdown-toggle {
   color: #fff;
@@ -3265,7 +3265,7 @@ textarea.form-control-lg {
   border-color: #191c1f;
 }
 .btn-check:checked + .btn-dark:focus, .btn-check:active + .btn-dark:focus, .btn-dark:active:focus, .btn-dark.active:focus, .show > .btn-dark.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5);
+  box-shadow: 0 0 0 0.01rem rgba(66, 70, 73, 0.5);
 }
 .btn-dark:disabled, .btn-dark.disabled {
   color: #fff;
@@ -3308,7 +3308,7 @@ textarea.form-control-lg {
   border-color: #735340;
 }
 .btn-check:focus + .btn-outline-secondary, .btn-outline-secondary:focus {
-  box-shadow: 0 0 0 0.25rem rgba(44, 62, 80, 0.5);
+  box-shadow: 0 0 0 0.01rem rgba(44, 62, 80, 0.5);
 }
 .btn-check:checked + .btn-outline-secondary, .btn-check:active + .btn-outline-secondary, .btn-outline-secondary:active, .btn-outline-secondary.active, .btn-outline-secondary.dropdown-toggle.show {
   color: #fff;
@@ -3316,7 +3316,7 @@ textarea.form-control-lg {
   border-color: #735340;
 }
 .btn-check:checked + .btn-outline-secondary:focus, .btn-check:active + .btn-outline-secondary:focus, .btn-outline-secondary:active:focus, .btn-outline-secondary.active:focus, .btn-outline-secondary.dropdown-toggle.show:focus {
-  box-shadow: 0 0 0 0.25rem rgba(44, 62, 80, 0.5);
+  box-shadow: 0 0 0 0.01rem rgba(44, 62, 80, 0.5);
 }
 .btn-outline-secondary:disabled, .btn-outline-secondary.disabled {
   color: #735340;
@@ -3324,16 +3324,16 @@ textarea.form-control-lg {
 }
 
 .btn-outline-success {
-  color: #198754;
-  border-color: #198754;
+  color: #85897B;
+  border-color: #85897B;
 }
 .btn-outline-success:hover {
   color: #fff;
-  background-color: #198754;
-  border-color: #198754;
+  background-color: #85897B;
+  border-color: #85897B;
 }
 .btn-check:focus + .btn-outline-success, .btn-outline-success:focus {
-  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.5);
+  box-shadow: 0 0 0 0.01rem rgba(25, 135, 84, 0.5);
 }
 .btn-check:checked + .btn-outline-success, .btn-check:active + .btn-outline-success, .btn-outline-success:active, .btn-outline-success.active, .btn-outline-success.dropdown-toggle.show {
   color: #fff;
@@ -3341,7 +3341,7 @@ textarea.form-control-lg {
   border-color: #198754;
 }
 .btn-check:checked + .btn-outline-success:focus, .btn-check:active + .btn-outline-success:focus, .btn-outline-success:active:focus, .btn-outline-success.active:focus, .btn-outline-success.dropdown-toggle.show:focus {
-  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.5);
+  box-shadow: 0 0 0 0.01rem rgba(25, 135, 84, 0.5);
 }
 .btn-outline-success:disabled, .btn-outline-success.disabled {
   color: #198754;
@@ -3449,16 +3449,16 @@ textarea.form-control-lg {
 }
 
 .btn-outline-dark {
-  color: #fff;
-  border-color: #fff;
+  color: #85897B;
+  border-color: #85897B;
 }
 .btn-outline-dark:hover {
   color: #fff;
-  background-color: #fff;
-  border-color: #fff;
+  background-color: #85897B;
+  border-color: #85897B;
 }
 .btn-check:focus + .btn-outline-dark, .btn-outline-dark:focus {
-  box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.5);
+  box-shadow: 0 0 0 0.01rem rgba(33, 37, 41, 0.5);
 }
 .btn-check:checked + .btn-outline-dark, .btn-check:active + .btn-outline-dark, .btn-outline-dark:active, .btn-outline-dark.active, .btn-outline-dark.dropdown-toggle.show {
   color: #fff;
@@ -3466,7 +3466,7 @@ textarea.form-control-lg {
   border-color: #fff;
 }
 .btn-check:checked + .btn-outline-dark:focus, .btn-check:active + .btn-outline-dark:focus, .btn-outline-dark:active:focus, .btn-outline-dark.active:focus, .btn-outline-dark.dropdown-toggle.show:focus {
-  box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.5);
+  box-shadow: 0 0 0 0.01rem rgba(33, 37, 41, 0.5);
 }
 .btn-outline-dark:disabled, .btn-outline-dark.disabled {
   color: #fff;
@@ -3770,7 +3770,7 @@ textarea.form-control-lg {
   padding: 0.25rem 1rem;
   clear: both;
   font-weight: 400;
-  color: #fff;
+  color: #1e2125;
   text-align: inherit;
   text-decoration: none;
   white-space: nowrap;
@@ -6948,6 +6948,15 @@ textarea.form-control-lg {
 .w-25 {
   width: 25% !important;
 }
+.w-30 {
+  width: 30% !important;
+}
+.w-35 {
+  width: 35% !important;
+}
+.w-40 {
+  width: 40% !important;
+}
 
 .w-50 {
   width: 50% !important;
@@ -6955,6 +6964,9 @@ textarea.form-control-lg {
 
 .w-75 {
   width: 75% !important;
+}
+.w-80 {
+  width: 80% !important;
 }
 
 .w-100 {
@@ -7816,7 +7828,7 @@ textarea.form-control-lg {
 
 .bg-secondary {
   --bs-bg-opacity: 1;
-  background-color: #fff;
+  background-color: #fff !important;
 } 
 
 .bg-success {
@@ -11514,7 +11526,6 @@ html {
 table > thead > tbody > tr > td {
 	color: blue;
 }
-<<<<<<< HEAD
 
 .page_list {
 		display: flex; margin: 0 auto;
@@ -11523,5 +11534,4 @@ table > thead > tbody > tr > td {
 .page_on, .page_off, .page_next, .page_last, .page_prev, .page_first {
 		display: inline-block; line-height: 30px; margin: 0; width: 35px;
 }
-=======
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
+

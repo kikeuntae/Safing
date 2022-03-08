@@ -11,27 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-=======
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 
 import com.google.gson.Gson;
 
 import board.BoardDAO;
-<<<<<<< HEAD
 import board.BoardPage;
 import common.CommonService;
 import common.OutPrintln;
 import member.MemberDAO;
-=======
-import board.BoardVO;
-import common.CommonService;
-import common.OutPrintln;
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 import member.MemberVO;
 import tip.YoutubeTipDAO;
 import tip.YoutubeTipVO;
@@ -43,17 +32,10 @@ public class TipController {
 	@Autowired private CommonService service;
 	@Autowired private OutPrintln outprintln;
 	@Autowired private YoutubeTipDAO dao;
-<<<<<<< HEAD
 	@Autowired private BoardDAO board_dao;
 	@Autowired private BoardPage page;
 
 	//===============================================안드===============================================//
-=======
-	@Autowired private BoardDAO dao_board;
-
-
-	
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	//tip 리스트
 	@ResponseBody
 	@RequestMapping("/tip_rec.home")
@@ -66,11 +48,7 @@ public class TipController {
 		writer.println( gson.toJson(list));
 	}
 	
-<<<<<<< HEAD
 	//tip 조회수 증가
-=======
-	//tip 리스트
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 		@ResponseBody
 		@RequestMapping("/tip_readcnt.home")
 		public void  list_cnt(HttpServletRequest req, HttpServletResponse res) throws Exception{
@@ -85,7 +63,6 @@ public class TipController {
 			 * writer.println( gson.toJson(list));
 			 */
 		}
-<<<<<<< HEAD
 		//===============================================안드===============================================//		
 	
 		
@@ -101,9 +78,9 @@ public class TipController {
 						,String keyword
 						, @RequestParam (defaultValue = "1") int curPage
 						, @RequestParam (defaultValue = "10") int pageList
-						, @RequestParam (defaultValue = "list") String viewType ) {
+						, @RequestParam (defaultValue = "grid") String viewType ) {
 					
-					session.setAttribute("category", "yu"); // category 에 cu 를 설정
+					session.setAttribute("category", "yu"); // category 에 yu 를 설정
 					
 					// DB에서 공지사항 정보를 조회해와 목록화면에 출력
 					page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
@@ -124,137 +101,85 @@ public class TipController {
 					return "youtube/list";
 				}	
 
+				// 유튜브 수정 화면 요청
+				@RequestMapping("/modify.yu")
+				public String modify(int id, Model model) {
 
-				/*
-				 * // 유튜브 상세화면 요청
-				 * 
-				 * @RequestMapping ("/detail.yu") public String detail_yu(int id , Model model)
-				 * {
-				 * 
-				 * // 상세화면 요청 전 조회수 증가 dao.board_read(id);
-				 * 
-				 * // 해당 게시판 글을 DB에서 조회해와 상세화면에 출력 model.addAttribute("vo", dao.board_detail(id)
-				 * ) ; model.addAttribute("crlf", "\r\n"); model.addAttribute("page", page);
-				 * return "youtube/detail"; }
-				 * 
-				 * 
-				 * 
-				 * // 유튜브 글 삭제처리 요청
-				 * 
-				 * @RequestMapping("/delete.yu") public String delete_yu(int id, HttpSession
-				 * session, Model model) { // 첨부 파일이 있는 글에 대해서는 해당 파일을 서버의 물리적 영역에서 삭제 BoardVO
-				 * vo = dao.board_detail(id); if ( vo.getFile_path() != null) { File file = new
-				 * File( session.getServletContext().getRealPath("resources") + "/" +
-				 * vo.getFile_path() ); if ( file.exists() ) file.delete(); }
-				 * 
-				 * // 해당 게시판 글을 DB에서 삭제한 후 목록화면으로 연결 dao.board_delete(id); // return
-				 * "redirect:list.bo"; model.addAttribute("uri", "list.yu");
-				 * model.addAttribute("page", page); return "board/redirect"; }
-				 * 
-				 * // 유튜브 추가 화면 요청
-				 * 
-				 * @RequestMapping ("/modify.yu") public String yutub_new(int id, Model model) {
-				 * YoutubeTipVO vo = new YoutubeTipVO(); vo = dao.youtube_detail(id);
-				 * if(vo==null) { vo= new YoutubeTipVO(); vo.setBoard_id(id); }
-				 * 
-				 * model.addAttribute("vo", vo) ; return "youtube/modify_youtub"; }
-				 * 
-				 * // 유튜브 새로 올리기...
-				 * 
-				 * @RequestMapping ("/insert.yu") public String yutub_insert(BoardVO
-				 * dto,YoutubeTipVO vo, MultipartFile file, HttpSession session) {
-				 * 
-				 * //유튜브 링크달기 위해서 board에 데이터생성 MemberVO member = (MemberVO)
-				 * session.getAttribute("loginInfo");
-				 * dto.setMember_id(member.getMember_id()+"");
-				 * 
-				 * 
-				 * System.out.println(dto.getBoard_kinds());
-				 * System.out.println(dto.getMember_id() );
-				 * System.out.println(dto.getBoard_content() );
-				 * System.out.println(dto.getBoard_title());
-				 * 
-				 * dao.board_insert(dto);
-				 * 
-				 * //만들어진 board_id값 가져와서 유튜브 테이블에 생성
-				 * 
-				 * 
-				 * vo.setBoard_id(dao.board_new()); dao.board_insert_youtube(vo); return
-				 * "redirect:list.yu"; } // 유튜브 새로 올리기 화면요청
-				 * 
-				 * @RequestMapping ("/new.yu") public String yutub_new(YoutubeTipVO vo,
-				 * MultipartFile file, HttpSession session) {
-				 * 
-				 * return "youtube/new_youtube"; }
-				 * 
-				 * 
-				 * // 유튜브 업데이트처리
-				 * 
-				 * @RequestMapping ("/update.yu") public String yutub_insert(YoutubeTipVO vo,
-				 * MultipartFile file, HttpSession session, Model model) {
-				 * 
-				 * model.addAttribute("uri", "detail.yu"); model.addAttribute("id",
-				 * vo.getBoard_id()); dao.board_update_youtube(vo); return "youtube/redirect"; }
-				 */
+					model.addAttribute("vo", dao.detail(id));
+					return "youtube/modify_youtub";
+				} 
+				
+				// 유튜브 수정 후 저장처리
+				@RequestMapping("/update.yu")
+				public String update(YoutubeTipVO vo, String attach
+						, HttpSession session, Model model) {				
+
+					// 화면에서 수정한 정보들을 DB에서 저장한 후 상세화면 연결
+					dao.update(vo);
+					model.addAttribute("uri", "detail.yu");
+					model.addAttribute("id", vo.getId());
+					return "youtube/redirect";
+				}
+
+				
+				// 유튜브 상세화면 요청				
+				@RequestMapping("/detail.yu")
+				public String detail(int id, Model model) {
+					// 해당 게시판 글을 DB에서 조회해와 상세화면에 출력
+					 YoutubeTipVO  vo =  dao.detail(id);
+					model.addAttribute("vo", dao.detail(id));
+					model.addAttribute("crlf", "\r\n");
+					model.addAttribute("page", page);
+					return "youtube/detail";
+				}
+				
+				// 유튜브 신규 작성 화면 요청
+				@RequestMapping ("/new.yu")
+				public String insert_new() {
+					return "youtube/new_youtube";
+				}
+				
+				
+				// 유튜브 신규 저장 처리 요청
+				@RequestMapping ("/insert.yu")
+				public String insert(YoutubeTipVO vo, HttpSession session) {
+										
+					/*
+					 * MemberVO member = (MemberVO) session.getAttribute("loginInfo"); vo.setWriter(
+					 * member.getId() );
+					 */
+					
+					dao.insert(vo);
+					return "redirect:list.yu";
+				}
+				
+				// 유튜브  글 삭제처리 요청
+				@RequestMapping("/delete.yu")
+				public String delete(int id, HttpSession session, Model model) {
+					
+					// 해당 방명록 글을 DB에서 삭제한 후 목록화면으로 연결
+					dao.delete(id);
+				//	return "redirect:list.bo";
+					model.addAttribute("uri", "list.yu");
+					model.addAttribute("page", page);
+					return "youtube/redirect";
+				}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 		
 		//===============================================웹===============================================//
-=======
-		
-		// 유튜브 추가 화면 요청
-		@RequestMapping ("/modify.yu")
-		public String yutub_new(int id, Model model) {
-			YoutubeTipVO vo = new YoutubeTipVO();
-			vo = dao.youtube_detail(id);
-			if(vo==null) {
-				vo= new YoutubeTipVO();
-				vo.setBoard_id(id);
-			}
-			
-			model.addAttribute("vo", vo) ;
-			return "youtube/modify_youtub";
-		}
-		
-		// 유튜브 새로 올리기...
-		@RequestMapping ("/insert.yu")
-		public String yutub_insert(BoardVO dto,YoutubeTipVO vo, MultipartFile file, HttpSession session) {
-			
-			//유튜브 링크달기 위해서 board에 데이터생성
-			MemberVO member = (MemberVO) session.getAttribute("loginInfo");
-			dto.setMember_id(member.getMember_id()+"");
-			
-			
-			System.out.println(dto.getBoard_kinds());
-			System.out.println(dto.getMember_id() );
-			System.out.println(dto.getBoard_content() );
-			System.out.println(dto.getBoard_title());
-			
-			dao_board.board_insert(dto);
-			
-			//만들어진 board_id값 가져와서 유튜브 테이블에 생성
-			
-		
-			vo.setBoard_id(dao_board.board_new());
-			dao.board_insert_youtube(vo);
-			return "redirect:list.yu";
-		}
-		// 유튜브 새로 올리기 화면요청
-		@RequestMapping ("/new.yu")
-		public String yutub_new(YoutubeTipVO vo, MultipartFile file, HttpSession session) {
-			
-			return "youtube/new_youtube";
-		}
-		
-		
-		// 유튜브 업데이트처리
-		@RequestMapping ("/update.yu")
-		public String yutub_insert(YoutubeTipVO vo, MultipartFile file, HttpSession session, Model model) {
-
-			model.addAttribute("uri", "detail.yu");
-			model.addAttribute("id", vo.getBoard_id());
-			dao.board_update_youtube(vo);
-			return "youtube/redirect";
-		}
-		
-	
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 }

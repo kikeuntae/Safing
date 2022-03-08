@@ -13,6 +13,8 @@ public class MemberDAO {
 	
 	@Autowired @Qualifier("bteam") private SqlSession sql;
 	
+
+
 	//회원가입 
 	public boolean insert(MemberVO vo) {
 		return sql.insert("member.mapper.insert", vo) == 1 ? true : false;
@@ -38,6 +40,27 @@ public class MemberDAO {
 		return sql.delete("member.mapper.delete", vo) == 1 ? true : false;
 	}
 
+	//회원 가입
+	public void member_insert(MemberVO vo) {
+		sql.insert("member.mapper.insert", vo);
+	}
+
+	//아이디 중복확인
+	public List<MemberVO> idCheck() {
+		return sql.selectList("member.mapper.idCheck");
+	}
+	
+	//아이디 찾기
+	public MemberVO find_id(String phone) {
+		return sql.selectOne("member.mapper.find_id", phone);
+	}
+	
+	//비밀번호 찾기
+		public MemberVO find_pw(String phone) {
+			return sql.selectOne("member.mapper.find_pw", phone);
+		}
+	
+	
 	//회원 프로필사진 가져오기
 	public MemberVO memberimg(MemberVO vo) {
 		// TODO Auto-generated method stub
@@ -73,15 +96,12 @@ public class MemberDAO {
 		// TODO Auto-generated method stub
 		sql.update("member.mapper.update_cusotomer", vo);
 	}
-<<<<<<< HEAD
-=======
 
 	//프로필이미지 업데이트
 	public int img_update(String string, MemberVO vo) {
 		// TODO Auto-generated method stub
 		return sql.update("member.mapper.update_img", vo);
 	}
->>>>>>> 682ce78c21391dff70414534ef6368237c38780b
 	
 	
 }
