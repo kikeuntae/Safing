@@ -176,6 +176,7 @@ address {
 ol,
 ul {
   padding-left: 2rem;
+  list-style:none !important;
 }
 
 ol,
@@ -243,7 +244,7 @@ a {
 
 }
 a:hover {
-  color: #15967d;
+  color: #735340;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -3041,17 +3042,17 @@ textarea.form-control-lg {
 .btn-primary:hover {
   color: #fff;
   background-color: #16a085;
-  border-color: #15967d;
+  border-color: #735340;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
   background-color: #16a085;
-  border-color: #15967d;
+  border-color: #735340;
   box-shadow: 0 0 0 0.25rem rgba(60, 198, 171, 0.5);
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #15967d;
+  background-color: #735340;
   border-color: #148d75;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
@@ -3070,27 +3071,27 @@ textarea.form-control-lg {
 }
 .btn-secondary:hover {
   color: #fff;
-  background-color: #253544;
-  border-color: #233240;
+  background-color: #5c636a;
+  border-color: #565e64;
 }
 .btn-check:focus + .btn-secondary, .btn-secondary:focus {
   color: #fff;
-  background-color: #253544;
-  border-color: #233240;
-  box-shadow: 0 0 0 0.25rem rgba(76, 91, 106, 0.5);
+  background-color: #5c636a;
+  border-color: #565e64;
+  box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
 }
 .btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
   color: #fff;
-  background-color: #233240;
-  border-color: #212f3c;
+  background-color: #565e64;
+  border-color: #51585e;
 }
 .btn-check:checked + .btn-secondary:focus, .btn-check:active + .btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus, .show > .btn-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(76, 91, 106, 0.5);
+  box-shadow: 0 0 0 0.1rem rgba(130, 138, 145, 0.5);
 }
 .btn-secondary:disabled, .btn-secondary.disabled {
   color: #fff;
-  background-color: #735340;
-  border-color: #735340;
+  background-color: #000000;
+  border-color: #000000;
 }
 
 .btn-success {
@@ -3326,6 +3327,7 @@ textarea.form-control-lg {
 .btn-outline-success {
   color: #85897B;
   border-color: #85897B;
+  border: 0.125rem solid;
 }
 .btn-outline-success:hover {
   color: #fff;
@@ -3479,7 +3481,7 @@ textarea.form-control-lg {
   text-decoration: underline;
 }
 .btn-link:hover {
-  color: #15967d;
+  color: #735340;
 }
 .btn-link:disabled, .btn-link.disabled {
   color: #6c757d;
@@ -3957,7 +3959,7 @@ textarea.form-control-lg {
   }
 }
 .nav-link:hover, .nav-link:focus {
-  color: #15967d;
+  color: #735340;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -4820,13 +4822,13 @@ textarea.form-control-lg {
 }
 .page-link:hover {
   z-index: 2;
-  color: #15967d;
+  color: #735340;
   background-color: #e9ecef;
   border-color: #dee2e6;
 }
 .page-link:focus {
   z-index: 3;
-  color: #15967d;
+  color: #735340;
   background-color: #e9ecef;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(26, 188, 156, 0.25);
@@ -6440,7 +6442,7 @@ textarea.form-control-lg {
   color: #1abc9c;
 }
 .link-primary:hover, .link-primary:focus {
-  color: #15967d;
+  color: #735340;
 }
 
 .link-secondary {
@@ -7390,9 +7392,11 @@ textarea.form-control-lg {
 .mb-4 {
   margin-bottom: 1.5rem !important;
 }
-
 .mb-5 {
   margin-bottom: 3rem !important;
+}
+.mb-6 {
+  margin-bottom: 2rem !important;
 }
 
 .mb-auto {
@@ -7434,6 +7438,9 @@ textarea.form-control-lg {
 .p-1 {
   padding: 0.25rem !important;
 }
+.p-1-5 {
+  padding: 0.4rem !important;
+}
 
 .p-2 {
   padding: 0.5rem !important;
@@ -7446,7 +7453,7 @@ textarea.form-control-lg {
 .p-4 {
   padding: 1.5rem !important;
 }
-
+w-30
 .p-5 {
   padding: 3rem !important;
 }
@@ -7509,6 +7516,10 @@ textarea.form-control-lg {
 .py-5 {
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
+}
+.py-6 {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
 }
 
 .pt-0 {
@@ -7633,6 +7644,10 @@ textarea.form-control-lg {
 
 .fs-6 {
   font-size: 1rem !important;
+}
+
+.fs-7 {
+  font-size: 2rem !important;
 }
 
 .fst-italic {
@@ -11534,4 +11549,21 @@ table > thead > tbody > tr > td {
 .page_on, .page_off, .page_next, .page_last, .page_prev, .page_first {
 		display: inline-block; line-height: 30px; margin: 0; width: 35px;
 }
-
+.active{
+	font-size: 1.2rem;
+	font-weight: bolder;
+	color : #735340;
+}
+.nonactive{
+	font-size: 1.2rem;
+	color : #85897B;
+}
+.img-size-30{
+	width: 30%;	
+}
+.img-size-40{
+	width: 40%;	
+}
+.vertical-mid{
+	vertical-align: middle !important;
+}

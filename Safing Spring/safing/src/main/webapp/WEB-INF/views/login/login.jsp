@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-auto">
               	 	<button type="submit" class="btn btn-secondary m-2">로그인</button>
-              	 	<a type="button" class="btn btn-outline-success mx-" href="login.lo">회원가입</a>
+              	 	<a type="button" class="btn btn-outline-success m-2" href="join.lo">회원가입</a>
                 </div> 
             </form>
         </div>
@@ -54,8 +54,8 @@
 <div class="social-icons">
     <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
        	<a class="btn m-3 social_icon" href="kakaologin.lo"><img class="btn_social"src = "img/btn_kakao.png"></a>
-        <a class="btn m-3 social_icon" href="home.ma"><img class="btn_social"src = "img/btn_naver.png"></a>
-        <a class="btn m-3 social_icon" href="home.ma"><img class="btn_social"src = "img/btn_home.png"></a>
+        <a class="btn m-3 social_icon" href="home.ma"><img class="btn_social" src = "img/btn_naver.png"></a>
+        <a class="btn m-3 social_icon" href="home.ma"><img class="btn_social" src = "img/btn_home.png"></a>
     </div>
 </div>
     
@@ -89,10 +89,10 @@ function login_check() {
 	$.ajax({
 		type: "POST",
 		data : vo,
-		url : "login_check.lo",
+		url : "login.lo",
 		success : function ( response ) {
 			if(response){
- 	    		location.href="home.ma?member_id="+($('#userid').val();
+ 	    		location.href="home.ma";
 			} else {
 				alert("아이디 또는 비밀번호를 확인하세요.");
 			}	

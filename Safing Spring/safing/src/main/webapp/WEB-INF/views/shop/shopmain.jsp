@@ -7,32 +7,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 	<link rel='stylesheet' type="text/css" href="css/shop_style.css?v=<%= new Date().getTime() %>" >
 </head>
 <body>
-<header>
-<!-- Pakcage Carousel -->
+<header class="container-fluid">
 	<div id="packageList" class="carousel slide" data-ride="carousel">
-		  <ol class="carousel-indicators">
-		    <c:forEach var="i" begin="0" end="${fn:length(package_list)-1}" step="1">
+		<ol class="carousel-indicators">
+			<c:forEach var="i" begin="0" end="${fn:length(package_list)-1}" step="1">
 				<c:if test="${i eq 0 }">
-					 <li data-target="#packageList" data-slide-to="${i}" class="active"></li>
+					<li data-target="#packageList" data-slide-to="${i}" class="active "></li>
 				</c:if>
 				<c:if test="${i gt 0}"> 
-			    <li data-target="#packageList" data-slide-to="${i}"></li>
+			    	<li data-target="#packageList" data-slide-to="${i}"></li>
 				</c:if>
 			</c:forEach>  
-		  </ol>
-		  <div class="carousel-inner">
-			  <c:forEach var="i" begin="0" end="${fn:length(package_list)-1}" step="1">
+		</ol>
+	  	<div class="carousel-inner">
+	  		<c:forEach var="i" begin="0" end="${fn:length(package_list)-1}" step="1">
 				<c:if test="${i eq 0 }">
 				    <div class="carousel-item active">
-				      <img src="shop_img/${i+1}.jpg" class="img-fluid"  >
+				      	<img src="shop_img/${i+1}.png" class="w-100"  >
 						<div class="carousel-caption d-none d-md-block">
 					        <h3 class="text-outline">${package_list[i].package_name}</h3>
 							<h5 class="text-outline">${fn:replace(package_list[i].tag_key, '#', '&nbsp;&nbsp;#')}</h5>
@@ -40,13 +34,13 @@
 	                            <a class="btn text-white text-outline-btn" id="detail_package" data-toggle="modal" data-target="#package${package_list[i].package_num}">
 									패키지 상세보기
 								</a>  
-                          	 </div>
-				      </div>
-				    </div>
+                        	</div>
+				      	</div>
+					</div>
 		    	</c:if> 
 		  	    <c:if test="${i gt 0}"> 
 				    <div class="carousel-item">
-				      <img src="shop_img/${i+1}.jpg"  >
+				      <img src="shop_img/${i+1}.png" class="w-100"  >
 					      <div class="carousel-caption d-none d-md-block">
 					       	 <h3 class="text-outline">${package_list[i].package_name}</h3>
 							 <h5 class="text-outline">${fn:replace(package_list[i].tag_key, '#', '&nbsp;&nbsp;#')}</h5>
@@ -54,30 +48,30 @@
 	                            <a class="btn text-white text-outline-btn" id="detail_package" data-toggle="modal" data-target="#package${package_list[i].package_num}">
 									패키지 상세보기
 								</a> 
-                          	 </div>
-					      </div>
+                        	</div>
+						</div>
 				    </div>
 		    	</c:if> 
-			 </c:forEach> 
-		  </div>
-		  <button class="carousel-control-prev" type="button" data-target="#packageList" data-slide="prev">
+			</c:forEach> 
+		</div>
+		<button class="carousel-control-prev" type="button" data-target="#packageList" data-slide="prev">
 		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 		    <span class="sr-only">Previous</span>
-		  </button>
-		  <button class="carousel-control-next" type="button" data-target="#packageList" data-slide="next">
+		</button>
+		<button class="carousel-control-next" type="button" data-target="#packageList" data-slide="next">
 		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 		    <span class="sr-only">Next</span>
-		  </button>
-		</div>
-	</header>  
+		</button>
+	</div>
+</header>  
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse navbar-width text-center" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse text-center container" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <c:if test="${loginInfo.member_admin eq 'y'}">
 	      <li class="nav-item">
 	        <label>
-<!-- 	            <a class="nav-link sub-category" href="list.shop"> -->
+	            <a class="nav-link sub-category" href="list.shop">
 	            	<img class="img-size-30"  src="shop_img/camping.png"/>
 	            	&nbsp;캠핑용품
 				</a>
@@ -117,12 +111,18 @@
         </div>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="list.shop" method="post">
-      <input type="hidden" name="curPage" value="1" />
-   	  <input type="hidden" name="search" value="${page.search}" />
-      <input class="form-control mr-sm-2" name='keyword' value="${page.keyword}" type="search" placeholder="상품검색하기" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="$('form').submit()">검색</button>
-    </form>
+	<form class="form-inline my-2 my-lg-0" action="list.shop" method="post">
+		<input type="hidden" name="curPage" value="1" />
+		<input type="hidden" name="search" value="${page.search}" />
+	    <ul class="navbar-nav form-inline my-2 ">
+	    	<li class="nav-item m-2">
+				<input class="form-control mr-sm-2" name='keyword' value="${page.keyword}" type="search" placeholder="상품검색하기" aria-label="Search">
+			</li>
+	    	<li class="nav-item m-2">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="$('form').submit()">검색</button>
+			</li>
+		</ul>	
+	</form>
   </div>
 </nav>
  <!-- Section-->
@@ -138,7 +138,7 @@
               	<div class="col mb-5">
                    <div class="card h-100">
                        <!-- Product image-->
-                       <img class="card-img-top" src="${vo.file_path}"/>
+                       <img class="card-img-top" src="${vo.file_path}" class="w-100"/>
                        <!-- Product details-->
                        <div class="card-body p-4">
                            <div class="text-center text-black">
@@ -186,13 +186,13 @@
 <!-- Package Modal -->
  <c:forEach var="vo" items="${package_detail_list}">
 <div class="modal fade" id="package${vo.package_num}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog w-40">
-    <div class="modal-content">
+  <div class="modal-dialog">
+    <div class="modal-content height-125">
     <div class="text-black text-center">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">패키지 상세정보</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="close border-none" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="fs-7">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -201,12 +201,12 @@
 			<c:forEach var="img" items="${vo.imagelist}" varStatus="i">
 		  		<c:if test="${i.first}">
 				    <div class="carousel-item active">
-				      <img class="img-fluid d-block mx-auto w-100" src="${img}" />
+				      <img class="img-fluid d-block mx-auto w-100" src="${img}" class="w-100"/>
 				    </div>
 		    	</c:if>
 		    	<c:if test="${!i.first}">
 				    <div class="carousel-item">
-				      <img class="img-fluid d-block mx-auto w-100" src="${img}" />
+				      <img class="img-fluid d-block mx-auto w-100" src="${img}" class="w-100"/>
 				    </div>
 		    	</c:if>
 		    </c:forEach> 
@@ -246,7 +246,7 @@
                 <p><c:forEach var="i" items="${vo.kindlist}">${i}&nbsp;&nbsp;</c:forEach></p>
             </li>
         </ul>
-        <img class="img-fluid d-block mx-auto w-100" src="${vo.file_path_info}" />
+        <img class="img-fluid d-block mx-auto w-100" src="${vo.file_path_info}" class="w-100"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
@@ -259,13 +259,13 @@
 <!-- Product Modal -->
  <c:forEach var="vo" items="${product_detail_list}">
 <div class="modal fade" id="product${vo.product_num}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog w-40">
-    <div class="modal-content">
+  <div class="modal-dialog">
+    <div class="modal-content height-125">
      <div class="text-black text-center">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">상품 상세정보</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="close border-none" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="fs-7">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -274,12 +274,12 @@
 			<c:forEach var="img" items="${vo.imagelist}" varStatus="i">
 		  		<c:if test="${i.first}">
 				    <div class="carousel-item active">
-				      <img class="img-fluid d-block mx-auto w-100" src="${img}" />
+				      <img class="img-fluid d-block mx-auto w-100" src="${img}" class="w-100"/>
 				    </div>
 		    	</c:if>
 		    	<c:if test="${!i.first}">
 				    <div class="carousel-item">
-				      <img class="img-fluid d-block mx-auto w-100" src="${img}" />
+				      <img class="img-fluid d-block mx-auto w-100" src="${img}" class="w-100"/>
 				    </div>
 		    	</c:if>
 		    </c:forEach> 
@@ -312,7 +312,7 @@
                      <fmt:formatNumber value="${vo.product_price}" pattern="#,###"/>&nbsp;원 
                  </li>                
              </ul>
-             <img class="img-fluid d-block mx-auto w-100" src="${vo.file_path_info}" />
+             <img class="img-fluid d-block mx-auto w-100" src="${vo.file_path_info}" class="w-100"/>
       	</div>
       <div class="modal-footer">
       	<div class="text-center">

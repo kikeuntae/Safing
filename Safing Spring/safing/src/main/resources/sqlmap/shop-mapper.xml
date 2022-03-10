@@ -13,7 +13,7 @@
 	<select id="package_list" resultType="product.Product_PackageVO">
 		select p.*, (select tag_key from board_tag where p.package_num = package_num) tag_key
 		from product_package p
-		where p.package_num >0
+		where p.package_num  <![CDATA[<]]> 10
 		order by p.package_num
 	</select>
 

@@ -188,3 +188,10 @@ select * from product order by product_num desc;
 select * from product_file bo;
 
 select * from product order by product_num;
+
+
+select * from member;
+
+
+SELECT * FROM member
+WHERE member_id = 'in2thefree' AND member_pw = 'Su2351';

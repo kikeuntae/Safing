@@ -20,9 +20,9 @@ public class MemberDAO {
 		return sql.insert("member.mapper.insert", vo) == 1 ? true : false;
 	}
 	
-	//회원 정보 목록
+	//회원정보 목록
 	public List<MemberVO> list(MemberVO vo) {
-		return sql.selectList("member.mapper.login", vo);
+		return sql.selectList("member.mapper.member_list", vo);
 	}
 	
 	//회원 로그인, 상세정보
@@ -44,11 +44,22 @@ public class MemberDAO {
 	public void member_insert(MemberVO vo) {
 		sql.insert("member.mapper.insert", vo);
 	}
+	//회원 가입 wed
+	public int join_member(MemberVO vo) {
+		return sql.insert("member.mapper.insert", vo);
+	}
+	
 
 	//아이디 중복확인
 	public List<MemberVO> idCheck() {
 		return sql.selectList("member.mapper.idCheck");
 	}
+	
+	//아이디 중복확인 wed
+	public int id_check(String id) {
+		return sql.selectOne("member.mapper.id_Check", id);
+	}	
+	
 	
 	//아이디 찾기
 	public MemberVO find_id(String phone) {

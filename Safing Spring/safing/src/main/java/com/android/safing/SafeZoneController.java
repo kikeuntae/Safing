@@ -76,6 +76,7 @@ public class SafeZoneController {
 			, @RequestParam (defaultValue = "1") int curPage
 			, @RequestParam (defaultValue = "10") int pageList
 			, @RequestParam (defaultValue = "list") String viewType ){
+		session.setAttribute("category", "search");
 		
 		// DB에서 방명록 정보를 조회해와 목록화면에 출력
 		page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
@@ -83,23 +84,20 @@ public class SafeZoneController {
 		page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
 		page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
 		page.setViewType(viewType);	// 게시판 형태를 page에 담음
-		session.setAttribute("category", "ma");
 		
 		model.addAttribute("page", dao.search_list(page));
-		return "main/search_list";
+		return "main/searchlist";
 	}
 	
-	// 캠핑장 정보 상세화면 요청
-	
-		@RequestMapping ("/detail.ma")
-		public String detail(int contentid, Model model) {
-			
-			// 해당 방명록 글을 DB에서 조회해와 상세화면에 출력
-			model.addAttribute("vo", dao.campinfo_detail(contentid) ) ;
-			model.addAttribute("img_list", dao2.img_list(contentid) ) ;
-			
-			return "main/detail";
-		}
+	// 캠핑장 정보 상세화면 요청	
+	@RequestMapping ("/detail.ma")
+	public String detail(int contentid, Model model) {
+		// 해당 방명록 글을 DB에서 조회해와 상세화면에 출력
+		model.addAttribute("vo", dao.campinfo_detail(contentid) ) ;
+		model.addAttribute("img_list", dao2.img_list(contentid) ) ;
+		
+		return "main/detail";
+	}
 	
 	
 

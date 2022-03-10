@@ -1,97 +1,96 @@
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 	<link rel='stylesheet' type="text/css" href="css/shop_style.css?v=<%= new Date().getTime() %>" >
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
-<script type="text/javascript">
-<!-- <anager Check -->
-if (${loginInfo.member_admin eq 'n' || empty loginInfo}) {
-	alert("관리자로 로그인시 가능합니다.");
-	location.href="list.shop";
-}
-
-function product_delete(product_num){
-	var msg = "선택하신 상품을 삭제하시겠습니까?"
-	if(confirm(msg)){
-		location.href="product_delete.shop?product_num="+product_num;
+	<script type="text/javascript">
+	<!-- <anager Check -->
+	if (${loginInfo.member_admin eq 'n' || empty loginInfo}) {
+		alert("관리자로 로그인시 가능합니다.");
+		location.href="list.shop";
 	}
-	return false;
-}
-
-</script>
+	
+	function product_delete(product_num){
+		var msg = "선택하신 상품을 삭제하시겠습니까?"
+		if(confirm(msg)){
+			location.href="product_delete.shop?product_num="+product_num;
+		}
+		return false;
+	}
+	
+	</script>
 </head>
 <body>
 <!-- Navigation -->
-<header class="shop_header">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse navbar-width text-center" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse text-center container" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <label class="m-0">
-            <a class="nav-link" href="list.shop">
-            	<img class="img-size-30"  src="shop_img/camping.png"/>
-            	&nbsp;캠핑용품
-			</a>
-		</label>
-      </li>
-      <li class="nav-item">
-     	  <label class="m-0">
-            <a class="nav-link" href="ordermanage.shop">
-            	<img class="img-size-30"  src="shop_img/order.png"/>
-            	&nbsp;주문관리
-			</a>
-		</label>
-      </li>
-      <li class="nav-item">
-          <label class="m-0">
-            <a class="nav-link sub-category" href="productmanage.shop">
-            	<img class="img-size-30"  src="shop_img/product.png"/>
-            	&nbsp;상품관리
-			</a>
-		  </label>
-	  </li>
-      <li class="nav-item dropdown m-0">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-          <img class="img-size-30"  src="shop_img/category.png"/>
-          &nbsp;카테고리
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        	<a class="dropdown-item" href="productmanage.shop?search=all">전체선택</a>
-        	<div class="dropdown-divider"></div>
-	        <a class="dropdown-item" href="productmanage.shop?search=감성용품">감성용품</a>
-			<a class="dropdown-item" href="productmanage.shop?search=텐트">텐트</a>
-			<a class="dropdown-item" href="productmanage.shop?search=의자">의자</a>
-			<a class="dropdown-item" href="productmanage.shop?search=테이블">테이블</a>
-			<a class="dropdown-item" href="productmanage.shop?search=매트/침낭">매트/침낭</a>
-			<a class="dropdown-item" href="productmanage.shop?search=취사/BBQ">취사/BBQ</a>   
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0" action="productmanage.shop" method="post">
-      <input type="hidden" name="curPage" value="1" />
-      <input class="form-control mr-sm-2" name='keyword' value="${page.keyword}" type="search" placeholder="상품검색하기" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="$('form').submit()">검색</button>
-    </form>
-    <div class="ms-3">
- 	      <a type="button" class="btn btn-outline-secondary mt-auto py-0 px-2" href="productnew.shop">
- 	     	 <img class="img-size-30"  src="shop_img/product_insert.png"/>
-     	     &nbsp;상품등록
- 		  </a> 
-      </div>
-  </div>
-</nav>
-</header>
+	      <li class="nav-item">
+	        <label class="m-0">
+	            <a class="nav-link" href="list.shop">
+	            	<img class="img-size-30"  src="shop_img/camping.png"/>
+	            	&nbsp;캠핑용품
+				</a>
+			</label>
+	      </li>
+	      <li class="nav-item">
+	     	  <label class="m-0">
+	            <a class="nav-link" href="ordermanage.shop">
+	            	<img class="img-size-30"  src="shop_img/order.png"/>
+	            	&nbsp;주문관리
+				</a>
+			</label>
+	      </li>
+	      <li class="nav-item">
+	          <label class="m-0">
+	            <a class="nav-link sub-category" href="productmanage.shop">
+	            	<img class="img-size-30"  src="shop_img/product.png"/>
+	            	&nbsp;상품관리
+				</a>
+			  </label>
+		  </li>
+	      <li class="nav-item dropdown m-0">
+	        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+	          <img class="img-size-30"  src="shop_img/category.png"/>
+	          &nbsp;카테고리
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	        	<a class="dropdown-item" href="productmanage.shop?search=all">전체선택</a>
+	        	<div class="dropdown-divider"></div>
+		        <a class="dropdown-item" href="productmanage.shop?search=감성용품">감성용품</a>
+				<a class="dropdown-item" href="productmanage.shop?search=텐트">텐트</a>
+				<a class="dropdown-item" href="productmanage.shop?search=의자">의자</a>
+				<a class="dropdown-item" href="productmanage.shop?search=테이블">테이블</a>
+				<a class="dropdown-item" href="productmanage.shop?search=매트/침낭">매트/침낭</a>
+				<a class="dropdown-item" href="productmanage.shop?search=취사/BBQ">취사/BBQ</a>   
+	        </div>
+	      </li>
+	    </ul>
+	    <form class="form-inline my-2 my-lg-0" action="productmanage.shop" method="post">
+		<input type="hidden" name="curPage" value="1" />
+	    <ul class="navbar-nav form-inline my-2 ">
+	    	<li class="nav-item m-2">
+			      <input class="form-control mr-sm-2" name='keyword' value="${page.keyword}" type="search" placeholder="상품검색하기" aria-label="Search">
+			</li>
+	    	<li class="nav-item m-2">
+			      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="$('form').submit()">검색</button>
+			</li>
+	    	<li class="nav-item m-2">
+			    <div>
+			 	      <a type="button" class="btn btn-outline-secondary mt-auto py-0 px-2" href="productnew.shop">
+			 	     	 <img class="img-size-30"  src="shop_img/product_insert.png"/>
+			     	     &nbsp;상품등록
+			 		  </a> 
+			     </div>
+			</li>
+		</ul>	
+		</form>
+	  </div>
+	</nav>
 <!-- Product List -->
 <table class="table w-80 my-sm-4 table-center">
   <thead class="table-color">

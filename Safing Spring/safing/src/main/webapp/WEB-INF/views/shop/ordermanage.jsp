@@ -7,11 +7,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 	<link rel='stylesheet' type="text/css" href="css/shop_style.css?v=<%= new Date().getTime() %>" >
 <script type="text/javascript">
 <!-- <anager Check -->
@@ -24,9 +19,8 @@ if (${loginInfo.member_admin eq 'n' || empty loginInfo}) {
 </script>
 </head>
 <!-- Navigation -->
-<header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse navbar-width text-center" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse text-center container" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <label class="m-0">
@@ -66,16 +60,20 @@ if (${loginInfo.member_admin eq 'n' || empty loginInfo}) {
 			<a class="dropdown-item" href="ordermanage.shop?pageList=20">20개씩</a>
         </div>
       </li>
-      
     </ul>
     <form name="managerpage" class="form-inline my-2 my-lg-0" action="ordermanage.shop" method="post">
-      <input type="hidden" name="curPage" value="1" />
-      <input class="form-control mr-sm-2" name='keyword' value="${page.keyword}" type="search" placeholder="주문검색하기" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="$('form').submit()">검색</button>
-    </form>
+		<input type="hidden" name="curPage" value="1" />
+	    <ul class="navbar-nav form-inline my-2 ">
+	    	<li class="nav-item m-2">
+				<input class="form-control mr-sm-2" name='keyword' value="${page.keyword}" type="search" placeholder="주문검색하기" aria-label="Search">
+			</li>
+	    	<li class="nav-item m-2">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="$('form').submit()">검색</button>
+			</li>
+		</ul>	
+	</form>
   </div>
 </nav>
-</header>
 <!-- Product List -->
 <table class="table w-80 my-sm-4 table-center">
   <thead class="table-color">

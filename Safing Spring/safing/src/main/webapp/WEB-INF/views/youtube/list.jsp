@@ -4,31 +4,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Safing Board</title>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link rel='stylesheet' type="text/css" href="css/board.css?v=<%= new Date().getTime() %>">
+	<link rel='stylesheet' type="text/css" href="css/board.css?v=<%= new Date().getTime() %>">
 </head>
 <body>
-<h3>유튜브 게시판</h3>
-<div id='list-top' style="width: 96% !importent">
-<form action="list.yu" method="post">
-<input type="hidden" name="curPage" value="1" />
-<input type="hidden" name="id"  value="master"/>
-	
-			<!-- 관리자만 글쓰기 기능 -->
+	<div id='list-top' style="width: 96% !importent">
+		<form action="list.yu" method="post">
+			<input type="hidden" name="curPage" value="1" />
+			<input type="hidden" name="id"  value="master"/>
 			<c:if test="${loginInfo.member_admin eq 'y' }">
 				<li><a class='btn-fill' href='new.yu' style="width: 100px; margin-left: 10px ">글쓰기</a></li>
 			</c:if>
-	
-</form>
-</div>
-<div id='data-list'>
+		</form>
+	</div>
+	<div id='data-list'>
 
 <!-- 그리드 형태 -->
 <c:if test="${page.viewType eq 'grid'}"><!-- viewType 값이 'grid' 이면 그리드형태를 나타냄 -->

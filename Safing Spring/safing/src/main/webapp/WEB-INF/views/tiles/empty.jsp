@@ -5,6 +5,10 @@
 <head>
 </head>
 <body>
-	<tiles:insertAttribute name="content" ignore="true"/>
+	<div class="container-fluid">
+		<div  class="row">
+			<tiles:insertAttribute name="content" ignore="true"/>
+		</div>
+	</div>
 </body>
 </html>

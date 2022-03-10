@@ -1,43 +1,39 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!-- tiels 라이브러리를 사용할 수 있도록 선언 -->
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:choose>
-	<c:when test="${category eq 'cu' }"><c:set var='title' value="고객관리"/> </c:when>
-	<c:when test="${category eq 'hr' }"><c:set var='title' value="사원정보"/> </c:when>
+	<c:when test="${category eq 'ma' }"><c:set var='title' value="홈"/> </c:when>
+	<c:when test="${category eq 'shop' }"><c:set var='title' value="캠핑용품"/> </c:when>
+	<c:when test="${category eq 'bo' }"><c:set var='title' value="자유게시판"/> </c:when>
 	<c:when test="${category eq 'no' }"><c:set var='title' value="공지사항"/> </c:when>
-	<c:when test="${category eq 'bo' }"><c:set var='title' value="방명록"/> </c:when>
 	<c:when test="${category eq 'yu' }"><c:set var='title' value="유튜브"/> </c:when>
+	<c:when test="${category eq 'cu' }"><c:set var='title' value="관리자"/> </c:when>
 	<c:when test="${category eq 'join' }"><c:set var='title' value="회원가입"/> </c:when>
+	<c:when test="${category eq 'search' }"><c:set var='title' value="캠핑검색"/> </c:when>
 </c:choose>
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>IoT 과정 > ${title } </title>
-<style type="text/css">
-	#wrap {
-		display: flex; flex-direction: column; height: 100%;
-		/* flex 방향지정 flex-direction: column (가로) */
-	}
-</style>
-<link rel="icon" type="image/x-icon" href="imgs/hanul.ico" />
-<link rel='stylesheet' type="text/css" href="css/tiles.css?v=<%= new Date().getTime() %>" >
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src='js/common.js'></script>
+	<title>safing ${title}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="icon" type="image/x-icon" href="img/safing-favicon.png" />
+	<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-	<div id='wrap'>
+	<div class="container-fluid">
 		<tiles:insertAttribute name="header" />
-		
-		<div id='content'>
+	</div>
+	<div class="container-fluid">
 		<tiles:insertAttribute name="content" />
-		</div>
-	
+	</div>
+	<div class="container-fluid">
 		<tiles:insertAttribute name="footer" />
 	</div>
 </body>
