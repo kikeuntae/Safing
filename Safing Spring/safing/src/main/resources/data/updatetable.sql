@@ -195,3 +195,12 @@ select * from member;
 
 SELECT * FROM member
 WHERE member_id = 'in2thefree' AND member_pw = 'Su2351';
+
+select contentid, facltnm, addr1, firstimageurl, intro, resvecl, tel, homepage, induty, prmisnde, insrncat, animalcmgcl, facltdivnm,
+				mangedivnm, mgcdiv, operdecl, toiletco, swrmco, wtrplco, sbrscl, mapx, mapy		 
+		from campinfo;
+        
+select p.*, (select tag_key from board_tag where p.package_num = package_num) tag_key
+		from product_package p
+		where p.package_num < 10
+		order by p.package_num;

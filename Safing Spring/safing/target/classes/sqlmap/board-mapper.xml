@@ -5,10 +5,6 @@
 
 	<!-- 동영상 정보 불러오기 -->
 	<select id="movielist" resultType="board.Board_MovieDTO">
-	
-	<!-- SELECT * FROM board LEFT JOIN board_file on (board.board_id = board_file.board_id)
-	 where board.board_kinds = 'video' 기존.. 아래껀 댓글 수 추가한 것-->
-	 
 	SELECT b.*, f.*, c.board_comment_cnt
 	FROM board b 
 	LEFT JOIN board_file f
@@ -178,7 +174,7 @@
 	<update id="board_update_img">
 		update board_file set 
 		file_name=#{file_name}, file_path = #{file_path}
-		where board_id = #{board_id} AND member_id = #{member_id} AND #{board_file_id}
+		where board_id = #{board_id}
 	</update>
 	
 	<!-- 공지사항 게시글 수 조회 -->
@@ -216,10 +212,46 @@
 	
 	</sql>
 	
+		<!-- 유튜브 게시글 수 조회 -->
+	<select id="totalList_yu" resultType="integer">
+		select count(*) from board where board_kinds = 'youtube'  <include refid="where_search_notice" />
+	</select>
+	
+		<!-- 유튜브 게시글 조회 -->
+	<select id="list_yu" resultType="board.BoardVO">
+		select * 
+		from ( select rownum no, b.* from ( select * from board where  board_kinds = 'youtube' <include refid="where_search_notice" />
+						order by board_id) b	
+				order by no desc ) b
+		where no between #{beginList} and #{endList}
+	</select>
 		
 		<!-- 방금 만든 board 글 조회 -->
 	<select id="board_new"  resultType="integer">
 		select MAX(board_id) from board 
+	</select>
+	
+		<!-- 동영상 정보 불러오기 (최신순서)-->
+	<select id="movielist_new" resultType="board.Board_MovieDTO">
+	SELECT b.*, f.*, c.board_comment_cnt
+	FROM board b 
+	LEFT JOIN board_file f
+	on (b.board_id = f.board_id)
+	LEFT JOIN (select board_id, count(*) board_comment_cnt from board_comment group by board_id) c
+	on (b.board_id = c.board_id)
+	where b.board_kinds = 'video' order by board_writedate DESC
+	</select>
+	
+	
+		<!-- 동영상 정보 불러오기 (마이페이지)-->
+	<select id="movielist_mypage" resultType="board.Board_MovieDTO">
+	SELECT b.*, f.*, c.board_comment_cnt
+	FROM board b 
+	LEFT JOIN board_file f
+	on (b.board_id = f.board_id)
+	LEFT JOIN (select board_id, count(*) board_comment_cnt from board_comment group by board_id) c
+	on (b.board_id = c.board_id)
+	where b.board_kinds = 'video' and b.member_id = #{member_id} order by board_writedate DESC
 	</select>
 	
 </mapper>

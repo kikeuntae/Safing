@@ -1,21 +1,16 @@
 package com.android.safing;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.eclipse.jdt.internal.compiler.ast.IPolyExpression;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.Profiles;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,11 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartRequest;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 
 import board.BoardDAO;
 import board.BoardPage;
@@ -40,7 +32,6 @@ import common.CommonService;
 import common.OutPrintln;
 import member.MemberDAO;
 import member.MemberVO;
-import tip.YoutubeTipVO;
 
 @Controller
 public class BoardController {
@@ -51,7 +42,6 @@ public class BoardController {
 	@Autowired private CommonService service;
 	@Autowired private OutPrintln outprintln;
 	@Autowired private BoardDAO dao;
-	int port = 80;
 
 	// 게시판 글에 대한 댓글 삭제 처리 요청
 	@ResponseBody
@@ -111,7 +101,7 @@ public class BoardController {
 			
 		String uuid =board_file.getFile_path();
 		
-		String server_path = "http://" + InetAddress.getLocalHost().getHostAddress() + ":"+port+"/safing/resources/";
+		String server_path = "http://" + InetAddress.getLocalHost().getHostAddress() + ":"+80+"/safing/resources/";
 		
 		// 파일을 첨부하지 않은 경우
 		if ( file.isEmpty() ) {
@@ -175,7 +165,8 @@ public class BoardController {
 		// 첨부 파일이 있는 글에 대해서는 해당 파일을 서버의 물리적 영역에서 삭제
 		BoardVO vo = dao.board_detail(id);
 		if ( vo.getFile_path() != null) {
-			File file = new File(vo.getFile_path());
+			File file = new File( session.getServletContext().getRealPath("resources") 
+					+ "/" + vo.getFile_path() );
 			if ( file.exists() ) file.delete();
 		}
 		
@@ -216,7 +207,7 @@ public class BoardController {
 	
 	// 게시판 신규 저장 처리 요청
 	@RequestMapping ("/insert.bo")
-	public String insert(BoardVO vo, MultipartFile file, HttpSession session, HttpServletRequest req , HttpServletResponse res) throws UnknownHostException {
+	public String insert(BoardVO vo, MultipartFile file, HttpSession session) {
 		
 
 		MemberVO member = (MemberVO) session.getAttribute("loginInfo");
@@ -225,10 +216,9 @@ public class BoardController {
 		
 		// 파일 정보가 있다면
 		if ( ! file.isEmpty() ) {
-			String server_path = "http://" + InetAddress.getLocalHost().getHostAddress() + req.getContextPath()+"/resources/";
 			vo.setBoard_id(dao.board_new());
 			vo.setFile_name( file.getOriginalFilename() );
-			vo.setFile_path( server_path+common.fileupload("board_file", file, session) );
+			vo.setFile_path( common.fileupload("board_file", file, session) );
 			dao.board_insert_img(vo);
 		}
 			
@@ -277,34 +267,24 @@ public class BoardController {
 	//동영상 등록
 	@ResponseBody
 	@RequestMapping("/movieinsert.bo")
-	public void insert(HttpServletRequest req , HttpServletResponse res ,HttpSession session) throws IOException {	
-		
-	String tempVo = req.getParameter("vo");
-	Board_MovieDTO vo = gson.fromJson(tempVo, Board_MovieDTO.class);
-	req.setCharacterEncoding("UTF-8");
-	res.setCharacterEncoding("UTF-8");
-	res.setContentType("text/html");
-	PrintWriter writer = res.getWriter();
-	int result = 0;
-	MultipartRequest mulReq = (MultipartRequest) req;
-	MultipartFile file = mulReq.getFile("file");
-	if(file != null) {
-		System.out.println("Null 아님 파일 들어옴");
-		String path = service.fileupload("board_file", file, session);
-		String server_path = "http://" + req.getLocalAddr()
-		+ ":" + req.getLocalPort() + req.getContextPath()+"/resources/";
-		System.out.println(server_path + path);
-		vo.setFile_path(server_path + path); 
-		vo.setFile_name(path);
-		dao.movie_create(vo);
-		
-	}else {
-		System.out.println("Null임 파일 안들어옴..");
+	public void join(HttpServletRequest req, HttpServletResponse res, HttpSession session, MultipartFile file) throws Exception {
+	PrintWriter writer = outprintln.outprintln(req, res);	
+	String strVo = req.getParameter("vo");	
+	Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
+	vo.setBoard_kinds("video");
 	
-	}
-	writer.print(result);
-
-
+	dao.movie_create(vo);
+	
+	
+	
+	
+	//int file_id = dao.file_select(vo); 
+	
+	/*
+	 * if ( ! file.isEmpty() ) { vo.setBoard_id(file_id);
+	 * vo.setFile_name(file.getOriginalFilename());
+	 * vo.setFile_path(service.fileupload("board_file", file, session)); }
+	 */
 	
 	}
 
@@ -321,45 +301,15 @@ public class BoardController {
 		writer.println( gson.toJson(list));
 		
 	}
-	//동영상 정보 목록(최신순)
-	@ResponseBody
-	@RequestMapping("/movielist_new.bo")
-	public void  list_new(HttpServletRequest req, HttpServletResponse res) throws Exception{
-
-		List<Board_MovieDTO> list = dao.movielist_new();
-		req.setCharacterEncoding("UTF-8");
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html");
-		PrintWriter writer = res.getWriter();
-		writer.println( gson.toJson(list));
-		
-	}
 
 	
 	//동영상 정보수정
 	@ResponseBody
 	@RequestMapping("/movieupdate.bo")
-	public void  update(HttpServletRequest req, HttpServletResponse res,HttpSession session) throws Exception{
+	public void  update(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		PrintWriter writer = outprintln.outprintln(req, res);
 		String strVo = req.getParameter("vo");	
 		Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
-		
-		MultipartRequest mulReq = (MultipartRequest) req;
-		MultipartFile file = mulReq.getFile("file");
-		if(file != null) {
-			System.out.println("Null 아님 파일 들어옴");
-			String path = service.fileupload("board_file", file, session);
-			String server_path = "http://" + req.getLocalAddr()
-			+ ":" + req.getLocalPort() + req.getContextPath()+"/resources/";
-			System.out.println(server_path + path);
-			
-			vo.setFile_path(server_path + path); 
-			vo.setFile_name(path);
-		}else {
-			System.out.println("Null임 파일 그대로");
-			vo.setFile_path(null);
-		}
-		
 		
 		dao.movie_update(vo);
 		
@@ -410,21 +360,10 @@ public class BoardController {
 	}
 	
 	
-	//동영상 정보 목록(마이페이지)
-	@ResponseBody
-	@RequestMapping("/movielist_mypage.bo")
-	public void  list_mypage(HttpServletRequest req, HttpServletResponse res) throws Exception{
 
-		String strVo = req.getParameter("vo");
-		MemberVO vo = gson.fromJson(strVo, MemberVO.class);
-		List<Board_MovieDTO> list = dao.movielist_mypage(vo);
-		req.setCharacterEncoding("UTF-8");
-		res.setCharacterEncoding("UTF-8");
-		res.setContentType("text/html");
-		PrintWriter writer = res.getWriter();
-		writer.println( gson.toJson(list));
-		
-	}
 
+	
+	
+	
 }
 

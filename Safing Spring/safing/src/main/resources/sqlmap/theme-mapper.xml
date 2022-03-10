@@ -13,7 +13,6 @@
                (select file_path from product_file where file_num = (select min(file_num) from product_file where  
                (select product_num from PACKAGE_DETAIL where product_num = 
                (select Min(product_num) from PACKAGE_DETAIL where p.Package_num = Package_num)) = product_num)) file_path2
-          from (select rownum no, p.* from product_package p) p
-	</select>
-	
+         from (select rownum no, p.* from product_package p where package_pridce <![CDATA[>]]> 0) p
+	</select>	
 </mapper>
