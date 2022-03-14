@@ -5,51 +5,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Insert title here</title>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" type="text/css" />
-<!-- Google fonts-->
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
-	rel="stylesheet" type="text/css" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link rel='stylesheet' type="text/css" href="css/board.css?v=<%= new Date().getTime() %>">
-
+	<link rel='stylesheet' type="text/css" href="css/shop_style.css?v=<%= new Date().getTime() %>" >
 </head>
 <body>
-<h3>유튜브 글 상세</h3>
-<table class='title' style="width: 750px;">
-	<tr>
-		<th class='w-px120' style="width: 15px;">제목</th>
-		<td colspan="5" class='left'>${vo.youtubetitle }</td>
-	</tr>
-	
-	<tr>
-		<th style="width: 15px;">내용</th>
-		<td colspan="5" class='left'>
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/${vo.play }" title="YouTube video player" 
-		frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-		</iframe><br>${fn:replace(vo.youtubecontent, crlf, '<br>')}</td>
-	</tr>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse text-center container" id="navbarSupportedContent">
+    	<ul class="navbar-nav mr-auto">
+      		<li class="nav-item">
+		        <label class="m-0">
+		            <a class="nav-link sub-category" href="list.cu">
+		            	<img class="img-size-30"  src="shop_img/youtube.png"/>
+		            	&nbsp;유투브
+					</a>
+				</label>
+	      	</li>
+	    </ul>
+	    <ul class="navbar-nav form-inline my-2 ">
+			 <c:if test="${loginInfo.member_admin eq 'y' }">
+				<li class="nav-item m-2">
+				    <div>
+				 	      <a type="button" class="btn btn-outline-secondary mt-auto py-1-1 px-2" href="new.yu">
+				 	     	 <img class="img-size-21"  src="shop_img/upload.png"/>
+				     	     &nbsp;영상올리기
+				 		  </a> 
+				     </div>
+				</li>
+			</c:if>
+		</ul>	
+	</div>
+</nav>
+<!-- 목록 형태 -->
+<table class="table w-65 my-sm-4 table-center">
+	<tbody >
+		<tr class="h-100">
+   			<th colspan="2" scope="row" class="py-4 text-white text-size-2 text-center text-align">
+				<iframe src="https://www.youtube.com/embed/${vo.play }" title="YouTube video player" class="w-100 h-100p"
+				frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+				</iframe>
+			</th>
+  		</tr>
+		
+		<tr>
+			<th scope="row" class="text-align">제목</th>
+			<td class="text-align py-3 text-left">${vo.youtubetitle }</td>
+	    </tr>
+		<tr>
+			<th scope="row" class="text-align">내용</th>
+			<td  class=" text-align py-3 text-left">${fn:replace(vo.youtubecontent, crlf, '<br>')}</td>
+	    </tr>
+  </tbody>
 </table>
 
-<div class='btnSet' style="display: flex; margin: 10px auto; width: 25%">
-	<a class='btn-fill' onclick='$("form").submit()'>목록으로</a>
-	<!-- 글쓴이만 수정/삭제 권한을 가짐 -->
-	<c:if test="${loginInfo.member_admin eq 'y' }">
-		<a class='btn-fill' onclick='$("form").attr("action", "modify.yu"); $("form").submit()' >유튜브 수정</a>
-		<a class='btn-fill' onclick='if ( confirm("정말 삭제?") ) {href="delete.yu?id=${vo.id }" }' >삭제</a>
+<div class="text-center my-sm-3">
+	<button type="button" class="btn btn-secondary mx-2" onclick='$("form").submit()'>목록으로</button>
+	<c:if test="${(loginInfo.member_admin eq 'y')   }">
+		<button type="button" class='btn btn-outline-success mx-2' onclick='$("form").attr("action", "modify.yu"); $("form").submit()' >수정</button>
+		
+		<button type="button" class='btn btn-outline-delete mx-2' onclick="youtube_delete(${vo.id})" >삭제</button>
 	</c:if>
 </div>
-
 
 
 <!-- 목록 요청에 필요한 데이터를 post 방식으로 전달하는 방법 -->
@@ -62,22 +77,31 @@
 	<input type="hidden" name="viewType" value="${page.viewType }" /> <!-- 게시판 형태 -->
 </form>
 
-<!-- 이미지를 크게 볼 수 있도록 처리 (popup 형태) -->
-<div id='popup-background'></div>
-<div id='popup' class='center'></div>
+<script type="text/javascript">
+function youtube_delete(id){
+	swal({
+		  title: "게시글 삭제",
+		  text: "선택한 글을 삭제 하시겠습니까?",
+		  icon: "warning",
+		  buttons: true,
+		  dangerMode: true,
+		})
+		.then((willDelete) => {
+		  if (willDelete) {
+			  location.href="delete.yu?id=" + id;
+		  } else {
+			return false;
+		  }
+	});
+	return false;
+}
+
+
+</script>
 
 
 
 </body>
-<style>
-	#title > th {
-		width: 20px;
-	}
-	
-	td {
-		width:150px;
-	}
-</style>
 </html>
 
 

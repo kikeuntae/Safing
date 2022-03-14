@@ -11,8 +11,14 @@ public class BoardVO {
 	private int    board_like_cnt	;   
 	private String board_kinds   	;
 	private int no, next, prev;
-	private String name, next_title, prev_title, file_name, file_path;
-
+	private String name, next_title, prev_title, file_name, file_path, member_name;
+	
+	public String getMember_name() {
+		return member_name;
+	}
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
 	public String getFile_name() {
 		return file_name;
 	}

@@ -8,7 +8,7 @@
 	<c:when test="${category eq 'bo' }"><c:set var='title' value="자유게시판"/> </c:when>
 	<c:when test="${category eq 'no' }"><c:set var='title' value="공지사항"/> </c:when>
 	<c:when test="${category eq 'yu' }"><c:set var='title' value="유튜브"/> </c:when>
-	<c:when test="${category eq 'cu' }"><c:set var='title' value="관리자"/> </c:when>
+	<c:when test="${category eq 'cu' }"><c:set var='title' value="회원관리"/> </c:when>
 	<c:when test="${category eq 'join' }"><c:set var='title' value="회원가입"/> </c:when>
 	<c:when test="${category eq 'search' }"><c:set var='title' value="캠핑검색"/> </c:when>
 </c:choose>
@@ -25,15 +25,16 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script type="text/javascript" src='js/common.js'></script>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid mx-0 px-0">
 		<tiles:insertAttribute name="header" />
 	</div>
-	<div class="container-fluid">
+	<div class="container-fluid mx-0 px-0">
 		<tiles:insertAttribute name="content" />
 	</div>
-	<div class="container-fluid">
+	<div class="container-fluid mx-0 px-0">
 		<tiles:insertAttribute name="footer" />
 	</div>
 </body>

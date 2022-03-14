@@ -45,10 +45,6 @@ public class ShopController {
 						, @RequestParam (defaultValue = "12") int pageList) {
 		session.setAttribute("category", "shop");
 		
-		MemberVO vo = new MemberVO();
-		vo.setMember_admin("y");
-		session.setAttribute("loginInfo",vo);
-		
 		ProductPage page = new ProductPage();
 		
 		page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
@@ -80,10 +76,6 @@ public class ShopController {
 			, @RequestParam (defaultValue = "10") int pageList) {
 		session.setAttribute("category", "shop");
 		
-		MemberVO vo = new MemberVO();
-		vo.setMember_admin("y");
-		session.setAttribute("loginInfo",vo);
-		
 		ProductManagePage page = new ProductManagePage();
 		
 		page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
@@ -107,12 +99,6 @@ public class ShopController {
 	//상품관리 상품등록 페이지
 	@RequestMapping ("/productnew.shop")
 	public String productnew(HttpSession session) {
-		session.setAttribute("category", "shop");
-		
-		MemberVO vo = new MemberVO();
-		vo.setMember_admin("y");
-		session.setAttribute("loginInfo",vo);
-
 		
 		return "shop/productnew";
 	}
@@ -139,10 +125,6 @@ public class ShopController {
 			, @RequestParam (defaultValue = "1") int curPage
 			, @RequestParam (defaultValue = "10") int pageList) {
 		session.setAttribute("category", "shop");
-		
-		MemberVO vo = new MemberVO();
-		vo.setMember_admin("y");
-		session.setAttribute("loginInfo",vo);
 		
 		OrderManagePage page = new OrderManagePage();
 		

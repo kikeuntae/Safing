@@ -12,7 +12,7 @@ $(document).on('change', '#attach-file', function(){
       // 태그 존재 여부는 길이(length)로 판단 , 0보다 크면 태그가 있음
       if ($('#preview').length   > 0) {
          if ( isImage( attached.name ) ) {   // 이미지 파일이면 미리보기 처리 함
-            $ ('#preview').html('<img src="" id="preview-img" />');
+            $ ('#preview').html('<img class="img-size-21"  src="" id="preview-img" />');
             
             var reader = new FileReader();   //파일 정보를 읽기 위한 객체(FileReader) 를 선언
             reader.onload = function(e) {   //파일 읽기 처리

@@ -6963,7 +6963,19 @@ textarea.form-control-lg {
 .w-50 {
   width: 50% !important;
 }
+.w-55 {
+  width: 55% !important;
+}
+.w-60 {
+  width: 60% !important;
+}
 
+.w-65 {
+  width: 65% !important;
+}
+.w-70 {
+  width: 70% !important;
+}
 .w-75 {
   width: 75% !important;
 }
@@ -7491,6 +7503,10 @@ w-30
 .py-0 {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+.py-1-1 {
+  padding-top: 0.15rem !important;
+  padding-bottom: 0.15rem !important;
 }
 
 .py-1 {

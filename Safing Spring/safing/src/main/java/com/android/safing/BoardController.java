@@ -52,7 +52,6 @@ public class BoardController {
 	}
 	
 	
-	
 	// 게시판 글에 대한 댓글 수정처리 요청
 	// 컨트롤러를 통해 보내고 있는 응답의 유형을 나타내기 위해 produces 를 사용하여 한글 깨짐 해결
 	// 이 "produces" 키워드는 ajax 요청에서 가장 유용하게 사용됨.
@@ -151,6 +150,11 @@ public class BoardController {
 	
 	
 	
+	
+	//========================== 웹 ===========================================//
+	
+	
+	
 	// 게시판 글 수정 화면 요청
 	@RequestMapping("/modify.bo")
 	public String modify(int id, Model model) {
@@ -208,7 +212,6 @@ public class BoardController {
 	// 게시판 신규 저장 처리 요청
 	@RequestMapping ("/insert.bo")
 	public String insert(BoardVO vo, MultipartFile file, HttpSession session) {
-		
 
 		MemberVO member = (MemberVO) session.getAttribute("loginInfo");
 		vo.setMember_id(member.getMember_id()+"");
@@ -234,34 +237,60 @@ public class BoardController {
 	}
 	
 	// 게시판 목록화면 요청
-		@RequestMapping ("/list.bo")
-		public String list(HttpSession session , Model model
-				,String search
-				,String keyword
-				, @RequestParam (defaultValue = "1") int curPage
-				, @RequestParam (defaultValue = "10") int pageList
-				, @RequestParam (defaultValue = "list") String viewType ) {
-			session.setAttribute("category", "bo");
-			
-			// DB에서 게시판 정보를 조회해와 목록화면에 출력
-			page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
-			page.setSearch(search);		// 검색 조건 값을 page에 담음
-			page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
-			page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
-			page.setViewType(viewType);	// 게시판 형태를 page에 담음
-			
-			//귀찮으니 회원로그인 고정 값처리
-			MemberVO vo = new MemberVO();
-			MemberDAO member_dao = new MemberDAO();
-			vo.setMember_id("master");
-			vo  = dao.login(vo);
-			session.setAttribute("loginInfo", vo);
-			
-			
-			model.addAttribute("page", dao.board_list(page));		
-			return "board/list";
-		}
-
+	@RequestMapping ("/list.bo")
+	public String list(HttpSession session , Model model
+			,String search
+			,String keyword
+			, @RequestParam (defaultValue = "1") int curPage
+			, @RequestParam (defaultValue = "10") int pageList
+			, @RequestParam (defaultValue = "list") String viewType ) {
+		session.setAttribute("category", "bo");
+		
+		// DB에서 게시판 정보를 조회해와 목록화면에 출력
+		page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
+		page.setSearch(search);		// 검색 조건 값을 page에 담음
+		page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
+		page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
+		page.setViewType(viewType);	// 게시판 형태를 page에 담음
+		
+		model.addAttribute("page", dao.board_list(page));
+		
+		return "board/list";
+	}
+	
+	
+	// 게시판 목록화면 요청
+	@RequestMapping ("/boardmanage.bo")
+	public String boardmanage(HttpSession session , Model model
+			,String search
+			,String keyword
+			, @RequestParam (defaultValue = "1") int curPage
+			, @RequestParam (defaultValue = "10") int pageList
+			, @RequestParam (defaultValue = "list") String viewType ) {
+		session.setAttribute("category", "bo");
+		
+		// DB에서 게시판 정보를 조회해와 목록화면에 출력
+		page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
+		page.setSearch(search);		// 검색 조건 값을 page에 담음
+		page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
+		page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
+		page.setViewType(viewType);	// 게시판 형태를 page에 담음
+		
+		model.addAttribute("page", dao.board_list(page));
+		
+		return "board/boardmanage";
+	}
+	
+	//게시글 삭제
+	@RequestMapping ("/board_delete.bo")
+	public String board_delete(int board_id) {
+		dao.board_delete(board_id);
+		
+		return "redirect:boardmanage.bo";
+	}
+	
+	
+	//========================== 안드로이드 ===========================================//
 	
 	
 	//동영상 등록
@@ -275,16 +304,6 @@ public class BoardController {
 	
 	dao.movie_create(vo);
 	
-	
-	
-	
-	//int file_id = dao.file_select(vo); 
-	
-	/*
-	 * if ( ! file.isEmpty() ) { vo.setBoard_id(file_id);
-	 * vo.setFile_name(file.getOriginalFilename());
-	 * vo.setFile_path(service.fileupload("board_file", file, session)); }
-	 */
 	
 	}
 
@@ -322,9 +341,7 @@ public class BoardController {
 		PrintWriter writer = outprintln.outprintln(req, res);
 		String strVo = req.getParameter("vo");	
 		Board_MovieDTO vo = gson.fromJson(strVo, Board_MovieDTO.class);
-		
-	
-		
+
 		dao.movie_delete(vo);	
 	}
 	
@@ -340,7 +357,6 @@ public class BoardController {
 		
 		dao.board_like(vo);	
 	}
-	
 	
 	//동영상 댓글 수 새로고침 
 	@ResponseBody
@@ -360,10 +376,35 @@ public class BoardController {
 	}
 	
 	
+   @ResponseBody
+   @RequestMapping("/movielist_new.bo")
+   public void  list_new(HttpServletRequest req, HttpServletResponse res) throws Exception{
 
+      List<Board_MovieDTO> list = dao.movielist_new();
+      req.setCharacterEncoding("UTF-8");
+      res.setCharacterEncoding("UTF-8");
+      res.setContentType("text/html");
+      PrintWriter writer = res.getWriter();
+      writer.println( gson.toJson(list));
+      
+   }
 
-	
-	
+   
+   @ResponseBody
+   @RequestMapping("/movielist_mypage.bo")
+   public void  list_mypage(HttpServletRequest req, HttpServletResponse res) throws Exception{
+
+      String strVo = req.getParameter("vo");
+      MemberVO vo = gson.fromJson(strVo, MemberVO.class);
+      List<Board_MovieDTO> list = dao.movielist_mypage(vo);
+      req.setCharacterEncoding("UTF-8");
+      res.setCharacterEncoding("UTF-8");
+      res.setContentType("text/html");
+      PrintWriter writer = res.getWriter();
+      writer.println( gson.toJson(list));
+      
+   }
+
 	
 }
 

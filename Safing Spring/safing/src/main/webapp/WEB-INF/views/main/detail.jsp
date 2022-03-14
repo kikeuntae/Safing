@@ -1,23 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet">
-	<link rel='stylesheet' type="text/css" href="css/sub_layout.css?v=<%=new Date().getTime()%>">
-	
-
-        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-		<link rel='stylesheet' type="text/css" href="css/tiles.css?v=<%= new Date().getTime() %>" >
-	
-	
+	<link rel='stylesheet' type="text/css" href="css/sub_layout.css?v=<%=new Date().getTime()%>">	
 </head>
 
 <body>
@@ -42,7 +31,6 @@
 				</div>
 			</div>
 		</div>
-		<!--//상단타이틀영역-->
 		<div class="gray_bar"></div>
 
 		<section id="section1" style="right: 0px; margin-top: 90px; top: 20px">
@@ -120,17 +108,12 @@
 									</div>
 								</div>
 								<!--//E:table-->
-
 							</div>
-
 						</header>
 					</article>
-
 				</div>
-
 				<!-- 이벤트3행시배너 -->
 				<!-- //이벤트3행시배너 -->
-
 				<!--내용시작-->
 				<div id="contents">
 					<div class="camp_cont_w">
@@ -306,6 +289,5 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
     color: white;
     font-size: 50px;
 }
-
 </style>
 </html>

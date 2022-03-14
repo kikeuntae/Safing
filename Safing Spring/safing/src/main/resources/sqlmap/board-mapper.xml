@@ -73,17 +73,22 @@
 	</select>
 	
 	
-		<!-- 전체 게시글 수 조회 -->
+	<!-- 전체 게시글 수 조회 -->
 	<select id="totalList" resultType="integer">
 		select count(*) from board <include refid="where_search" />	
 	</select>	
 
 	<!-- 전체 게시글 조회 -->
 	<select id="list" resultType="board.BoardVO">
-		select b.*, f.file_name, f.file_path
-		from ( select rownum no, b.* from ( select * from board <include refid="where_search" />
-						order by board_id) b	
-				order by no desc ) b
+		select b.*, f.file_name, f.file_path, (select member_name from member where member_id = b.member_id) member_name
+		from ( select rownum no, b.*
+			   from (select board_id, member_id, board_title, board_content,
+			   		 TO_CHAR(board_writedate, 'YYYY-MM-DD') board_writedate,
+			   		 TO_CHAR(board_updatedate, 'YYYY-MM-DD') board_updatedate,
+			   		 board_read_cnt, board_like_cnt, board_kinds
+			   		 from board <include refid="where_search" />
+			   		 order by board_id) b	
+		       order by no desc ) b
 		left outer join (select file_name, file_path, board_id from board_file ) f
 		on b.board_id = f.board_id
 		where no between #{beginList} and #{endList}
@@ -113,7 +118,7 @@
 		member_id in (select member_id from member where member_id like '%'||#{keyword}||'%' )
 	</sql>
 	
-	<!-- 해당 글 삭제 처리 -->
+	<!-- 게시글 삭제 -->
 	<delete id="delete">
 		delete from board
 		where board_id = #{board_id}
@@ -127,7 +132,7 @@
 	
 	<!-- 해당 글의 상세 정보 조회 -->
 	<select id="detail" resultType="board.BoardVO">
-		select b.*,  f.file_name, f.file_path
+		select b.*,  f.file_name, f.file_path,  (select member_name from member where member_id = b.member_id) member_name
 		from
 			( select board.*,
 				lag(board_id, 1, 0) over (order by board_id desc) as prev,

@@ -26,9 +26,11 @@
                         <li class="nav-item m-2">
                         	<a href="list.yu" ${category eq 'yu' ? "class='active vertical-mid'" : "class='nonactive vertical-mid'" }>유튜브</a>
                         </li>
-                        <li class="nav-item m-2">
-                        	<a href="list.cu" ${category eq 'cu' ? "class='active vertical-mid'" : "class='nonactive vertical-mid'" }>관리자</a>
-                        </li>
+                        <c:if test="${loginInfo.member_admin eq 'y'}">
+	                        <li class="nav-item m-2">
+	                        	<a href="list.cu" ${category eq 'cu' ? "class='active vertical-mid'" : "class='nonactive vertical-mid'" }>회원관리</a>
+	                        </li>
+                        </c:if>
 			  		</ul>
 			  		<ul class="navbar-nav form-inline my-2 ">
 						<!-- 로그인하지 않은 상태 -->

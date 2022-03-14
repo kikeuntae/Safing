@@ -204,3 +204,31 @@ select p.*, (select tag_key from board_tag where p.package_num = package_num) ta
 		from product_package p
 		where p.package_num < 10
 		order by p.package_num;
+        
+select * from member;        
+        
+select * from board;        
+
+
+commit;
+
+select b.*, f.file_name, f.file_path, (select member_name from member where member_id = b.member_id) member_name
+from ( select rownum no, b.* from ( select * from board order by board_id) b	
+        order by no desc ) b
+left outer join (select file_name, file_path, board_id from board_file ) f
+on b.board_id = f.board_id;
+
+update member set member_admin = 'y' where member_id = 'cabin2351';
+        
+desc board;
+
+select b.*, f.file_name, f.file_path, (select member_name from member where member_id = b.member_id) member_name
+from ( select rownum no, b.*
+       from (select board_id, member_id, board_title, board_content,
+             TO_CHAR(board_writedate, 'YYYY-MM-DD') board_writedate,
+             TO_CHAR(board_updatedate, 'YYYY-MM-DD') board_updatedate,
+             board_read_cnt, board_like_cnt, board_kinds
+             from board order by board_id) b	
+       order by no desc ) b
+left outer join (select file_name, file_path, board_id from board_file ) f
+on b.board_id = f.board_id;

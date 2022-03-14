@@ -92,5 +92,19 @@
 		where member_id = #{member_id}
 	</update>
 	
-
+   <!--회원정보 업데이트 -->
+   <update id="update">
+      update member set     
+         member_pw = #{member_pw} ,member_name = #{member_name} ,member_age = #{member_age}
+       ,member_gender= #{member_gender} ,member_phone = #{member_phone},
+      where member_id = #{member_id}
+   </update>
+   
+   <!--회원정보 업데이트 -->
+   <update id="member_update">
+      update member set     
+      member_name = #{member_name} , member_phone = #{member_phone} ,member_admin = #{member_admin}
+      where member_id = #{member_id}
+   </update>
+   
 </mapper>

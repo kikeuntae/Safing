@@ -178,49 +178,60 @@ public class NoticeController {
 		return "notice/new";
 	}
 	
+	
+	
 	// 공지사항 목록화면 요청
-		@RequestMapping ("/list.no")
-		public String list(HttpSession session , Model model
-				,String search
-				,String keyword
-				, @RequestParam (defaultValue = "1") int curPage
-				, @RequestParam (defaultValue = "10") int pageList
-				, @RequestParam (defaultValue = "list") String viewType ) {
-			
-			session.setAttribute("category", "no"); // category 에 cu 를 설정
-			
-			// DB에서 공지사항 정보를 조회해와 목록화면에 출력
-			page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
-			page.setSearch(search);		// 검색 조건 값을 page에 담음
-			page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
-			page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
-			page.setViewType(viewType);	// 게시판 형태를 page에 담음
-			
-			//귀찮으니 회원로그인 고정 값처리
-			MemberVO vo = new MemberVO();
-			MemberDAO member_dao = new MemberDAO();
-			vo.setMember_id("master");
-			vo  = dao.login(vo);
-			session.setAttribute("loginInfo", vo);
-			
-			
-			model.addAttribute("page", dao.board_list_notice(page));		
-			return "notice/list";
-		}
+	@RequestMapping ("/list.no")
+	public String list(HttpSession session , Model model
+			,String search
+			,String keyword
+			, @RequestParam (defaultValue = "1") int curPage
+			, @RequestParam (defaultValue = "10") int pageList
+			, @RequestParam (defaultValue = "list") String viewType ) {
+		
+		session.setAttribute("category", "no"); // category 에 cu 를 설정
+		
+		// DB에서 공지사항 정보를 조회해와 목록화면에 출력
+		page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
+		page.setSearch(search);		// 검색 조건 값을 page에 담음
+		page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
+		page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
+		page.setViewType(viewType);	// 게시판 형태를 page에 담음
+		
+		model.addAttribute("page", dao.board_list_notice(page));		
+		return "notice/list";
+	}
 
+	// 공지글 관리화면 요청
+	@RequestMapping ("/noticemanage.no")
+	public String noticemanage(HttpSession session , Model model
+			,String search
+			,String keyword
+			, @RequestParam (defaultValue = "1") int curPage
+			, @RequestParam (defaultValue = "10") int pageList
+			, @RequestParam (defaultValue = "list") String viewType ) {
+		
+		session.setAttribute("category", "no"); // category 에 cu 를 설정
+		
+		// DB에서 공지사항 정보를 조회해와 목록화면에 출력
+		page.setCurPage(curPage);	// 현재 페이지 정보를 page에 담음
+		page.setSearch(search);		// 검색 조건 값을 page에 담음
+		page.setKeyword(keyword);	// 검색 키워드 값을 page에 담음
+		page.setPageList(pageList);	// 페이지당 보여질 글 목록 수를 page에 담음
+		page.setViewType(viewType);	// 게시판 형태를 page에 담음
+		
+		model.addAttribute("page", dao.board_list_notice(page));		
+		return "notice/noticemanage";
+	}
 
 	
-	
-	
-
-	
-	
-	
-	
-	
-
-
-	
+	//게시글 삭제
+	@RequestMapping ("/notice_delete.bo")
+	public String notice_delete(int board_id) {
+		dao.board_delete(board_id);
+		
+		return "redirect:noticemanage.no";
+	}
 	
 	
 }

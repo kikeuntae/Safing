@@ -4,71 +4,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel='stylesheet' type="text/css" href="css/board.css?v=<%= new Date().getTime() %>">
+	<link rel='stylesheet' type="text/css" href="css/shop_style.css?v=<%= new Date().getTime() %>" >
 </head>
 <body>
-	<div id='list-top' style="width: 96% !importent">
-		<form action="list.yu" method="post">
-			<input type="hidden" name="curPage" value="1" />
-			<input type="hidden" name="id"  value="master"/>
-			<c:if test="${loginInfo.member_admin eq 'y' }">
-				<li><a class='btn-fill' href='new.yu' style="width: 100px; margin-left: 10px ">글쓰기</a></li>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="collapse navbar-collapse text-center container" id="navbarSupportedContent">
+    	<ul class="navbar-nav mr-auto">
+      		<li class="nav-item">
+		        <label class="m-0">
+		            <a class="nav-link sub-category" href="list.yu">
+		            	<img class="img-size-30"  src="shop_img/youtube.png"/>
+		            	&nbsp;유투브
+					</a>
+				</label>
+	      	</li>
+	    </ul>
+	    <ul class="navbar-nav form-inline my-2 ">
+			 <c:if test="${loginInfo.member_admin eq 'y' }">
+				<li class="nav-item m-2">
+				    <div>
+				 	      <a type="button" class="btn btn-outline-secondary mt-auto py-1-1 px-2" href="new.yu">
+				 	     	 <img class="img-size-21"  src="shop_img/upload.png"/>
+				     	     &nbsp;영상올리기
+				 		  </a> 
+				     </div>
+				</li>
 			</c:if>
-		</form>
+		</ul>	
 	</div>
-	<div id='data-list'>
-
-<!-- 그리드 형태 -->
-<c:if test="${page.viewType eq 'grid'}"><!-- viewType 값이 'grid' 이면 그리드형태를 나타냄 -->
-	<ul class='grid'>
-		<c:forEach items="${page.list }" var="vo">
-			<li style="width: 23%; height: 345px; margin-right: 10px;">
-				<div style="height: 100%">
-				<a onclick='go_detail(${vo.id})'><img src="${vo.thumbnails }" style="width: 100%; height: 50%"></a>
-				<a>${vo.youtubetitle }</a>
-					<div style="display: flex;">
-						<a class='btn-fill' onclick='go_detail(${vo.id})'>자세히보기</a>			
-					</div>
-				</div>
-			</li>
-		</c:forEach>
-	</ul>
-</c:if>
-
-<!-- 목록 형태 -->
-<c:if test="${page.viewType eq 'list'}">	<!-- viewType 값이 'list' 이면 목록 형태를 나타냄 -->
-<table>
-	<thead>
-		<tr>
-			<th class='w-px70'>번호</th>
-			<th>제목</th>
-		</tr>
-	</thead>
-	<tbody>	
-		<!-- 조회된 목록이 없을 경우 정보 표시 -->
-		<c:if test="${ empty page.list }">
-			<tr>
-				<td colspan="6">방명록 정보가 없습니다.</td>
-			</tr>
-		</c:if>
-		<c:forEach items="${page.list }" var="vo">
-		<tr>
-			<td>${vo.id }</td>
-			<td class='left'><a onclick='go_detail(${vo.id})'>${vo.youtubetitle}</a></td>
-			
-		</tr>
-		</c:forEach>
-		
-	</tbody>
-</table>
-</c:if>
-</div>
-
+</nav>
+<!-- Section-->
+ <section>
+	 <c:if test="${ empty page.list }">
+		<div class="text-center text-align">
+         	<h5>검색하신 정보가 없습니다.</h5>
+       	 </div>
+	</c:if>
+      <div class="container px-4 px-lg-5 mt-5">
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-3 ">
+              <c:forEach var="vo" items="${page.list}">
+              	<div class="col mb-5">
+                   <div class="card h-100">
+                       <!-- Product image-->
+                       <a type="button" onclick='go_detail(${vo.id})'>
+                       		<img class="card-img-top" src="${vo.thumbnails }" class="w-100"/>
+                       </a>
+                       <!-- Product details-->
+                       <div class="card-body p-4">
+                           <div class="text-center text-black">
+                               <!-- Product name-->
+                            	<a>${vo.youtubetitle }</a>			        
+                             
+                           </div>
+                       </div>
+                       <!-- Product actions-->
+                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                           <div class="text-center">
+                             <a type="button" class='btn btn-outline-secondary' onclick='go_detail(${vo.id})'>자세히보기</a>
+                           </div>
+                       </div>
+                   </div>
+              	</div>     
+             	</c:forEach>
+          </div>
+      </div>
+  </section>
+  
 <script type="text/javascript">
 	function go_detail(id) {
-		$('[name=id]').val(id);
-		$('form').attr('action', 'detail.yu');
-		$('form').submit();
+		location.href="detail.yu?id="+id;
 	}
 </script>
 

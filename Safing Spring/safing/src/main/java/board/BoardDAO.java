@@ -115,9 +115,9 @@ public class BoardDAO {
 		return sql.update("board.mapper.board_update", vo);
 	}
 
-
-	public int board_delete(int id) {
-		return sql.delete("board.mapper.delete", id);
+	//게시글 삭제
+	public int board_delete(int board_id) {
+		return sql.delete("board.mapper.delete", board_id);
 	}
 
 

@@ -14,6 +14,7 @@ import common.CommonService;
 import common.OutPrintln;
 import member.MemberDAO;
 import member.MemberVO;
+import product.ProductManageVO;
 
 // 고객관리 페이지처리 @Controller 생성
 @Controller
@@ -85,4 +86,21 @@ public class CustomerController {
 		
 		return "member/list";
 	}
+	
+	//회원 삭제
+	@RequestMapping ("/member_delete.cu")
+	public String member_delete(String member_id) {
+		dao.member_delete(member_id);
+		
+		return "redirect:list.cu";
+	}
+	
+	//상품관리 수정
+	@RequestMapping ("/member_update.cu")
+	public String member_update(MemberVO vo) {
+		dao.member_update(vo);
+		
+		return "redirect:list.cu";
+	}
+	
 }

@@ -3,20 +3,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:forEach items="${list }" var="vo" varStatus="status">
-<!-- 	<hr /> -->
-	${status.index eq 0 ? '<hr>' : ''} <!-- 첫번째 순서 값에 hr 태그 부여 -->
 	<div data-seq="${vo.comment_id }" class='left'>${vo.member_id} [ ${vo.comment_regdate } ]
 	<!-- 로그인한 사용자가 작성한 댓글인 경우 수정/삭제 가능 -->
 	<c:if test="${loginInfo.member_id eq vo.member_id }">
 		<span style="float: right;">
-			<a class='btn-fill-s btn-modify-save'>수정</a>
-			<a class='btn-fill-s btn-delete-cancel'>삭제</a>		
+			<a type="button" class='btn-outline-success table-radius-5 text-center border-0 btn-modify-save'>수정</a>
+			<a type="button" class='btn-outline-delete table-radius-5 text-center border-0 btn-delete-cancel'>삭제</a>		
 		</span>	
 	</c:if>	
 		<div class='original'>${fn:replace(fn:replace(vo.comment_content, lf, '<br>'), crlf, '<br>')}</div>
 		<div class='modify'></div>	
 	</div>
-	<hr />
 </c:forEach>
 
 <script>

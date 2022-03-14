@@ -114,5 +114,14 @@ public class MemberDAO {
 		return sql.update("member.mapper.update_img", vo);
 	}
 	
+	//회원 정보수정
+	public boolean member_update(MemberVO vo) {
+		return sql.update("member.mapper.member_update", vo) == 1 ? true : false;
+	}
+	//회원 삭제
+	public boolean member_delete(String member_id) {
+		return sql.delete("member.mapper.delete", member_id) == 1 ? true : false;
+	}
+	
 	
 }

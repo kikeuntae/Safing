@@ -5,80 +5,184 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>글 수정</title>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- Bootstrap icons-->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-	rel="stylesheet" type="text/css" />
-<!-- Google fonts-->
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
-	rel="stylesheet" type="text/css" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link rel='stylesheet' type="text/css" href="css/board.css?v=<%= new Date().getTime() %>">
+	<link rel='stylesheet' type="text/css" href="css/shop_style.css?v=<%= new Date().getTime() %>" >
+	<script type="text/javascript" src='js/file_check.js'></script>
 
+	<script src="js/summernote-lite.js" charset="UTF-8"></script>
+	<script src="js/summernote-ko-KR.js" charset="UTF-8"></script>
+	<link rel="stylesheet" href="css/summernote-lite.css">
+
+	<!-- include libraries(jQuery, bootstrap) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<!-- include summernote css/js -->
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	
 </head>
 <body>
-<h3>글 수정</h3>
-<form action="update.no" method="post" enctype="multipart/form-data">
-<input type="hidden" name="board_id" value="${vo.board_id }" />
-<input type="hidden" name="attach" />
-<table>
-	<tr>
-		<th class='w-px120'>제목</th>
-		<td>
-			<input type="text" name='board_title' class='chk' value="${vo.board_title }" title='제목' />
-		</td>
-	</tr>
-	<tr>
-		<th>내용</th>
-		<td>
-			<textarea name="board_content" class='chk' title='내용'>${vo.board_content }</textarea>
-		</td>
-	</tr>
-	<tr>
-		<th>첨부파일</th>
-		<td class='left'>
-			<label>
-				<input type="file" name='file' id='attach-file'/>
-				<a><img src='imgs/attach.png' class='file-img' /></a>
+<!-- Navigation -->
+<form action="list.no" method="post">
+	<input type="hidden" name="curPage" value="1" />
+	<input type="hidden" name="member_id" />
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <div class="collapse navbar-collapse text-center container" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item">
+	        <label>
+	            <a class="nav-link sub-category" href="list.no">
+	            	<img class="img-size-30"  src="shop_img/notice.png"/>
+	            	&nbsp;공지사항
+				</a>
 			</label>
-			<span id='file-name'>${vo.file_name }</span>
-			<span id='preview'></span> <!-- 미리보기 이미지가 보이게 끔 -->
-			<a id='delete-file'><i class='fas fa-times font-img'></i></a>
-		</td>
-	</tr>
-</table>
-<div class='btnSet'>
-	<a class='btn-fill' onclick="if ( emptyCheck() ) { $('[name=attach]').val( $('#file-name').text() );  $('form').submit()  } " >저장</a>
-	<a class='btn-fill' onclick="history.go(-1)">취소</a> <!-- 이전 화면으로 이동 -->
-</div>
+	      </li>
+	      <c:if test="${loginInfo.member_admin eq 'y'}">
+		      <li class="nav-item">
+		        <label>
+		            <a class="nav-link" href="noticemanage.no">
+		            	<img class="img-size-30"  src="shop_img/manage_board.png"/>
+		            	&nbsp;공지글 관리
+					</a>
+				</label>
+		      </li>
+	      </c:if>
+	    </ul>
+	    <ul class="navbar-nav form-inline my-2 ">
+	    	<li class="nav-item m-2 ">
+				<select name='pageList' class="select-size-100"  onchange="$('form').submit()">
+					<option class="dropdown-item"  value="10" ${page.pageList eq 10 ? 'selected' : '' }>10개씩</option>
+					<option class="dropdown-item"  value="15" ${page.pageList eq 15 ? 'selected' : '' }>15개씩</option>
+					<option class="dropdown-item"  value="20" ${page.pageList eq 20 ? 'selected' : '' }>20개씩</option>
+					<option class="dropdown-item"  value="25" ${page.pageList eq 25 ? 'selected' : '' }>25개씩</option>
+					<option class="dropdown-item"  value="30" ${page.pageList eq 30 ? 'selected' : '' }>30개씩</option>
+				</select>
+			</li>
+	    	<li class="nav-item m-2 ">
+				<select name='search' class="select-size-100" >
+					<option class="dropdown-item" value="all" ${page.search eq 'all' ? 'selected' : '' }>전체</option>
+					<option class="dropdown-item" value="board_title" ${page.search eq 'board_title' ? 'selected' : '' }>제목</option>
+					<option class="dropdown-item" value="board_content" ${page.search eq 'board_content' ? 'selected' : '' }>내용</option>
+					<option class="dropdown-item" value="member_id" ${page.search eq 'member_id' ? 'selected' : '' }>작성자</option>
+				</select>
+			</li>
+	    	<li class="nav-item m-2 ">
+				<input class="form-control mr-sm-2" name='keyword' value="${page.keyword}" type="search" placeholder="게시글 검색하기" aria-label="Search">
+			</li>
+	    	<li class="nav-item m-2">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="$('form').submit()">검색</button>
+			</li>
+			 <c:if test="${loginInfo.member_admin eq 'y'}">
+				<li class="nav-item m-2">
+				    <div>
+				 	      <a type="button" class="btn btn-outline-secondary mt-auto py-1-1 px-2" href="new.no">
+				 	     	 <img class="img-size-30"  src="shop_img/write.png"/>
+				     	     &nbsp;글쓰기
+				 		  </a> 
+				     </div>
+				</li>
+			</c:if>
+		</ul>	
+	  </div>
+	</nav>
 </form>
-<script type="text/javascript" src='js/file_check.js'></script>
+
+
+<form action="insert.no" method="post" enctype="multipart/form-data">
+   <table class="table w-55 my-sm-4 table-center">
+   		<tbody >
+   			<tr>
+				<th colspan="4" scope="row" class="py-5 table-sub-color text-white text-size-2 text-center text-align">
+					<h3>공지 글쓰기</h3>
+				</th>
+			</tr>
+	      	<tr>
+		      	<th class="text-align" scope="col">제목</th>
+		         <td class="py-4">
+		            <input class="form-control input-size-90 chk" value="${vo.board_title }" name="board_title" type="text" placeholder="제목을 입력하세요"/>
+		         </td>
+		          <th class="text-align text-center" scope="col">글종류</th>
+		         <td class="text-align text-left py-4">
+			      <select name='board_kinds' class="select-size" >
+						<option class="dropdown-item" value="free"  ${vo.board_kinds eq "free" ? 'selected' : '' } >자유게시판</option>
+						<option class="dropdown-item" value="notice" ${vo.board_kinds eq "notice" ? 'selected' : '' }>공시사항</option>
+						<option class="dropdown-item" value="youtube" ${vo.board_kinds eq "youtube" ? 'selected' : '' } >유투브</option>
+						<option class="dropdown-item" value="video" ${vo.board_kinds eq "video" ? 'selected' : '' }  >동영상</option>
+						<option class="dropdown-item" value="review" ${vo.board_kinds eq "review" ? 'selected' : '' }>리뷰</option>
+					</select>
+		        </td>
+	 	   	 </tr>
+		      <tr>
+		         <th scope="col" class="text-align">내용</th>
+		         <td colspan="3">
+		               <div class="container px-0">
+		                    <textarea class="summernote" name="editordata">${vo.board_content }</textarea>    
+		               </div>
+		               <script>
+		                  $('.summernote').summernote({
+		                       height: 450,
+		                       lang: "ko-KR"
+		                  });
+		               </script>
+		         </td>
+		      </tr>
+		      <tr>
+		         <th scope="col" class="text-align">첨부파일</th>
+		         <td colspan="3" class='text-left py-4'>
+		           	<input type="file" id='attach-file' name='file' />   
+					<!-- 이미지 파일인 경우 미리보기 적용 -->
+					<span id='preview' ></span>
+					<a id='delete-file'>
+						<img src="shop_img/close.png" style="width:2%; margin-left : 0.5rem; height:auto; vertical-align: middle; cursor: pointer;"/>
+					</a>	        
+		         </td>
+		      </tr>
+         </tbody>
+   </table>
+</form>
+<div class="text-center my-1 mb-5">
+	<button type="button" class="btn btn-secondary mx-2" onclick="if ( emptyCheck() ) $('form').submit()">저장하기</button>
+ 	<button type="button" class="btn btn-outline-success mx-2" onclick="fncancel()">취소하기</button> 		
+</div>
+
 <script type="text/javascript">
-if ( ${ ! empty vo.file_name } ) {
-	// 첨부파일이 있는 글인 경우 삭제버튼 보이게
-	$('#delete-file').css('display', 'inline');
-	// 첨부파일이 이미지 파일인 경우 미리보기
-	if ( isImage( '${vo.file_name}' ) )
-		$('#preview').html("<img src='${vo.file_path}' id='preview-img' /> ");
-}	
-</script>
+	<!-- <anager Check -->
+	if ( ${ ! empty vo.file_name } ) {
+		// 첨부파일이 있는 글인 경우 삭제버튼 보이게
+		$('#delete-file').css('display', 'inline');
+		// 첨부파일이 이미지 파일인 경우 미리보기
+		if ( isImage( '${vo.file_name}' ) )
+			$('#preview').html("<img src='${vo.file_path}' id='preview-img'/> ");
+	} else {
+		$('#delete-file').css('display', 'none');
+	}	
+	
+	
+	function fncancel(){
+		swal({
+			  title: "입력한 내용이 모두 사라집니다.",
+			  text: "취소하시겠습니까?",
+			  icon: "warning",
+			  buttons: true,
+			  dangerMode: true,
+			})
+			.then((willDelete) => {
+			  if (willDelete) {
+				  location.href="list.no";
+			  } else {
+				return false;
+			  }
+		});
+		return false;
+	}
+	
+	
+	
+	</script>
+
+
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 

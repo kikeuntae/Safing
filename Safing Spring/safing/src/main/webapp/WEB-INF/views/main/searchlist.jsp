@@ -23,10 +23,10 @@
 							<div class="img_box">
 								<c:choose >
 									<c:when test="${vo.firstimageurl eq '-' }">
-										<img src="img/emptyimage.png" class="table-radius-5 height-125" alt="${vo.facltnm}">
+										<img src="img/emptyimage.png" class="table-radius-5 height-165" alt="${vo.facltnm}">
 									</c:when>
 									<c:otherwise>
-											<img src="${vo.firstimageurl }" class="table-radius-5 height-125" alt="${vo.facltnm}">	
+											<img src="${vo.firstimageurl }" class="table-radius-5 height-165" alt="${vo.facltnm}">	
 									</c:otherwise>
 								</c:choose>			
 							</div> 
@@ -34,7 +34,7 @@
 						<div class="camp_cont">
 							<p class="item_group ">
 								<span class="item_t01 table-radius-5">관광사업자 등록업체</span>
-								<span class="item_t02 table-radius-5">리뷰수 0</span>
+								<span class="item_t02 table-radius-5">리뷰수</span>
 								<span class="item_t03 table-radius-5">조회수 10829</span>
 								<span class="item_t04 table-radius-5">추천수 1</span>
 							</p>
@@ -105,6 +105,21 @@
 		var str = ${vo.sbrscl};
 		var split = str.split(',');
 		
+// 		/* <p id="${vo.contentid }-rand3">
+// 		</p>
+		
+// 		for (var value of ${page.list}) { console.log(value);
+
+		
+// 		for(){
+// 			const rand1 = Math.floor(Math.random() * 100);
+// 			const rand2 = Math.floor(Math.random() * 100);
+// 			const rand3 = Math.floor(Math.random() * 100);
+			
+// 			document.write('(5) : ' + rand1 + '<br>');
+// 			document.write('(5) : ' + rand2 + '<br>');
+// 			document.write('(5) : ' + rand3 + '<br>'); */
+		}
 	
 	</script>
 </body>

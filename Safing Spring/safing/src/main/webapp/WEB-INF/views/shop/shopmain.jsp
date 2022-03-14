@@ -10,7 +10,7 @@
 	<link rel='stylesheet' type="text/css" href="css/shop_style.css?v=<%= new Date().getTime() %>" >
 </head>
 <body>
-<header class="container-fluid">
+<header class="container-fluid px-0">
 	<div id="packageList" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			<c:forEach var="i" begin="0" end="${fn:length(package_list)-1}" step="1">
@@ -26,7 +26,7 @@
 	  		<c:forEach var="i" begin="0" end="${fn:length(package_list)-1}" step="1">
 				<c:if test="${i eq 0 }">
 				    <div class="carousel-item active">
-				      	<img src="shop_img/${i+1}.png" class="w-100"  >
+				      	<img src="shop_img/${i+1}.png" class="w-100 d-block"  >
 						<div class="carousel-caption d-none d-md-block">
 					        <h3 class="text-outline">${package_list[i].package_name}</h3>
 							<h5 class="text-outline">${fn:replace(package_list[i].tag_key, '#', '&nbsp;&nbsp;#')}</h5>
@@ -40,7 +40,7 @@
 		    	</c:if> 
 		  	    <c:if test="${i gt 0}"> 
 				    <div class="carousel-item">
-				      <img src="shop_img/${i+1}.png" class="w-100"  >
+				      <img src="shop_img/${i+1}.png" class="w-100 d-block"  >
 					      <div class="carousel-caption d-none d-md-block">
 					       	 <h3 class="text-outline">${package_list[i].package_name}</h3>
 							 <h5 class="text-outline">${fn:replace(package_list[i].tag_key, '#', '&nbsp;&nbsp;#')}</h5>

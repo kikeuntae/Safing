@@ -118,11 +118,17 @@ public class MemberController {
 	}
 	
 	//회원 정보수정
-	@ResponseBody
-	@RequestMapping("/update.me")
-	public void  update(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		PrintWriter writer = outprintln.outprintln(req, res);
-	}
+	   @ResponseBody
+	   @RequestMapping("/update.me")
+	   public void  update(HttpServletRequest req, HttpServletResponse res) throws Exception{
+	      PrintWriter writer = outprintln.outprintln(req, res);
+	      String strVo = req.getParameter("vo");
+	      MemberVO vo = gson.fromJson(strVo,MemberVO.class);
+	      System.out.println(vo.getMember_id());
+	      dao.update(vo);
+	      
+	      
+	   }
 	
 	//회원삭제
 	@ResponseBody

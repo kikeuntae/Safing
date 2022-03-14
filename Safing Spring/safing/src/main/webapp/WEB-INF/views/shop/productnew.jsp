@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
 	<link rel='stylesheet' type="text/css" href="css/shop_style.css?v=<%= new Date().getTime() %>" >
 	<script type="text/javascript">
 	<!-- <anager Check -->
