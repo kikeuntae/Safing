@@ -1,0 +1,112 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:spinnerMode="dropdown"/>
+
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:hint="****"/>
+        <EditText
+            android:id="@+id/phone2"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:hint="****"/>
+
+        <Button
+            android:background="@drawable/round_btn"
+            android:id="@+id/send_sms_button"
+            android:layout_width="30dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:text="인증번호받기"
+            android:backgroundTint="#C5DAD0" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/find_phone_edit2"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:hint="인증번호 입력"
+            android:textSize="14dp"
+            android:layout_marginLeft="30dp"
+            />
+
+        <Button
+            android:id="@+id/find_phone_edit_ok"
+            android:layout_width="30dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="10dp"
+
+            android:background="@drawable/round_btn"
+            android:text="확인"
+            android:textSize="15dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/find_phone_id1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="찾으시는 아이디"
+            android:gravity="center"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/find_phone_id2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="아이디"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_margin="30dp"
+        android:id="@+id/frag_find_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/test1"
+        android:text="아이디  찾기"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+
+
+</LinearLayout>
+

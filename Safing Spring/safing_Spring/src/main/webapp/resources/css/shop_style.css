@@ -1,0 +1,208 @@
+@charset "UTF-8";
+.shop_header{
+	margin-top: 100px;
+}
+.text-black{
+	color: #1e2125;
+}
+.text-main-color{
+	color: #735340;
+}
+.text-size-2{
+	font-size: 1.25rem;
+}
+.navbar-width{
+	padding-left: 10% !important;
+	padding-right: 10% !important;
+}
+.btnSet {   margin-top: 1rem;
+    margin-bottom: 1rem ; display: flex;}
+.text-space {
+    margin-bottom: 1rem !important;
+}
+.text-space-top {
+    margin-top: 1rem !important;
+}
+.text-outline {
+	text-shadow:1px 1px 1px #85897B;
+}
+.text-outline-btn{
+	font-size: 1.20rem;
+	text-shadow:1px 1px 1px #85897B;
+	text-decoration: underline !important;
+	text-underline-position: under;
+}
+.table-color{
+	background-color: #735340 !important;
+}
+.img-size{
+	width: 40%;	
+}
+.img-size-30{
+	width: 30% !important;	
+}
+.img-size-21{
+	width: 21%;	
+}
+.img-size-25{
+	width: 25%;	
+}
+
+.btn-size-30{
+	width: 30% !important;	
+}
+.table-center{
+	margin: 0 auto;
+}
+.manage-image {
+	display: flex;
+	text-align: center;
+	margin: 1rem;
+}
+.manage-image-2 {
+	display: flex;
+	text-align: center;
+	margin: 0.5rem;
+}
+
+
+.text-align{
+	vertical-align: middle !important;
+}
+.sub-category{
+	color: #fff !important;
+	background-color: #735340;
+	border-radius: 3%
+}
+.table-sub-color{
+	background-color: #85897B !important;
+}
+.btn-center{
+	margin : 0 auto !important;
+}
+.text-left{
+	text-align:left !important;
+}
+.select-size{
+	width: 50% !important;
+	display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.125rem solid #ced4da;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.select-size-40{
+	width: 40% !important;
+	display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.125rem solid #ced4da;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.select-size-100{
+	width: 100% !important;
+	display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.125rem solid #ced4da;
+    border-radius: 0.5rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.w-100{
+	width: 100% !important;
+}
+.border-none{
+	border: none;
+	background: none;
+}
+.height-125{
+	height: 125% !important;
+}
+.height-154{
+	height: 154% !important;
+}
+.radius-left{
+	border-radius: 0px 5px 5px 0px !important;
+}
+.input-size-90{
+	width: 90% !important;
+}
+.input-size-80{
+	width: 80% !important;
+}
+.input-size-70{
+	width: 70% !important;
+}
+.input-size-60{
+	width: 60% !important;
+}
+.margin{
+	margin : 0.5rem !important;
+}
+.btn-outline-delete {
+  color: #ff5959;
+  border-color: #ff5959;
+  border: 0.125rem solid;
+}
+.btn-outline-delete:hover {
+  color: #fff;
+  background-color: #ff5959;
+  border-color: #ff5959;
+}
+.btn-check:focus + .btn-outline-delete, .btn-outline-delete:focus {
+  box-shadow: 0 0 0 0.01rem rgba(25, 135, 84, 0.5);
+}
+.btn-check:checked + .btn-outline-delete, .btn-check:active + .btn-outline-delete, .btn-outline-delete:active, .btn-outline-delete.active, .btn-outline-delete.dropdown-toggle.show {
+  color: #fff;
+  background-color: #198754;
+  border-color: #198754;
+}
+.btn-check:checked + .btn-outline-delete:focus, .btn-check:active + .btn-outline-delete:focus, .btn-outline-delete:active:focus, .btn-outline-delete.active:focus, .btn-outline-delete.dropdown-toggle.show:focus {
+  box-shadow: 0 0 0 0.01rem rgba(25, 135, 84, 0.5);
+}
+.btn-outline-delete:disabled, .btn-outline-delete.disabled {
+  color: #198754;
+  background-color: transparent;
+}
+
+ textarea {
+   width: 100%;
+   height: 4.0em;
+   border-color: #ff5959;
+   border : 1px solid;
+   resize: none;
+   padding : 0.5rem;
+ }
+
+.table-radius-5{
+	border-radius: 5px 5px 5px 5px;
+}
+.border-0{
+	border: none;
+}
+.h-100p{
+	height: 700px;	
+}
+.h-150p{
+	height: 150px;	
+}

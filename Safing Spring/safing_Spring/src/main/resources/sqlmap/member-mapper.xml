@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member.mapper">
+
+ 
+ 	<!-- 안드 댓글 프로필이미지 정보 가져오기 -->
+	<select id="selectimg" resultType="member.MemberVO">
+	        select * from member where member_id = #{member_id}
+	</select>
+	
+		
+	<!-- 회원가입 -->
+	<insert id="insert">
+		insert into member ( member_id,member_pw,member_name,member_age,member_phone)
+		values (#{member_id},#{member_pw},#{member_name},#{member_age},#{member_phone})	
+	</insert>
+	
+	<!-- 회원정보 목록 -->
+	<select id="member_list" resultType="member.MemberVO">
+		SELECT * FROM member
+		WHERE member_id = #{member_id} AND member_pw = #{member_pw} 
+	</select>
+	
+	<!-- 회원 로그인, 상세정보 -->
+	<select id="login" resultType="member.MemberVO">
+		SELECT * FROM member
+		WHERE member_id = #{member_id} AND member_pw = #{member_pw} 
+	</select>
+	
+	<!-- 회원가입 -->
+	<select id="idCheck" resultType="member.MemberVO">
+		select member_id from member
+	</select>
+	
+	<!-- 아이디 중복확인 wed -->
+	<select id="id_Check" resultType="Integer">
+		select count(*) from member where member_id = #{id}
+	</select>
+	
+	<select id="find_id" resultType="member.MemberVO">
+		select member_id from member where member_phone = #{phone}
+	</select>
+	
+	<select id="find_pw" resultType="member.MemberVO">
+		select member_pw from member 
+		where member_phone = #{phone} AND member_pw = #{member_pw}
+	</select>
+	
+	
+	<!--(관리자) 회원 삭제 -->
+	<delete id= "delete">
+		delete from member
+		where member_id = #{member_id}	
+	</delete>
+	
+	<!--(관리자) 고객 목록불러오기 -->
+	<select id="list_customer" resultType="member.MemberVO">	 
+	SELECT * FROM member  
+	</select>
+
+	<!--(관리자) 고객 상세정보 불러오기 -->
+	<select id="detail_customer" resultType="member.MemberVO">	 
+	SELECT * FROM member where member_id = #{member_id} 
+	</select>
+
+	<!--(관리자) 고객 신규 입력 -->
+	<insert id="insert_customer">
+	insert into member 
+	( member_id, member_pw, member_name, member_age, member_gender, member_phone, member_admin,member_filename,member_filepath)
+ 	values 
+ 	(#{member_id}, #{member_pw}, #{member_name}, #{member_age}, 
+ 	#{member_gender,  jdbcType=VARCHAR}, #{member_phone}, #{member_admin,  jdbcType=VARCHAR},
+ 	#{member_filename,  jdbcType=VARCHAR},#{member_filepath,  jdbcType=VARCHAR})
+	</insert>
+	
+	<!--(관리자) 고객정보 수정 -->
+	<update id="update_cusotomer">
+		update member set  member_pw = #{member_pw} ,member_name = #{member_name} ,member_age = #{member_age}
+		 ,member_gender= #{member_gender} ,member_phone = #{member_phone} ,member_admin = #{member_admin} ,
+		 member_filename = #{member_filename,  jdbcType=VARCHAR}
+		 ,member_filepath = #{member_filepath,  jdbcType=VARCHAR}
+		where member_id = #{member_id}
+	</update>
+	
+	
+	<!--이미지 업데이트 -->
+	<update id="update_img">
+		update member set  	
+		 member_filename = #{member_filename,  jdbcType=VARCHAR}
+		 ,member_filepath = #{member_filepath,  jdbcType=VARCHAR}
+		where member_id = #{member_id}
+	</update>
+	
+   <!--회원정보 업데이트 -->
+   <update id="update">
+      update member set     
+         member_pw = #{member_pw} ,member_name = #{member_name} ,member_age = #{member_age}
+       ,member_gender= #{member_gender} ,member_phone = #{member_phone},
+      where member_id = #{member_id}
+   </update>
+   
+   <!--회원정보 업데이트 -->
+   <update id="member_update">
+      update member set     
+      member_name = #{member_name} , member_phone = #{member_phone} ,member_admin = #{member_admin}
+      where member_id = #{member_id}
+   </update>
+   
+</mapper>

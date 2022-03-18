@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".iot.fragment.IoTFragment"
+    android:background="#F9F9FB"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:src="@drawable/logo_color"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        >
+
+    </ImageView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="주의! 지인이 아니거나 위험한 경우 신고 해주세요!"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:textColor="#FF0000">
+
+        </TextView>
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_gravity="center">
+
+        </WebView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="15dp">
+
+
+            <Button
+                android:id="@+id/capture"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="화면 캡쳐"
+                android:backgroundTint="#735340"
+                android:layout_margin="10dp">
+            </Button>
+            <Button
+                android:id="@+id/emergency"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="신고 하기"
+                android:backgroundTint="#F84862"
+                android:layout_margin="10dp">
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
